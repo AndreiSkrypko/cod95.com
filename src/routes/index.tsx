@@ -11,6 +11,7 @@ import { Reviews } from "@/components/landing/Reviews";
 import { Faq } from "@/components/landing/Faq";
 import { Contacts } from "@/components/landing/Contacts";
 import { SiteFooter } from "@/components/landing/SiteFooter";
+import { useSpotlight } from "@/components/landing/useSpotlight";
 
 const TITLE = "DrivePrime — КОД 95 в Польше и Литве, ВНЖ, замена прав";
 const DESCRIPTION =
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  useSpotlight();
   return (
     <>
       <SiteHeader />

@@ -1,4 +1,4 @@
-import { Quote, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Reveal, SectionHeading } from "./Reveal";
 
@@ -24,44 +24,83 @@ const REVIEWS = [
   },
 ];
 
+function Stars() {
+  return (
+    <div className="flex gap-1" aria-label="Оценка 5 из 5">
+      {Array.from({ length: 5 }).map((_, s) => (
+        <Star key={s} className="size-4 fill-primary text-primary" aria-hidden="true" />
+      ))}
+    </div>
+  );
+}
+
 export function Reviews() {
   return (
-    <section id="reviews" aria-labelledby="reviews-title" className="section-y border-t border-border">
+    <section
+      id="reviews"
+      aria-labelledby="reviews-title"
+      className="section-y border-t border-border"
+    >
       <div className="container-page">
-        <SectionHeading
-          eyebrow="Отзывы"
-          title={<span id="reviews-title">Водители о нас</span>}
-          lead="Реальные истории тех, кто уже прошёл путь вместе с нами."
-        />
+        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <SectionHeading
+            eyebrow="Отзывы"
+            title={
+              <span id="reviews-title">
+                Водители <span className="accent-serif">о нас</span>
+              </span>
+            }
+            lead="Реальные истории тех, кто уже прошёл путь вместе с нами."
+          />
+          <Reveal className="flex items-center gap-5 lg:pb-3">
+            <span className="font-display text-6xl font-extrabold tracking-[-0.04em] text-foreground">
+              5.0
+            </span>
+            <span>
+              <Stars />
+              <span className="mt-1 block text-sm text-muted-foreground">
+                Средняя оценка клиентов
+              </span>
+            </span>
+          </Reveal>
+        </div>
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-12">
+        <div className="mt-16 grid gap-5 lg:grid-cols-12 xl:mt-20">
           {REVIEWS.map((r, i) => (
             <Reveal
               key={r.name}
-              delay={i * 90}
+              delay={i * 100}
               as="figure"
               className={cn(
-                "surface-card card-interactive flex flex-col rounded-3xl p-7 md:p-9",
-                r.featured ? "lg:col-span-6 lg:row-span-2" : "lg:col-span-6",
+                "surface-card card-interactive spotlight relative flex flex-col overflow-hidden rounded-3xl p-8 md:p-12",
+                r.featured ? "lg:col-span-7 lg:row-span-2" : "lg:col-span-5",
               )}
             >
-              <div className="flex items-center justify-between">
-                <Quote className="size-8 text-primary" aria-hidden="true" />
-                <div className="flex gap-0.5" aria-label="Оценка 5 из 5">
-                  {Array.from({ length: 5 }).map((_, s) => (
-                    <Star key={s} className="size-4 fill-primary text-primary" aria-hidden="true" />
-                  ))}
-                </div>
-              </div>
-              <blockquote className={cn("mt-6 text-foreground", r.featured ? "text-xl leading-relaxed md:text-2xl" : "text-lg")}>
+              <span
+                className="pointer-events-none absolute -top-10 right-8 font-serif text-[12rem] italic leading-none text-primary/15 md:text-[16rem]"
+                aria-hidden="true"
+              >
+                “
+              </span>
+              <Stars />
+              <blockquote
+                className={cn(
+                  "relative mb-10 mt-8 text-foreground",
+                  r.featured
+                    ? "font-serif text-3xl italic leading-[1.25] md:text-[2.6rem]"
+                    : "text-lg leading-relaxed",
+                )}
+              >
                 {r.text}
               </blockquote>
-              <figcaption className="mt-auto flex items-center gap-4 pt-8">
-                <span className="grid size-11 place-items-center rounded-full bg-gradient-accent font-display font-extrabold text-primary-foreground">
+              <figcaption className="mt-auto flex items-center gap-4 border-t border-border pt-6">
+                <span className="grid size-12 place-items-center rounded-full bg-gradient-accent font-display text-lg font-extrabold text-primary-foreground">
                   {r.name[0]}
                 </span>
                 <span>
-                  <span className="block font-display font-bold text-foreground">{r.name}, {r.city}</span>
+                  <span className="block font-display font-bold text-foreground">
+                    {r.name}, {r.city}
+                  </span>
                   <span className="block text-sm text-muted-foreground">{r.topic}</span>
                 </span>
               </figcaption>

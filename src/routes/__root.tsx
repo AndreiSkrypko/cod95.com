@@ -81,13 +81,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "DrivePrime — КОД 95 для водителей-международников" },
-      { name: "description", content: "Легальное оформление КОД 95 и сопутствующих услуг для водителей. Офисы в Минске и Варшаве." },
+      {
+        name: "description",
+        content:
+          "Легальное оформление КОД 95 и сопутствующих услуг для водителей. Офисы в Минске и Варшаве.",
+      },
       { name: "author", content: "DrivePrime" },
       { property: "og:title", content: "DrivePrime — КОД 95 для водителей-международников" },
-      { property: "og:description", content: "Легальное оформление КОД 95 и сопутствующих услуг для водителей. Офисы в Минске и Варшаве." },
+      {
+        property: "og:description",
+        content:
+          "Легальное оформление КОД 95 и сопутствующих услуг для водителей. Офисы в Минске и Варшаве.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#0B1220" },
+      { name: "theme-color", content: "#363D46" },
     ],
     links: [
       {
@@ -99,7 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap&subset=cyrillic",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap&subset=cyrillic",
       },
     ],
   }),

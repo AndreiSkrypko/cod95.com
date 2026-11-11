@@ -5,9 +5,16 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { CONTACTS, PRIMARY_PHONE, SERVICE_OPTIONS } from "@/content/landing";
+import truckPractice from "@/assets/truck-practice.jpg";
 import { Reveal } from "./Reveal";
 
 const schema = z.object({
@@ -22,7 +29,8 @@ const schema = z.object({
 
 type Errors = Partial<Record<keyof z.infer<typeof schema>, string>>;
 
-const fieldClass = "h-12 rounded-xl border-input bg-background/60 text-base";
+const fieldClass =
+  "h-13 rounded-xl border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60";
 
 export function Contacts() {
   const [service, setService] = useState("");
@@ -55,14 +63,32 @@ export function Contacts() {
   };
 
   return (
-    <section id="contacts" aria-labelledby="contacts-title" className="section-y border-t border-border">
-      <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
-        <Reveal>
-          <p className="eyebrow">Контакты</p>
-          <h2 id="contacts-title" className="mt-4 text-3xl font-extrabold text-foreground md:text-5xl">
-            Получите бесплатную консультацию
+    <section
+      id="contacts"
+      aria-labelledby="contacts-title"
+      className="noise section-y relative overflow-hidden border-t border-border"
+    >
+      <div className="absolute inset-0 -z-20" aria-hidden="true">
+        <img
+          src={truckPractice}
+          alt=""
+          width={1440}
+          height={1080}
+          loading="lazy"
+          className="h-full w-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
+      </div>
+      <div className="container-page grid gap-14 xl:grid-cols-12 xl:gap-10">
+        <Reveal className="xl:col-span-5">
+          <p className="eyebrow eyebrow-rule">Контакты</p>
+          <h2
+            id="contacts-title"
+            className="mt-5 text-[2.25rem] font-extrabold text-foreground md:text-6xl xl:text-[4.25rem]"
+          >
+            Получите <span className="accent-serif">бесплатную</span> консультацию
           </h2>
-          <p className="mt-5 max-w-md text-lg text-muted-foreground">
+          <p className="mt-6 max-w-md text-lg text-muted-foreground md:text-xl">
             Расскажите о вашей ситуации — подберём курс и рассчитаем стоимость под ваши задачи.
           </p>
 
@@ -74,8 +100,12 @@ export function Contacts() {
                     <Phone className="size-5 text-primary" aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="block font-display text-xl font-bold text-foreground">{p.display}</span>
-                    <span className="block text-sm text-muted-foreground">Офис в {p.label === "Минск" ? "Минске" : "Варшаве"}</span>
+                    <span className="block font-display text-xl font-bold text-foreground">
+                      {p.display}
+                    </span>
+                    <span className="block text-sm text-muted-foreground">
+                      Офис в {p.label === "Минск" ? "Минске" : "Варшаве"}
+                    </span>
                   </span>
                 </a>
               </li>
@@ -87,7 +117,8 @@ export function Contacts() {
               <span className="text-muted-foreground">
                 {CONTACTS.hours.map((h) => (
                   <span key={h.days} className="block">
-                    <span className="font-display font-semibold text-foreground">{h.days}</span> {h.time}
+                    <span className="font-display font-semibold text-foreground">{h.days}</span>{" "}
+                    {h.time}
                   </span>
                 ))}
               </span>
@@ -122,30 +153,61 @@ export function Contacts() {
           </div>
         </Reveal>
 
-        <Reveal delay={120}>
-          <form onSubmit={onSubmit} noValidate className="surface-card rounded-3xl p-6 md:p-10" aria-label="Заявка на консультацию">
+        <Reveal delay={120} className="xl:col-span-6 xl:col-start-7">
+          <form
+            onSubmit={onSubmit}
+            noValidate
+            className="glass rounded-[2rem] p-6 shadow-card md:p-12"
+            aria-label="Заявка на консультацию"
+          >
+            <p className="mb-8 font-display text-2xl font-extrabold tracking-[-0.03em] text-foreground md:text-3xl">
+              Заявка на консультацию
+            </p>
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="name" className="font-display font-semibold text-foreground">Имя</Label>
-                <Input id="name" name="name" autoComplete="name" placeholder="Как к вам обращаться" className={fieldClass} aria-invalid={!!errors.name} />
+                <Label htmlFor="name" className="font-display font-semibold text-foreground">
+                  Имя
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  autoComplete="name"
+                  placeholder="Как к вам обращаться"
+                  className={fieldClass}
+                  aria-invalid={!!errors.name}
+                />
                 {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
               </div>
               <div className="space-y-2">
-                <Label htmlFor="phone" className="font-display font-semibold text-foreground">Телефон</Label>
-                <Input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+375 29 000-00-00" className={fieldClass} aria-invalid={!!errors.phone} />
+                <Label htmlFor="phone" className="font-display font-semibold text-foreground">
+                  Телефон
+                </Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  placeholder="+375 29 000-00-00"
+                  className={fieldClass}
+                  aria-invalid={!!errors.phone}
+                />
                 {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
               </div>
             </div>
 
             <div className="mt-5 space-y-2">
-              <Label htmlFor="service" className="font-display font-semibold text-foreground">Услуга</Label>
+              <Label htmlFor="service" className="font-display font-semibold text-foreground">
+                Услуга
+              </Label>
               <Select value={service} onValueChange={setService}>
                 <SelectTrigger id="service" className={fieldClass} aria-invalid={!!errors.service}>
                   <SelectValue placeholder="Выберите услугу" />
                 </SelectTrigger>
                 <SelectContent>
                   {SERVICE_OPTIONS.map((o) => (
-                    <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>
+                    <SelectItem key={o.value} value={o.value}>
+                      {o.label}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -153,8 +215,16 @@ export function Contacts() {
             </div>
 
             <div className="mt-5 space-y-2">
-              <Label htmlFor="comment" className="font-display font-semibold text-foreground">Комментарий</Label>
-              <Textarea id="comment" name="comment" rows={4} placeholder="Например: есть права категории C+E, хочу пройти КОД 95 в марте" className="rounded-xl border-input bg-background/60 text-base" />
+              <Label htmlFor="comment" className="font-display font-semibold text-foreground">
+                Комментарий
+              </Label>
+              <Textarea
+                id="comment"
+                name="comment"
+                rows={4}
+                placeholder="Например: есть права категории C+E, хочу пройти КОД 95 в марте"
+                className="rounded-xl border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60"
+              />
               {errors.comment && <p className="text-sm text-destructive">{errors.comment}</p>}
             </div>
 
@@ -162,8 +232,8 @@ export function Contacts() {
               Отправить заявку
             </Button>
             <p className="mt-4 text-sm text-ink-soft">
-              Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Мы используем их только
-              для связи с вами и не передаём третьим лицам.
+              Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Мы используем их
+              только для связи с вами и не передаём третьим лицам.
             </p>
           </form>
         </Reveal>

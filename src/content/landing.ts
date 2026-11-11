@@ -1,7 +1,11 @@
 // Single source of copy for the DrivePrime landing. Russian only.
 // Never add chip-card / tachograph content — excluded by brand rules.
 
-export const PRIMARY_PHONE = { label: "Минск", display: "+375 (29) 356-57-78", href: "tel:+375293565778" };
+export const PRIMARY_PHONE = {
+  label: "Минск",
+  display: "+375 (29) 356-57-78",
+  href: "tel:+375293565778",
+};
 
 export const CONTACTS = {
   phones: [
@@ -21,6 +25,13 @@ export const NAV = [
   { href: "#reviews", label: "Отзывы" },
   { href: "#faq", label: "Вопросы" },
   { href: "#contacts", label: "Контакты" },
+];
+
+export const STATS = [
+  { value: 12, suffix: "+", label: "лет в международной логистике" },
+  { value: 1500, suffix: "+", label: "водителей прошли путь с нами" },
+  { value: 2, suffix: "", label: "собственных офиса — Минск и Варшава" },
+  { value: 5, suffix: "", label: "направлений под ключ" },
 ];
 
 export const SERVICE_OPTIONS = [
