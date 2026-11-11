@@ -1,4 +1,4 @@
-import { ArrowUpRight, Building, CreditCard, GraduationCap, Home, Sparkles } from "lucide-react";
+import { ArrowUpRight, Building, CreditCard, GraduationCap, Home, Sparkles, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,7 @@ function MoreButton({ label }: { label: string }) {
 
 function ServiceCard({
   className,
-  icon,
+  icon: Icon,
   title,
   text,
   tags,
@@ -29,9 +29,10 @@ function ServiceCard({
   image,
   highlight,
   delay,
+  imageFill,
 }: {
   className?: string;
-  icon: ReactNode;
+  icon: LucideIcon;
   title: string;
   text: string;
   tags?: string[];
@@ -39,6 +40,7 @@ function ServiceCard({
   image?: { src: string; alt: string };
   highlight?: boolean;
   delay?: number;
+  imageFill?: boolean;
 }) {
   return (
     <Reveal
@@ -51,7 +53,7 @@ function ServiceCard({
       )}
     >
       {image && (
-        <div className="relative h-56 overflow-hidden md:h-auto md:flex-1">
+        <div className={cn("relative h-56 overflow-hidden", imageFill && "md:h-auto md:flex-1")}>
           <img
             src={image.src}
             alt={image.alt}
@@ -63,13 +65,20 @@ function ServiceCard({
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
         </div>
       )}
+      {!image && (
+        <Icon
+          className="pointer-events-none absolute -bottom-10 -right-6 size-56 text-primary opacity-[0.06] transition-opacity duration-500 group-hover:opacity-[0.12]"
+          strokeWidth={1}
+          aria-hidden="true"
+        />
+      )}
       {highlight && (
         <div className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-primary/20 blur-3xl" aria-hidden="true" />
       )}
       <div className="relative flex flex-1 flex-col p-7 md:p-8">
         <div className="flex items-start justify-between gap-4">
           <span className="grid size-11 place-items-center rounded-xl border border-primary/30 bg-accent text-primary">
-            {icon}
+            <Icon className="size-5" aria-hidden="true" />
           </span>
           {badge}
         </div>
@@ -109,17 +118,18 @@ export function Services() {
         <div className="mt-14 grid gap-4 lg:grid-cols-12 lg:grid-rows-[auto_auto_auto]">
           <ServiceCard
             className="lg:col-span-7 lg:row-span-2"
-            icon={<GraduationCap className="size-5" aria-hidden="true" />}
+            icon={GraduationCap}
             title="Обучение на КОД 95 в Польше"
             text="Официальное обучение в аккредитованном центре в Варшаве. Длинный курс — для первичной квалификации, короткий — для продления. Сопровождаем от записи до получения документов."
             tags={["Длинный курс", "Короткий курс", "Варшава", "Сопровождение"]}
             image={{ src: classroom, alt: "Учебный класс в Варшаве с проектором" }}
+            imageFill
           />
           <ServiceCard
             className="lg:col-span-5"
             highlight
             delay={80}
-            icon={<Sparkles className="size-5" aria-hidden="true" />}
+            icon={Sparkles}
             title="Литовский КОД 95"
             text="Новое направление: квалификация в Литве, признаётся во всех странах ЕС. Удобно для работы с литовскими перевозчиками."
             badge={<Badge variant="new">Новинка</Badge>}
@@ -127,14 +137,14 @@ export function Services() {
           <ServiceCard
             className="lg:col-span-5"
             delay={140}
-            icon={<CreditCard className="size-5" aria-hidden="true" />}
+            icon={CreditCard}
             title="Замена прав на польские"
             text="Обмен водительского удостоверения на польское: проверим документы, подготовим заявление, проведём через все этапы."
           />
           <ServiceCard
             className="lg:col-span-6"
             delay={80}
-            icon={<Building className="size-5" aria-hidden="true" />}
+            icon={Building}
             title="Транспортная компания в Польше"
             text="Регистрация компании, получение лицензий и дальнейшая поддержка — чтобы вы работали на себя легально."
             tags={["Регистрация", "Лицензии", "Поддержка"]}
@@ -143,7 +153,7 @@ export function Services() {
           <ServiceCard
             className="lg:col-span-6"
             delay={140}
-            icon={<Home className="size-5" aria-hidden="true" />}
+            icon={Home}
             title="ВНЖ в Польше"
             text="Оформление вида на жительство для водителей и их семей: подбор основания, сбор документов, подача и контроль сроков."
             tags={["Подбор основания", "Документы", "Контроль сроков"]}
