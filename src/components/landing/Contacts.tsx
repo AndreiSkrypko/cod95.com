@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { CONTACTS, SERVICE_OPTIONS } from "@/content/landing";
+import { CONTACTS, PRIMARY_PHONE, SERVICE_OPTIONS } from "@/content/landing";
 import { Reveal } from "./Reveal";
 
 const schema = z.object({
@@ -102,7 +102,7 @@ export function Contacts() {
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg" className="h-12 px-6">
-              <a href={CONTACTS.phones[0].href}>
+              <a href={PRIMARY_PHONE.href}>
                 <Phone aria-hidden="true" />
                 Позвонить
               </a>

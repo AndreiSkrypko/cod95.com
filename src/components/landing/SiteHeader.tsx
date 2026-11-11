@@ -3,7 +3,7 @@ import { Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CONTACTS, NAV } from "@/content/landing";
+import { CONTACTS, PRIMARY_PHONE, NAV } from "@/content/landing";
 import { Logo } from "./Logo";
 
 export function SiteHeader() {
@@ -41,11 +41,11 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href={CONTACTS.phones[0].href}
+            href={PRIMARY_PHONE.href}
             className="hidden items-center gap-2 font-display text-sm font-semibold text-foreground md:inline-flex"
           >
             <Phone className="size-4 text-primary" aria-hidden="true" />
-            {CONTACTS.phones[0].display}
+            {PRIMARY_PHONE.display}
           </a>
           <Button asChild variant="hero" size="sm" className="hidden h-10 px-5 sm:inline-flex">
             <a href="#contacts">Консультация</a>
