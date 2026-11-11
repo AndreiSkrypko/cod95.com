@@ -18,8 +18,9 @@ export function Process() {
           lead="Понятный маршрут без лишних поездок и очередей."
         />
 
-        <ol className="relative mt-16 grid gap-10 md:grid-cols-4 md:gap-6">
+        <div className="relative mt-16">
           <div className="absolute left-[1.375rem] top-0 h-full w-px bg-gradient-to-b from-primary via-primary/30 to-transparent md:left-0 md:top-[1.375rem] md:h-px md:w-full md:bg-gradient-to-r" aria-hidden="true" />
+          <ol className="relative grid gap-10 md:grid-cols-4 md:gap-6">
           {STEPS.map(({ icon: Icon, title, text }, i) => (
             <Reveal as="li" key={title} delay={i * 120} className="relative pl-16 md:pl-0">
               <span className="absolute left-0 top-0 grid size-11 place-items-center rounded-full border border-primary/40 bg-background shadow-glow md:relative">
@@ -30,7 +31,8 @@ export function Process() {
               <p className="mt-2 text-muted-foreground">{text}</p>
             </Reveal>
           ))}
-        </ol>
+          </ol>
+        </div>
       </div>
     </section>
   );
