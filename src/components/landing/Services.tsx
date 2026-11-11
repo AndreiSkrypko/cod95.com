@@ -75,7 +75,7 @@ function ServiceCard({
       {highlight && (
         <div className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-primary/20 blur-3xl" aria-hidden="true" />
       )}
-      <div className="relative flex flex-1 flex-col p-7 md:p-8">
+      <div className={cn("relative flex flex-col p-7 md:p-8", !imageFill && "flex-1")}>
         <div className="flex items-start justify-between gap-4">
           <span className="grid size-11 place-items-center rounded-xl border border-primary/30 bg-accent text-primary">
             <Icon className="size-5" aria-hidden="true" />
