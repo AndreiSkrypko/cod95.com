@@ -5,6 +5,7 @@ import { BookButton } from "@/components/landing/BookingDialog";
 import { ContactAside } from "@/components/landing/ContactAside";
 import { Reveal } from "@/components/landing/Reveal";
 import { isServiceId } from "@/content/servicePages";
+import { PAGE_VISUALS } from "@/content/serviceVisuals";
 
 export const Route = createFileRoute("/zapis")({
   validateSearch: (search: Record<string, unknown>): { service?: string } => {
@@ -31,6 +32,8 @@ function ZapisRoute() {
         lead="Работаем на рынке 12+ лет. Подберём программу и зафиксируем стоимость в договоре."
         ctaTo="/kontakty"
         ctaLabel="Позвонить в офис"
+        image={PAGE_VISUALS.zapis.src}
+        imageAlt={PAGE_VISUALS.zapis.alt}
       />
       <section className="section-y border-t border-border bg-background-deep">
         <div className="container-page grid gap-12 lg:grid-cols-2">

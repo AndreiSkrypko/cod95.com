@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import type { LandingService } from "@/content/landing";
 import { SERVICES } from "@/content/landing";
 import { getServicePageDetail } from "@/content/servicePages";
+import { getServiceVisual } from "@/content/serviceVisuals";
 import { Reveal } from "@/components/landing/Reveal";
 import { SERVICE_ICONS } from "@/components/landing/serviceIcons";
 import { PageHero } from "./PageHero";
@@ -13,6 +14,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
   const Icon = SERVICE_ICONS[service.id];
   const detail = getServicePageDetail(service);
   const related = SERVICES.filter((s) => s.id !== service.id).slice(0, 4);
+  const visual = getServiceVisual(service.id);
 
   return (
     <>
@@ -29,6 +31,8 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
           </>
         }
         lead={detail.lead}
+        image={visual.src}
+        imageAlt={visual.alt}
         ctaTo="/zapis"
         ctaLabel="Записаться на услугу"
         service={service.id}

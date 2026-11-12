@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { PRIMARY_PHONE } from "@/content/landing";
+import { PAGE_VISUALS } from "@/content/serviceVisuals";
 
 export const Route = createFileRoute("/spasibo")({
   head: () => ({
@@ -18,7 +19,16 @@ export const Route = createFileRoute("/spasibo")({
 function ThanksRoute() {
   return (
     <SiteLayout>
-      <section className="flex min-h-[80svh] items-center bg-background pt-28 pb-20">
+      <section className="relative flex min-h-[80svh] items-center overflow-hidden pt-28 pb-20">
+        <img
+          src={PAGE_VISUALS.thanks.src}
+          alt=""
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center]"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,oklch(0.985_0.012_80)_0%,oklch(0.985_0.012_80/92%)_36%,oklch(0.985_0.012_80/35%)_58%,transparent_78%)]"
+          aria-hidden="true"
+        />
         <div className="container-page max-w-2xl">
           <span className="grid size-16 place-items-center rounded-full bg-primary text-primary-foreground">
             <Check className="size-8" aria-hidden="true" />
