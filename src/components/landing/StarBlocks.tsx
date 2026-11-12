@@ -84,7 +84,7 @@ const LIFE = [
 export function StoryBlock() {
   return (
     <section className="bg-paper text-ink section-y">
-      <div className="container-page grid items-center gap-12 lg:grid-cols-2">
+      <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)]">
         <Reveal>
           <p className="font-display text-sm font-bold uppercase tracking-[0.18em] text-primary">О школе</p>
           <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight md:text-5xl">
@@ -111,15 +111,9 @@ export function StoryBlock() {
           <img
             src={storyHighway}
             alt="Ночная трасса из кабины тягача"
-            className="aspect-[4/5] w-full object-cover"
+            className="aspect-[4/3] w-full object-cover"
           />
         </Reveal>
-      </div>
-      <div className="container-page mt-16">
-        <p className="max-w-3xl font-display text-3xl font-extrabold leading-tight md:text-5xl">
-          Наша главная цель —{" "}
-          <span className="text-primary">легальные документы, понятное обучение и подготовка водителя без скрытых доплат.</span>
-        </p>
       </div>
     </section>
   );
@@ -130,21 +124,26 @@ export function OfferRow() {
   return (
     <section id="services" className="bg-paper pb-20 text-ink">
       <div className="container-page">
-        <h2 className="text-center font-display text-4xl font-extrabold md:text-5xl">Услуги</h2>
-        <ul className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-4xl font-extrabold md:text-5xl">Услуги</h2>
+          <p className="mt-3 text-ink-muted">
+            Курс, работа в Европе и документы для легального пребывания.
+          </p>
+        </div>
+        <ul className="mt-8 grid gap-4 lg:grid-cols-2">
           {OFFERS.map((o) => (
             <li
               key={o.id}
-              className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card text-ink shadow-card"
+              className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card text-ink shadow-card sm:flex-row"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative h-36 shrink-0 overflow-hidden sm:h-auto sm:w-44">
                 <img
                   src={o.image}
                   alt={o.alt}
-                  className="h-full w-full object-cover transition duration-700 ease-out-expo group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out-expo group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col p-6 md:p-7">
+              <div className="flex flex-1 flex-col p-5 md:p-6">
                 <h3 className="font-display text-2xl font-extrabold">{o.title}</h3>
                 <p className="mt-3 text-sm text-ink-muted">{o.text}</p>
                 {"variants" in o && o.variants ? (
@@ -183,7 +182,7 @@ export function OfferRow() {
 export function ConsultSplit() {
   return (
     <section className="section-y border-t border-border bg-background">
-      <div className="container-page grid items-center gap-10 lg:grid-cols-2">
+      <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
         <div>
           <h2 className="font-display text-4xl font-extrabold md:text-5xl">
             Получите бесплатную консультацию
@@ -204,7 +203,7 @@ export function ConsultSplit() {
           <img
             src={consultOffice}
             alt="Консультация в учебном центре"
-            className="aspect-[16/10] w-full object-cover lg:aspect-[4/3]"
+            className="aspect-[16/10] max-h-72 w-full object-cover"
           />
         </div>
       </div>
@@ -215,12 +214,12 @@ export function ConsultSplit() {
 export function Code95Block() {
   return (
     <section className="section-y border-t border-border bg-background-deep">
-      <div className="container-page grid items-center gap-10 lg:grid-cols-2">
+      <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
         <div className="overflow-hidden rounded-3xl shadow-card">
           <img
             src={lifeBriefing}
             alt="Инструктаж перед практикой на тягаче"
-            className="aspect-[4/5] w-full object-cover"
+            className="aspect-[4/3] w-full object-cover"
           />
         </div>
         <div>
@@ -229,6 +228,11 @@ export function Code95Block() {
             <p>
               Это квалификация для водителей категорий C, CE или D, без которой нельзя легально работать на
               дорогах Евросоюза. Её получают на коротком или длинном курсе.
+            </p>
+            <p>
+              Короткий курс — если категория «С» выдана до 09.09.2009: обычно 3–5 дней и без экзамена. Длинный —
+              если после этой даты: теория, практика и экзамен в WORD. На консультации сразу говорим, какой
+              вариант ваш.
             </p>
             <p>
               После сертификата код вписывают в права и указывают срок действия. Повторный курс лучше не
@@ -254,15 +258,20 @@ export function Perks() {
             Договор, два офиса и практика на той технике, на которой потом едут в рейс.
           </p>
         </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-12">
-          <div className="overflow-hidden rounded-3xl shadow-card lg:col-span-5">
-            <img
-              src={lifeNight}
-              alt="Ночной рейс по европейской трассе"
-              className="h-full min-h-80 w-full object-cover"
-            />
-          </div>
-          <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-7">
+        <div className="mt-10 grid items-start gap-4 lg:grid-cols-12">
+          <figure className="lg:col-span-4">
+            <div className="overflow-hidden rounded-3xl shadow-card">
+              <img
+                src={lifeNight}
+                alt="Ночной рейс по европейской трассе"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-sm text-ink-muted">
+              Ночной рейс — то, к чему готовим на курсе: правила, практика и документы до выхода на линию.
+            </figcaption>
+          </figure>
+          <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-8">
             {PERKS.map((p) => (
               <li key={p.title} className="rounded-2xl border border-border bg-card p-5">
                 <p className="font-display font-bold text-ink">{p.title}</p>
@@ -294,18 +303,22 @@ export function SchoolLife() {
   return (
     <section className="section-y border-t border-border bg-background-deep">
       <div className="container-page">
-        <h2 className="font-display text-4xl font-extrabold">Жизнь школы</h2>
-        <ul className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="max-w-2xl">
+          <h2 className="font-display text-4xl font-extrabold">Жизнь школы</h2>
+          <p className="mt-3 text-muted-foreground">
+            Класс в Варшаве, учебная площадка и техника, на которой отрабатывают рейс. Не постановочный офис, а
+            то, что видит водитель на курсе.
+          </p>
+        </div>
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {LIFE.map((img) => (
-            <li
-              key={img.alt}
-              className={img.wide ? "col-span-2 overflow-hidden rounded-3xl" : "overflow-hidden rounded-3xl"}
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className={img.wide ? "aspect-[16/9] h-full w-full object-cover" : "aspect-[3/4] h-full w-full object-cover"}
-              />
+            <li key={img.alt}>
+              <figure>
+                <div className="overflow-hidden rounded-2xl">
+                  <img src={img.src} alt={img.alt} className="aspect-[16/10] w-full object-cover" />
+                </div>
+                <figcaption className="mt-2 text-sm text-muted-foreground">{img.alt}</figcaption>
+              </figure>
             </li>
           ))}
         </ul>
@@ -329,7 +342,7 @@ export function HomeContacts() {
           <img
             src={offerResidence}
             alt="Вечерняя улица у офиса в городе"
-            className="aspect-[16/8] w-full object-cover"
+            className="h-36 w-full object-cover"
           />
           <div className="p-8">
             <h3 className="font-display text-2xl font-extrabold">Не нашли то, что искали?</h3>
