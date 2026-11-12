@@ -1,4 +1,6 @@
-import { FileSignature, Receipt, Wallet, Route } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, FileSignature, Receipt, Wallet, Route } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import europeMap from "@/assets/europe-map.jpg";
 import { STATS } from "@/content/landing";
 import { CountUp, Reveal, SectionHeading } from "./Reveal";
@@ -30,7 +32,7 @@ const GEO = ["Беларусь", "Украина", "Молдова", "Росси
 
 export function WhyUs() {
   return (
-    <section aria-labelledby="why-title" className="section-y">
+    <section id="why" aria-labelledby="why-title" className="section-y scroll-mt-28">
       <div className="container-page grid gap-14 xl:grid-cols-12 xl:gap-10">
         <div className="xl:col-span-5">
           <div className="xl:sticky xl:top-32">
@@ -43,6 +45,12 @@ export function WhyUs() {
               }
               lead="Мы отвечаем за результат: от первой консультации до документов на руках."
             />
+            <Button asChild variant="subtle" size="lg" className="mt-8">
+              <Link to="/o-nas">
+                Подробнее о компании
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
           </div>
         </div>
 

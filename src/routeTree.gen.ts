@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InformaciyaRouteImport } from './routes/informaciya'
+import { Route as KontaktyRouteImport } from './routes/kontakty'
+import { Route as ONasRouteImport } from './routes/o-nas'
+import { Route as SpasiboRouteImport } from './routes/spasibo'
+import { Route as ZapisRouteImport } from './routes/zapis'
+import { Route as UslugiIndexRouteImport } from './routes/uslugi/index'
+import { Route as UslugiServiceIdRouteImport } from './routes/uslugi/$serviceId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InformaciyaRoute = InformaciyaRouteImport.update({
+  id: '/informaciya',
+  path: '/informaciya',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktyRoute = KontaktyRouteImport.update({
+  id: '/kontakty',
+  path: '/kontakty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ONasRoute = ONasRouteImport.update({
+  id: '/o-nas',
+  path: '/o-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpasiboRoute = SpasiboRouteImport.update({
+  id: '/spasibo',
+  path: '/spasibo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZapisRoute = ZapisRouteImport.update({
+  id: '/zapis',
+  path: '/zapis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UslugiIndexRoute = UslugiIndexRouteImport.update({
+  id: '/uslugi/',
+  path: '/uslugi/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UslugiServiceIdRoute = UslugiServiceIdRouteImport.update({
+  id: '/uslugi/$serviceId',
+  path: '/uslugi/$serviceId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/informaciya': typeof InformaciyaRoute
+  '/kontakty': typeof KontaktyRoute
+  '/o-nas': typeof ONasRoute
+  '/spasibo': typeof SpasiboRoute
+  '/zapis': typeof ZapisRoute
+  '/uslugi/$serviceId': typeof UslugiServiceIdRoute
+  '/uslugi/': typeof UslugiIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/informaciya': typeof InformaciyaRoute
+  '/kontakty': typeof KontaktyRoute
+  '/o-nas': typeof ONasRoute
+  '/spasibo': typeof SpasiboRoute
+  '/zapis': typeof ZapisRoute
+  '/uslugi/$serviceId': typeof UslugiServiceIdRoute
+  '/uslugi': typeof UslugiIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/informaciya': typeof InformaciyaRoute
+  '/kontakty': typeof KontaktyRoute
+  '/o-nas': typeof ONasRoute
+  '/spasibo': typeof SpasiboRoute
+  '/zapis': typeof ZapisRoute
+  '/uslugi/$serviceId': typeof UslugiServiceIdRoute
+  '/uslugi/': typeof UslugiIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/informaciya'
+    | '/kontakty'
+    | '/o-nas'
+    | '/spasibo'
+    | '/zapis'
+    | '/uslugi/$serviceId'
+    | '/uslugi/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/informaciya'
+    | '/kontakty'
+    | '/o-nas'
+    | '/spasibo'
+    | '/zapis'
+    | '/uslugi/$serviceId'
+    | '/uslugi'
+  id:
+    | '__root__'
+    | '/'
+    | '/informaciya'
+    | '/kontakty'
+    | '/o-nas'
+    | '/spasibo'
+    | '/zapis'
+    | '/uslugi/$serviceId'
+    | '/uslugi/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  InformaciyaRoute: typeof InformaciyaRoute
+  KontaktyRoute: typeof KontaktyRoute
+  ONasRoute: typeof ONasRoute
+  SpasiboRoute: typeof SpasiboRoute
+  ZapisRoute: typeof ZapisRoute
+  UslugiServiceIdRoute: typeof UslugiServiceIdRoute
+  UslugiIndexRoute: typeof UslugiIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/informaciya': {
+      id: '/informaciya'
+      path: '/informaciya'
+      fullPath: '/informaciya'
+      preLoaderRoute: typeof InformaciyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakty': {
+      id: '/kontakty'
+      path: '/kontakty'
+      fullPath: '/kontakty'
+      preLoaderRoute: typeof KontaktyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/o-nas': {
+      id: '/o-nas'
+      path: '/o-nas'
+      fullPath: '/o-nas'
+      preLoaderRoute: typeof ONasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spasibo': {
+      id: '/spasibo'
+      path: '/spasibo'
+      fullPath: '/spasibo'
+      preLoaderRoute: typeof SpasiboRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zapis': {
+      id: '/zapis'
+      path: '/zapis'
+      fullPath: '/zapis'
+      preLoaderRoute: typeof ZapisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uslugi/': {
+      id: '/uslugi/'
+      path: '/uslugi'
+      fullPath: '/uslugi/'
+      preLoaderRoute: typeof UslugiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uslugi/$serviceId': {
+      id: '/uslugi/$serviceId'
+      path: '/uslugi/$serviceId'
+      fullPath: '/uslugi/$serviceId'
+      preLoaderRoute: typeof UslugiServiceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  InformaciyaRoute: InformaciyaRoute,
+  KontaktyRoute: KontaktyRoute,
+  ONasRoute: ONasRoute,
+  SpasiboRoute: SpasiboRoute,
+  ZapisRoute: ZapisRoute,
+  UslugiServiceIdRoute: UslugiServiceIdRoute,
+  UslugiIndexRoute: UslugiIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

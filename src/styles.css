@@ -9,8 +9,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * DrivePrime design system — "Graphite & Champagne".
- * Mid-tone slate graphite base, warm ivory type, a single champagne-amber accent.
+ * DrivePrime design system — "Night Highway".
+ * Deep blue-charcoal base (StarTruck-like depth), vivid tangerine accent, warm ivory type.
  * Editorial serif italic (Cormorant) is reserved for accent words inside headings.
  */
 
@@ -54,6 +54,9 @@
   --color-surface-raised: var(--surface-raised);
   --color-ink-soft: var(--ink-soft);
   --color-sage: var(--sage);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -81,45 +84,49 @@
   --animate-route: route-dash 2.4s linear infinite;
   --animate-pulse-ring: pulse-ring 2.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
   --animate-kenburns: kenburns 28s ease-out both;
+  --animate-hero-drive: hero-drive 46s ease-in-out infinite alternate;
   --animate-scroll-cue: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 :root {
   --radius: 0.875rem;
 
-  /* Graphite slate base — mid-tone, neither dark nor light */
-  --background: oklch(0.385 0.015 245);
-  --background-deep: oklch(0.34 0.014 245);
-  --foreground: oklch(0.975 0.006 85);
-  --surface: oklch(0.425 0.016 245);
-  --surface-raised: oklch(0.465 0.017 245);
-  --card: oklch(0.425 0.016 245);
-  --card-foreground: oklch(0.975 0.006 85);
-  --popover: oklch(0.41 0.016 245);
-  --popover-foreground: oklch(0.975 0.006 85);
+  /* Bright warm canvas */
+  --background: oklch(0.985 0.012 80);
+  --background-deep: oklch(0.965 0.02 75);
+  --foreground: oklch(0.24 0.04 262);
+  --surface: oklch(1 0 0);
+  --surface-raised: oklch(0.97 0.015 80);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.04 262);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.04 262);
 
-  /* Champagne amber — the single accent */
-  --primary: oklch(0.83 0.105 78);
-  --primary-glow: oklch(0.9 0.07 88);
-  --primary-foreground: oklch(0.25 0.025 60);
+  /* Vivid tangerine on white */
+  --primary: oklch(0.64 0.21 42);
+  --primary-glow: oklch(0.74 0.18 55);
+  --primary-foreground: oklch(0.99 0.01 95);
 
-  --secondary: oklch(0.455 0.017 245);
-  --secondary-foreground: oklch(0.975 0.006 85);
-  --muted: oklch(0.44 0.015 245);
-  /* Warm ivory-gray text, ≥ 6:1 on graphite */
-  --muted-foreground: oklch(0.85 0.01 80);
-  --ink-soft: oklch(0.74 0.012 80);
-  --accent: oklch(0.83 0.105 78 / 13%);
-  --accent-foreground: oklch(0.89 0.085 82);
+  --secondary: oklch(0.95 0.02 70);
+  --secondary-foreground: oklch(0.28 0.04 262);
+  --muted: oklch(0.95 0.012 80);
+  --muted-foreground: oklch(0.46 0.03 262);
+  --ink-soft: oklch(0.55 0.03 262);
+  --accent: oklch(0.64 0.21 42 / 12%);
+  --accent-foreground: oklch(0.52 0.18 42);
   --sage: oklch(0.76 0.045 175);
+  /* Light bands (services, like a brochure page on the dark site) */
+  --paper: oklch(0.985 0.004 90);
+  --ink: oklch(0.24 0.03 262);
+  --ink-muted: oklch(0.42 0.02 262);
 
   --destructive: oklch(0.72 0.17 28);
   --destructive-foreground: oklch(0.98 0.005 85);
 
-  --border: oklch(1 0 0 / 10%);
-  --border-strong: oklch(1 0 0 / 18%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.83 0.105 78 / 70%);
+  --border: oklch(0.24 0.04 262 / 10%);
+  --border-strong: oklch(0.24 0.04 262 / 16%);
+  --input: oklch(0.24 0.04 262 / 14%);
+  --ring: oklch(0.64 0.21 42 / 70%);
 
   --gradient-accent: linear-gradient(
     135deg,
@@ -136,11 +143,11 @@
   --gradient-surface: linear-gradient(180deg, oklch(1 0 0 / 5%) 0%, oklch(1 0 0 / 1%) 100%);
   --gradient-fade-bottom: linear-gradient(180deg, transparent 0%, var(--background) 100%);
 
-  --shadow-card: 0 1px 0 0 oklch(1 0 0 / 7%) inset, 0 24px 48px -28px oklch(0.15 0.02 250 / 70%);
+  --shadow-card: 0 1px 2px oklch(0.24 0.04 262 / 6%), 0 16px 40px -24px oklch(0.24 0.04 262 / 18%);
   --shadow-lift:
-    0 1px 0 0 oklch(1 0 0 / 10%) inset, 0 40px 80px -36px oklch(0.15 0.02 250 / 85%),
-    0 0 0 1px oklch(0.83 0.105 78 / 30%);
-  --shadow-glow: 0 14px 40px -14px oklch(0.83 0.105 78 / 55%);
+    0 12px 40px -18px oklch(0.64 0.21 42 / 35%),
+    0 0 0 1px oklch(0.64 0.21 42 / 25%);
+  --shadow-glow: 0 14px 36px -12px oklch(0.64 0.21 42 / 55%);
 
   --chart-1: oklch(0.83 0.105 78);
   --chart-2: oklch(0.76 0.045 175);
@@ -165,7 +172,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 96px;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
@@ -292,7 +299,7 @@
 }
 
 @utility glass {
-  background: oklch(0.34 0.014 245 / 62%);
+  background: oklch(1 0 0 / 78%);
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   border: 1px solid var(--border-strong);
@@ -474,6 +481,15 @@
   }
   to {
     transform: scale(1.02);
+  }
+}
+
+@keyframes hero-drive {
+  from {
+    transform: translate3d(1.5%, 0, 0) scale(1.04);
+  }
+  to {
+    transform: translate3d(-2.5%, 0, 0) scale(1.07);
   }
 }
 

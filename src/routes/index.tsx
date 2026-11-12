@@ -1,17 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SiteHeader } from "@/components/landing/SiteHeader";
-import { Hero } from "@/components/landing/Hero";
-import { Marquee } from "@/components/landing/Marquee";
-import { WhyUs } from "@/components/landing/WhyUs";
-import { Services } from "@/components/landing/Services";
-import { Bundle } from "@/components/landing/Bundle";
-import { Process } from "@/components/landing/Process";
-import { Gallery } from "@/components/landing/Gallery";
-import { Reviews } from "@/components/landing/Reviews";
-import { Faq } from "@/components/landing/Faq";
-import { Contacts } from "@/components/landing/Contacts";
-import { SiteFooter } from "@/components/landing/SiteFooter";
-import { useSpotlight } from "@/components/landing/useSpotlight";
+import { SiteLayout } from "@/components/layout/SiteLayout";
+import { HomePage } from "@/components/landing/HomePage";
 
 const TITLE = "DrivePrime — КОД 95 в Польше и Литве, ВНЖ, замена прав";
 const DESCRIPTION =
@@ -32,23 +21,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  useSpotlight();
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <Hero />
-        <Marquee />
-        <WhyUs />
-        <Services />
-        <Bundle />
-        <Process />
-        <Gallery />
-        <Reviews />
-        <Faq />
-        <Contacts />
-      </main>
-      <SiteFooter />
-    </>
+    <SiteLayout>
+      <HomePage />
+    </SiteLayout>
   );
 }

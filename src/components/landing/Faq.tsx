@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+import { BookButton } from "./BookingDialog";
 import { FAQ } from "@/content/landing";
 import { Reveal, SectionHeading } from "./Reveal";
 
@@ -29,12 +29,10 @@ export function Faq() {
               lead="Не нашли ответ? Спросите на консультации — это бесплатно."
             />
             <Reveal delay={120}>
-              <Button asChild variant="subtle" size="xl" className="mt-10">
-                <a href="#contacts">
-                  Задать вопрос
-                  <ArrowRight aria-hidden="true" />
-                </a>
-              </Button>
+              <BookButton variant="subtle" size="xl" className="mt-10">
+                Задать вопрос
+                <ArrowRight aria-hidden="true" />
+              </BookButton>
             </Reveal>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { ArrowRight, Layers } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { BookButton } from "./BookingDialog";
 import truckCab from "@/assets/truck-cab.jpg";
 import { Reveal } from "./Reveal";
 
@@ -49,12 +49,10 @@ export function Bundle() {
               ))}
             </ol>
 
-            <Button asChild variant="hero" size="xl" className="mt-10">
-              <a href="#contacts">
-                Рассчитать пакет
-                <ArrowRight aria-hidden="true" />
-              </a>
-            </Button>
+            <BookButton variant="hero" size="xl" className="mt-10">
+              Рассчитать пакет
+              <ArrowRight aria-hidden="true" />
+            </BookButton>
           </div>
 
           <Reveal

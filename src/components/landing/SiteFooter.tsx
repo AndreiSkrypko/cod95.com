@@ -1,8 +1,11 @@
+import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { CONTACTS, NAV } from "@/content/landing";
+import { useBooking } from "./BookingDialog";
 import { Logo } from "./Logo";
 
 export function SiteFooter() {
+  const openBooking = useBooking();
   return (
     <footer className="noise relative overflow-hidden border-t border-border bg-background-deep">
       <div className="container-page grid gap-12 pb-10 pt-20 md:grid-cols-12">
@@ -12,27 +15,35 @@ export function SiteFooter() {
             Легальное оформление КОД 95 и сопутствующих услуг для водителей-международников. Офисы в
             Минске и Варшаве.
           </p>
-          <a
-            href="#contacts"
+          <button
+            type="button"
+            onClick={() => openBooking()}
             className="group mt-8 inline-flex items-center gap-3 font-display text-lg font-bold text-foreground"
           >
             Обсудить вашу ситуацию
             <span className="grid size-10 place-items-center rounded-full border border-border-strong transition-all duration-700 ease-out-expo group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
               <ArrowUpRight className="size-4" aria-hidden="true" />
             </span>
-          </a>
+          </button>
         </div>
         <nav aria-label="Навигация в подвале" className="md:col-span-3 md:col-start-7">
           <p className="eyebrow text-ink-soft">Разделы</p>
           <ul className="mt-5 space-y-3">
             {NAV.map((n) => (
-              <li key={n.href}>
-                <a
-                  href={n.href}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {n.label}
-                </a>
+              <li key={n.label}>
+                {n.to === "/zapis" ? (
+                  <button
+                    type="button"
+                    onClick={() => openBooking()}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {n.label}
+                  </button>
+                ) : (
+                  <Link to={n.to} className="text-muted-foreground transition-colors hover:text-foreground">
+                    {n.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
