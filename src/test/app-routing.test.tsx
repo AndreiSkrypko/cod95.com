@@ -12,7 +12,7 @@ describe("App routing", () => {
   });
 
   it("matches static pages like StarTruck structure", () => {
-    for (const path of ["/o-nas", "/informaciya", "/kontakty", "/zapis", "/uslugi"]) {
+    for (const path of ["/o-nas", "/informaciya", "/kontakty", "/zapis", "/uslugi", "/statyi"]) {
       expect(router.matchRoutes(path).at(-1)?.routeId).not.toBe(rootRouteId);
     }
   });
@@ -20,5 +20,10 @@ describe("App routing", () => {
   it("matches service detail pages", () => {
     const m = router.matchRoutes("/uslugi/short-course");
     expect(m.at(-1)?.routeId).toContain("serviceId");
+  });
+
+  it("matches article detail pages", () => {
+    const m = router.matchRoutes("/statyi/korotkiy-ili-dlinnyy-kurs");
+    expect(m.at(-1)?.routeId).toContain("slug");
   });
 });

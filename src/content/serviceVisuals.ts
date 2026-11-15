@@ -1,5 +1,6 @@
 import type { ServiceId } from "@/content/landing";
 import classroom from "@/assets/classroom.jpg";
+import articleBelarus from "@/assets/articles/article-belarus-varshava.jpg";
 import classDetail from "@/assets/class-detail.jpg";
 import consultOffice from "@/assets/consult-office.jpg";
 import europeMap from "@/assets/europe-map.jpg";
@@ -21,6 +22,7 @@ export const PAGE_VISUALS = {
   zapis: { src: consultOffice, alt: "Консультация в учебном центре" },
   thanks: { src: lifeNight, alt: "Ночной рейс по трассе" },
   catalog: { src: heroTruck, alt: "Тягач на вечерней трассе" },
+  articles: { src: articleBelarus, alt: "Статьи DrivePrime: КОД 95, документы и маршруты в Европу" },
 } as const satisfies Record<string, PageVisual>;
 
 const SERVICE_VISUALS: Record<ServiceId, PageVisual> = {

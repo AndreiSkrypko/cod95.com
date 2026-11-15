@@ -27,6 +27,7 @@ export const NAV: NavItem[] = [
   { to: "/zapis", label: "Регистрация на курс" },
   { to: "/o-nas", label: "О нас" },
   { to: "/informaciya", label: "Информация" },
+  { to: "/statyi", label: "Статьи" },
   { to: "/uslugi", label: "Наши услуги", mega: true },
   { to: "/kontakty", label: "Контакты" },
 ];

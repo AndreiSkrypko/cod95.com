@@ -14,6 +14,7 @@ export function PageHero({
   service,
   image = heroTruck,
   imageAlt = "",
+  imagePosition = "72% center",
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -23,13 +24,18 @@ export function PageHero({
   service?: string;
   image?: string;
   imageAlt?: string;
+  imagePosition?: string;
 }) {
   return (
-    <section className="relative flex min-h-[68svh] flex-col justify-end overflow-hidden pb-12 pt-32 md:pb-16 md:pt-36">
+    <section
+      data-page-hero
+      className="page-hero relative flex min-h-[68svh] flex-col justify-end overflow-hidden pb-12 pt-32 md:pb-16 md:pt-36"
+    >
       <img
         src={image}
         alt={imageAlt}
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-[72%_center]"
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+        style={{ objectPosition: imagePosition }}
       />
       <div
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,oklch(0.985_0.012_80/92%)_0%,oklch(0.985_0.012_80/78%)_48%,oklch(0.985_0.012_80/55%)_100%)] lg:bg-[linear-gradient(100deg,oklch(0.985_0.012_80)_0%,oklch(0.985_0.012_80/92%)_28%,oklch(0.985_0.012_80/30%)_48%,transparent_68%)]"

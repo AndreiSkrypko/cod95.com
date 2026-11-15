@@ -217,6 +217,14 @@
   }
 }
 
+/* Меньше отступ у hero, когда над ним полоса крошек */
+main:has([data-site-breadcrumbs]) .page-hero {
+  padding-top: 2.5rem;
+  @media (width >= 48rem) {
+    padding-top: 3rem;
+  }
+}
+
 @utility eyebrow {
   display: inline-flex;
   align-items: center;

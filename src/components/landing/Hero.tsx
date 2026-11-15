@@ -115,7 +115,10 @@ export function Hero() {
               <Link to="/uslugi">Все услуги</Link>
             </Button>
           </div>
-          <dl className="mt-10 grid max-w-xl animate-fade-up grid-cols-3 gap-4" style={{ animationDelay: "0.5s" }}>
+          <dl
+            className="mt-10 hidden max-w-xl animate-fade-up grid-cols-3 gap-4 md:grid"
+            style={{ animationDelay: "0.5s" }}
+          >
             {HERO_STATS.map((s) => (
               <div key={s.kicker}>
                 <dt className="text-xs leading-snug text-foreground/70 md:text-sm">{s.kicker}</dt>
