@@ -49,8 +49,11 @@ export function CourseAdvisor() {
   ];
 
   return (
-    <section id="kurs" className="section-y scroll-mt-28 border-t border-border bg-background">
-      <div className="container-page grid items-start gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+    <section className="section-y border-t border-border bg-background">
+      <div
+        id="kurs"
+        className="container-page grid items-start gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
+      >
         <div className="rounded-3xl border border-border bg-card p-6 shadow-card md:p-8">
           <h2 className="font-display text-3xl font-extrabold text-foreground md:text-4xl">
             {copy.title}
