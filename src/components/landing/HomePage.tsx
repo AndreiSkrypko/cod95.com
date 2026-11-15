@@ -1,3 +1,4 @@
+import { ArticlesBlock } from "@/components/landing/ArticlesBlock";
 import { Hero } from "@/components/landing/Hero";
 import { Reviews } from "@/components/landing/Reviews";
 import {
@@ -21,6 +22,7 @@ export function HomePage() {
       <Code95Block />
       <Perks />
       <Reviews />
+      <ArticlesBlock />
       <HomeFaq />
       <SchoolLife />
       <HomeContacts />

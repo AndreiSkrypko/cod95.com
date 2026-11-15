@@ -15,6 +15,8 @@ import { Route as KontaktyRouteImport } from './routes/kontakty'
 import { Route as ONasRouteImport } from './routes/o-nas'
 import { Route as SpasiboRouteImport } from './routes/spasibo'
 import { Route as ZapisRouteImport } from './routes/zapis'
+import { Route as StatyiIndexRouteImport } from './routes/statyi/index'
+import { Route as StatyiSlugRouteImport } from './routes/statyi/$slug'
 import { Route as UslugiIndexRouteImport } from './routes/uslugi/index'
 import { Route as UslugiServiceIdRouteImport } from './routes/uslugi/$serviceId'
 
@@ -48,6 +50,16 @@ const ZapisRoute = ZapisRouteImport.update({
   path: '/zapis',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StatyiIndexRoute = StatyiIndexRouteImport.update({
+  id: '/statyi/',
+  path: '/statyi/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatyiSlugRoute = StatyiSlugRouteImport.update({
+  id: '/statyi/$slug',
+  path: '/statyi/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UslugiIndexRoute = UslugiIndexRouteImport.update({
   id: '/uslugi/',
   path: '/uslugi/',
@@ -66,7 +78,9 @@ export interface FileRoutesByFullPath {
   '/o-nas': typeof ONasRoute
   '/spasibo': typeof SpasiboRoute
   '/zapis': typeof ZapisRoute
+  '/statyi/$slug': typeof StatyiSlugRoute
   '/uslugi/$serviceId': typeof UslugiServiceIdRoute
+  '/statyi/': typeof StatyiIndexRoute
   '/uslugi/': typeof UslugiIndexRoute
 }
 export interface FileRoutesByTo {
@@ -76,7 +90,9 @@ export interface FileRoutesByTo {
   '/o-nas': typeof ONasRoute
   '/spasibo': typeof SpasiboRoute
   '/zapis': typeof ZapisRoute
+  '/statyi/$slug': typeof StatyiSlugRoute
   '/uslugi/$serviceId': typeof UslugiServiceIdRoute
+  '/statyi': typeof StatyiIndexRoute
   '/uslugi': typeof UslugiIndexRoute
 }
 export interface FileRoutesById {
@@ -87,7 +103,9 @@ export interface FileRoutesById {
   '/o-nas': typeof ONasRoute
   '/spasibo': typeof SpasiboRoute
   '/zapis': typeof ZapisRoute
+  '/statyi/$slug': typeof StatyiSlugRoute
   '/uslugi/$serviceId': typeof UslugiServiceIdRoute
+  '/statyi/': typeof StatyiIndexRoute
   '/uslugi/': typeof UslugiIndexRoute
 }
 export interface FileRouteTypes {
@@ -99,7 +117,9 @@ export interface FileRouteTypes {
     | '/o-nas'
     | '/spasibo'
     | '/zapis'
+    | '/statyi/$slug'
     | '/uslugi/$serviceId'
+    | '/statyi/'
     | '/uslugi/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -109,7 +129,9 @@ export interface FileRouteTypes {
     | '/o-nas'
     | '/spasibo'
     | '/zapis'
+    | '/statyi/$slug'
     | '/uslugi/$serviceId'
+    | '/statyi'
     | '/uslugi'
   id:
     | '__root__'
@@ -119,7 +141,9 @@ export interface FileRouteTypes {
     | '/o-nas'
     | '/spasibo'
     | '/zapis'
+    | '/statyi/$slug'
     | '/uslugi/$serviceId'
+    | '/statyi/'
     | '/uslugi/'
   fileRoutesById: FileRoutesById
 }
@@ -130,7 +154,9 @@ export interface RootRouteChildren {
   ONasRoute: typeof ONasRoute
   SpasiboRoute: typeof SpasiboRoute
   ZapisRoute: typeof ZapisRoute
+  StatyiSlugRoute: typeof StatyiSlugRoute
   UslugiServiceIdRoute: typeof UslugiServiceIdRoute
+  StatyiIndexRoute: typeof StatyiIndexRoute
   UslugiIndexRoute: typeof UslugiIndexRoute
 }
 
@@ -178,6 +204,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZapisRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/statyi/': {
+      id: '/statyi/'
+      path: '/statyi'
+      fullPath: '/statyi/'
+      preLoaderRoute: typeof StatyiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/statyi/$slug': {
+      id: '/statyi/$slug'
+      path: '/statyi/$slug'
+      fullPath: '/statyi/$slug'
+      preLoaderRoute: typeof StatyiSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/uslugi/': {
       id: '/uslugi/'
       path: '/uslugi'
@@ -202,7 +242,9 @@ const rootRouteChildren: RootRouteChildren = {
   ONasRoute: ONasRoute,
   SpasiboRoute: SpasiboRoute,
   ZapisRoute: ZapisRoute,
+  StatyiSlugRoute: StatyiSlugRoute,
   UslugiServiceIdRoute: UslugiServiceIdRoute,
+  StatyiIndexRoute: StatyiIndexRoute,
   UslugiIndexRoute: UslugiIndexRoute,
 }
 export const routeTree = rootRouteImport
