@@ -4,10 +4,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQ } from "@/content/landing";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 
 export function FaqList({ limit }: { limit?: number }) {
-  const items = limit ? FAQ.slice(0, limit) : FAQ;
+  const { locale } = useLocale();
+  const faq = PAGES[locale].faq;
+  const items = limit ? faq.slice(0, limit) : faq;
   return (
     <Accordion type="single" collapsible className="flex flex-col gap-3">
       {items.map((item, i) => (

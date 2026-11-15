@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FAQ } from "@/content/landing";
+import { HOME } from "@/i18n/home-copy";
+import { PAGES } from "@/i18n/pages-copy";
 import classroom from "@/assets/classroom.jpg";
 import trainingTrucks from "@/assets/training-trucks.jpg";
 import truckPractice from "@/assets/truck-practice.jpg";
@@ -14,6 +15,7 @@ import lifeBriefing from "@/assets/life-briefing.jpg";
 import lifeNight from "@/assets/life-night.jpg";
 import { ContactAside } from "./ContactAside";
 import { BookButton, useBooking } from "./BookingDialog";
+import { heroPhone, useLocale } from "@/i18n/locale";
 import { FaqList } from "./FaqList";
 import { Reveal } from "./Reveal";
 
@@ -82,36 +84,27 @@ const LIFE = [
 ];
 
 export function StoryBlock() {
+  const { locale } = useLocale();
+  const story = HOME[locale].story;
   return (
     <section className="bg-paper text-ink section-y">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)]">
         <Reveal>
-          <p className="font-display text-sm font-bold uppercase tracking-[0.18em] text-primary">О школе</p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight md:text-5xl">
-            Путь водителя в ЕС — по шагам, без сюрпризов
-          </h2>
+          <p className="font-display text-sm font-bold uppercase tracking-[0.18em] text-primary">{story.eyebrow}</p>
+          <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{story.title}</h2>
           <div className="mt-6 space-y-4 text-lg text-ink-muted">
-            <p>
-              DrivePrime вырос из международной логистики: мы сами знаем, что без КОД 95 водителя просто не
-              допустят к рейсу по Европе, а экзамен и бумаги на чужом языке останавливают сильнее, чем дорога.
-            </p>
-            <p>
-              Сегодня сопровождаем от выбора курса до документов и, если нужно, до трудоустройства. Офисы в
-              Минске и Варшаве, договор и фиксированная цена. Taxocard и DrivePrime — одна команда: чип-карта
-              водителя и курс КОД 95 ведутся вместе.
-            </p>
-            <p>
-              Больше 1 500 водителей уже прошли этот путь с нами — с опытом и без.
-            </p>
+            <p>{story.p1}</p>
+            <p>{story.p2}</p>
+            <p>{story.p3}</p>
           </div>
           <Button asChild variant="hero" size="lg" className="mt-8">
-            <Link to="/o-nas">Узнать больше о школе</Link>
+            <Link to="/o-nas">{story.cta}</Link>
           </Button>
         </Reveal>
         <Reveal delay={80} variant="clip" className="overflow-hidden rounded-3xl shadow-card">
           <img
             src={storyHighway}
-            alt="Ночная трасса из кабины тягача"
+            alt={story.imageAlt}
             className="aspect-[4/3] w-full object-cover"
           />
         </Reveal>
@@ -122,17 +115,19 @@ export function StoryBlock() {
 
 export function OfferRow() {
   const openBooking = useBooking();
+  const { locale } = useLocale();
+  const offers = HOME[locale].offers;
   return (
     <section id="services" className="bg-paper pb-20 text-ink">
       <div className="container-page">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-4xl font-extrabold md:text-5xl">Услуги</h2>
-          <p className="mt-3 text-ink-muted">
-            Курс, работа в Европе и документы для легального пребывания.
-          </p>
+          <h2 className="font-display text-4xl font-extrabold md:text-5xl">{offers.title}</h2>
+          <p className="mt-3 text-ink-muted">{offers.lead}</p>
         </div>
         <ul className="mt-8 grid gap-4 lg:grid-cols-2">
-          {OFFERS.map((o) => (
+          {OFFERS.map((o) => {
+            const copy = offers.items[o.id as keyof typeof offers.items];
+            return (
             <li
               key={o.id}
               className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card text-ink shadow-card sm:flex-row"
@@ -140,18 +135,18 @@ export function OfferRow() {
               <div className="relative h-36 shrink-0 overflow-hidden sm:h-auto sm:w-44">
                 <img
                   src={o.image}
-                  alt={o.alt}
+                  alt={copy.alt}
                   className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out-expo group-hover:scale-105"
                 />
               </div>
               <div className="flex flex-1 flex-col p-5 md:p-6">
-                <h3 className="font-display text-2xl font-extrabold">{o.title}</h3>
-                <p className="mt-3 text-sm text-ink-muted">{o.text}</p>
+                <h3 className="font-display text-2xl font-extrabold">{copy.title}</h3>
+                <p className="mt-3 text-sm text-ink-muted">{copy.text}</p>
                 {"variants" in o && o.variants ? (
-                  <p className="mt-4 text-sm font-semibold">Возможные варианты обучения:</p>
+                  <p className="mt-4 text-sm font-semibold">{offers.variants}</p>
                 ) : null}
                 <ul className="mt-4 space-y-2 text-sm">
-                  {o.points.map((p) => (
+                  {copy.points.map((p) => (
                     <li key={p} className="flex gap-2">
                       <Check className="mt-0.5 size-4 shrink-0 text-primary" />
                       {p}
@@ -163,16 +158,17 @@ export function OfferRow() {
                   onClick={() => openBooking(o.id)}
                   className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 font-display font-bold text-primary-foreground"
                 >
-                  {o.cta}
+                  {copy.cta}
                 </button>
-                <p className="mt-3 text-center text-xs text-ink-soft">Ответ в рабочее время</p>
+                <p className="mt-3 text-center text-xs text-ink-soft">{offers.reply}</p>
               </div>
             </li>
-          ))}
+            );
+          })}
         </ul>
         <p className="mt-8 text-center">
           <Link to="/uslugi" className="font-display font-bold text-primary">
-            Все услуги →
+            {offers.all}
           </Link>
         </p>
       </div>
@@ -181,29 +177,25 @@ export function OfferRow() {
 }
 
 export function ConsultSplit() {
+  const { locale } = useLocale();
+  const consult = HOME[locale].consult;
   return (
     <section className="section-y border-t border-border bg-background">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
         <div>
-          <h2 className="font-display text-4xl font-extrabold md:text-5xl">
-            Получите бесплатную консультацию
-          </h2>
+          <h2 className="font-display text-4xl font-extrabold md:text-5xl">{consult.title}</h2>
           <div className="mt-5 space-y-4 text-lg text-muted-foreground">
-            <p>Менеджер свяжется в ближайшее рабочее время и скажет, какой курс ваш.</p>
-            <p>
-              Профессия водителя востребована в Евросоюзе. Чтобы работать легально, нужны не только права, но
-              и КОД 95. DrivePrime в Варшаве и Минске закрывает путь целиком: курс, документы, при
-              необходимости ВНЖ и выход на работу.
-            </p>
+            <p>{consult.p1}</p>
+            <p>{consult.p2}</p>
           </div>
           <BookButton variant="hero" size="xl" className="mt-8">
-            Оставить заявку
+            {consult.cta}
           </BookButton>
         </div>
         <div className="overflow-hidden rounded-3xl shadow-card">
           <img
             src={consultOffice}
-            alt="Консультация в учебном центре"
+            alt={consult.imageAlt}
             className="aspect-[16/10] max-h-72 w-full object-cover"
           />
         </div>
@@ -213,41 +205,33 @@ export function ConsultSplit() {
 }
 
 export function Code95Block() {
+  const { locale } = useLocale();
+  const block = HOME[locale].code95;
   return (
     <section className="section-y border-t border-border bg-background-deep">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
         <div className="overflow-hidden rounded-3xl shadow-card">
           <img
             src={lifeBriefing}
-            alt="Инструктаж перед практикой на тягаче"
+            alt={block.imageAlt}
             className="aspect-[4/3] w-full object-cover"
           />
         </div>
         <div>
-          <h2 className="font-display text-4xl font-extrabold">Что значит Код 95</h2>
+          <h2 className="font-display text-4xl font-extrabold">{block.title}</h2>
           <div className="mt-5 space-y-4 text-lg text-muted-foreground">
-            <p>
-              Это квалификация для водителей категорий C, CE или D, без которой нельзя легально работать на
-              дорогах Евросоюза. Её получают на коротком или длинном курсе.
-            </p>
-            <p>
-              Короткий курс — если категория «С» выдана до 09.09.2009: обычно 3–5 дней и без экзамена. Длинный —
-              если после этой даты: теория, практика и экзамен в WORD. На консультации сразу говорим, какой
-              вариант ваш.
-            </p>
-            <p>
-              После сертификата код вписывают в права и указывают срок действия. Повторный курс лучше не
-              откладывать — иначе можно остаться без допуска к рейсу.
-            </p>
+            <p>{block.p1}</p>
+            <p>{block.p2}</p>
+            <p>{block.p3}</p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero">
               <Link to="/informaciya" hash="kurs">
-                Какой курс подойдёт
+                {block.quiz}
               </Link>
             </Button>
             <Button asChild variant="subtle">
-              <Link to="/informaciya">Подробнее о КОД 95</Link>
+              <Link to="/informaciya">{block.more}</Link>
             </Button>
           </div>
         </div>
@@ -257,30 +241,30 @@ export function Code95Block() {
 }
 
 export function Perks() {
+  const { locale } = useLocale();
+  const perks = HOME[locale].perks;
   return (
     <section className="bg-paper section-y text-ink">
       <div className="container-page">
         <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
-          <h2 className="font-display text-4xl font-extrabold">Наши преимущества</h2>
-          <p className="text-ink-muted">
-            Договор, два офиса и практика на той технике, на которой потом едут в рейс.
-          </p>
+          <h2 className="font-display text-4xl font-extrabold">{perks.title}</h2>
+          <p className="text-ink-muted">{perks.lead}</p>
         </div>
         <div className="mt-10 grid items-start gap-4 lg:grid-cols-12">
           <figure className="lg:col-span-4">
             <div className="overflow-hidden rounded-3xl shadow-card">
               <img
                 src={lifeNight}
-                alt="Ночной рейс по европейской трассе"
+                alt={perks.imageAlt}
                 className="aspect-[4/3] w-full object-cover"
               />
             </div>
             <figcaption className="mt-3 text-sm text-ink-muted">
-              Ночной рейс — то, к чему готовим на курсе: правила, практика и документы до выхода на линию.
+              {perks.caption}
             </figcaption>
           </figure>
           <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-8">
-            {PERKS.map((p) => (
+            {perks.items.map((p) => (
               <li key={p.title} className="rounded-2xl border border-border bg-card p-5">
                 <p className="font-display font-bold text-ink">{p.title}</p>
                 <p className="mt-2 text-sm text-ink-muted">{p.text}</p>
@@ -294,38 +278,41 @@ export function Perks() {
 }
 
 export function HomeFaq() {
+  const { locale } = useLocale();
+  const home = HOME[locale];
   return (
     <section id="faq" className="section-y border-t border-border">
       <div className="container-page max-w-3xl">
-        <h2 className="font-display text-4xl font-extrabold">Частые вопросы</h2>
+        <h2 className="font-display text-4xl font-extrabold">{home.faqTitle}</h2>
         <div className="mt-8">
           <FaqList />
         </div>
-        <p className="mt-4 text-sm text-ink-soft">{FAQ.length} ответов — полный разбор на странице информации.</p>
+        <p className="mt-4 text-sm text-ink-soft">
+          {PAGES[locale].faq.length} {home.faqMore}
+        </p>
       </div>
     </section>
   );
 }
 
 export function SchoolLife() {
+  const { locale } = useLocale();
+  const school = HOME[locale].school;
   return (
     <section className="section-y border-t border-border bg-background-deep">
       <div className="container-page">
         <div className="max-w-2xl">
-          <h2 className="font-display text-4xl font-extrabold">Жизнь школы</h2>
-          <p className="mt-3 text-muted-foreground">
-            Класс в Варшаве, учебная площадка и техника, на которой отрабатывают рейс. Не постановочный офис, а
-            то, что видит водитель на курсе.
-          </p>
+          <h2 className="font-display text-4xl font-extrabold">{school.title}</h2>
+          <p className="mt-3 text-muted-foreground">{school.lead}</p>
         </div>
         <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {LIFE.map((img) => (
-            <li key={img.alt}>
+          {LIFE.map((img, i) => (
+            <li key={img.src}>
               <figure>
                 <div className="overflow-hidden rounded-2xl">
-                  <img src={img.src} alt={img.alt} className="aspect-[16/10] w-full object-cover" />
+                  <img src={img.src} alt={school.alts[i] ?? ""} className="aspect-[16/10] w-full object-cover" />
                 </div>
-                <figcaption className="mt-2 text-sm text-muted-foreground">{img.alt}</figcaption>
+                <figcaption className="mt-2 text-sm text-muted-foreground">{school.alts[i]}</figcaption>
               </figure>
             </li>
           ))}
@@ -336,27 +323,29 @@ export function SchoolLife() {
 }
 
 export function HomeContacts() {
+  const { locale } = useLocale();
+  const contacts = HOME[locale].contacts;
   return (
     <section id="contacts" className="section-y border-t border-border">
       <div className="container-page grid gap-12 lg:grid-cols-2">
         <div>
-          <h2 className="font-display text-4xl font-extrabold">Контакты</h2>
+          <h2 className="font-display text-4xl font-extrabold">{contacts.title}</h2>
           <ContactAside />
           <Button asChild variant="subtle" className="mt-8">
-            <Link to="/kontakty">Страница контактов</Link>
+            <Link to="/kontakty">{contacts.page}</Link>
           </Button>
         </div>
         <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
           <img
             src={offerResidence}
-            alt="Вечерняя улица у офиса в городе"
+            alt={contacts.imageAlt}
             className="h-36 w-full object-cover"
           />
           <div className="p-8">
-            <h3 className="font-display text-2xl font-extrabold">Не нашли то, что искали?</h3>
-            <p className="mt-2 text-muted-foreground">Оставьте заявку — перезвоним в рабочее время.</p>
+            <h3 className="font-display text-2xl font-extrabold">{contacts.missing}</h3>
+            <p className="mt-2 text-muted-foreground">{contacts.lead}</p>
             <BookButton variant="hero" size="xl" className="mt-6">
-              Оставить заявку
+              {contacts.cta}
             </BookButton>
           </div>
         </div>
@@ -367,12 +356,14 @@ export function HomeContacts() {
 
 export function FloatDock() {
   const openBooking = useBooking();
+  const { locale, m } = useLocale();
+  const phone = heroPhone(locale);
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
       <a
-        href="tel:+375293565778"
+        href={phone.href}
         className="grid size-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-glow"
-        aria-label="Позвонить"
+        aria-label={m.dock.call}
       >
         <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M6 4h3l2 5-2 1a12 12 0 0 0 5 5l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 6a2 2 0 0 1 2-2z" />
@@ -382,7 +373,7 @@ export function FloatDock() {
         type="button"
         onClick={() => openBooking()}
         className="grid size-14 place-items-center rounded-full border border-border bg-white text-foreground shadow-card"
-        aria-label="Оставить заявку"
+        aria-label={m.dock.request}
       >
         <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M5 6h14v10H8l-3 3z" />

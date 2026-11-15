@@ -1,14 +1,17 @@
 import { Link, useRouterState } from "@tanstack/react-router";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 
 export function Logo() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { locale } = useLocale();
 
   return (
     <Link
       to="/"
       hash="top"
       className="inline-flex shrink-0 items-center"
-      aria-label="DrivePrime — на главную"
+      aria-label={`DrivePrime — ${PAGES[locale].crumbs.home}`}
       onClick={(event) => {
         if (pathname !== "/") return;
         event.preventDefault();

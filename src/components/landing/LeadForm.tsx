@@ -12,25 +12,33 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { SERVICE_OPTIONS } from "@/content/landing";
+import { SERVICES } from "@/content/landing";
+import { useLocale } from "@/i18n/locale";
 
-const schema = z.object({
-  name: z.string().trim().min(2, "Укажите имя").max(80, "Слишком длинное имя"),
-  phone: z
-    .string()
-    .trim()
-    .regex(/^[+\d][\d\s()-]{7,20}$/, "Укажите телефон в международном формате"),
-  service: z.string().min(1, "Выберите услугу"),
-  comment: z.string().trim().max(1000, "Не более 1000 символов").optional(),
-});
+function leadSchema(m: ReturnType<typeof useLocale>["m"]) {
+  return z.object({
+    name: z.string().trim().min(2, m.form.errName).max(80, m.form.errNameLong),
+    phone: z
+      .string()
+      .trim()
+      .regex(/^[+\d][\d\s()-]{7,20}$/, m.form.errPhone),
+    service: z.string().min(1, m.form.errService),
+    comment: z.string().trim().max(1000, m.form.errComment).optional(),
+  });
+}
 
-type Errors = Partial<Record<keyof z.infer<typeof schema>, string>>;
+type Errors = {
+  name?: string;
+  phone?: string;
+  service?: string;
+  comment?: string;
+};
 
 const fieldClass =
   "h-13 rounded-xl border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60";
 
 export function LeadForm({
-  title = "Заявка на консультацию",
+  title,
   defaultService = "",
   formId,
   plain = false,
@@ -41,6 +49,9 @@ export function LeadForm({
   plain?: boolean;
 }) {
   const navigate = useNavigate();
+  const { m } = useLocale();
+  const schema = leadSchema(m);
+  const formTitle = title ?? m.form.title;
   const [service, setService] = useState(defaultService);
   const [errors, setErrors] = useState<Errors>({});
 
@@ -78,23 +89,23 @@ export function LeadForm({
       onSubmit={onSubmit}
       noValidate
       className={plain ? "space-y-0" : "glass rounded-[2rem] p-6 shadow-card md:p-12"}
-      aria-label={title || "Заявка на консультацию"}
+      aria-label={formTitle || m.form.title}
     >
-      {title ? (
+      {formTitle ? (
         <p className="mb-8 font-display text-2xl font-extrabold tracking-[-0.03em] text-foreground md:text-3xl">
-          {title}
+          {formTitle}
         </p>
       ) : null}
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor={`${formId ?? "lead"}-name`} className="font-display font-semibold text-foreground">
-            Имя
+            {m.form.name}
           </Label>
           <Input
             id={`${formId ?? "lead"}-name`}
             name="name"
             autoComplete="name"
-            placeholder="Как к вам обращаться"
+            placeholder={m.form.namePh}
             className={fieldClass}
             aria-invalid={!!errors.name}
           />
@@ -102,14 +113,14 @@ export function LeadForm({
         </div>
         <div className="space-y-2">
           <Label htmlFor={`${formId ?? "lead"}-phone`} className="font-display font-semibold text-foreground">
-            Телефон
+            {m.form.phone}
           </Label>
           <Input
             id={`${formId ?? "lead"}-phone`}
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder="+375 29 000-00-00"
+            placeholder={m.form.phonePh}
             className={fieldClass}
             aria-invalid={!!errors.phone}
           />
@@ -118,7 +129,7 @@ export function LeadForm({
       </div>
       <div className="mt-5 space-y-2">
         <Label htmlFor={`${formId ?? "lead"}-service`} className="font-display font-semibold text-foreground">
-          Услуга
+          {m.form.service}
         </Label>
         <Select value={service} onValueChange={setService}>
           <SelectTrigger
@@ -126,12 +137,12 @@ export function LeadForm({
             className={fieldClass}
             aria-invalid={!!errors.service}
           >
-            <SelectValue placeholder="Выберите услугу" />
+            <SelectValue placeholder={m.form.servicePh} />
           </SelectTrigger>
           <SelectContent>
-            {SERVICE_OPTIONS.map((o) => (
-              <SelectItem key={o.value} value={o.value}>
-                {o.label}
+            {SERVICES.map((o) => (
+              <SelectItem key={o.id} value={o.id}>
+                {m.services[o.id].title}
               </SelectItem>
             ))}
           </SelectContent>
@@ -140,22 +151,20 @@ export function LeadForm({
       </div>
       <div className="mt-5 space-y-2">
         <Label htmlFor={`${formId ?? "lead"}-comment`} className="font-display font-semibold text-foreground">
-          Комментарий
+          {m.form.comment}
         </Label>
         <Textarea
           id={`${formId ?? "lead"}-comment`}
           name="comment"
           rows={4}
-          placeholder="Расскажите о вашей ситуации"
+          placeholder={m.form.commentPh}
           className="rounded-xl border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60"
         />
       </div>
       <Button type="submit" variant="hero" size="xl" className="mt-7 w-full">
-        Отправить заявку
+        {m.form.submit}
       </Button>
-      <p className="mt-4 text-sm text-ink-soft">
-        Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
-      </p>
+      <p className="mt-4 text-sm text-ink-soft">{m.form.consent}</p>
     </form>
   );
 }

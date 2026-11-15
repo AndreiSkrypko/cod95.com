@@ -9,42 +9,19 @@ import trainingTrucks from "@/assets/training-trucks.jpg";
 import classDetail from "@/assets/class-detail.jpg";
 import truckCab from "@/assets/truck-cab.jpg";
 import { CountUp } from "./Reveal";
+import { useLocale } from "@/i18n/locale";
 
-const TILES = [
-  {
-    params: { serviceId: "short-course" as const },
-    label: "Короткий курс",
-    note: "Для категории C, полученной до 2009 года",
-    fact: "3–5 дней · без экзамена",
-    image: classroom,
-  },
-  {
-    params: { serviceId: "long-course" as const },
-    label: "Длинный курс",
-    note: "Теория, практика и экзамен в WORD",
-    fact: "около 21 дня",
-    image: trainingTrucks,
-  },
-  {
-    params: { serviceId: "license" as const },
-    label: "Замена прав",
-    note: "Обмен удостоверения на польские",
-    fact: "пакет и сопровождение",
-    image: classDetail,
-  },
-  {
-    params: { serviceId: "employment" as const },
-    label: "Трудоустройство",
-    note: "Выход к проверенным перевозчикам",
-    fact: "с опытом и без",
-    image: truckCab,
-  },
+const TILE_META = [
+  { params: { serviceId: "short-course" as const }, image: classroom },
+  { params: { serviceId: "long-course" as const }, image: trainingTrucks },
+  { params: { serviceId: "license" as const }, image: classDetail },
+  { params: { serviceId: "employment" as const }, image: truckCab },
 ];
 
-const HERO_STATS = [
-  { kicker: "Работаем на рынке", value: 12, suffix: "+", unit: "лет" },
-  { kicker: "Обучили уже более", value: 1500, suffix: "", unit: "водителей" },
-  { kicker: "Собственных офиса", value: 2, suffix: "", unit: "Минск и Варшава" },
+const STAT_VALUES = [
+  { value: 12, suffix: "+" },
+  { value: 1500, suffix: "" },
+  { value: 2, suffix: "" },
 ];
 
 function useParallax<T extends HTMLElement>(speed = 0.18) {
@@ -71,6 +48,7 @@ function useParallax<T extends HTMLElement>(speed = 0.18) {
 
 export function Hero() {
   const photo = useParallax<HTMLDivElement>();
+  const { m } = useLocale();
 
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col overflow-hidden">
@@ -92,32 +70,32 @@ export function Hero() {
 
       <div className="container-page relative flex flex-1 flex-col justify-end gap-6 pb-8 pt-24 lg:grid lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-center lg:gap-8 xl:grid-cols-[minmax(0,1fr)_23rem]">
         <div className="max-w-xl xl:max-w-2xl">
-          <p className="eyebrow eyebrow-rule animate-fade-up">Запись на курс КОД 95</p>
+          <p className="eyebrow eyebrow-rule animate-fade-up">{m.hero.eyebrow}</p>
           <h1 className="mt-4 font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.045em] text-foreground sm:text-7xl xl:text-8xl">
             <span className="line-mask">
               <span className="block animate-line-up">КОД 95</span>
             </span>
             <span className="line-mask">
               <span className="block animate-line-up text-primary" style={{ animationDelay: "0.12s" }}>
-                в Польше
+                {m.hero.line2}
               </span>
             </span>
           </h1>
           <p className="mt-4 max-w-md animate-fade-up text-lg text-foreground/80 md:text-xl" style={{ animationDelay: "0.28s" }}>
-            Запись на курс Код 95 для работы в Европе. Офисы в Минске и Варшаве.
+            {m.hero.lead}
           </p>
           <div className="mt-6 flex animate-fade-up flex-wrap gap-3" style={{ animationDelay: "0.4s" }}>
             <BookButton variant="hero" size="xl">
-              Записаться
+              {m.hero.book}
               <ArrowRight aria-hidden="true" />
             </BookButton>
             <Button asChild variant="subtle" size="xl">
-              <Link to="/uslugi">Все услуги</Link>
+              <Link to="/uslugi">{m.hero.services}</Link>
             </Button>
           </div>
           <Button asChild variant="glass" className="mt-3 h-11 animate-fade-up px-5" style={{ animationDelay: "0.46s" }}>
             <Link to="/informaciya" hash="kurs">
-              Не знаете, какой курс подойдёт?
+              {m.hero.unsure}
               <ArrowRight aria-hidden="true" />
             </Link>
           </Button>
@@ -125,11 +103,11 @@ export function Hero() {
             className="mt-6 hidden max-w-xl animate-fade-up grid-cols-3 gap-4 md:grid"
             style={{ animationDelay: "0.5s" }}
           >
-            {HERO_STATS.map((s) => (
+            {m.hero.stats.map((s, i) => (
               <div key={s.kicker}>
                 <dt className="text-xs leading-snug text-foreground/70 md:text-sm">{s.kicker}</dt>
                 <dd className="mt-1 font-display text-4xl font-extrabold tracking-tight text-primary md:text-5xl">
-                  <CountUp value={s.value} suffix={s.suffix} />
+                  <CountUp value={STAT_VALUES[i]!.value} suffix={STAT_VALUES[i]!.suffix} />
                 </dd>
                 <p className="text-sm font-medium text-foreground">{s.unit}</p>
               </div>
@@ -138,8 +116,8 @@ export function Hero() {
         </div>
 
         <ul className="grid grid-cols-2 gap-3 lg:grid-cols-1">
-          {TILES.map((t, i) => (
-            <li key={t.label} className="animate-fade-up" style={{ animationDelay: `${0.35 + i * 0.08}s` }}>
+          {TILE_META.map((t, i) => (
+            <li key={t.params.serviceId} className="animate-fade-up" style={{ animationDelay: `${0.35 + i * 0.08}s` }}>
               <Link
                 to="/uslugi/$serviceId"
                 params={t.params}
@@ -154,11 +132,11 @@ export function Hero() {
                 </span>
                 <span className="min-w-0 py-1">
                   <span className="flex items-center justify-between gap-1">
-                    <span className="font-display text-sm font-bold text-foreground">{t.label}</span>
+                    <span className="font-display text-sm font-bold text-foreground">{m.hero.tiles[i]!.label}</span>
                     <ArrowUpRight className="size-3.5 shrink-0 text-primary transition group-hover:rotate-45" />
                   </span>
-                  <span className="mt-0.5 line-clamp-2 text-xs leading-snug text-muted-foreground">{t.note}</span>
-                  <span className="mt-1 block font-display text-xs font-bold text-primary">{t.fact}</span>
+                  <span className="mt-0.5 line-clamp-2 text-xs leading-snug text-muted-foreground">{m.hero.tiles[i]!.note}</span>
+                  <span className="mt-1 block font-display text-xs font-bold text-primary">{m.hero.tiles[i]!.fact}</span>
                 </span>
               </Link>
             </li>

@@ -3,15 +3,21 @@ import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SERVICES } from "@/content/landing";
 import { PAGE_VISUALS, getServiceVisual } from "@/content/serviceVisuals";
+import { useDocumentMeta } from "@/i18n/document";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 import { PageHero } from "./PageHero";
 
 export function ServicesCatalogPage() {
+  const { locale, m } = useLocale();
+  const copy = PAGES[locale];
+  useDocumentMeta(copy.meta.servicesTitle, copy.meta.servicesDescription);
   return (
     <>
       <PageHero
-        eyebrow="Наши услуги"
-        title={<>Полный каталог для водителей‑международников</>}
-        lead="Обучение КОД 95, документы, ADR, ВНЖ и трудоустройство. Выберите направление — расскажем сроки и стоимость."
+        eyebrow={copy.catalog.eyebrow}
+        title={<>{copy.catalog.title}</>}
+        lead={copy.catalog.lead}
         image={PAGE_VISUALS.catalog.src}
         imageAlt={PAGE_VISUALS.catalog.alt}
         ctaTo="/zapis"
@@ -32,21 +38,21 @@ export function ServicesCatalogPage() {
                     <span className="relative block aspect-[4/3] overflow-hidden">
                       <img
                         src={visual.src}
-                        alt={visual.alt}
+                        alt={m.services[s.id].title}
                         className="h-full w-full object-cover transition duration-700 ease-out-expo group-hover:scale-105"
                       />
                       {s.isNew && (
                         <Badge variant="new" className="absolute top-3 left-3">
-                          Новинка
+                          {m.header.badgeNew}
                         </Badge>
                       )}
                     </span>
                     <span className="flex flex-1 flex-col p-6">
                       <span className="flex items-start justify-between gap-3">
-                        <h2 className="font-display text-xl font-extrabold text-foreground">{s.title}</h2>
+                        <h2 className="font-display text-xl font-extrabold text-foreground">{m.services[s.id].title}</h2>
                         <ArrowUpRight className="mt-1 size-4 shrink-0 text-primary transition group-hover:rotate-45" />
                       </span>
-                      <p className="mt-3 flex-1 text-sm text-muted-foreground">{s.text}</p>
+                      <p className="mt-3 flex-1 text-sm text-muted-foreground">{m.services[s.id].text}</p>
                     </span>
                   </Link>
                 </li>

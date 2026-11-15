@@ -4,28 +4,36 @@ import { BookButton } from "@/components/landing/BookingDialog";
 import { Badge } from "@/components/ui/badge";
 import type { LandingService } from "@/content/landing";
 import { SERVICES } from "@/content/landing";
-import { getServicePageDetail } from "@/content/servicePages";
+import { localizedDetail } from "@/i18n/details-copy";
+import { useDocumentMeta } from "@/i18n/document";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
+import { localizedTags } from "@/i18n/tags";
 import { getServiceVisual } from "@/content/serviceVisuals";
 import { Reveal } from "@/components/landing/Reveal";
 import { SERVICE_ICONS } from "@/components/landing/serviceIcons";
 import { PageHero } from "./PageHero";
 
 export function ServiceDetailPage({ service }: { service: LandingService }) {
+  const { locale, m } = useLocale();
+  const copy = PAGES[locale].service;
+  const text = m.services[service.id];
+  useDocumentMeta(`${text.title} — DrivePrime`, text.text);
   const Icon = SERVICE_ICONS[service.id];
-  const detail = getServicePageDetail(service);
+  const detail = localizedDetail(locale, service.id);
   const related = SERVICES.filter((s) => s.id !== service.id).slice(0, 4);
   const visual = getServiceVisual(service.id);
 
   return (
     <>
       <PageHero
-        eyebrow="Услуга"
+        eyebrow={copy.eyebrow}
         title={
           <>
-            {service.title}
+            {text.title}
             {service.isNew && (
               <Badge variant="new" className="ml-3 align-middle">
-                Новинка
+                {m.header.badgeNew}
               </Badge>
             )}
           </>
@@ -34,7 +42,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
         image={visual.src}
         imageAlt={visual.alt}
         ctaTo="/zapis"
-        ctaLabel="Записаться на услугу"
+        ctaLabel={copy.cta}
         service={service.id}
       />
 
@@ -46,7 +54,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
                 <Icon className="size-6" strokeWidth={1.6} aria-hidden="true" />
               </span>
               <ul className="flex flex-wrap gap-2">
-                {service.tags.map((t) => (
+                {localizedTags(locale, service.id).map((t) => (
                   <li key={t}>
                     <Badge variant="chip">{t}</Badge>
                   </li>
@@ -67,7 +75,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
 
             {detail.steps && (
               <Reveal className="mt-12">
-                <h2 className="text-2xl font-bold text-foreground">Как проходит оформление</h2>
+                <h2 className="text-2xl font-bold text-foreground">{copy.how}</h2>
                 <ol className="mt-6 space-y-4">
                   {detail.steps.map((step, i) => (
                     <li
@@ -87,7 +95,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
 
             {detail.checklist && (
               <Reveal className="mt-12">
-                <h2 className="text-2xl font-bold text-foreground">Документы и требования</h2>
+                <h2 className="text-2xl font-bold text-foreground">{copy.docs}</h2>
                 <ul className="mt-6 space-y-3">
                   {detail.checklist.map((item) => (
                     <li key={item} className="flex gap-3 text-muted-foreground">
@@ -103,12 +111,10 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-28">
               <Reveal className="surface-card rounded-3xl p-6 md:p-8">
-                <p className="font-display text-lg font-bold text-foreground">Нужна консультация?</p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Подберём курс и рассчитаем стоимость под вашу ситуацию — бесплатно.
-                </p>
+                <p className="font-display text-lg font-bold text-foreground">{copy.consult}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{copy.consultLead}</p>
                 <BookButton service={service.id} variant="hero" size="lg" className="mt-6 w-full">
-                  Оставить заявку
+                  {copy.request}
                   <ArrowRight aria-hidden="true" />
                 </BookButton>
                 <Link
@@ -116,12 +122,12 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
                   className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary"
                 >
                   <ArrowLeft className="size-4" aria-hidden="true" />
-                  Все услуги
+                  {copy.all}
                 </Link>
               </Reveal>
 
               <Reveal delay={100} className="mt-6">
-                <p className="eyebrow text-ink-soft">Другие услуги</p>
+                <p className="eyebrow text-ink-soft">{copy.other}</p>
                 <ul className="mt-3 space-y-2">
                   {related.map((s) => (
                     <li key={s.id}>
@@ -130,7 +136,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
                         params={{ serviceId: s.id }}
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
-                        {s.title}
+                        {m.services[s.id].title}
                       </Link>
                     </li>
                   ))}

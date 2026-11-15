@@ -2,8 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { Button } from "@/components/ui/button";
-import { PRIMARY_PHONE } from "@/content/landing";
 import { PAGE_VISUALS } from "@/content/serviceVisuals";
+import { useDocumentMeta } from "@/i18n/document";
+import { heroPhone, useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 
 export const Route = createFileRoute("/spasibo")({
   head: () => ({
@@ -19,6 +21,18 @@ export const Route = createFileRoute("/spasibo")({
 function ThanksRoute() {
   return (
     <SiteLayout>
+      <ThanksPage />
+    </SiteLayout>
+  );
+}
+
+function ThanksPage() {
+  const { locale } = useLocale();
+  const copy = PAGES[locale];
+  const phone = heroPhone(locale);
+  useDocumentMeta(copy.meta.thanksTitle, copy.meta.thanksDescription);
+  return (
+    <>
       <section className="relative flex min-h-[80svh] items-center overflow-hidden pt-28 pb-20">
         <img
           src={PAGE_VISUALS.thanks.src}
@@ -34,25 +48,22 @@ function ThanksRoute() {
             <Check className="size-8" aria-hidden="true" />
           </span>
           <h1 className="mt-8 font-display text-4xl font-extrabold tracking-tight text-foreground md:text-6xl">
-            Спасибо, заявка принята
+            {copy.thanks.title}
           </h1>
-          <p className="mt-5 text-lg text-muted-foreground">
-            Менеджер перезвонит в рабочее время и подберёт курс под вашу ситуацию. Если вопрос срочный —
-            позвоните сами.
-          </p>
+          <p className="mt-5 text-lg text-muted-foreground">{copy.thanks.lead}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="xl">
-              <a href={PRIMARY_PHONE.href}>{PRIMARY_PHONE.display}</a>
+              <a href={phone.href}>{phone.display}</a>
             </Button>
             <Button asChild variant="subtle" size="xl">
               <Link to="/">
-                На главную
+                {copy.thanks.home}
                 <ArrowRight aria-hidden="true" />
               </Link>
             </Button>
           </div>
         </div>
       </section>
-    </SiteLayout>
+    </>
   );
 }

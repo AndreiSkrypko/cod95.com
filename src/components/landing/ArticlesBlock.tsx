@@ -2,10 +2,15 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArticleCover } from "@/components/articles/ArticleCover";
-import { ARTICLES } from "@/content/articles";
+import { localizedArticles } from "@/i18n/articles-copy";
+import { HOME } from "@/i18n/home-copy";
+import { useLocale } from "@/i18n/locale";
 import { Reveal, SectionHeading } from "./Reveal";
 
 export function ArticlesBlock() {
+  const { locale } = useLocale();
+  const copy = HOME[locale].articles;
+  const articles = localizedArticles(locale);
   return (
     <section
       id="statyi"
@@ -14,12 +19,12 @@ export function ArticlesBlock() {
     >
       <div className="container-page">
         <SectionHeading
-          eyebrow="Полезное"
-          title={<span id="articles-block-title">Статьи для водителей</span>}
-          lead="Разбираем выбор курса, документы и отличия польского и литовского КОД 95 — без воды, с опорой на практику."
+          eyebrow={copy.eyebrow}
+          title={<span id="articles-block-title">{copy.title}</span>}
+          lead={copy.lead}
         />
         <ul className="mt-12 grid gap-4 lg:grid-cols-3">
-          {ARTICLES.map((article, i) => (
+          {articles.map((article, i) => (
             <li key={article.slug}>
               <Reveal delay={i * 60}>
                 <Link
@@ -53,7 +58,7 @@ export function ArticlesBlock() {
         <Reveal className="mt-10">
           <Button asChild variant="subtle" size="lg" className="h-12">
             <Link to="/statyi">
-              Все статьи
+              {copy.all}
               <ArrowRight aria-hidden="true" />
             </Link>
           </Button>

@@ -1,10 +1,12 @@
 import { ArrowUpRight, Star } from "lucide-react";
-import { GOOGLE_REVIEWS_URL, REVIEWS, SAME_TEAM, TAXOCARD_URL } from "@/content/reviews";
+import { GOOGLE_REVIEWS_URL, TAXOCARD_URL } from "@/content/reviews";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 import { Reveal, SectionHeading } from "./Reveal";
 
-function Stars() {
+function Stars({ label }: { label: string }) {
   return (
-    <div className="flex gap-1" aria-label="Оценка 5 из 5">
+    <div className="flex gap-1" aria-label={label}>
       {Array.from({ length: 5 }).map((_, s) => (
         <Star key={s} className="size-3.5 fill-primary text-primary" aria-hidden="true" />
       ))}
@@ -13,6 +15,8 @@ function Stars() {
 }
 
 export function Reviews() {
+  const { locale } = useLocale();
+  const reviews = PAGES[locale].reviews;
   return (
     <section
       id="reviews"
@@ -22,27 +26,27 @@ export function Reviews() {
       <div className="container-page">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
-            eyebrow="Отзывы"
+            eyebrow={reviews.eyebrow}
             title={
               <span id="reviews-title">
-                Водители <span className="accent-serif">о нас</span>
+                {reviews.title} <span className="accent-serif">{reviews.titleAccent}</span>
               </span>
             }
-            lead={SAME_TEAM}
+            lead={reviews.lead}
           />
           <Reveal className="flex items-center gap-5 lg:pb-3">
             <span className="font-display text-6xl font-extrabold tracking-[-0.04em] text-foreground">
               5.0
             </span>
             <span>
-              <Stars />
+              <Stars label={reviews.stars} />
               <a
                 href={GOOGLE_REVIEWS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1 block text-sm text-muted-foreground hover:text-primary"
               >
-                1100+ отзывов в Google у Taxocard
+                {reviews.google}
               </a>
               <a
                 href={TAXOCARD_URL}
@@ -58,7 +62,7 @@ export function Reviews() {
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {REVIEWS.map((r, i) => (
+          {reviews.items.map((r, i) => (
             <Reveal
               key={r.name}
               delay={i * 80}
@@ -71,7 +75,7 @@ export function Reviews() {
               >
                 “
               </span>
-              <Stars />
+              <Stars label={reviews.stars} />
               <blockquote className="relative mb-6 mt-4 text-sm leading-relaxed text-foreground">
                 {r.text}
               </blockquote>

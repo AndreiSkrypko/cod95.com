@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { SERVICES } from "@/content/landing";
+import { useLocale } from "@/i18n/locale";
 import { cn } from "@/lib/utils";
 import { useBooking } from "./BookingDialog";
 import { SERVICE_ICONS } from "./serviceIcons";
@@ -13,6 +14,7 @@ type Props = {
 
 export function ServicesMegaMenu({ open, onOpenChange, className }: Props) {
   const openBooking = useBooking();
+  const { m } = useLocale();
   return (
     <div
       className={cn(
@@ -27,13 +29,13 @@ export function ServicesMegaMenu({ open, onOpenChange, className }: Props) {
       <div className="border-t border-border bg-white shadow-card">
         <div className="container-page py-8">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-5">
-            <p className="eyebrow eyebrow-rule text-primary">Наши услуги</p>
+            <p className="eyebrow eyebrow-rule text-primary">{m.nav.services}</p>
             <Link
               to="/uslugi"
               onClick={() => onOpenChange(false)}
               className="text-sm font-semibold text-primary hover:text-accent-foreground"
             >
-              Открыть каталог
+              {m.header.catalog}
             </Link>
           </div>
           <ul className="mt-6 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
@@ -52,14 +54,14 @@ export function ServicesMegaMenu({ open, onOpenChange, className }: Props) {
                     </span>
                     <span className="min-w-0">
                       <span className="flex items-center gap-2">
-                        <span className="font-display text-sm font-bold text-foreground">{s.title}</span>
+                        <span className="font-display text-sm font-bold text-foreground">{m.services[s.id].title}</span>
                         {s.isNew && (
                           <span className="rounded-full bg-primary px-2 py-0.5 text-[0.62rem] font-bold uppercase tracking-wider text-primary-foreground">
-                            Новинка
+                            {m.header.badgeNew}
                           </span>
                         )}
                       </span>
-                      <span className="mt-1 line-clamp-2 text-sm text-muted-foreground">{s.text}</span>
+                      <span className="mt-1 line-clamp-2 text-sm text-muted-foreground">{m.services[s.id].text}</span>
                     </span>
                   </Link>
                 </li>
@@ -74,7 +76,7 @@ export function ServicesMegaMenu({ open, onOpenChange, className }: Props) {
             }}
             className="mt-6 inline-flex items-center gap-2 font-display text-sm font-bold text-primary transition-colors hover:text-accent-foreground"
           >
-            Получить консультацию по услуге
+            {m.header.consultService}
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </button>
         </div>

@@ -2,12 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/pages/PageHero";
-import { ABOUT_LEAD, ABOUT_VALUES } from "@/content/about";
 import { PAGE_VISUALS } from "@/content/serviceVisuals";
 import lifeBriefing from "@/assets/life-briefing.jpg";
 import { STATS } from "@/content/landing";
 import { CountUp, Reveal } from "@/components/landing/Reveal";
 import { Button } from "@/components/ui/button";
+import { useDocumentMeta } from "@/i18n/document";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 
 export const Route = createFileRoute("/o-nas")({
   head: () => ({
@@ -26,18 +28,34 @@ export const Route = createFileRoute("/o-nas")({
 function AboutRoute() {
   return (
     <SiteLayout>
+      <AboutPage />
+    </SiteLayout>
+  );
+}
+
+function AboutPage() {
+  const { locale } = useLocale();
+  const copy = PAGES[locale];
+  const about = copy.about;
+  useDocumentMeta(copy.meta.aboutTitle, copy.meta.aboutDescription);
+  return (
+    <>
       <PageHero
-        eyebrow="О нас"
-        title={<>DrivePrime — ваш партнёр на пути в&nbsp;Европу</>}
-        lead={ABOUT_LEAD.mission}
+        eyebrow={about.eyebrow}
+        title={
+          <>
+            {about.titleBefore}&nbsp;<span className="accent-serif">{about.titleAccent}</span>
+          </>
+        }
+        lead={about.mission}
         image={PAGE_VISUALS.about.src}
-        imageAlt={PAGE_VISUALS.about.alt}
+        imageAlt={about.imageAlt}
       />
       <section className="section-y">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <h2 className="font-display text-3xl font-extrabold text-foreground md:text-4xl">Наша цель</h2>
-            <p className="mt-4 text-lg text-muted-foreground">{ABOUT_LEAD.goal}</p>
+            <h2 className="font-display text-3xl font-extrabold text-foreground md:text-4xl">{about.goalTitle}</h2>
+            <p className="mt-4 text-lg text-muted-foreground">{about.goal}</p>
             <p className="mt-4 text-lg text-muted-foreground">
               <a
                 href="https://taxocard.by/"
@@ -47,35 +65,26 @@ function AboutRoute() {
               >
                 Taxocard
               </a>{" "}
-              и DrivePrime — одна команда. Чип-карту водителя клиенты оформляют на Taxocard, курс КОД 95 и
-              документы — у нас. Отзывы на обоих сайтах — про одних и тех же людей.
+              {about.sameTeam}
             </p>
           </Reveal>
           <div className="overflow-hidden rounded-3xl shadow-card">
-            <img
-              src={lifeBriefing}
-              alt="Инструктор у учебного тягача"
-              className="aspect-[4/3] w-full object-cover"
-            />
+            <img src={lifeBriefing} alt={about.imageAlt} className="aspect-[4/3] w-full object-cover" />
           </div>
         </div>
         <dl className="container-page mt-16 grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {STATS.map((s) => (
-              <div key={s.label} className="surface-card rounded-2xl p-6">
-                <dt className="text-sm text-muted-foreground">{s.label}</dt>
-                <dd className="font-display text-4xl font-extrabold text-foreground">
-                  <CountUp value={s.value} suffix={s.suffix} />
-                </dd>
-              </div>
-            ))}
+          {STATS.map((s, i) => (
+            <div key={s.value} className="surface-card rounded-2xl p-6">
+              <dt className="text-sm text-muted-foreground">{copy.stats[i]}</dt>
+              <dd className="font-display text-4xl font-extrabold text-foreground">
+                <CountUp value={s.value} suffix={s.suffix} />
+              </dd>
+            </div>
+          ))}
         </dl>
         <ul className="container-page mt-16 grid gap-4 md:grid-cols-2">
-          {ABOUT_VALUES.map((v, i) => (
-            <Reveal
-              key={v.title}
-              delay={i * 60}
-              className="surface-card rounded-3xl p-8"
-            >
+          {about.values.map((v, i) => (
+            <Reveal key={v.title} delay={i * 60} className="surface-card rounded-3xl p-8">
               <h3 className="text-xl font-bold text-foreground">{v.title}</h3>
               <p className="mt-3 text-muted-foreground">{v.text}</p>
             </Reveal>
@@ -84,12 +93,12 @@ function AboutRoute() {
         <div className="container-page mt-12">
           <Button asChild variant="subtle" size="lg">
             <Link to="/uslugi">
-              Смотреть услуги
+              {about.services}
               <ArrowRight aria-hidden="true" />
             </Link>
           </Button>
         </div>
       </section>
-    </SiteLayout>
+    </>
   );
 }

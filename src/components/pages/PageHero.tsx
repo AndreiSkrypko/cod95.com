@@ -4,13 +4,15 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BookButton } from "@/components/landing/BookingDialog";
 import heroTruck from "@/assets/hero-truck.jpg";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 
 export function PageHero({
   eyebrow,
   title,
   lead,
   ctaTo = "/zapis",
-  ctaLabel = "Записаться на консультацию",
+  ctaLabel,
   service,
   image = heroTruck,
   imageAlt = "",
@@ -26,6 +28,8 @@ export function PageHero({
   imageAlt?: string;
   imagePosition?: string;
 }) {
+  const { locale } = useLocale();
+  const label = ctaLabel ?? PAGES[locale].article.cta;
   return (
     <section
       data-page-hero
@@ -49,13 +53,13 @@ export function PageHero({
         {lead && <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl">{lead}</p>}
         {ctaTo === "/zapis" ? (
           <BookButton {...(service ? { service } : {})} variant="hero" size="xl" className="mt-8">
-            {ctaLabel}
+            {label}
             <ArrowRight aria-hidden="true" />
           </BookButton>
         ) : (
           <Button asChild variant="hero" size="xl" className="mt-8">
             <Link to={ctaTo}>
-              {ctaLabel}
+              {label}
               <ArrowRight aria-hidden="true" />
             </Link>
           </Button>

@@ -9,10 +9,20 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { getBreadcrumbItems } from "@/lib/breadcrumbs";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
+import { localizedArticle } from "@/i18n/articles-copy";
+import type { ServiceId } from "@/content/landing";
 
 export function SiteBreadcrumbs() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const items = getBreadcrumbItems(pathname);
+  const { locale, m } = useLocale();
+  const pages = PAGES[locale];
+  const items = getBreadcrumbItems(pathname, {
+    crumbs: pages.crumbs,
+    serviceTitle: (id) => m.services[id as ServiceId].title,
+    articleTitle: (slug) => localizedArticle(locale, slug)?.title ?? slug,
+  });
 
   if (items.length === 0) return null;
 
@@ -22,7 +32,7 @@ export function SiteBreadcrumbs() {
       className="mt-[4.5rem] border-b border-border bg-background/95 backdrop-blur-sm"
     >
       <div className="container-page py-3">
-        <Breadcrumb aria-label="Хлебные крошки">
+        <Breadcrumb aria-label={pages.crumbs.label}>
           <BreadcrumbList className="font-display text-xs font-semibold sm:text-sm">
             {items.map((item, index) => {
               const isLast = index === items.length - 1;

@@ -1,19 +1,29 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CONTACTS, NAV } from "@/content/landing";
+import { CONTACTS } from "@/content/landing";
+import { PHONE_BY, PHONE_PL, useLocale } from "@/i18n/locale";
+import { NAV_LINKS } from "@/i18n/messages";
 import { useBooking } from "./BookingDialog";
 import { Logo } from "./Logo";
 
 export function SiteFooter() {
   const openBooking = useBooking();
+  const { m } = useLocale();
+  const phones = [
+    { ...PHONE_BY, label: m.contacts.minsk },
+    { ...PHONE_PL, label: m.contacts.warsaw },
+  ];
+  const hours = [
+    { days: m.contacts.weekdays, time: CONTACTS.hours[0]?.time ?? "" },
+    { days: m.contacts.saturday, time: CONTACTS.hours[1]?.time ?? "" },
+  ];
   return (
     <footer className="noise relative overflow-hidden border-t border-border bg-background-deep">
       <div className="container-page grid gap-12 pb-10 pt-20 md:grid-cols-12">
         <div className="md:col-span-5">
           <Logo />
           <p className="mt-6 max-w-sm text-muted-foreground">
-            Легальное оформление КОД 95 и сопутствующих услуг для водителей-международников. Офисы в
-            Минске и Варшаве.
+            {m.footer.blurb}
           </p>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             <a
@@ -24,35 +34,35 @@ export function SiteFooter() {
             >
               Taxocard
             </a>{" "}
-            и DrivePrime — одна команда.
+            {m.footer.sameTeam}
           </p>
           <button
             type="button"
             onClick={() => openBooking()}
             className="group mt-8 inline-flex items-center gap-3 font-display text-lg font-bold text-foreground"
           >
-            Обсудить вашу ситуацию
+            {m.footer.discuss}
             <span className="grid size-10 place-items-center rounded-full border border-border-strong transition-all duration-700 ease-out-expo group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
               <ArrowUpRight className="size-4" aria-hidden="true" />
             </span>
           </button>
         </div>
-        <nav aria-label="Навигация в подвале" className="md:col-span-3 md:col-start-7">
-          <p className="eyebrow text-ink-soft">Разделы</p>
+        <nav aria-label={m.footer.sections} className="md:col-span-3 md:col-start-7">
+          <p className="eyebrow text-ink-soft">{m.footer.sections}</p>
           <ul className="mt-5 space-y-3">
-            {NAV.map((n) => (
-              <li key={n.label}>
+            {NAV_LINKS.map((n) => (
+              <li key={n.key}>
                 {n.to === "/zapis" ? (
                   <button
                     type="button"
                     onClick={() => openBooking()}
                     className="text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    {n.label}
+                    {m.nav[n.key]}
                   </button>
                 ) : (
                   <Link to={n.to} className="text-muted-foreground transition-colors hover:text-foreground">
-                    {n.label}
+                    {m.nav[n.key]}
                   </Link>
                 )}
               </li>
@@ -60,9 +70,9 @@ export function SiteFooter() {
           </ul>
         </nav>
         <div className="md:col-span-3">
-          <p className="eyebrow text-ink-soft">Связь</p>
+          <p className="eyebrow text-ink-soft">{m.footer.contact}</p>
           <ul className="mt-5 space-y-3">
-            {CONTACTS.phones.map((p) => (
+            {phones.map((p) => (
               <li key={p.href}>
                 <a
                   href={p.href}
@@ -73,7 +83,7 @@ export function SiteFooter() {
                 <span className="ml-2 text-sm text-ink-soft">{p.label}</span>
               </li>
             ))}
-            {CONTACTS.hours.map((h) => (
+            {hours.map((h) => (
               <li key={h.days} className="text-muted-foreground">
                 {h.days}: {h.time}
               </li>
@@ -91,8 +101,10 @@ export function SiteFooter() {
 
       <div className="border-t border-border">
         <div className="container-page flex flex-col justify-between gap-2 py-6 text-sm text-ink-soft sm:flex-row">
-          <p>© 2026 DrivePrime / COD95. Все права защищены.</p>
-          <p>Минск · Варшава</p>
+          <p>{m.footer.rights}</p>
+          <p>
+            {m.contacts.minsk} · {m.contacts.warsaw}
+          </p>
         </div>
       </div>
     </footer>

@@ -4,8 +4,11 @@ import { ChevronDown, Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CONTACTS, NAV, PRIMARY_PHONE, SERVICES } from "@/content/landing";
+import { SERVICES } from "@/content/landing";
+import { heroPhone, useLocale } from "@/i18n/locale";
+import { NAV_LINKS } from "@/i18n/messages";
 import { BookButton, useBooking } from "./BookingDialog";
+import { LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 import { ServicesMegaMenu } from "./ServicesMegaMenu";
 import { SERVICE_ICONS } from "./serviceIcons";
@@ -15,6 +18,8 @@ const linkClass =
 
 export function SiteHeader() {
   const openBooking = useBooking();
+  const { m, locale } = useLocale();
+  const phone = heroPhone(locale);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
@@ -46,68 +51,83 @@ export function SiteHeader() {
       <div className="container-page flex h-[4.5rem] items-center gap-8">
         <Logo />
 
-        <nav aria-label="Основная навигация" className="hidden items-center lg:flex">
-          {NAV.map((item) =>
-            item.mega ? (
+        <nav aria-label={m.header.nav} className="hidden items-center lg:flex">
+          {NAV_LINKS.map((item) =>
+            "mega" in item ? (
               <button
-                key={item.label}
+                key={item.key}
                 type="button"
                 className={cn(linkClass, "inline-flex items-center gap-1", megaOpen && "text-foreground after:scale-x-100")}
                 aria-expanded={megaOpen}
                 onMouseEnter={() => setMegaOpen(true)}
                 onClick={() => setMegaOpen((v) => !v)}
               >
-                Наши услуги
+                {m.nav[item.key]}
                 <ChevronDown className={cn("size-3.5 transition-transform", megaOpen && "rotate-180")} />
               </button>
             ) : item.to === "/zapis" ? (
-              <button key={item.label} type="button" className={linkClass} onClick={() => openBooking()}>
-                {item.label}
+              <button key={item.key} type="button" className={linkClass} onClick={() => openBooking()}>
+                {m.nav[item.key]}
               </button>
             ) : (
               <Link
-                key={item.label}
+                key={item.key}
                 to={item.to}
                 className={linkClass}
                 activeProps={{ className: "text-foreground after:scale-x-100" }}
               >
-                {item.label}
+                {m.nav[item.key]}
               </Link>
             ),
           )}
         </nav>
 
-        <div className="ml-auto hidden items-center gap-6 xl:flex">
-          <a href={PRIMARY_PHONE.href} className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+        <div className="ml-auto hidden items-center gap-4 lg:flex">
+          <LanguageSwitch />
+          <a href={phone.href} className="hidden items-center gap-2 text-sm font-semibold text-foreground xl:inline-flex">
             <Phone className="size-4 text-primary" aria-hidden="true" />
-            {PRIMARY_PHONE.display}
+            {phone.display}
           </a>
-          <span className="text-sm text-muted-foreground">{CONTACTS.phones[1]?.display}</span>
         </div>
 
-        <BookButton variant="hero" size="sm" className="ml-auto hidden h-10 px-5 sm:inline-flex xl:ml-2">
-          Консультация
+        <BookButton variant="hero" size="sm" className="ml-auto hidden h-10 px-5 sm:inline-flex lg:ml-2">
+          {m.header.consult}
         </BookButton>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="subtle" size="icon" className="ml-auto size-10 lg:hidden" aria-label="Меню">
+            <Button variant="subtle" size="icon" className="ml-auto size-10 lg:hidden" aria-label={m.header.menu}>
               <Menu />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[88vw] max-w-md overflow-y-auto border-border bg-background">
-            <SheetTitle className="font-display">Меню</SheetTitle>
+            <SheetTitle className="font-display">{m.header.menu}</SheetTitle>
+            <LanguageSwitch className="mt-4 w-fit" />
             <nav className="mt-6 flex flex-col">
-              {NAV.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className="border-b border-border py-3 font-display text-lg font-semibold"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {NAV_LINKS.map((item) =>
+                item.to === "/zapis" ? (
+                  <button
+                    key={item.key}
+                    type="button"
+                    onClick={() => {
+                      setOpen(false);
+                      openBooking();
+                    }}
+                    className="border-b border-border py-3 text-left font-display text-lg font-semibold"
+                  >
+                    {m.nav[item.key]}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.key}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="border-b border-border py-3 font-display text-lg font-semibold"
+                  >
+                    {m.nav[item.key]}
+                  </Link>
+                ),
+              )}
             </nav>
             <ul className="mt-4 space-y-1">
               {SERVICES.map((s) => {
@@ -121,19 +141,16 @@ export function SiteHeader() {
                       className="flex items-center gap-2 rounded-lg px-1 py-2 text-sm"
                     >
                       <Icon className="size-4 text-primary" />
-                      {s.title}
+                      {m.services[s.id].title}
                     </Link>
                   </li>
                 );
               })}
             </ul>
             <div className="mt-6 space-y-2 border-t border-border pt-4">
-              {CONTACTS.phones.map((p) => (
-                <a key={p.href} href={p.href} className="block font-semibold">
-                  {p.display}
-                  <span className="ml-2 text-sm font-normal text-muted-foreground">{p.label}</span>
-                </a>
-              ))}
+              <a href={phone.href} className="block font-semibold">
+                {phone.display}
+              </a>
             </div>
           </SheetContent>
         </Sheet>

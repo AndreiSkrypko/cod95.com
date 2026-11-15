@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/pages/PageHero";
-import { CODE95_EXPLAINER } from "@/content/info";
 import { PAGE_VISUALS } from "@/content/serviceVisuals";
+import { useDocumentMeta } from "@/i18n/document";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 import classroom from "@/assets/classroom.jpg";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { CourseAdvisor } from "@/components/landing/CourseAdvisor";
@@ -23,45 +25,57 @@ export const Route = createFileRoute("/informaciya")({
 function InfoRoute() {
   return (
     <SiteLayout>
+      <InfoPage />
+    </SiteLayout>
+  );
+}
+
+function InfoPage() {
+  const { locale } = useLocale();
+  const copy = PAGES[locale];
+  const info = copy.info;
+  useDocumentMeta(copy.meta.infoTitle, copy.meta.infoDescription);
+  return (
+    <>
       <PageHero
-        eyebrow="Информация"
+        eyebrow={info.eyebrow}
         title={
           <>
-            Всё о <span className="accent-serif">КОД 95</span> и документах
+            {info.titleBefore} <span className="accent-serif">{info.titleAccent}</span> {info.titleAfter}
           </>
         }
-        lead="Справочник для водителей: курсы, сроки, оплата и сопутствующие услуги."
+        lead={info.lead}
         image={PAGE_VISUALS.info.src}
-        imageAlt={PAGE_VISUALS.info.alt}
+        imageAlt={info.imageAlt}
       />
       <section className="section-y border-t border-border">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <h2 className="font-display text-3xl font-extrabold text-foreground">{CODE95_EXPLAINER.title}</h2>
-            {CODE95_EXPLAINER.paragraphs.map((p) => (
+            <h2 className="font-display text-3xl font-extrabold text-foreground">{info.explainerTitle}</h2>
+            {info.paragraphs.map((p) => (
               <p key={p.slice(0, 48)} className="mt-5 text-lg text-muted-foreground">
                 {p}
               </p>
             ))}
           </Reveal>
           <div className="overflow-hidden rounded-3xl shadow-card">
-            <img src={classroom} alt="Учебный класс" className="aspect-[4/3] w-full object-cover" />
+            <img src={classroom} alt={info.imageAlt} className="aspect-[4/3] w-full object-cover" />
           </div>
         </div>
       </section>
       <CourseAdvisor />
       <section className="section-y border-t border-border bg-background-deep">
         <div className="container-page">
-          <SectionHeading eyebrow="FAQ" title="Частые вопросы" />
+          <SectionHeading eyebrow={info.faqEyebrow} title={info.faqTitle} />
           <Reveal className="mt-10 max-w-3xl">
             <FaqList />
           </Reveal>
           <BookButton variant="hero" size="lg" className="mt-10">
-            Задать вопрос менеджеру
+            {info.ask}
             <ArrowRight aria-hidden="true" />
           </BookButton>
         </div>
       </section>
-    </SiteLayout>
+    </>
   );
 }

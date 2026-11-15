@@ -1,58 +1,73 @@
 import { getArticleBySlug, isArticleSlug } from "@/content/articles";
 import { getServiceById, isServiceId } from "@/content/servicePages";
+import { PAGES, type PagesCopy } from "@/i18n/pages-copy";
 
 export type BreadcrumbItem = {
   label: string;
   to?: "/" | "/o-nas" | "/informaciya" | "/statyi" | "/uslugi" | "/kontakty" | "/zapis" | "/spasibo";
 };
 
-const TOP_LEVEL: Record<string, BreadcrumbItem> = {
-  "o-nas": { label: "О нас", to: "/o-nas" },
-  informaciya: { label: "Информация", to: "/informaciya" },
-  statyi: { label: "Статьи", to: "/statyi" },
-  uslugi: { label: "Наши услуги", to: "/uslugi" },
-  kontakty: { label: "Контакты", to: "/kontakty" },
-  zapis: { label: "Запись на курс", to: "/zapis" },
-  spasibo: { label: "Спасибо за заявку", to: "/spasibo" },
-};
+function topLevel(crumbs: PagesCopy["crumbs"]): Record<string, BreadcrumbItem> {
+  return {
+    "o-nas": { label: crumbs.about, to: "/o-nas" },
+    informaciya: { label: crumbs.info, to: "/informaciya" },
+    statyi: { label: crumbs.articles, to: "/statyi" },
+    uslugi: { label: crumbs.services, to: "/uslugi" },
+    kontakty: { label: crumbs.contacts, to: "/kontakty" },
+    zapis: { label: crumbs.zapis, to: "/zapis" },
+    spasibo: { label: crumbs.thanks, to: "/spasibo" },
+  };
+}
 
 function truncateLabel(text: string, max = 52) {
   if (text.length <= max) return text;
   return `${text.slice(0, max - 1).trim()}…`;
 }
 
+type CrumbOptions = {
+  crumbs?: PagesCopy["crumbs"];
+  serviceTitle?: (id: string) => string;
+  articleTitle?: (slug: string) => string;
+};
+
 /** Пустой массив — главная, крошки не показываем */
-export function getBreadcrumbItems(pathname: string): BreadcrumbItem[] {
+export function getBreadcrumbItems(pathname: string, options?: CrumbOptions): BreadcrumbItem[] {
+  const crumbs = options?.crumbs ?? PAGES.ru.crumbs;
+  const labels = topLevel(crumbs);
   const clean = pathname.replace(/\/+$/, "") || "/";
   if (clean === "/") return [];
 
   const segments = clean.split("/").filter(Boolean);
-  const items: BreadcrumbItem[] = [{ label: "Главная", to: "/" }];
+  const items: BreadcrumbItem[] = [{ label: crumbs.home, to: "/" }];
 
   const root = segments[0];
   const child = segments[1];
 
   if (root === "uslugi") {
-    items.push(TOP_LEVEL.uslugi);
+    const servicesCrumb = labels["uslugi"];
+    if (servicesCrumb) items.push(servicesCrumb);
     if (child && isServiceId(child)) {
       const service = getServiceById(child);
-      if (service) items.push({ label: truncateLabel(service.title) });
+      const title = options?.serviceTitle?.(child) ?? service?.title;
+      if (title) items.push({ label: truncateLabel(title) });
     }
     return items;
   }
 
   if (root === "statyi") {
-    items.push(TOP_LEVEL.statyi);
+    const articlesCrumb = labels["statyi"];
+    if (articlesCrumb) items.push(articlesCrumb);
     if (child && isArticleSlug(child)) {
       const article = getArticleBySlug(child);
-      if (article) items.push({ label: truncateLabel(article.title) });
+      const title = options?.articleTitle?.(child) ?? article?.title;
+      if (title) items.push({ label: truncateLabel(title) });
     }
     return items;
   }
 
-  const top = TOP_LEVEL[root];
+  const top = root ? labels[root] : undefined;
   if (top) items.push(top);
-  else items.push({ label: "Страница" });
+  else items.push({ label: crumbs.page });
 
   return items;
 }

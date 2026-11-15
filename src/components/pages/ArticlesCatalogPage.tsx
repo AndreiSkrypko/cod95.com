@@ -1,31 +1,39 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { ArticleCover } from "@/components/articles/ArticleCover";
-import { ARTICLES } from "@/content/articles";
 import { PAGE_VISUALS } from "@/content/serviceVisuals";
+import { localizedArticles } from "@/i18n/articles-copy";
+import { useDocumentMeta } from "@/i18n/document";
+import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 import { PageHero } from "./PageHero";
 
 export function ArticlesCatalogPage() {
+  const { locale } = useLocale();
+  const copy = PAGES[locale];
+  useDocumentMeta(copy.meta.articlesTitle, copy.meta.articlesDescription);
+  const articles = localizedArticles(locale);
   return (
     <>
       <PageHero
-        eyebrow="Статьи"
+        eyebrow={copy.article.catalogEyebrow}
         title={
           <>
-            Гайды по <span className="accent-serif">КОД 95</span> и документам
+            {copy.article.catalogTitleBefore} <span className="accent-serif">{copy.article.catalogTitleAccent}</span>{" "}
+            {copy.article.catalogTitleAfter}
           </>
         }
-        lead="Практические материалы для водителей-международников: выбор курса, поездка в Варшаву, Польша и Литва."
+        lead={copy.article.catalogLead}
         image={PAGE_VISUALS.articles.src}
-        imageAlt={PAGE_VISUALS.articles.alt}
+        imageAlt={copy.article.catalogEyebrow}
         ctaTo="/zapis"
-        ctaLabel="Консультация"
+        ctaLabel={copy.article.catalogCta}
       />
 
       <section className="section-y border-t border-border bg-background-deep">
         <div className="container-page">
           <ul className="grid gap-4 lg:grid-cols-3">
-            {ARTICLES.map((article) => (
+            {articles.map((article) => (
               <li key={article.slug}>
                 <Link
                   to="/statyi/$slug"
