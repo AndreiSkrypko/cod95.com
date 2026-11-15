@@ -59,12 +59,12 @@ export function Hero() {
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full max-w-none origin-center animate-hero-drive object-cover object-[78%_center]"
+          className="absolute inset-0 h-full w-full max-w-none origin-center animate-hero-drive object-cover object-[72%_center] lg:right-auto lg:left-[-28%] lg:w-[124%] lg:object-center"
         />
       </div>
       {/* Light field only behind the copy — the cab stays in the open middle */}
       <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,oklch(0.985_0.012_80/92%)_0%,oklch(0.985_0.012_80/72%)_46%,oklch(0.985_0.012_80/40%)_100%)] lg:bg-[linear-gradient(100deg,oklch(0.985_0.012_80)_0%,oklch(0.985_0.012_80/92%)_22%,oklch(0.985_0.012_80/22%)_40%,transparent_56%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,oklch(0.985_0.012_80/92%)_0%,oklch(0.985_0.012_80/72%)_46%,oklch(0.985_0.012_80/40%)_100%)] lg:bg-[linear-gradient(100deg,oklch(0.985_0.012_80)_0%,oklch(0.985_0.012_80/90%)_16%,oklch(0.985_0.012_80/20%)_30%,transparent_44%)]"
         aria-hidden="true"
       />
 
