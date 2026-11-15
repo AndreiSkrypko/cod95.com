@@ -8,7 +8,7 @@ import { SERVICES } from "@/content/landing";
 import { heroPhone, useLocale } from "@/i18n/locale";
 import { NAV_LINKS } from "@/i18n/messages";
 import { BookButton, useBooking } from "./BookingDialog";
-import { LanguageSwitch } from "./LanguageSwitch";
+import { LanguageMenu, LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 import { ServicesMegaMenu } from "./ServicesMegaMenu";
 import { SERVICE_ICONS } from "./serviceIcons";
@@ -94,15 +94,16 @@ export function SiteHeader() {
           {m.header.consult}
         </BookButton>
 
-        <Sheet open={open} onOpenChange={setOpen}>
+        <div className="ml-auto flex items-center gap-2 sm:ml-0 lg:hidden">
+          <LanguageMenu />
+          <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="subtle" size="icon" className="ml-auto size-10 lg:hidden" aria-label={m.header.menu}>
+            <Button variant="subtle" size="icon" className="size-10" aria-label={m.header.menu}>
               <Menu />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[88vw] max-w-md overflow-y-auto border-border bg-background">
             <SheetTitle className="font-display">{m.header.menu}</SheetTitle>
-            <LanguageSwitch className="mt-4 w-fit" />
             <nav className="mt-6 flex flex-col">
               {NAV_LINKS.map((item) =>
                 item.to === "/zapis" ? (
@@ -154,6 +155,7 @@ export function SiteHeader() {
             </div>
           </SheetContent>
         </Sheet>
+        </div>
       </div>
 
       <ServicesMegaMenu open={megaOpen} onOpenChange={setMegaOpen} className="pt-0" />
