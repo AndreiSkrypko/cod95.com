@@ -5,6 +5,7 @@ import { CODE95_EXPLAINER } from "@/content/info";
 import { PAGE_VISUALS } from "@/content/serviceVisuals";
 import classroom from "@/assets/classroom.jpg";
 import { BookButton } from "@/components/landing/BookingDialog";
+import { CourseAdvisor } from "@/components/landing/CourseAdvisor";
 import { Reveal, SectionHeading } from "@/components/landing/Reveal";
 import { FaqList } from "@/components/landing/FaqList";
 import { ArrowRight } from "lucide-react";
@@ -48,6 +49,7 @@ function InfoRoute() {
           </div>
         </div>
       </section>
+      <CourseAdvisor />
       <section className="section-y border-t border-border bg-background-deep">
         <div className="container-page">
           <SectionHeading eyebrow="FAQ" title="Частые вопросы" />

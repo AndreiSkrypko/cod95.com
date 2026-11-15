@@ -73,7 +73,7 @@ export function Hero() {
   const photo = useParallax<HTMLDivElement>();
 
   return (
-    <section id="top" className="relative flex min-h-[100svh] flex-col overflow-hidden lg:h-[100svh]">
+    <section id="top" className="relative flex min-h-[100svh] flex-col overflow-hidden">
       <div ref={photo} className="absolute inset-0 -z-20 overflow-hidden">
         <img
           src={heroTruck}
@@ -90,10 +90,10 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container-page relative flex flex-1 flex-col justify-end gap-6 pb-6 pt-28 lg:grid lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-center lg:gap-8 lg:pb-8 xl:grid-cols-[minmax(0,1fr)_23rem]">
+      <div className="container-page relative flex flex-1 flex-col justify-end gap-6 pb-8 pt-24 lg:grid lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-center lg:gap-8 xl:grid-cols-[minmax(0,1fr)_23rem]">
         <div className="max-w-xl xl:max-w-2xl">
           <p className="eyebrow eyebrow-rule animate-fade-up">Запись на курс КОД 95</p>
-          <h1 className="mt-5 font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.045em] text-foreground sm:text-7xl xl:text-8xl">
+          <h1 className="mt-4 font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.045em] text-foreground sm:text-7xl xl:text-8xl">
             <span className="line-mask">
               <span className="block animate-line-up">КОД 95</span>
             </span>
@@ -103,10 +103,10 @@ export function Hero() {
               </span>
             </span>
           </h1>
-          <p className="mt-6 max-w-md animate-fade-up text-lg text-foreground/80 md:text-xl" style={{ animationDelay: "0.28s" }}>
+          <p className="mt-4 max-w-md animate-fade-up text-lg text-foreground/80 md:text-xl" style={{ animationDelay: "0.28s" }}>
             Запись на курс Код 95 для работы в Европе. Офисы в Минске и Варшаве.
           </p>
-          <div className="mt-8 flex animate-fade-up flex-wrap gap-3" style={{ animationDelay: "0.4s" }}>
+          <div className="mt-6 flex animate-fade-up flex-wrap gap-3" style={{ animationDelay: "0.4s" }}>
             <BookButton variant="hero" size="xl">
               Записаться
               <ArrowRight aria-hidden="true" />
@@ -115,8 +115,14 @@ export function Hero() {
               <Link to="/uslugi">Все услуги</Link>
             </Button>
           </div>
+          <Button asChild variant="glass" className="mt-3 h-11 animate-fade-up px-5" style={{ animationDelay: "0.46s" }}>
+            <Link to="/informaciya" hash="kurs">
+              Не знаете, какой курс подойдёт?
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          </Button>
           <dl
-            className="mt-10 hidden max-w-xl animate-fade-up grid-cols-3 gap-4 md:grid"
+            className="mt-6 hidden max-w-xl animate-fade-up grid-cols-3 gap-4 md:grid"
             style={{ animationDelay: "0.5s" }}
           >
             {HERO_STATS.map((s) => (

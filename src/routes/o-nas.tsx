@@ -38,6 +38,18 @@ function AboutRoute() {
           <Reveal>
             <h2 className="font-display text-3xl font-extrabold text-foreground md:text-4xl">Наша цель</h2>
             <p className="mt-4 text-lg text-muted-foreground">{ABOUT_LEAD.goal}</p>
+            <p className="mt-4 text-lg text-muted-foreground">
+              <a
+                href="https://taxocard.by/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-display font-bold text-foreground hover:text-primary"
+              >
+                Taxocard
+              </a>{" "}
+              и DrivePrime — одна команда. Чип-карту водителя клиенты оформляют на Taxocard, курс КОД 95 и
+              документы — у нас. Отзывы на обоих сайтах — про одних и тех же людей.
+            </p>
           </Reveal>
           <div className="overflow-hidden rounded-3xl shadow-card">
             <img

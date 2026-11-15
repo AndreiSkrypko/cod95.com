@@ -97,7 +97,8 @@ export function StoryBlock() {
             </p>
             <p>
               Сегодня сопровождаем от выбора курса до документов и, если нужно, до трудоустройства. Офисы в
-              Минске и Варшаве, договор и фиксированная цена.
+              Минске и Варшаве, договор и фиксированная цена. Taxocard и DrivePrime — одна команда: чип-карта
+              водителя и курс КОД 95 ведутся вместе.
             </p>
             <p>
               Больше 1 500 водителей уже прошли этот путь с нами — с опытом и без.
@@ -239,9 +240,16 @@ export function Code95Block() {
               откладывать — иначе можно остаться без допуска к рейсу.
             </p>
           </div>
-          <Button asChild variant="hero" className="mt-8">
-            <Link to="/informaciya">Подробнее</Link>
-          </Button>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild variant="hero">
+              <Link to="/informaciya" hash="kurs">
+                Какой курс подойдёт
+              </Link>
+            </Button>
+            <Button asChild variant="subtle">
+              <Link to="/informaciya">Подробнее о КОД 95</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

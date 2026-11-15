@@ -15,6 +15,17 @@ export function SiteFooter() {
             Легальное оформление КОД 95 и сопутствующих услуг для водителей-международников. Офисы в
             Минске и Варшаве.
           </p>
+          <p className="mt-4 max-w-sm text-sm text-muted-foreground">
+            <a
+              href="https://taxocard.by/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display font-bold text-foreground hover:text-primary"
+            >
+              Taxocard
+            </a>{" "}
+            и DrivePrime — одна команда.
+          </p>
           <button
             type="button"
             onClick={() => openBooking()}
