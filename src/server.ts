@@ -2,6 +2,8 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { parseBitrixLeadRequest } from "./lib/bitrix-api";
+import { postBitrixLeadToCrm } from "./lib/bitrix-submit-core";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -47,9 +49,41 @@ function isH3SwallowedErrorBody(body: string): boolean {
 // Hosting compresses every response at the edge. Never compress a body (gzip, brotli,
 // CompressionStream) or set content-encoding here or in a server route: the body gets encoded
 // twice and renders garbled.
+async function handleBitrixLeadApi(request: Request): Promise<Response> {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return Response.json({ ok: false, error: "invalid_body" }, { status: 400 });
+  }
+
+  const parsed = parseBitrixLeadRequest(body);
+  if (!parsed) {
+    return Response.json({ ok: false, error: "invalid_payload" }, { status: 400 });
+  }
+
+  const result = await postBitrixLeadToCrm(
+    parsed.formKey,
+    parsed.payload,
+    AbortSignal.timeout(15_000),
+  );
+
+  if (result.ok) {
+    return Response.json({ ok: true, resultId: result.resultId });
+  }
+
+  const status = result.error === "network" || result.error === "timeout" ? 502 : 400;
+  return Response.json({ ok: false, error: result.error }, { status });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+      if (url.pathname === "/api/bitrix-lead" && request.method === "POST") {
+        return handleBitrixLeadApi(request);
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);

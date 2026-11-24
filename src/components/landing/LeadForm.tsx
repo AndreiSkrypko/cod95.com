@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +15,9 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { SERVICES } from "@/content/landing";
 import { useLocale } from "@/i18n/locale";
+import { resolveBitrixFormKey } from "@/lib/bitrix";
+import { submitBitrixLead } from "@/lib/bitrix-api";
+import { BitrixClickEmbed, openBitrixClickForm } from "@/components/bitrix/BitrixClickEmbed";
 
 function leadSchema(m: ReturnType<typeof useLocale>["m"]) {
   return z.object({
@@ -54,6 +58,10 @@ export function LeadForm({
   const formTitle = title ?? m.form.title;
   const [service, setService] = useState(defaultService);
   const [errors, setErrors] = useState<Errors>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [showBitrixEmbed, setShowBitrixEmbed] = useState(false);
+  const bitrixFormKey = resolveBitrixFormKey(service);
+  const bitrixTriggerId = `${formId ?? "lead"}-b24`;
 
   useEffect(() => {
     setService(defaultService);
@@ -61,6 +69,7 @@ export function LeadForm({
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submitting) return;
     const form = e.currentTarget;
     const data = new FormData(form);
     const parsed = schema.safeParse({
@@ -79,8 +88,69 @@ export function LeadForm({
       return;
     }
     setErrors({});
-    form.reset();
-    void navigate({ to: "/spasibo" });
+
+    const serviceLabel =
+      m.services[parsed.data.service as keyof typeof m.services]?.title ?? parsed.data.service;
+
+    const openBitrixWithContext = async () => {
+      const hint = [serviceLabel, parsed.data.comment].filter(Boolean).join(" — ");
+      try {
+        const clip = [parsed.data.name, parsed.data.phone, hint].filter(Boolean).join("\n");
+        if (clip && navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(clip);
+        }
+      } catch {
+        /* clipboard optional */
+      }
+      setShowBitrixEmbed(true);
+      await new Promise((r) => window.setTimeout(r, 400));
+      const opened = await openBitrixClickForm(bitrixTriggerId);
+      if (opened) {
+        toast.message(hint ? `${m.form.bitrixConfirm} ${hint}` : m.form.bitrixConfirm);
+        return true;
+      }
+      return false;
+    };
+
+    const run = async () => {
+      setSubmitting(true);
+      try {
+        const formKey = resolveBitrixFormKey(parsed.data.service);
+        const pageUrl =
+          typeof window !== "undefined" ? window.location.href : "https://cod95.com";
+        const isLocal =
+          typeof window !== "undefined" &&
+          /^(localhost|127\.0\.0\.1)$/i.test(window.location.hostname);
+
+        if (isLocal) {
+          const opened = await openBitrixWithContext();
+          if (!opened) toast.error(m.form.errSubmit);
+          return;
+        }
+
+        const result = await submitBitrixLead(formKey, {
+          name: parsed.data.name,
+          phone: parsed.data.phone,
+          serviceLabel,
+          comment: parsed.data.comment,
+          pageUrl,
+        });
+
+        if (result.ok) {
+          form.reset();
+          setService(defaultService);
+          void navigate({ to: "/spasibo" });
+          return;
+        }
+
+        const opened = await openBitrixWithContext();
+        if (!opened) toast.error(m.form.errSubmit);
+      } finally {
+        setSubmitting(false);
+      }
+    };
+
+    void run();
   };
 
   return (
@@ -161,10 +231,28 @@ export function LeadForm({
           className="rounded-xl border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60"
         />
       </div>
-      <Button type="submit" variant="hero" size="xl" className="mt-7 w-full">
-        {m.form.submit}
+      <Button type="submit" variant="hero" size="xl" className="mt-7 w-full" disabled={submitting}>
+        {submitting ? m.form.submitting : m.form.submit}
       </Button>
       <p className="mt-4 text-sm text-ink-soft">{m.form.consent}</p>
+      <button
+        type="button"
+        className="mt-3 w-full text-center text-sm font-medium text-primary underline-offset-4 hover:underline"
+        onClick={() => {
+          setShowBitrixEmbed(true);
+          window.setTimeout(() => {
+            void openBitrixClickForm(bitrixTriggerId).then((opened) => {
+              if (opened) toast.message(m.form.bitrixFallback);
+              else toast.error(m.form.bitrixAltUnavailable);
+            });
+          }, 300);
+        }}
+      >
+        {m.form.bitrixAlt}
+      </button>
+      {showBitrixEmbed ? (
+        <BitrixClickEmbed key={bitrixFormKey} formKey={bitrixFormKey} triggerId={bitrixTriggerId} />
+      ) : null}
     </form>
   );
 }

@@ -229,7 +229,16 @@ const ru = {
     comment: "Комментарий",
     commentPh: "Расскажите о вашей ситуации",
     submit: "Отправить заявку",
+    submitting: "Отправляем…",
     consent: "Нажимая кнопку, вы соглашаетесь на обработку персональных данных.",
+    errSubmit:
+      "Не удалось отправить заявку. Попробуйте ещё раз, откройте форму Bitrix24 ниже или позвоните нам.",
+    bitrixConfirm:
+      "Подтвердите заявку в форме Bitrix24 (данные скопированы в буфер). Услуга:",
+    bitrixFallback: "Заполните открывшуюся форму Bitrix24 и нажмите «Отправить заявку».",
+    bitrixAlt: "Не получилось? Открыть форму Bitrix24 (как на taxocard.by)",
+    bitrixAltUnavailable:
+      "Форма Bitrix24 сейчас недоступна. Отключите VPN или позвоните нам.",
     errName: "Укажите имя",
     errNameLong: "Слишком длинное имя",
     errPhone: "Укажите телефон в международном формате",
@@ -303,7 +312,16 @@ const pl: Messages = {
     comment: "Komentarz",
     commentPh: "Opisz swoją sytuację",
     submit: "Wyślij zgłoszenie",
+    submitting: "Wysyłanie…",
     consent: "Klikając przycisk, zgadzasz się na przetwarzanie danych osobowych.",
+    errSubmit:
+      "Nie udało się wysłać zgłoszenia. Spróbuj ponownie, otwórz formularz Bitrix24 lub zadzwoń.",
+    bitrixConfirm:
+      "Potwierdź zgłoszenie w formularzu Bitrix24 (dane w schowku). Usługa:",
+    bitrixFallback: "Uzupełnij formularz Bitrix24 i kliknij «Wyślij zgłoszenie».",
+    bitrixAlt: "Nie udało się? Otwórz formularz Bitrix24",
+    bitrixAltUnavailable:
+      "Formularz Bitrix24 jest niedostępny. Wyłącz VPN lub zadzwoń.",
     errName: "Podaj imię",
     errNameLong: "Zbyt długie imię",
     errPhone: "Podaj telefon w formacie międzynarodowym",
@@ -375,7 +393,16 @@ const uk: Messages = {
     comment: "Коментар",
     commentPh: "Розкажіть про вашу ситуацію",
     submit: "Надіслати заявку",
+    submitting: "Надсилаємо…",
     consent: "Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.",
+    errSubmit:
+      "Не вдалося надіслати заявку. Спробуйте ще раз, відкрийте форму Bitrix24 або зателефонуйте.",
+    bitrixConfirm:
+      "Підтвердіть заявку у формі Bitrix24 (дані в буфері). Послуга:",
+    bitrixFallback: "Заповніть форму Bitrix24 і натисніть «Надіслати заявку».",
+    bitrixAlt: "Не вийшло? Відкрити форму Bitrix24",
+    bitrixAltUnavailable:
+      "Форма Bitrix24 зараз недоступна. Вимкніть VPN або зателефонуйте.",
     errName: "Вкажіть ім’я",
     errNameLong: "Надто довге ім’я",
     errPhone: "Вкажіть телефон у міжнародному форматі",

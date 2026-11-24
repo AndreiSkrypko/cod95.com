@@ -6,12 +6,14 @@ import { SiteFooter } from "@/components/landing/SiteFooter";
 import { SiteBreadcrumbs } from "@/components/layout/SiteBreadcrumbs";
 import { SiteHeader } from "@/components/landing/SiteHeader";
 import { useSpotlight } from "@/components/landing/useSpotlight";
+import { BitrixIntegration } from "@/components/bitrix/BitrixIntegration";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   useSpotlight();
   return (
     <LocaleProvider>
     <BookingProvider>
+      <BitrixIntegration />
       <SiteHeader />
       <main>
         <SiteBreadcrumbs />
