@@ -21,6 +21,7 @@ const buttonVariants = cva(
           "glass rounded-full font-display font-semibold text-foreground transition-colors duration-500 hover:border-primary/50 hover:text-accent-foreground",
         subtle:
           "rounded-full border border-border-strong bg-secondary/50 font-display font-semibold text-foreground transition-colors duration-500 hover:border-primary/45 hover:bg-secondary",
+        ink: "rounded-full bg-ink font-display font-bold text-paper shadow-card transition-colors hover:bg-ink/90 active:translate-y-px",
       },
       size: {
         default: "h-9 px-4 py-2",

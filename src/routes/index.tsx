@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { HomePage } from "@/components/landing/HomePage";
 
-const TITLE = "DrivePrime — КОД 95 в Польше и Литве, ВНЖ, замена прав";
+const TITLE = "BAZA — КОД 95 в Польше и Литве, учебный центр";
 const DESCRIPTION =
   "Официальное обучение на КОД 95 в Варшаве, литовский КОД 95, замена прав на польские, открытие транспортной компании и ВНЖ в Польше. Офисы в Минске и Варшаве.";
 

@@ -1,8 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
+import { BazaMark } from "./BazaMark";
 
-export function Logo() {
+export function Logo({ tagline = false }: { tagline?: boolean }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { locale } = useLocale();
 
@@ -11,7 +12,7 @@ export function Logo() {
       to="/"
       hash="top"
       className="inline-flex shrink-0 items-center"
-      aria-label={`DrivePrime — ${PAGES[locale].crumbs.home}`}
+      aria-label={`BAZA — ${PAGES[locale].crumbs.home}`}
       onClick={(event) => {
         if (pathname !== "/") return;
         event.preventDefault();
@@ -21,7 +22,7 @@ export function Logo() {
         }
       }}
     >
-      <img src="/logo.png" alt="" className="h-8 w-auto sm:h-9" />
+      <BazaMark showTagline={tagline} className={tagline ? "h-14 sm:h-16" : "h-8 sm:h-9"} />
     </Link>
   );
 }

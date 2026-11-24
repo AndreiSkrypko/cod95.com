@@ -21,7 +21,7 @@ export function SiteFooter() {
     <footer className="noise relative overflow-hidden border-t border-border bg-background-deep">
       <div className="container-page grid gap-12 pb-10 pt-20 md:grid-cols-12">
         <div className="md:col-span-5">
-          <Logo />
+          <Logo tagline />
           <p className="mt-6 max-w-sm text-muted-foreground">
             {m.footer.blurb}
           </p>
