@@ -44,7 +44,7 @@ const COURSE_SERVICE_IDS = new Set<ServiceId>([
   "extra-driving",
 ]);
 
-/** Which taxocard CRM form to use for a DrivePrime service (default: общая заявка). */
+/** Which CRM form to use for a BAZA service (default: общая заявка). */
 export function resolveBitrixFormKey(serviceId: string): BitrixFormKey {
   if (serviceId === "employment" || serviceId === "company") return "employment";
   if (COURSE_SERVICE_IDS.has(serviceId as ServiceId)) return "course";

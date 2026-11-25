@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import type { LandingService } from "@/content/landing";
 import { SERVICES } from "@/content/landing";
 import { localizedDetail } from "@/i18n/details-copy";
+import { metaTitle } from "@/i18n/brand";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
@@ -18,7 +19,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
   const { locale, m } = useLocale();
   const copy = PAGES[locale].service;
   const text = m.services[service.id];
-  useDocumentMeta(`${text.title} — DrivePrime`, text.text);
+  useDocumentMeta(metaTitle(text.title), text.text);
   const Icon = SERVICE_ICONS[service.id];
   const detail = localizedDetail(locale, service.id);
   const related = SERVICES.filter((s) => s.id !== service.id).slice(0, 4);

@@ -15,7 +15,7 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/informaciya")({
   head: () => ({
     meta: [
-      { title: "Информация о КОД 95 — DrivePrime" },
+      { title: "Информация о КОД 95 — BAZA" },
       { name: "description", content: "Что такое КОД 95, кому нужен короткий и длинный курс, ответы на частые вопросы." },
     ],
   }),

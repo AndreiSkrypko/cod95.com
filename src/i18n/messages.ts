@@ -191,7 +191,7 @@ const ru = {
       {
         shortTitle: "Учебный центр",
         title: "Учебный центр в реестре",
-        text: "Профессиональное обучение Code 95 в Польше сами проводим — вы обучаетесь у официального центра.",
+        text: "Профессиональное обучение КОД 95 в Польше сами проводим — вы обучаетесь у официального центра.",
       },
       {
         shortTitle: "Своя учебная база",
@@ -199,9 +199,9 @@ const ru = {
         text: "Гараж, учебный класс, площадка и симулятор вождения — всё на нашей территории.",
       },
       {
-        shortTitle: "Минск и Варшава",
-        title: "Минск и Варшава",
-        text: "Консультация и оформление документов в Минске, обучение — в Варшаве.",
+        shortTitle: "Варшава",
+        title: "Обучение в Варшаве",
+        text: "Занятия в аккредитованном центре в Польше. Помогаем с логистикой и жильём на время курса.",
       },
     ],
   },
@@ -212,7 +212,7 @@ const ru = {
     headline: "КОД 95",
     subtitle: "Профессиональная подготовка водителей",
     line2: "в Польше",
-    lead: "Профессиональное обучение Code 95 в нашем учебном центре в Польше. Короткие и длинные программы. Подбор обучения с учётом вашей квалификации.",
+    lead: "Профессиональное обучение КОД 95 в нашем учебном центре в Польше. Короткие и длинные программы. Подбор обучения с учётом вашей квалификации.",
     book: "Записаться",
     services: "Все услуги",
     unsure: "Не знаете, какой курс вам подходит?",
@@ -220,7 +220,7 @@ const ru = {
     stats: [
       { kicker: "Работаем на рынке", unit: "лет" },
       { kicker: "Обучили уже более", unit: "водителей" },
-      { kicker: "Собственных офиса", unit: "Минск и Варшава" },
+      { kicker: "Учебная база", unit: "Варшава" },
     ],
     tiles: [
       {
@@ -246,8 +246,7 @@ const ru = {
     ],
   },
   footer: {
-    blurb: "BAZA — академия профессиональных водителей. Code 95 в Польше и Литве. Консультации в Минске, обучение в Варшаве.",
-    sameTeam: "и DrivePrime / Taxocard — одна команда.",
+    blurb: "BAZA — академия профессиональных водителей. Обучение КОД 95 в Польше и поддержка на каждом этапе подготовки.",
     discuss: "Обсудить вашу ситуацию",
     sections: "Разделы",
     contact: "Связь",
@@ -277,7 +276,7 @@ const ru = {
     bitrixConfirm:
       "Подтвердите заявку в форме Bitrix24 (данные скопированы в буфер). Услуга:",
     bitrixFallback: "Заполните открывшуюся форму Bitrix24 и нажмите «Отправить заявку».",
-    bitrixAlt: "Не получилось? Открыть форму Bitrix24 (как на taxocard.by)",
+    bitrixAlt: "Не получилось? Открыть форму Bitrix24",
     bitrixAltUnavailable:
       "Форма Bitrix24 сейчас недоступна. Отключите VPN или позвоните нам.",
     errName: "Укажите имя",
@@ -315,7 +314,7 @@ const pl: Messages = {
       {
         shortTitle: "Ośrodek szkoleniowy",
         title: "Ośrodek w rejestrze",
-        text: "Profesjonalne szkolenie Code 95 w Polsce prowadzimy sami — uczysz się w oficjalnym centrum.",
+        text: "Profesjonalne szkolenie kod 95 w Polsce prowadzimy sami — uczysz się w oficjalnym centrum.",
       },
       {
         shortTitle: "Własna baza",
@@ -323,9 +322,9 @@ const pl: Messages = {
         text: "Garaż, sala, plac i symulator jazdy — wszystko na naszym terenie.",
       },
       {
-        shortTitle: "Mińsk i Warszawa",
-        title: "Mińsk i Warszawa",
-        text: "Konsultacja i dokumenty w Mińsku, szkolenie — w Warszawie.",
+        shortTitle: "Warszawa",
+        title: "Szkolenie w Warszawie",
+        text: "Zajęcia w akredytowanym ośrodku w Polsce. Pomagamy z logistyką i noclegiem na czas kursu.",
       },
     ],
   },
@@ -344,7 +343,7 @@ const pl: Messages = {
     stats: [
       { kicker: "Działamy na rynku", unit: "lat" },
       { kicker: "Przeszkoliliśmy już ponad", unit: "kierowców" },
-      { kicker: "Własne biura", unit: "Mińsk i Warszawa" },
+      { kicker: "Baza szkoleniowa", unit: "Warszawa" },
     ],
     tiles: [
       { label: "Polski krótki KOD 95", note: "Szkolenie okresowe", fact: "3–5 dni" },
@@ -354,8 +353,7 @@ const pl: Messages = {
     ],
   },
   footer: {
-    blurb: "BAZA — akademia kierowców zawodowych. Code 95 w Polsce i na Litwie. Mińsk i Warszawa.",
-    sameTeam: "i DrivePrime / Taxocard — jeden zespół.",
+    blurb: "BAZA — akademia kierowców zawodowych. Szkolenia kod 95 w Polsce i wsparcie na każdym etapie przygotowania.",
     discuss: "Omówić Twoją sytuację",
     sections: "Działy",
     contact: "Kontakt",
@@ -421,7 +419,7 @@ const uk: Messages = {
       {
         shortTitle: "Навчальний центр",
         title: "Центр у реєстрі",
-        text: "Професійне навчання Code 95 у Польщі проводимо самі — ви навчаєтесь у офіційному центрі.",
+        text: "Професійне навчання КОД 95 у Польщі проводимо самі — ви навчаєтесь у офіційному центрі.",
       },
       {
         shortTitle: "Своя база",
@@ -429,9 +427,9 @@ const uk: Messages = {
         text: "Гараж, клас, майданчик і симулятор — усе на нашій території.",
       },
       {
-        shortTitle: "Мінськ і Варшава",
-        title: "Мінськ і Варшава",
-        text: "Консультація в Мінську, навчання — у Варшаві.",
+        shortTitle: "Варшава",
+        title: "Навчання у Варшаві",
+        text: "Заняття в акредитованому центрі в Польщі. Допомагаємо з логістикою та житлом на час курсу.",
       },
     ],
   },
@@ -450,7 +448,7 @@ const uk: Messages = {
     stats: [
       { kicker: "Працюємо на ринку", unit: "років" },
       { kicker: "Навчили вже понад", unit: "водіїв" },
-      { kicker: "Власні офіси", unit: "Мінськ і Варшава" },
+      { kicker: "Навчальна база", unit: "Варшава" },
     ],
     tiles: [
       { label: "Польський короткий КОД 95", note: "Періодичне навчання", fact: "3–5 днів" },
@@ -460,8 +458,7 @@ const uk: Messages = {
     ],
   },
   footer: {
-    blurb: "BAZA — академія професійних водіїв. Code 95 у Польщі та Литві. Мінськ і Варшава.",
-    sameTeam: "і DrivePrime / Taxocard — одна команда.",
+    blurb: "BAZA — академія професійних водіїв. Навчання КОД 95 у Польщі та підтримка на кожному етапі підготовки.",
     discuss: "Обговорити вашу ситуацію",
     sections: "Розділи",
     contact: "Зв’язок",

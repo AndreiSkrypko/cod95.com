@@ -2,13 +2,14 @@ import type { Locale } from "./messages";
 
 const ru = {
   story: {
-    eyebrow: "О школе",
-    title: "Путь водителя в ЕС — по шагам, без сюрпризов",
-    p1: "DrivePrime вырос из международной логистики: мы сами знаем, что без КОД 95 водителя просто не допустят к рейсу по Европе, а экзамен и бумаги на чужом языке останавливают сильнее, чем дорога.",
-    p2: "Сегодня сопровождаем от выбора курса до документов и, если нужно, до трудоустройства. Офисы в Минске и Варшаве, договор и фиксированная цена. Taxocard и DrivePrime — одна команда: чип-карта водителя и курс КОД 95 ведутся вместе.",
-    p3: "Больше 1 500 водителей уже прошли этот путь с нами — с опытом и без.",
-    cta: "Узнать больше о школе",
-    imageAlt: "Ночная трасса из кабины тягача",
+    eyebrow: "О ШКОЛЕ BAZA",
+    title: "Больше, чем обучение КОД 95",
+    p1: "BAZA — академия профессиональных водителей в Польше, созданная командой, которая знает международные перевозки изнутри.",
+    p2: "Мы самостоятельно проводим польские программы КОД 95, помогаем разобраться в требованиях и выбрать подходящий путь профессиональной подготовки.",
+    p3: "Здесь можно получить консультацию, пройти обучение и узнать, как устроена работа на международных маршрутах.",
+    accent: "BAZA — место, где водитель чувствует себя как дома.",
+    cta: "Познакомиться со школой",
+    imageAlt: "Занятие в учебном центре BAZA",
   },
   offers: {
     title: "Услуги",
@@ -50,7 +51,7 @@ const ru = {
   consult: {
     title: "Получите бесплатную консультацию",
     p1: "Менеджер свяжется в ближайшее рабочее время и скажет, какой курс ваш.",
-    p2: "Профессия водителя востребована в Евросоюзе. Чтобы работать легально, нужны не только права, но и КОД 95. DrivePrime в Варшаве и Минске закрывает путь целиком: курс, документы, при необходимости ВНЖ и выход на работу.",
+    p2: "Профессия водителя востребована в Евросоюзе. Чтобы работать легально, нужны не только права, но и КОД 95. В BAZA вы проходите обучение по польским программам и получаете поддержку на каждом этапе подготовки.",
     cta: "Оставить заявку",
     imageAlt: "Консультация в учебном центре",
   },
@@ -65,12 +66,12 @@ const ru = {
   },
   perks: {
     title: "Наши преимущества",
-    lead: "Договор, два офиса и практика на той технике, на которой потом едут в рейс.",
+    lead: "Договор, учебная база в Варшаве и практика на той технике, на которой потом едут в рейс.",
     caption: "Ночной рейс — то, к чему готовим на курсе: правила, практика и документы до выхода на линию.",
     imageAlt: "Ночной рейс по европейской трассе",
     items: [
       { title: "Прозрачная цена", text: "Стоимость фиксируем в договоре до старта. Чеки на каждый платёж." },
-      { title: "Два офиса", text: "Минск и Варшава — консультация на родном языке и очное сопровождение." },
+      { title: "Учебный центр", text: "Занятия в Варшаве, консультации на русском — по телефону и онлайн." },
       { title: "Документы в одном месте", text: "КОД 95, замена прав, ВНЖ, приглашение, ADR — без беготни по инстанциям." },
       { title: "Сопровождение", text: "От заявки до документов на руках. Менеджер на связи в рабочее время." },
       { title: "Практика на технике", text: "Учебная площадка и современные тягачи, дополнительные часы вождения." },
@@ -115,13 +116,14 @@ const ru = {
 
 const pl: typeof ru = {
   story: {
-    eyebrow: "O szkole",
-    title: "Droga kierowcy do UE — krok po kroku, bez niespodzianek",
-    p1: "DrivePrime wyrosło z logistyki międzynarodowej: wiemy, że bez KOD 95 kierowcy nie wpuszczą w trasę po Europie, a egzamin i dokumenty w obcym języku zatrzymują mocniej niż sama droga.",
-    p2: "Dziś prowadzimy od wyboru kursu do dokumentów i, jeśli trzeba, do zatrudnienia. Biura w Mińsku i Warszawie, umowa i stała cena. Taxocard i DrivePrime to jeden zespół: karta kierowcy i kurs KOD 95 idą razem.",
-    p3: "Ponad 1 500 kierowców przeszło tę drogę z nami — z doświadczeniem i bez.",
-    cta: "Więcej o szkole",
-    imageAlt: "Nocna autostrada z kabiny ciągnika",
+    eyebrow: "O SZKOLE BAZA",
+    title: "Więcej niż szkolenie kod 95",
+    p1: "BAZA — akademia kierowców zawodowych w Polsce, stworzona przez zespół, który zna międzynarodowy transport od środka.",
+    p2: "Samodzielnie prowadzimy polskie programy kod 95, pomagamy zrozumieć wymagania i wybrać właściwą ścieżkę zawodowej przygotowania.",
+    p3: "Tutaj możesz uzyskać konsultację, przejść szkolenie i dowiedzieć się, jak wygląda praca na trasach międzynarodowych.",
+    accent: "BAZA — miejsce, w którym kierowca czuje się jak u siebie.",
+    cta: "Poznaj szkołę",
+    imageAlt: "Zajęcia w ośrodku szkoleniowym BAZA",
   },
   offers: {
     title: "Usługi",
@@ -163,7 +165,7 @@ const pl: typeof ru = {
   consult: {
     title: "Bezpłatna konsultacja",
     p1: "Menedżer oddzwoni w najbliższych godzinach pracy i powie, który kurs jest Twój.",
-    p2: "Zawód kierowcy jest potrzebny w Unii. Do legalnej pracy potrzebne są nie tylko prawo jazdy, ale i KOD 95. DrivePrime w Warszawie i Mińsku zamyka całą drogę: kurs, dokumenty, w razie potrzeby pobyt i pracę.",
+    p2: "Zawód kierowcy jest potrzebny w Unii. Do legalnej pracy potrzebne są nie tylko prawo jazdy, ale i kod 95. W BAZA przechodzisz szkolenia według polskich programów ze wsparciem na każdym etapie.",
     cta: "Zostaw zgłoszenie",
     imageAlt: "Konsultacja w centrum szkoleniowym",
   },
@@ -178,12 +180,12 @@ const pl: typeof ru = {
   },
   perks: {
     title: "Nasze atuty",
-    lead: "Umowa, dwa biura i praktyka na sprzęcie, którym potem jedzie się w trasę.",
+    lead: "Umowa, baza szkoleniowa w Warszawie i praktyka na sprzęcie, którym potem jedzie się w trasę.",
     caption: "Nocna trasa — do tego przygotowujemy na kursie: przepisy, praktyka i dokumenty przed wyjazdem.",
     imageAlt: "Nocna trasa po europejskiej autostradzie",
     items: [
       { title: "Jasna cena", text: "Koszt zapisujemy w umowie przed startem. Paragon na każdą wpłatę." },
-      { title: "Dwa biura", text: "Mińsk i Warszawa — konsultacja w ojczystym języku i wsparcie na miejscu." },
+      { title: "Ośrodek szkoleniowy", text: "Zajęcia w Warszawie, konsultacje po rosyjsku — telefon i online." },
       { title: "Dokumenty w jednym miejscu", text: "KOD 95, wymiana prawa jazdy, pobyt, zaproszenie, ADR." },
       { title: "Wsparcie", text: "Od zgłoszenia do dokumentów w ręku. Menedżer jest dostępny w godzinach pracy." },
       { title: "Praktyka na sprzęcie", text: "Plac szkoleniowy, nowoczesne ciągniki i dodatkowe godziny jazdy." },
@@ -228,13 +230,14 @@ const pl: typeof ru = {
 
 const uk: typeof ru = {
   story: {
-    eyebrow: "Про школу",
-    title: "Шлях водія до ЄС — крок за кроком, без сюрпризів",
-    p1: "DrivePrime виріс із міжнародної логістики: ми самі знаємо, що без КОД 95 водія просто не допустять до рейсу Європою, а іспит і папери чужою мовою зупиняють сильніше за дорогу.",
-    p2: "Сьогодні супроводжуємо від вибору курсу до документів і, якщо потрібно, до працевлаштування. Офіси в Мінську та Варшаві, договір і фіксована ціна. Taxocard і DrivePrime — одна команда: чип-карта водія і курс КОД 95 ведуться разом.",
-    p3: "Понад 1 500 водіїв уже пройшли цей шлях з нами — з досвідом і без.",
-    cta: "Дізнатися більше про школу",
-    imageAlt: "Нічна траса з кабіни тягача",
+    eyebrow: "ПРО ШКОЛУ BAZA",
+    title: "Більше, ніж навчання КОД 95",
+    p1: "BAZA — академія професійних водіїв у Польщі, створена командою, яка знає міжнародні перевезення зсередини.",
+    p2: "Ми самостійно проводимо польські програми КОД 95, допомагаємо розібратися у вимогах і обрати відповідний шлях професійної підготовки.",
+    p3: "Тут ви можете отримати консультацію, пройти навчання й дізнатися, як влаштована робота на міжнародних маршрутах.",
+    accent: "BAZA — місце, де водій почувається як вдома.",
+    cta: "Познайомитися зі школою",
+    imageAlt: "Заняття в навчальному центрі BAZA",
   },
   offers: {
     title: "Послуги",
@@ -276,7 +279,7 @@ const uk: typeof ru = {
   consult: {
     title: "Отримайте безкоштовну консультацію",
     p1: "Менеджер зв’яжеться в найближчий робочий час і скаже, який курс ваш.",
-    p2: "Професія водія затребувана в Євросоюзі. Щоб працювати легально, потрібні не лише права, а й КОД 95. DrivePrime у Варшаві та Мінську закриває шлях цілком: курс, документи, за потреби ВНП і вихід на роботу.",
+    p2: "Професія водія затребувана в Євросоюзі. Щоб працювати легально, потрібні не лише права, а й КОД 95. У BAZA ви проходите навчання за польськими програмами з підтримкою на кожному етапі.",
     cta: "Залишити заявку",
     imageAlt: "Консультація в навчальному центрі",
   },
@@ -291,12 +294,12 @@ const uk: typeof ru = {
   },
   perks: {
     title: "Наші переваги",
-    lead: "Договір, два офіси і практика на тій техніці, на якій потім їдуть у рейс.",
+    lead: "Договір, навчальна база у Варшаві і практика на тій техніці, на якій потім їдуть у рейс.",
     caption: "Нічний рейс — те, до чого готуємо на курсі: правила, практика і документи до виходу на лінію.",
     imageAlt: "Нічний рейс європейською трасою",
     items: [
       { title: "Прозора ціна", text: "Вартість фіксуємо в договорі до старту. Чеки на кожен платіж." },
-      { title: "Два офіси", text: "Мінськ і Варшава — консультація рідною мовою і очний супровід." },
+      { title: "Навчальний центр", text: "Заняття у Варшаві, консультації російською — телефон і онлайн." },
       { title: "Документи в одному місці", text: "КОД 95, заміна прав, ВНП, запрошення, ADR — без біганини по інстанціях." },
       { title: "Супровід", text: "Від заявки до документів у руках. Менеджер на зв’язку в робочий час." },
       { title: "Практика на техніці", text: "Навчальний майданчик і сучасні тягачі, додаткові години водіння." },

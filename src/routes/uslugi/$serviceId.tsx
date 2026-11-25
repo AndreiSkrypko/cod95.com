@@ -12,7 +12,7 @@ export const Route = createFileRoute("/uslugi/$serviceId")({
     const service = isServiceId(params.serviceId)
       ? getServiceById(params.serviceId)
       : undefined;
-    const title = service ? `${service.title} — DrivePrime` : "Услуга — DrivePrime";
+    const title = service ? `${service.title} — BAZA` : "Услуга — BAZA";
     const description = service?.text ?? "";
     return { meta: [{ title }, { name: "description", content: description }] };
   },

@@ -22,7 +22,7 @@ export const PAGE_VISUALS = {
   zapis: { src: consultOffice, alt: "Консультация в учебном центре" },
   thanks: { src: lifeNight, alt: "Ночной рейс по трассе" },
   catalog: { src: heroTruck, alt: "Тягач на вечерней трассе" },
-  articles: { src: articleBelarus, alt: "Статьи DrivePrime: КОД 95, документы и маршруты в Европу" },
+  articles: { src: articleBelarus, alt: "Статьи BAZA: КОД 95, документы и подготовка в Польше" },
 } as const satisfies Record<string, PageVisual>;
 
 const SERVICE_VISUALS: Record<ServiceId, PageVisual> = {

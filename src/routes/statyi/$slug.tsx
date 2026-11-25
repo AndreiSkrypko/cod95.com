@@ -9,7 +9,7 @@ export const Route = createFileRoute("/statyi/$slug")({
   },
   head: ({ params }) => {
     const article = isArticleSlug(params.slug) ? getArticleBySlug(params.slug) : undefined;
-    const title = article ? `${article.title} — DrivePrime` : "Статья — DrivePrime";
+    const title = article ? `${article.title} — BAZA` : "Статья — BAZA";
     const description = article?.description ?? "";
     return { meta: [{ title }, { name: "description", content: description }] };
   },

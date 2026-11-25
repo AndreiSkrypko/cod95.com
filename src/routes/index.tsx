@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { HomePage } from "@/components/landing/HomePage";
 
-const TITLE = "BAZA — КОД 95 в Польше и Литве, учебный центр";
+const TITLE = "BAZA — КОД 95 в Польше, академия профессиональных водителей";
 const DESCRIPTION =
-  "Официальное обучение на КОД 95 в Варшаве, литовский КОД 95, замена прав на польские, открытие транспортной компании и ВНЖ в Польше. Офисы в Минске и Варшаве.";
+  "Обучение КОД 95 в Польше: польские и литовские программы, консультация и запись в учебный центр BAZA.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

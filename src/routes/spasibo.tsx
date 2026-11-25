@@ -10,7 +10,7 @@ import { PAGES } from "@/i18n/pages-copy";
 export const Route = createFileRoute("/spasibo")({
   head: () => ({
     meta: [
-      { title: "Спасибо за заявку — DrivePrime" },
+      { title: "Спасибо за заявку — BAZA" },
       { name: "description", content: "Заявка принята. Мы перезвоним в рабочее время." },
       { name: "robots", content: "noindex" },
     ],

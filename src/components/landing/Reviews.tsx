@@ -34,31 +34,35 @@ export function Reviews() {
             }
             lead={reviews.lead}
           />
-          <Reveal className="flex items-center gap-5 lg:pb-3">
-            <span className="font-display text-6xl font-extrabold tracking-[-0.04em] text-foreground">
-              5.0
-            </span>
-            <span>
-              <Stars label={reviews.stars} />
-              <a
-                href={GOOGLE_REVIEWS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1 block text-sm text-muted-foreground hover:text-primary"
-              >
-                {reviews.google}
-              </a>
-              <a
-                href={TAXOCARD_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-1 font-display text-sm font-bold text-primary"
-              >
-                taxocard.by
-                <ArrowUpRight className="size-3.5" aria-hidden="true" />
-              </a>
-            </span>
-          </Reveal>
+          {reviews.google && GOOGLE_REVIEWS_URL ? (
+            <Reveal className="flex items-center gap-5 lg:pb-3">
+              <span className="font-display text-6xl font-extrabold tracking-[-0.04em] text-foreground">
+                5.0
+              </span>
+              <span>
+                <Stars label={reviews.stars} />
+                <a
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 block text-sm text-muted-foreground hover:text-primary"
+                >
+                  {reviews.google}
+                </a>
+                {TAXOCARD_URL ? (
+                  <a
+                    href={TAXOCARD_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 font-display text-sm font-bold text-primary"
+                  >
+                    taxocard.by
+                    <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                  </a>
+                ) : null}
+              </span>
+            </Reveal>
+          ) : null}
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

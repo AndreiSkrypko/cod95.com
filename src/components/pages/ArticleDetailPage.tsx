@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { BookButton } from "@/components/landing/BookingDialog";
 import type { Article } from "@/content/articles";
 import { localizedArticles } from "@/i18n/articles-copy";
+import { metaTitle } from "@/i18n/brand";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
@@ -13,7 +14,7 @@ export function ArticleDetailPage({ article }: { article: Article }) {
   const { locale, m } = useLocale();
   const copy = PAGES[locale].article;
   const localized = localizedArticles(locale).find((item) => item.slug === article.slug) ?? article;
-  useDocumentMeta(`${localized.title} — DrivePrime`, localized.description);
+  useDocumentMeta(metaTitle(localized.title), localized.description);
   const otherArticles = localizedArticles(locale).filter((a) => a.slug !== article.slug).slice(0, 2);
   const relatedServices = article.relatedServices;
   const primaryService = relatedServices[0];

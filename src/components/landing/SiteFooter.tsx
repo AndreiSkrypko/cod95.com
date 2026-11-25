@@ -25,17 +25,6 @@ export function SiteFooter() {
           <p className="mt-6 max-w-sm text-muted-foreground">
             {m.footer.blurb}
           </p>
-          <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-            <a
-              href="https://taxocard.by/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-display font-bold text-foreground hover:text-primary"
-            >
-              Taxocard
-            </a>{" "}
-            {m.footer.sameTeam}
-          </p>
           <button
             type="button"
             onClick={() => openBooking()}
@@ -96,7 +85,7 @@ export function SiteFooter() {
         className="pointer-events-none select-none text-center font-display text-[19vw] font-extrabold leading-[0.8] tracking-[-0.06em] bg-gradient-to-b from-foreground/12 to-foreground/0 bg-clip-text text-transparent"
         aria-hidden="true"
       >
-        DrivePrime
+        BAZA
       </p>
 
       <div className="border-t border-border">

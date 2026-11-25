@@ -37,7 +37,7 @@ export function WhyUs() {
         <div className="xl:col-span-5">
           <div className="xl:sticky xl:top-32">
             <SectionHeading
-              eyebrow="Почему DrivePrime"
+              eyebrow="Почему BAZA"
               title={
                 <span id="why-title">
                   Прозрачно, как в&nbsp;<span className="accent-serif">хорошей</span> логистике

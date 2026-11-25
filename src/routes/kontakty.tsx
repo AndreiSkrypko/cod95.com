@@ -13,8 +13,8 @@ import { PAGES } from "@/i18n/pages-copy";
 export const Route = createFileRoute("/kontakty")({
   head: () => ({
     meta: [
-      { title: "Контакты — DrivePrime" },
-      { name: "description", content: "Телефоны Минск и Варшава, график работы, заявка на консультацию." },
+      { title: "Контакты — BAZA" },
+      { name: "description", content: "Связь с учебным центром BAZA: телефон, график работы, заявка на консультацию." },
     ],
   }),
   component: ContactsRoute,
@@ -39,7 +39,7 @@ function ContactsPage() {
         eyebrow={page.eyebrow}
         title={
           <>
-            {page.titleBefore} <span className="accent-serif">DrivePrime</span>
+            {page.titleBefore} <span className="accent-serif">BAZA</span>
           </>
         }
         lead={page.lead}

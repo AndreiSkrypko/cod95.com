@@ -7,11 +7,10 @@ import classroom from "@/assets/classroom.jpg";
 import trainingTrucks from "@/assets/training-trucks.jpg";
 import truckPractice from "@/assets/truck-practice.jpg";
 import classDetail from "@/assets/class-detail.jpg";
-import storyHighway from "@/assets/story-highway.jpg";
+import lifeBriefing from "@/assets/life-briefing.jpg";
 import offerJob from "@/assets/offer-job.jpg";
 import offerResidence from "@/assets/offer-residence.jpg";
 import consultOffice from "@/assets/consult-office.jpg";
-import lifeBriefing from "@/assets/life-briefing.jpg";
 import lifeNight from "@/assets/life-night.jpg";
 import { ContactAside } from "./ContactAside";
 import { BookButton, useBooking } from "./BookingDialog";
@@ -61,7 +60,7 @@ const OFFERS = [
 
 const PERKS = [
   { title: "Прозрачная цена", text: "Стоимость фиксируем в договоре до старта. Чеки на каждый платёж." },
-  { title: "Два офиса", text: "Минск и Варшава — консультация на родном языке и очное сопровождение." },
+  { title: "Учебный центр", text: "Занятия в Варшаве, консультации на русском — по телефону и онлайн." },
   { title: "Документы в одном месте", text: "КОД 95, замена прав, ВНЖ, приглашение, ADR — без беготни по инстанциям." },
   { title: "Сопровождение", text: "От заявки до документов на руках. Менеджер на связи в рабочее время." },
   { title: "Практика на технике", text: "Учебная площадка и современные тягачи, дополнительные часы вождения." },
@@ -87,24 +86,32 @@ export function StoryBlock() {
   const { locale } = useLocale();
   const story = HOME[locale].story;
   return (
-    <section className="bg-paper text-ink section-y">
-      <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)]">
-        <Reveal>
-          <p className="font-display text-sm font-bold uppercase tracking-[0.18em] text-primary">{story.eyebrow}</p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{story.title}</h2>
-          <div className="mt-6 space-y-4 text-lg text-ink-muted">
-            <p>{story.p1}</p>
-            <p>{story.p2}</p>
-            <p>{story.p3}</p>
-          </div>
-          <Button asChild variant="hero" size="lg" className="mt-8">
-            <Link to="/o-nas">{story.cta}</Link>
-          </Button>
-        </Reveal>
-        <Reveal delay={80} variant="clip" className="overflow-hidden rounded-3xl shadow-card">
+    <section className="section-y bg-background text-foreground" aria-labelledby="home-story-title">
+      <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+        <div className="flex flex-col">
+          <Reveal>
+            <p className="eyebrow eyebrow-rule">{story.eyebrow}</p>
+            <h2 id="home-story-title" className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">
+              {story.title}
+            </h2>
+            <div className="mt-8 space-y-6 text-lg leading-relaxed text-foreground/85">
+              <p>{story.p1}</p>
+              <p>{story.p2}</p>
+              <p>{story.p3}</p>
+            </div>
+            <p className="accent-serif mt-8 text-2xl font-medium leading-snug text-foreground md:text-[1.65rem]">
+              {story.accent}
+            </p>
+            <Button asChild variant="hero" size="xl" className="mt-8 w-full sm:w-auto">
+              <Link to="/o-nas">{story.cta}</Link>
+            </Button>
+          </Reveal>
+        </div>
+        <Reveal delay={80} variant="clip" className="overflow-hidden rounded-3xl shadow-lift">
           <img
-            src={storyHighway}
+            src={lifeBriefing}
             alt={story.imageAlt}
+            loading="lazy"
             className="aspect-[4/3] w-full object-cover"
           />
         </Reveal>

@@ -8,10 +8,7 @@ export function ContactAside() {
   const { locale, m } = useLocale();
   const phone = heroPhone(locale);
   const copy = PAGES[locale].contactsPage;
-  const phones = [
-    { ...PHONE_BY, label: copy.officeMinsk },
-    { ...PHONE_PL, label: copy.officeWarsaw },
-  ];
+  const phones = [{ ...PHONE_PL, label: copy.officeWarsaw }];
   const hours = [
     { days: m.contacts.weekdays, time: CONTACTS.hours[0]?.time ?? "" },
     { days: m.contacts.saturday, time: CONTACTS.hours[1]?.time ?? "" },

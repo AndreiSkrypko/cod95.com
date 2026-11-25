@@ -5,7 +5,7 @@ import { ArticlesCatalogPage } from "@/components/pages/ArticlesCatalogPage";
 export const Route = createFileRoute("/statyi/")({
   head: () => ({
     meta: [
-      { title: "Статьи о КОД 95 — DrivePrime" },
+      { title: "Статьи о КОД 95 — BAZA" },
       {
         name: "description",
         content:

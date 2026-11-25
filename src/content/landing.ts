@@ -1,22 +1,19 @@
-// Single source of copy for the DrivePrime landing. Russian only.
+// Legacy landing constants (nav, hours). User-facing copy lives in i18n.
 // Chip-card / tachograph — excluded by brand rules (not listed in SERVICES).
 
 export const PRIMARY_PHONE = {
-  label: "Минск",
-  display: "+375 (29) 356-57-78",
-  href: "tel:+375293565778",
+  label: "Варшава",
+  display: "+48 (78) 979-90-57",
+  href: "tel:+48789799057",
 };
 
 export const CONTACTS = {
-  phones: [
-    PRIMARY_PHONE,
-    { label: "Варшава", display: "+48 (78) 979-90-57", href: "tel:+48789799057" },
-  ],
+  phones: [PRIMARY_PHONE],
   hours: [
     { days: "Пн–Пт", time: "9:00–19:00" },
     { days: "Сб", time: "10:00–16:00" },
   ],
-  offices: ["Минск", "Варшава"],
+  offices: ["Варшава"],
 };
 
 export type NavItem =
@@ -35,7 +32,7 @@ export const NAV: NavItem[] = [
 export const STATS = [
   { value: 12, suffix: "+", label: "лет в международной логистике" },
   { value: 1500, suffix: "+", label: "водителей прошли путь с нами" },
-  { value: 2, suffix: "", label: "собственных офиса — Минск и Варшава" },
+  { value: 1, suffix: "", label: "учебная база в Варшаве" },
   { value: 13, suffix: "", label: "услуг под ключ" },
 ];
 

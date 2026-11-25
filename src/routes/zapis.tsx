@@ -18,7 +18,7 @@ export const Route = createFileRoute("/zapis")({
   },
   head: () => ({
     meta: [
-      { title: "Запись на курс КОД 95 — DrivePrime" },
+      { title: "Запись на курс КОД 95 — BAZA" },
       { name: "description", content: "Онлайн-заявка на обучение КОД 95 и сопутствующие услуги." },
     ],
   }),

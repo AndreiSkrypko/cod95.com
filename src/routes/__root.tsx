@@ -84,14 +84,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Легальное оформление КОД 95 и сопутствующих услуг для водителей. Офисы в Минске и Варшаве.",
+          "BAZA — обучение КОД 95 в Польше, учебная база и поддержка профессиональных водителей.",
       },
-      { name: "author", content: "DrivePrime" },
-      { property: "og:title", content: "DrivePrime — КОД 95 для водителей-международников" },
+      { name: "author", content: "BAZA" },
+      { property: "og:title", content: "BAZA — КОД 95, академия профессиональных водителей" },
       {
         property: "og:description",
         content:
-          "Легальное оформление КОД 95 и сопутствующих услуг для водителей. Офисы в Минске и Варшаве.",
+          "BAZA — обучение КОД 95 в Польше, учебная база и поддержка профессиональных водителей.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

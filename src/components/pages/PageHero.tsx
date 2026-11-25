@@ -10,26 +10,34 @@ import { PAGES } from "@/i18n/pages-copy";
 export function PageHero({
   eyebrow,
   title,
+  subtitle,
   lead,
+  leadParagraphs,
   ctaTo = "/zapis",
   ctaLabel,
   service,
+  heroActions,
   image = heroTruck,
   imageAlt = "",
   imagePosition = "72% center",
 }: {
   eyebrow?: string;
   title: ReactNode;
+  subtitle?: string;
   lead?: string;
+  leadParagraphs?: string[];
   ctaTo?: string;
   ctaLabel?: string;
   service?: string;
+  /** Заменяет одну кнопку по умолчанию (например, две CTA на «О нас»). */
+  heroActions?: ReactNode;
   image?: string;
   imageAlt?: string;
   imagePosition?: string;
 }) {
   const { locale } = useLocale();
   const label = ctaLabel ?? PAGES[locale].article.cta;
+  const showDefaultCta = !heroActions && (ctaLabel !== undefined || lead !== undefined || eyebrow !== undefined);
   return (
     <section
       data-page-hero
@@ -50,20 +58,35 @@ export function PageHero({
         <h1 className="mt-5 max-w-4xl font-display text-4xl font-extrabold leading-[0.98] tracking-[-0.04em] text-foreground md:text-6xl">
           {title}
         </h1>
-        {lead && <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl">{lead}</p>}
-        {ctaTo === "/zapis" ? (
-          <BookButton {...(service ? { service } : {})} variant="hero" size="xl" className="mt-8">
-            {label}
-            <ArrowRight aria-hidden="true" />
-          </BookButton>
+        {subtitle && (
+          <p className="mt-4 max-w-2xl font-display text-xl font-semibold text-foreground md:text-2xl">{subtitle}</p>
+        )}
+        {leadParagraphs && leadParagraphs.length > 0 ? (
+          <div className="mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-foreground/85 md:text-xl">
+            {leadParagraphs.map((p) => (
+              <p key={p.slice(0, 32)}>{p}</p>
+            ))}
+          </div>
         ) : (
-          <Button asChild variant="hero" size="xl" className="mt-8">
-            <Link to={ctaTo}>
+          lead && <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl">{lead}</p>
+        )}
+        {heroActions ? (
+          <div className="mt-8">{heroActions}</div>
+        ) : showDefaultCta ? (
+          ctaTo === "/zapis" ? (
+            <BookButton {...(service ? { service } : {})} variant="hero" size="xl" className="mt-8">
               {label}
               <ArrowRight aria-hidden="true" />
-            </Link>
-          </Button>
-        )}
+            </BookButton>
+          ) : (
+            <Button asChild variant="hero" size="xl" className="mt-8">
+              <Link to={ctaTo}>
+                {label}
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
+          )
+        ) : null}
       </div>
     </section>
   );

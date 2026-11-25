@@ -11,9 +11,9 @@ export const PHONE_PL = {
   href: "tel:+48789799057",
 };
 
-/** В первом экране один номер: русский и украинский — Минск, польский — Варшава. */
-export function heroPhone(locale: Locale) {
-  return locale === "pl" ? PHONE_PL : PHONE_BY;
+/** Один контактный номер учебного центра в Польше. */
+export function heroPhone(_locale: Locale) {
+  return PHONE_PL;
 }
 
 type LocaleContextValue = {
