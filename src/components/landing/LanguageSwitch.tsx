@@ -14,7 +14,7 @@ const OPTIONS: { id: Locale; label: string }[] = [
 export function LanguageSwitch({ className }: { className?: string }) {
   const { locale, setLocale, m } = useLocale();
   return (
-    <div className={cn("flex items-center rounded-md border border-border bg-white p-0.5", className)} role="group" aria-label={m.langLabel}>
+    <div className={cn("flex items-center rounded-md border border-border bg-surface p-0.5", className)} role="group" aria-label={m.langLabel}>
       {OPTIONS.map((option) => (
         <button
           key={option.id}

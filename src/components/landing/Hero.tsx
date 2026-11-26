@@ -45,7 +45,7 @@ export function Hero() {
   const advantages = m.bazaAdvantages;
 
   return (
-    <section id="top" className="hero-viewport">
+    <section id="top" data-home-hero className="hero-viewport isolate">
       <div ref={photo} className="hero-backdrop">
         <img
           src={heroTruck}
@@ -72,10 +72,15 @@ export function Hero() {
               {m.hero.subtitle}
             </p>
             <p className="type-lead hero-copy mt-3 lg:mt-4 max-w-lg text-hero-ink">{m.hero.lead}</p>
-            <BookButton variant="hero" size="xl" className="mt-6 max-sm:w-full">
-              {m.hero.book}
-              <ArrowRight aria-hidden />
-            </BookButton>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <BookButton variant="hero" size="xl" className="max-sm:w-full">
+                {m.hero.book}
+                <ArrowRight aria-hidden />
+              </BookButton>
+              <Button asChild variant="subtle" size="xl" className="max-sm:w-full">
+                <Link to="/uslugi">{m.hero.services}</Link>
+              </Button>
+            </div>
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 lg:mt-6">
               {advantages.cards.map((card, i) => {
                 const Icon = ADVANTAGE_ICONS[i] ?? Building2;
@@ -164,14 +169,6 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-            <Button
-              asChild
-              variant="subtle"
-              size="xl"
-              className="mt-2 w-full border-white/20 bg-white/10 text-hero-foreground backdrop-blur-md hover:bg-white/20 hover:text-hero-foreground lg:mt-3 xl:mt-3.5"
-            >
-              <Link to="/uslugi">{m.hero.services}</Link>
-            </Button>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export function SiteHeader() {
   const { m } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const isHome = useRouterState({ select: (s) => s.location.pathname }) === "/";
+  const isHome = useRouterState({ select: (s) => s.location.pathname === "/" });
   // Прозрачная шапка со светлым текстом поверх тёмного hero главной страницы.
   const onHero = isHome && !scrolled;
   const linkClass = onHero ? linkOnHero : linkLight;
@@ -38,11 +38,11 @@ export function SiteHeader() {
         "fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-[background-color,box-shadow] duration-300",
         onHero
           ? "border-transparent bg-[oklch(0.16_0.03_260/30%)]"
-          : "border-border bg-white/90 shadow-card",
+          : "border-border bg-surface/95 shadow-card",
       )}
     >
       <div className="container-page flex h-[4.5rem] items-center gap-4 xl:gap-8">
-        <Logo onDark={onHero} />
+        <Logo />
 
         <nav aria-label={m.header.nav} className="hidden items-center lg:flex">
           {NAV_LINKS.map((item) =>

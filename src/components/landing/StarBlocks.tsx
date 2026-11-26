@@ -87,7 +87,7 @@ export function StoryBlock() {
   const { locale } = useLocale();
   const story = HOME[locale].story;
   return (
-    <section className="section-y bg-background text-foreground" aria-labelledby="home-story-title">
+    <section className="home-band section-y text-foreground" aria-labelledby="home-story-title">
       <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
         <div className="flex flex-col">
           <Reveal>
@@ -100,7 +100,7 @@ export function StoryBlock() {
               <p>{story.p2}</p>
               <p>{story.p3}</p>
             </div>
-            <p className="accent-serif type-accent-quote mt-8">
+            <p className="type-accent-quote mt-8 border-l-2 border-primary pl-5 text-accent-foreground">
               {story.accent}
             </p>
             <Button asChild variant="hero" size="xl" className="mt-8 w-full sm:w-auto">
@@ -126,7 +126,7 @@ export function OfferRow() {
   const { locale } = useLocale();
   const offers = HOME[locale].offers;
   return (
-    <section id="services" className="bg-paper pb-20 text-ink">
+    <section id="services" className="home-band section-y border-t border-border">
       <div className="container-page">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-4xl font-extrabold md:text-5xl">{offers.title}</h2>
@@ -138,7 +138,7 @@ export function OfferRow() {
             return (
             <li
               key={o.id}
-              className="group flex flex-col overflow-hidden rounded-md border border-border bg-card text-ink shadow-card sm:flex-row"
+              className="surface-card group flex flex-col overflow-hidden sm:flex-row"
             >
               <div className="relative h-36 shrink-0 overflow-hidden sm:h-auto sm:w-44">
                 <img
@@ -161,13 +161,14 @@ export function OfferRow() {
                     </li>
                   ))}
                 </ul>
-                <button
+                <Button
                   type="button"
+                  variant="subtle"
                   onClick={() => openBooking(o.id)}
-                  className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-primary px-5 font-display font-bold text-primary-foreground"
+                  className="mt-8 h-12"
                 >
                   {copy.cta}
-                </button>
+                </Button>
                 <p className="mt-3 text-center text-xs text-ink-soft">{offers.reply}</p>
               </div>
             </li>
@@ -188,7 +189,7 @@ export function ConsultSplit() {
   const { locale } = useLocale();
   const consult = HOME[locale].consult;
   return (
-    <section className="section-y border-t border-border bg-background">
+    <section className="home-band-warm section-y border-t border-border">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
         <div>
           <h2 className="font-display text-4xl font-extrabold md:text-5xl">{consult.title}</h2>
@@ -253,7 +254,7 @@ export function Perks() {
   const { locale } = useLocale();
   const perks = HOME[locale].perks;
   return (
-    <section id="advantages" className="section-y border-t border-border bg-paper text-ink">
+    <section id="advantages" className="home-band-warm section-y border-t border-border">
       <div className="container-page">
         <Reveal className="max-w-3xl">
           <p className="eyebrow eyebrow-rule">{perks.eyebrow}</p>
@@ -277,7 +278,10 @@ export function Perks() {
           <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-8">
             {perks.items.map((p, i) => (
               <li key={p.title}>
-                <Reveal delay={i * 35} className="h-full rounded-md border border-border bg-card p-5 shadow-sm">
+                <Reveal delay={i * 35} className="surface-card h-full p-5">
+                  <span aria-hidden="true" className="mb-3 block font-display text-xs font-bold tabular-nums tracking-widest text-accent-foreground">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <h3 className="font-display text-base font-bold text-ink">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink-muted">{p.text}</p>
                 </Reveal>
@@ -339,7 +343,7 @@ export function HomeContacts() {
   const { locale } = useLocale();
   const contacts = HOME[locale].contacts;
   return (
-    <section id="contacts" className="section-y border-t border-border">
+    <section id="contacts" className="home-band-warm section-y border-t border-border">
       <div className="container-page grid gap-12 lg:grid-cols-2">
         <div>
           <h2 className="font-display text-4xl font-extrabold">{contacts.title}</h2>
@@ -348,7 +352,7 @@ export function HomeContacts() {
             <Link to="/kontakty">{contacts.page}</Link>
           </Button>
         </div>
-        <div className="overflow-hidden rounded-md border border-border bg-card shadow-card">
+        <div className="surface-card overflow-hidden">
           <img
             src={offerResidence}
             alt={contacts.imageAlt}
@@ -385,7 +389,7 @@ export function FloatDock() {
       <button
         type="button"
         onClick={() => openBooking()}
-        className="grid size-14 place-items-center rounded-md border border-border bg-white text-foreground shadow-card"
+        className="grid size-14 place-items-center rounded-md border border-border bg-surface text-foreground shadow-card"
         aria-label={m.dock.request}
       >
         <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2">

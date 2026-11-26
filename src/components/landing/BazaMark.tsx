@@ -14,7 +14,9 @@ export function BazaMark({ className, showTagline = false, onDark = false }: Pro
     <img
       src={
         showTagline
-          ? "/brand/logo-baza-lockup.png"
+          ? onDark
+            ? "/brand/logo-baza-lockup-white.png"
+            : "/brand/logo-baza-lockup.png"
           : onDark
             ? "/brand/logo-baza-mark-white.png"
             : "/brand/logo-baza-mark.png"

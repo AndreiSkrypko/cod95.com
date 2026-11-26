@@ -98,6 +98,7 @@
   --background: oklch(0.985 0.012 80);
   --background-deep: oklch(0.965 0.02 75);
   --foreground: oklch(0.18 0.01 285);
+  --prose: oklch(0.18 0.01 285 / 85%);
   --surface: oklch(1 0 0);
   --surface-raised: oklch(0.97 0.015 80);
   --card: oklch(1 0 0);
@@ -169,6 +170,37 @@
   --sidebar-ring: var(--ring);
 }
 
+/* Scope the night palette to the home route, including dialogs portalled into body. */
+:root:has([data-home-hero]) {
+  color-scheme: dark;
+  --background: #101722;
+  --background-deep: #0b111a;
+  --paper: #141d2a;
+  --foreground: var(--hero-foreground);
+  --ink: var(--foreground);
+  --prose: #cfd5dd;
+  --muted-foreground: #bbc4ce;
+  --ink-muted: var(--muted-foreground);
+  --ink-soft: #acb7c6;
+  --surface: #1b2533;
+  --surface-raised: #263345;
+  --card: var(--surface);
+  --popover: var(--surface);
+  --secondary: var(--surface-raised);
+  --muted: var(--secondary);
+  --card-foreground: var(--foreground);
+  --secondary-foreground: var(--foreground);
+  --popover-foreground: var(--foreground);
+  --primary-foreground: #191108;
+  --accent-foreground: var(--primary-glow);
+  --border: oklch(0.85 0.025 260 / 20%);
+  --border-strong: oklch(0.85 0.025 260 / 35%);
+  --input: var(--border-strong);
+  --shadow-card: 0 12px 36px -24px rgb(0 0 0 / 75%);
+  --shadow-lift: 0 20px 60px -28px rgb(0 0 0 / 80%);
+  --gradient-surface: linear-gradient(145deg, rgb(201 216 235 / 6%), transparent 65%);
+}
+
 @layer base {
   button {
     @apply rounded-md;
@@ -235,6 +267,18 @@
   position: relative;
   min-height: 100svh;
   overflow-x: clip;
+}
+
+@utility home-band {
+  background:
+    radial-gradient(55rem 32rem at 100% 0%, rgb(110 143 188 / 10%), transparent 70%),
+    var(--background);
+}
+
+@utility home-band-warm {
+  background:
+    radial-gradient(50rem 30rem at 0% 100%, rgb(241 137 54 / 8%), transparent 72%),
+    var(--background-deep);
 }
 
 @utility hero-backdrop {
@@ -473,7 +517,7 @@
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.625;
-  color: oklch(0.18 0.01 285 / 0.85);
+  color: var(--prose);
   @media (width >= 48rem) {
     font-size: 1.125rem;
     line-height: 1.65;
@@ -484,7 +528,7 @@
   font-family: var(--font-sans);
   font-size: 1.125rem;
   line-height: 1.65;
-  color: oklch(0.18 0.01 285 / 0.85);
+  color: var(--prose);
 }
 
 @utility type-accent-quote {
