@@ -244,6 +244,7 @@ const ru = {
   hero: {
     programsTitle: "Программы",
     programsLead: "Четыре курса и подбор",
+    country: { pl: "Польша", lt: "Литва" },
     eyebrow: "Учебный центр в Польше",
     headline: "КОД 95",
     subtitle: "Профессиональная подготовка водителей",
@@ -282,7 +283,8 @@ const ru = {
     ],
   },
   footer: {
-    blurb: "BAZA — академия профессиональных водителей. Офис в Минске, обучение КОД 95 в Варшаве, поддержка на каждом этапе.",
+    blurb:
+      "BAZA — академия профессиональных водителей. Офис в Минске, обучение КОД 95 в Варшаве, поддержка на каждом этапе.",
     discuss: "Обсудить вашу ситуацию",
     sections: "Разделы",
     contact: "Связь",
@@ -309,12 +311,10 @@ const ru = {
     consent: "Нажимая кнопку, вы соглашаетесь на обработку персональных данных.",
     errSubmit:
       "Не удалось отправить заявку. Попробуйте ещё раз, откройте форму Bitrix24 ниже или позвоните нам.",
-    bitrixConfirm:
-      "Подтвердите заявку в форме Bitrix24 (данные скопированы в буфер). Услуга:",
+    bitrixConfirm: "Подтвердите заявку в форме Bitrix24 (данные скопированы в буфер). Услуга:",
     bitrixFallback: "Заполните открывшуюся форму Bitrix24 и нажмите «Отправить заявку».",
     bitrixAlt: "Не получилось? Открыть форму Bitrix24",
-    bitrixAltUnavailable:
-      "Форма Bitrix24 сейчас недоступна. Отключите VPN или позвоните нам.",
+    bitrixAltUnavailable: "Форма Bitrix24 сейчас недоступна. Отключите VPN или позвоните нам.",
     errName: "Укажите имя",
     errNameLong: "Слишком длинное имя",
     errPhone: "Укажите телефон в международном формате",
@@ -367,6 +367,7 @@ const pl: Messages = {
   hero: {
     programsTitle: "Programy",
     programsLead: "Cztery kursy i dobór",
+    country: { pl: "Polska", lt: "Litwa" },
     eyebrow: "Ośrodek szkoleniowy w Polsce",
     headline: "KOD 95",
     subtitle: "Profesjonalne szkolenie kierowców",
@@ -389,7 +390,8 @@ const pl: Messages = {
     ],
   },
   footer: {
-    blurb: "BAZA — akademia kierowców zawodowych. Biuro w Mińsku, szkolenie kod 95 w Warszawie, wsparcie na każdym etapie.",
+    blurb:
+      "BAZA — akademia kierowców zawodowych. Biuro w Mińsku, szkolenie kod 95 w Warszawie, wsparcie na każdym etapie.",
     discuss: "Omówić Twoją sytuację",
     sections: "Działy",
     contact: "Kontakt",
@@ -416,12 +418,10 @@ const pl: Messages = {
     consent: "Klikając przycisk, zgadzasz się na przetwarzanie danych osobowych.",
     errSubmit:
       "Nie udało się wysłać zgłoszenia. Spróbuj ponownie, otwórz formularz Bitrix24 lub zadzwoń.",
-    bitrixConfirm:
-      "Potwierdź zgłoszenie w formularzu Bitrix24 (dane w schowku). Usługa:",
+    bitrixConfirm: "Potwierdź zgłoszenie w formularzu Bitrix24 (dane w schowku). Usługa:",
     bitrixFallback: "Uzupełnij formularz Bitrix24 i kliknij «Wyślij zgłoszenie».",
     bitrixAlt: "Nie udało się? Otwórz formularz Bitrix24",
-    bitrixAltUnavailable:
-      "Formularz Bitrix24 jest niedostępny. Wyłącz VPN lub zadzwoń.",
+    bitrixAltUnavailable: "Formularz Bitrix24 jest niedostępny. Wyłącz VPN lub zadzwoń.",
     errName: "Podaj imię",
     errNameLong: "Zbyt długie imię",
     errPhone: "Podaj telefon w formacie międzynarodowym",
@@ -472,6 +472,7 @@ const uk: Messages = {
   hero: {
     programsTitle: "Програми",
     programsLead: "Чотири курси та підбір",
+    country: { pl: "Польща", lt: "Литва" },
     eyebrow: "Навчальний центр у Польщі",
     headline: "КОД 95",
     subtitle: "Професійна підготовка водіїв",
@@ -490,11 +491,16 @@ const uk: Messages = {
       { label: "Польський короткий КОД 95", note: "Періодичне навчання", fact: "3–5 днів" },
       { label: "Польський довгий КОД 95", note: "Первинна кваліфікація", fact: "≈21 день" },
       { label: "Литовський короткий КОД 95", note: "Періодичне навчання", fact: "у Литві" },
-      { label: "Литовський довгий КОД 95", note: "Первинна кваліфікація", fact: "перекваліфікація" },
+      {
+        label: "Литовський довгий КОД 95",
+        note: "Первинна кваліфікація",
+        fact: "перекваліфікація",
+      },
     ],
   },
   footer: {
-    blurb: "BAZA — академія професійних водіїв. Офіс у Мінську, навчання КОД 95 у Варшаві, підтримка на кожному етапі.",
+    blurb:
+      "BAZA — академія професійних водіїв. Офіс у Мінську, навчання КОД 95 у Варшаві, підтримка на кожному етапі.",
     discuss: "Обговорити вашу ситуацію",
     sections: "Розділи",
     contact: "Зв’язок",
@@ -521,12 +527,10 @@ const uk: Messages = {
     consent: "Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.",
     errSubmit:
       "Не вдалося надіслати заявку. Спробуйте ще раз, відкрийте форму Bitrix24 або зателефонуйте.",
-    bitrixConfirm:
-      "Підтвердіть заявку у формі Bitrix24 (дані в буфері). Послуга:",
+    bitrixConfirm: "Підтвердіть заявку у формі Bitrix24 (дані в буфері). Послуга:",
     bitrixFallback: "Заповніть форму Bitrix24 і натисніть «Надіслати заявку».",
     bitrixAlt: "Не вийшло? Відкрити форму Bitrix24",
-    bitrixAltUnavailable:
-      "Форма Bitrix24 зараз недоступна. Вимкніть VPN або зателефонуйте.",
+    bitrixAltUnavailable: "Форма Bitrix24 зараз недоступна. Вимкніть VPN або зателефонуйте.",
     errName: "Вкажіть ім’я",
     errNameLong: "Надто довге ім’я",
     errPhone: "Вкажіть телефон у міжнародному форматі",

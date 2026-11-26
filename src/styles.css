@@ -69,6 +69,9 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-ink: var(--hero-ink);
+  --color-hero-muted: var(--hero-muted);
 
   --shadow-card: var(--shadow-card);
   --shadow-glow: var(--shadow-glow);
@@ -116,6 +119,10 @@
   --sage: oklch(0.76 0.045 175);
   /* Light bands (services, like a brochure page on the dark site) */
   --paper: oklch(0.985 0.004 90);
+  /* Dark cinematic hero over the night-truck photo */
+  --hero-foreground: oklch(0.965 0.01 85);
+  --hero-ink: oklch(0.93 0.015 260 / 88%);
+  --hero-muted: oklch(0.83 0.02 260 / 64%);
   --ink: oklch(0.14 0.005 285);
   --ink-muted: oklch(0.42 0.02 262);
 
@@ -143,9 +150,7 @@
   --gradient-fade-bottom: linear-gradient(180deg, transparent 0%, var(--background) 100%);
 
   --shadow-card: 0 1px 2px oklch(0.24 0.04 262 / 6%), 0 16px 40px -24px oklch(0.24 0.04 262 / 18%);
-  --shadow-lift:
-    0 12px 40px -18px oklch(0.64 0.21 42 / 35%),
-    0 0 0 1px oklch(0.64 0.21 42 / 25%);
+  --shadow-lift: 0 12px 40px -18px oklch(0.64 0.21 42 / 35%), 0 0 0 1px oklch(0.64 0.21 42 / 25%);
   --shadow-glow: 0 14px 36px -12px oklch(0.64 0.21 42 / 55%);
 
   --chart-1: oklch(0.83 0.105 78);
@@ -270,6 +275,55 @@
   }
 }
 
+/* Тёмный scrim — только главный экран главной страницы (ночное фото, светлый текст) */
+@utility hero-backdrop-scrim-dark {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background: linear-gradient(
+    180deg,
+    oklch(0.16 0.03 260 / 82%) 0%,
+    oklch(0.17 0.03 260 / 88%) 34%,
+    oklch(0.18 0.03 260 / 90%) 62%,
+    oklch(0.18 0.03 260 / 90%) 100%
+  );
+  @media (width >= 64rem) {
+    background: linear-gradient(
+      102deg,
+      oklch(0.15 0.03 260 / 92%) 0%,
+      oklch(0.16 0.03 260 / 80%) 30%,
+      oklch(0.17 0.03 260 / 46%) 54%,
+      oklch(0.18 0.03 260 / 18%) 72%,
+      oklch(0.18 0.03 260 / 6%) 88%,
+      oklch(0.18 0.03 260 / 3%) 100%
+    );
+  }
+}
+
+/* Стеклянная панель и карточки программ поверх тёмного фото hero */
+@utility hero-glass {
+  background: oklch(0.19 0.03 262 / 55%);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid oklch(1 0 0 / 14%);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 10%) inset,
+    0 24px 60px -24px oklch(0.1 0.02 262 / 65%);
+}
+
+@utility hero-program-card {
+  &:hover {
+    border-color: oklch(0.68 0.2 48 / 50%);
+    background: oklch(0.2 0.04 262 / 68%);
+    transform: translateY(-2px);
+    box-shadow:
+      0 1px 0 oklch(1 0 0 / 12%) inset,
+      0 28px 70px -20px oklch(0.1 0.02 262 / 70%),
+      0 0 0 1px oklch(0.68 0.2 48 / 18%);
+  }
+}
+
 @utility hero-viewport-content {
   position: relative;
   z-index: 1;
@@ -311,6 +365,59 @@
   color: var(--primary);
 }
 
+/* Крупный serif-акцент внутри hero-заголовка (чуть меньше основной строки) */
+@utility hero-serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--primary-glow);
+  font-size: 0.72em;
+  @media (width >= 64rem) {
+    font-size: 0.8em;
+  }
+}
+
+/* Тёплое свечение позади заголовка hero — глубина поверх ночного фото */
+@utility hero-aura {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 12%;
+    left: -12%;
+    width: 46rem;
+    height: 46rem;
+    border-radius: 9999px;
+    background: radial-gradient(
+      closest-side,
+      oklch(0.68 0.2 48 / 16%) 0%,
+      oklch(0.68 0.2 48 / 5%) 46%,
+      transparent 72%
+    );
+    filter: blur(10px);
+  }
+  @media (width < 64rem) {
+    &::before {
+      top: 4%;
+      left: -30%;
+      width: 32rem;
+      height: 32rem;
+    }
+  }
+}
+
+/* Тонкий световой текст поверх фото в тёмном hero */
+@utility hero-copy {
+  text-shadow:
+    0 1px 14px oklch(0.13 0.02 262 / 45%),
+    0 0 2px oklch(0.13 0.02 262 / 55%);
+}
+
 /* Единая типографика: главная, «О нас», внутренние страницы */
 @utility type-hero-display {
   font-family: var(--font-display);
@@ -318,6 +425,9 @@
   line-height: 0.92;
   letter-spacing: -0.05em;
   font-size: clamp(2.75rem, 10vw, 6.25rem);
+  @media (width >= 64rem) {
+    font-size: clamp(2.75rem, min(7vw, 8.2vh), 6.25rem);
+  }
 }
 
 @utility type-page-hero-title {
@@ -452,17 +562,6 @@
   background: var(--background);
   border: 1px solid oklch(0.24 0.04 262 / 20%);
   box-shadow: var(--shadow-lift);
-}
-
-/* Подложка под нижние карточки hero — фото остаётся видимым */
-@utility hero-floor-scrim {
-  background: linear-gradient(
-    to top,
-    oklch(0.975 0.014 80 / 98%) 0%,
-    oklch(0.98 0.012 80 / 88%) 22%,
-    oklch(0.985 0.012 80 / 55%) 50%,
-    oklch(0.985 0.012 80 / 0%) 100%
-  );
 }
 
 @utility bg-gradient-accent {
@@ -615,6 +714,39 @@
   }
   100% {
     background-position: 100% 60%;
+  }
+}
+
+/* Каскадное появление карточек программ (desktop; на мобильных — скролл-лента) */
+@media (width >= 64rem) {
+  .hero-program-reveal {
+    animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hero-program-reveal-1 {
+    animation-delay: 0.5s;
+  }
+  .hero-program-reveal-2 {
+    animation-delay: 0.58s;
+  }
+  .hero-program-reveal-3 {
+    animation-delay: 0.66s;
+  }
+  .hero-program-reveal-4 {
+    animation-delay: 0.74s;
+  }
+}
+
+/* Стрелка-индикатор скролла — только где экран достаточно высокий */
+@media (width >= 64rem) and (height >= 50rem) {
+  .hero-scroll-cue {
+    animation: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
