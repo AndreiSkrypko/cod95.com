@@ -11,7 +11,7 @@ import { LanguageMenu, LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 
 const linkBase =
-  "relative px-3 py-2 font-display text-[0.92rem] font-semibold transition-colors after:absolute after:inset-x-3 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100";
+  "relative whitespace-nowrap px-2 py-2 font-display text-[0.875rem] font-semibold transition-colors after:absolute after:inset-x-2 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100 xl:px-3 xl:text-[0.92rem]";
 const linkLight = `${linkBase} text-foreground/80 hover:text-foreground`;
 const linkOnHero = `${linkBase} text-white/80 hover:text-white`;
 
@@ -41,7 +41,7 @@ export function SiteHeader() {
           : "border-border bg-white/90 shadow-card",
       )}
     >
-      <div className="container-page flex h-[4.5rem] items-center gap-8">
+      <div className="container-page flex h-[4.5rem] items-center gap-4 xl:gap-8">
         <Logo onDark={onHero} />
 
         <nav aria-label={m.header.nav} className="hidden items-center lg:flex">
@@ -73,8 +73,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto hidden items-center gap-4 lg:flex">
+          {/* телефоны — только когда ширины хватает, иначе шапка переполняется */}
           <LanguageSwitch />
-          <div className="hidden min-w-[13.5rem] flex-col items-start gap-1 xl:flex">
+          <div className="hidden min-w-[13.5rem] flex-col items-start gap-1 2xl:flex">
             <a
               href={PHONE_BY.href}
               className={cn(

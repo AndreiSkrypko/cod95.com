@@ -83,7 +83,7 @@ export function Hero() {
                 size="xl"
                 className="border border-white/20 bg-white/10 text-hero-foreground backdrop-blur-md hover:bg-white/20 hover:text-white max-sm:w-full max-sm:justify-center"
               >
-                <Link to="/o-nas">{m.hero.services}</Link>
+                <Link to="/uslugi">{m.hero.services}</Link>
               </Button>
             </div>
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 lg:mt-6">
