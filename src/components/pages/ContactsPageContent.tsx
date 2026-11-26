@@ -45,7 +45,7 @@ export function ContactsPageContent() {
               <ContactChannels />
             </Reveal>
             <Reveal delay={60} className="lg:col-span-5">
-              <article className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+              <article className="overflow-hidden rounded-md border border-border bg-card shadow-card">
                 <img src={consultOffice} alt={page.imageAlt} className="aspect-[16/10] w-full object-cover" loading="lazy" />
                 <div className="border-t border-border p-6 sm:p-8">
                   <h3 className="font-display text-xl font-extrabold text-foreground sm:text-2xl">{page.formTitle}</h3>

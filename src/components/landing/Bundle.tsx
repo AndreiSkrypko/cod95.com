@@ -9,7 +9,7 @@ export function Bundle() {
   return (
     <section aria-labelledby="bundle-title" className="bg-background-deep pb-24 lg:pb-32">
       <div className="container-page">
-        <Reveal className="noise relative grid overflow-hidden rounded-[2rem] border border-primary/25 bg-surface lg:grid-cols-12">
+        <Reveal className="noise relative grid overflow-hidden rounded-md border border-primary/25 bg-surface lg:grid-cols-12">
           <div className="mesh absolute inset-0 -z-10 opacity-80" aria-hidden="true" />
 
           <div className="relative p-8 md:p-14 lg:col-span-7 xl:p-20">

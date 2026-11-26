@@ -71,7 +71,7 @@ export function Reviews() {
               key={r.name}
               delay={i * 80}
               as="figure"
-              className="surface-card card-interactive spotlight relative flex flex-col overflow-hidden rounded-3xl p-6"
+              className="surface-card card-interactive spotlight relative flex flex-col overflow-hidden p-6"
             >
               <span
                 className="pointer-events-none absolute -top-4 right-4 font-serif text-7xl italic leading-none text-primary/15"

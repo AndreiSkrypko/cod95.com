@@ -17,7 +17,7 @@ export function FaqList({ limit }: { limit?: number }) {
         <AccordionItem
           key={item.q}
           value={`q${i}`}
-          className="surface-card rounded-2xl border px-6 data-[state=open]:border-primary/50"
+          className="surface-card border px-6 data-[state=open]:border-primary/50"
         >
           <AccordionTrigger className="gap-6 py-5 text-left font-display text-base font-bold text-foreground hover:no-underline md:text-lg [&>svg]:size-5 [&>svg]:text-primary">
             <span className="flex items-baseline gap-5 md:gap-8">

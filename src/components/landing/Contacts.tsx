@@ -40,7 +40,7 @@ export function Contacts() {
           </Link>
         </Reveal>
         <Reveal delay={120} className="xl:col-span-6 xl:col-start-7">
-          <div className="glass rounded-[2rem] p-8 md:p-12">
+          <div className="glass rounded-md p-8 md:p-12">
             <p className="font-display text-2xl font-extrabold text-foreground">Заявка на консультацию</p>
             <p className="mt-3 text-muted-foreground">Форма откроется в окне и не уведёт со страницы.</p>
             <BookButton variant="hero" size="xl" className="mt-8">

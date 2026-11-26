@@ -54,7 +54,7 @@ export function WhyUs() {
           </div>
         </div>
 
-        <ol className="grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 xl:col-span-7">
+        <ol className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 xl:col-span-7">
           {ITEMS.map(({ icon: Icon, title, text }, i) => (
             <Reveal
               as="li"

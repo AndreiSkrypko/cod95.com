@@ -41,7 +41,7 @@ export function ServicesPreview() {
                   <Link
                     to="/uslugi/$serviceId"
                     params={{ serviceId: s.id }}
-                    className="surface-card card-interactive group flex h-full flex-col rounded-3xl p-6"
+                    className="surface-card card-interactive group flex h-full flex-col p-6"
                   >
                     <span className="grid size-11 place-items-center rounded-xl border border-primary/40 bg-primary/12 text-primary">
                       <Icon className="size-5" aria-hidden="true" />

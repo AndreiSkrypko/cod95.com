@@ -58,7 +58,7 @@ function InfoPage() {
               </p>
             ))}
           </Reveal>
-          <div className="overflow-hidden rounded-3xl shadow-card">
+          <div className="overflow-hidden rounded-md shadow-card">
             <img src={classroom} alt={info.imageAlt} className="aspect-[4/3] w-full object-cover" />
           </div>
         </div>

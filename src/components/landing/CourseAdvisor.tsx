@@ -54,7 +54,7 @@ export function CourseAdvisor() {
         id="kurs"
         className="container-page grid items-start gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
       >
-        <div className="rounded-3xl border border-border bg-card p-6 shadow-card md:p-8">
+        <div className="rounded-md border border-border bg-card p-6 shadow-card md:p-8">
           <h2 className="font-display text-3xl font-extrabold text-foreground md:text-4xl">
             {copy.title}
           </h2>
@@ -66,7 +66,7 @@ export function CourseAdvisor() {
               {issuedOptions.map((option) => (
                 <label
                   key={option.value}
-                  className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border px-4 py-3 has-[:checked]:border-primary has-[:checked]:bg-primary/10"
+                  className="flex cursor-pointer items-center gap-3 rounded-md border border-border px-4 py-3 has-[:checked]:border-primary has-[:checked]:bg-primary/10"
                 >
                   <input
                     type="radio"
@@ -88,7 +88,7 @@ export function CourseAdvisor() {
               {CATEGORIES.map((option) => (
                 <label
                   key={option.value}
-                  className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border px-4 py-3 has-[:checked]:border-primary has-[:checked]:bg-primary/10"
+                  className="flex cursor-pointer items-center gap-3 rounded-md border border-border px-4 py-3 has-[:checked]:border-primary has-[:checked]:bg-primary/10"
                 >
                   <input
                     type="radio"
@@ -105,7 +105,7 @@ export function CourseAdvisor() {
           </fieldset>
         </div>
 
-        <aside className="rounded-3xl border border-border bg-card p-6 shadow-card md:p-8 lg:sticky lg:top-28">
+        <aside className="rounded-md border border-border bg-card p-6 shadow-card md:p-8 lg:sticky lg:top-28">
           <p className="font-display text-sm font-bold uppercase tracking-[0.16em] text-primary">
             {copy.result}
           </p>

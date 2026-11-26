@@ -34,7 +34,7 @@ export function ArticlesCatalogPage() {
                 <Link
                   to="/statyi/$slug"
                   params={{ slug: article.slug }}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card"
+                  className="group flex h-full flex-col overflow-hidden rounded-md border border-border bg-card shadow-card"
                 >
                   <ArticleCover
                     image={article.image}

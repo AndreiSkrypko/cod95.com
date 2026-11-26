@@ -35,7 +35,7 @@ export function LegalEntitySection({ legal }: { legal?: AboutPageCopy["legal"] }
           </h2>
           <p className="type-lead mt-6 text-foreground">{copy.intro}</p>
 
-          <dl className="mt-10 overflow-hidden rounded-2xl border border-border bg-background shadow-card sm:rounded-3xl">
+          <dl className="mt-10 overflow-hidden rounded-md border border-border bg-background shadow-card">
             {copy.rows.map((row, index) => (
               <div
                 key={row.label}

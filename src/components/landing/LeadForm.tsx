@@ -39,7 +39,7 @@ type Errors = {
 };
 
 const fieldClass =
-  "h-13 rounded-xl border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60";
+  "h-13 rounded-md border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60";
 
 export function LeadForm({
   title,
@@ -158,7 +158,7 @@ export function LeadForm({
       id={formId}
       onSubmit={onSubmit}
       noValidate
-      className={plain ? "space-y-0" : "glass rounded-[2rem] p-6 shadow-card md:p-12"}
+      className={plain ? "space-y-0" : "glass rounded-md p-6 shadow-card md:p-12"}
       aria-label={formTitle || m.form.title}
     >
       {formTitle ? (
@@ -228,7 +228,7 @@ export function LeadForm({
           name="comment"
           rows={4}
           placeholder={m.form.commentPh}
-          className="rounded-xl border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60"
+          className="rounded-md border-input bg-background-deep/50 text-base transition-colors focus-visible:border-primary/60"
         />
       </div>
       <Button type="submit" variant="hero" size="xl" className="mt-7 w-full" disabled={submitting}>

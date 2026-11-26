@@ -13,7 +13,7 @@ import { PAGES } from "@/i18n/pages-copy";
 import { cn } from "@/lib/utils";
 
 const GALLERY_TILE =
-  "h-full min-h-0 w-full overflow-hidden rounded-2xl shadow-lift sm:rounded-3xl";
+  "h-full min-h-0 w-full overflow-hidden rounded-md shadow-lift";
 
 export function AboutBazaPage() {
   const { locale } = useLocale();
@@ -199,7 +199,7 @@ function AboutSection({
   const imageBlock = (
     <Reveal
       variant="clip"
-      className={cn("overflow-hidden rounded-3xl shadow-lift", imageSide === "left" ? "order-2 lg:order-1" : "order-2")}
+      className={cn("overflow-hidden rounded-md shadow-lift", imageSide === "left" ? "order-2 lg:order-1" : "order-2")}
     >
       <img src={image} alt={imageAlt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
     </Reveal>

@@ -14,7 +14,7 @@ const OPTIONS: { id: Locale; label: string }[] = [
 export function LanguageSwitch({ className }: { className?: string }) {
   const { locale, setLocale, m } = useLocale();
   return (
-    <div className={cn("flex items-center rounded-full border border-border bg-white p-0.5", className)} role="group" aria-label={m.langLabel}>
+    <div className={cn("flex items-center rounded-md border border-border bg-white p-0.5", className)} role="group" aria-label={m.langLabel}>
       {OPTIONS.map((option) => (
         <button
           key={option.id}
@@ -22,7 +22,7 @@ export function LanguageSwitch({ className }: { className?: string }) {
           aria-pressed={locale === option.id}
           onClick={() => setLocale(option.id)}
           className={cn(
-            "rounded-full px-2.5 py-1 font-display text-xs font-bold tracking-wide",
+            "rounded-md px-2.5 py-1 font-display text-xs font-bold tracking-wide",
             locale === option.id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
           )}
         >
@@ -42,14 +42,14 @@ export function LanguageMenu() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="subtle"
-          className="h-10 gap-1 rounded-full px-3 font-display text-xs font-bold tracking-wide data-[state=open]:border-primary/45 data-[state=open]:[&_svg]:rotate-180 [&_svg]:size-3 [&_svg]:opacity-60 [&_svg]:transition-transform"
+          className="h-10 gap-1 px-3 font-display text-xs font-bold tracking-wide data-[state=open]:border-primary/45 data-[state=open]:[&_svg]:rotate-180 [&_svg]:size-3 [&_svg]:opacity-60 [&_svg]:transition-transform"
           aria-label={m.langLabel}
         >
           {current}
           <ChevronDown aria-hidden="true" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" sideOffset={6} className="z-[80] w-16 min-w-0 rounded-2xl border-border p-1 shadow-card">
+      <DropdownMenuContent align="end" sideOffset={6} className="z-[80] w-16 min-w-0 rounded-md border-border p-1 shadow-card">
         {OPTIONS.map((option) => {
           const active = locale === option.id;
           return (
@@ -57,7 +57,7 @@ export function LanguageMenu() {
               key={option.id}
               onSelect={() => setLocale(option.id)}
               className={cn(
-                "justify-center rounded-full px-0 py-1.5 font-display text-xs font-bold tracking-wide",
+                "justify-center rounded-md px-0 py-1.5 font-display text-xs font-bold tracking-wide",
                 active
                   ? "bg-primary text-primary-foreground focus:bg-primary focus:text-primary-foreground"
                   : "text-foreground focus:bg-secondary",

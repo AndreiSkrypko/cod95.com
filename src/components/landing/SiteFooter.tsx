@@ -32,8 +32,8 @@ export function SiteFooter() {
             className="group mt-8 inline-flex items-center gap-3 font-display text-lg font-bold text-foreground"
           >
             {m.footer.discuss}
-            <span className="grid size-10 place-items-center rounded-full border border-border-strong transition-all duration-700 ease-out-expo group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
-              <ArrowUpRight className="size-4" aria-hidden="true" />
+            <span className="grid size-10 place-items-center rounded-md border border-border-strong transition-colors duration-700 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
+              <ArrowUpRight className="size-4 transition-transform duration-700 ease-out-expo group-hover:rotate-45" aria-hidden="true" />
             </span>
           </button>
         </div>

@@ -34,7 +34,7 @@ export function HeroAdvantageStrip() {
 
 function AdvantageCard({ icon, title, text }: { icon: ReactNode; title: string; text: string }) {
   return (
-    <article className="hero-surface-strong flex h-full flex-col rounded-2xl px-4 py-4 text-left sm:px-5 sm:py-5">
+    <article className="hero-surface-strong flex h-full flex-col rounded-md px-4 py-4 text-left sm:px-5 sm:py-5">
       <span className="flex size-10 items-center justify-center rounded-xl bg-primary/12">
         {icon}
       </span>

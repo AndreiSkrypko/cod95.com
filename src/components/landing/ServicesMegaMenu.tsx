@@ -47,7 +47,7 @@ export function ServicesMegaMenu({ open, onOpenChange, className }: Props) {
                     to="/uslugi/$serviceId"
                     params={{ serviceId: s.id }}
                     onClick={() => onOpenChange(false)}
-                    className="group flex gap-4 rounded-2xl border border-transparent p-4 transition-colors duration-300 hover:border-primary/35 hover:bg-accent"
+                    className="group flex gap-4 rounded-md border border-transparent p-4 transition-colors duration-300 hover:border-primary/35 hover:bg-accent"
                   >
                     <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-primary/40 bg-primary/15 text-primary">
                       <Icon className="size-5" strokeWidth={1.6} aria-hidden="true" />

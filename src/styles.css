@@ -19,6 +19,7 @@
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
 
   --radius-sm: calc(var(--radius) - 6px);
+  /* Shared corner radius for buttons and cards, including the header consultation CTA. */
   --radius-md: calc(var(--radius) - 4px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
@@ -169,6 +170,10 @@
 }
 
 @layer base {
+  button {
+    @apply rounded-md;
+  }
+
   * {
     border-color: var(--color-border);
   }
@@ -499,6 +504,7 @@
 }
 
 @utility surface-card {
+  @apply rounded-md;
   background: var(--gradient-surface), var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-card);

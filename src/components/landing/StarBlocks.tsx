@@ -108,7 +108,7 @@ export function StoryBlock() {
             </Button>
           </Reveal>
         </div>
-        <Reveal delay={80} variant="clip" className="overflow-hidden rounded-3xl shadow-lift">
+        <Reveal delay={80} variant="clip" className="overflow-hidden rounded-md shadow-lift">
           <img
             src={lifeBriefing}
             alt={story.imageAlt}
@@ -138,7 +138,7 @@ export function OfferRow() {
             return (
             <li
               key={o.id}
-              className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card text-ink shadow-card sm:flex-row"
+              className="group flex flex-col overflow-hidden rounded-md border border-border bg-card text-ink shadow-card sm:flex-row"
             >
               <div className="relative h-36 shrink-0 overflow-hidden sm:h-auto sm:w-44">
                 <img
@@ -164,7 +164,7 @@ export function OfferRow() {
                 <button
                   type="button"
                   onClick={() => openBooking(o.id)}
-                  className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 font-display font-bold text-primary-foreground"
+                  className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-primary px-5 font-display font-bold text-primary-foreground"
                 >
                   {copy.cta}
                 </button>
@@ -200,7 +200,7 @@ export function ConsultSplit() {
             {consult.cta}
           </BookButton>
         </div>
-        <div className="overflow-hidden rounded-3xl shadow-card">
+        <div className="overflow-hidden rounded-md shadow-card">
           <img
             src={consultOffice}
             alt={consult.imageAlt}
@@ -218,7 +218,7 @@ export function Code95Block() {
   return (
     <section className="section-y border-t border-border bg-background-deep">
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-        <div className="overflow-hidden rounded-3xl shadow-card">
+        <div className="overflow-hidden rounded-md shadow-card">
           <img
             src={lifeBriefing}
             alt={block.imageAlt}
@@ -263,7 +263,7 @@ export function Perks() {
         <div className="mt-10 grid items-start gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal variant="clip" className="lg:col-span-4">
             <figure>
-              <div className="overflow-hidden rounded-3xl shadow-lift">
+              <div className="overflow-hidden rounded-md shadow-lift">
                 <img
                   src={ABOUT_PHOTOS.practice}
                   alt={perks.imageAlt}
@@ -277,7 +277,7 @@ export function Perks() {
           <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-8">
             {perks.items.map((p, i) => (
               <li key={p.title}>
-                <Reveal delay={i * 35} className="h-full rounded-2xl border border-border bg-card p-5 shadow-sm">
+                <Reveal delay={i * 35} className="h-full rounded-md border border-border bg-card p-5 shadow-sm">
                   <h3 className="font-display text-base font-bold text-ink">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink-muted">{p.text}</p>
                 </Reveal>
@@ -322,7 +322,7 @@ export function SchoolLife() {
           {LIFE.map((img, i) => (
             <li key={img.src}>
               <figure>
-                <div className="overflow-hidden rounded-2xl">
+                <div className="overflow-hidden rounded-md">
                   <img src={img.src} alt={school.alts[i] ?? ""} className="aspect-[16/10] w-full object-cover" />
                 </div>
                 <figcaption className="mt-2 text-sm text-muted-foreground">{school.alts[i]}</figcaption>
@@ -348,7 +348,7 @@ export function HomeContacts() {
             <Link to="/kontakty">{contacts.page}</Link>
           </Button>
         </div>
-        <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+        <div className="overflow-hidden rounded-md border border-border bg-card shadow-card">
           <img
             src={offerResidence}
             alt={contacts.imageAlt}
@@ -375,7 +375,7 @@ export function FloatDock() {
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
       <a
         href={phone.href}
-        className="grid size-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-glow"
+        className="grid size-14 place-items-center rounded-md bg-primary text-primary-foreground shadow-glow"
         aria-label={m.dock.call}
       >
         <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2">
@@ -385,7 +385,7 @@ export function FloatDock() {
       <button
         type="button"
         onClick={() => openBooking()}
-        className="grid size-14 place-items-center rounded-full border border-border bg-white text-foreground shadow-card"
+        className="grid size-14 place-items-center rounded-md border border-border bg-white text-foreground shadow-card"
         aria-label={m.dock.request}
       >
         <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2">

@@ -47,7 +47,7 @@ export function ArticleDetailPage({ article }: { article: Article }) {
             <Reveal>
               <ArticleCover
                 image={localized.image}
-                className="aspect-[16/10] overflow-hidden rounded-2xl border border-border shadow-card sm:rounded-3xl"
+                className="aspect-[16/10] overflow-hidden rounded-md border border-border shadow-card"
                 imgClassName="h-full w-full object-cover"
               />
             </Reveal>
@@ -80,7 +80,7 @@ export function ArticleDetailPage({ article }: { article: Article }) {
 
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-28">
-              <Reveal className="surface-card rounded-3xl p-6 md:p-8">
+              <Reveal className="surface-card p-6 md:p-8">
                 <p className="font-display text-lg font-bold text-foreground">{copy.consult}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{copy.consultLead}</p>
                 <BookButton {...(primaryService ? { service: primaryService } : {})} variant="hero" size="lg" className="mt-6 w-full">

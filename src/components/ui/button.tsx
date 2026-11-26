@@ -16,17 +16,17 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "shine rounded-full bg-gradient-accent font-display font-bold tracking-[-0.01em] text-primary-foreground shadow-glow transition-shadow duration-500 hover:shadow-[0_18px_50px_-14px_var(--color-primary)] active:translate-y-px",
+        hero: "shine bg-gradient-accent font-display font-bold tracking-[-0.01em] text-primary-foreground shadow-glow transition-shadow duration-500 hover:shadow-[0_18px_50px_-14px_var(--color-primary)] active:translate-y-px",
         glass:
-          "glass rounded-full font-display font-semibold text-foreground transition-colors duration-500 hover:border-primary/50 hover:text-accent-foreground",
+          "glass font-display font-semibold text-foreground transition-colors duration-500 hover:border-primary/50 hover:text-accent-foreground",
         subtle:
-          "rounded-full border border-border-strong bg-secondary/50 font-display font-semibold text-foreground transition-colors duration-500 hover:border-primary/45 hover:bg-secondary",
-        ink: "rounded-full bg-ink font-display font-bold text-paper shadow-card transition-colors hover:bg-ink/90 active:translate-y-px",
+          "border border-border-strong bg-secondary/50 font-display font-semibold text-foreground transition-colors duration-500 hover:border-primary/45 hover:bg-secondary",
+        ink: "bg-ink font-display font-bold text-paper shadow-card transition-colors hover:bg-ink/90 active:translate-y-px",
       },
       size: {
         default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
+        sm: "h-8 px-3 text-xs",
+        lg: "h-10 px-8",
         icon: "h-9 w-9",
         xl: "h-14 px-7 text-base [&_svg]:size-5",
       },

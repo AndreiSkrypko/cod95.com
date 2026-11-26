@@ -24,7 +24,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
     <BookingContext.Provider value={openBooking}>
       {children}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="z-[80] max-h-[92vh] overflow-y-auto border-border bg-background sm:max-w-xl sm:rounded-3xl">
+        <DialogContent className="z-[80] max-h-[92vh] overflow-y-auto border-border bg-background sm:max-w-xl">
           <DialogHeader>
             <DialogTitle className="font-display text-2xl font-extrabold">{m.booking.title}</DialogTitle>
             <DialogDescription>{m.booking.description}</DialogDescription>

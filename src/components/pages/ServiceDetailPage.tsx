@@ -81,7 +81,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
                   {detail.steps.map((step, i) => (
                     <li
                       key={step.title}
-                      className="surface-card flex gap-4 rounded-2xl p-5 md:p-6"
+                      className="surface-card flex gap-4 p-5 md:p-6"
                     >
                       <span className="font-serif text-2xl italic text-primary">0{i + 1}</span>
                       <span>
@@ -111,7 +111,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
 
           <aside className="lg:col-span-4">
             <div className="lg:sticky lg:top-28">
-              <Reveal className="surface-card rounded-3xl p-6 md:p-8">
+              <Reveal className="surface-card p-6 md:p-8">
                 <p className="font-display text-lg font-bold text-foreground">{copy.consult}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{copy.consultLead}</p>
                 <BookButton service={service.id} variant="hero" size="lg" className="mt-6 w-full">

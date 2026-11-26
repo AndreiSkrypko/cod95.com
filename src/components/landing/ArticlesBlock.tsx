@@ -30,7 +30,7 @@ export function ArticlesBlock() {
                 <Link
                   to="/statyi/$slug"
                   params={{ slug: article.slug }}
-                  className="surface-card card-interactive group flex h-full flex-col overflow-hidden rounded-3xl"
+                  className="surface-card card-interactive group flex h-full flex-col overflow-hidden"
                 >
                   <ArticleCover
                     image={article.image}

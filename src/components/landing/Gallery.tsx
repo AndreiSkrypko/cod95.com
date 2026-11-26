@@ -67,7 +67,7 @@ export function Gallery() {
             variant="clip"
             delay={(i % 3) * 120}
             as="figure"
-            className={cn("group relative overflow-hidden rounded-2xl", img.span)}
+            className={cn("group relative overflow-hidden rounded-md", img.span)}
           >
             <img
               src={img.src}

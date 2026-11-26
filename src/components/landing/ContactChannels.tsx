@@ -27,7 +27,7 @@ export function ContactChannels() {
           <li key={office.phone.href}>
             <a
               href={office.phone.href}
-              className="group flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-card transition-shadow hover:shadow-lift sm:rounded-3xl sm:p-6"
+              className="group flex h-full flex-col rounded-md border border-border bg-background p-5 shadow-card transition-shadow hover:shadow-lift sm:p-6"
             >
               <span className="grid size-11 place-items-center rounded-full border border-border bg-secondary/60 transition-colors group-hover:border-primary/45">
                 <Phone className="size-5 text-primary" aria-hidden />
@@ -42,7 +42,7 @@ export function ContactChannels() {
         ))}
       </ul>
 
-      <div className="rounded-2xl border border-border bg-background p-5 shadow-card sm:rounded-3xl sm:p-6">
+      <div className="rounded-md border border-border bg-background p-5 shadow-card sm:p-6">
         <InfoBlock icon={Clock} title={copy.hoursTitle}>
           <ul className="space-y-1.5 text-sm text-muted-foreground">
             {hours.map((h) => (
