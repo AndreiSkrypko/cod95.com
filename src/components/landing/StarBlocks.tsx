@@ -92,15 +92,15 @@ export function StoryBlock() {
         <div className="flex flex-col">
           <Reveal>
             <p className="eyebrow eyebrow-rule">{story.eyebrow}</p>
-            <h2 id="home-story-title" className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">
+            <h2 id="home-story-title" className="type-section-title mt-4">
               {story.title}
             </h2>
-            <div className="mt-8 space-y-6 text-lg leading-relaxed text-foreground/85">
+            <div className="type-prose mt-8 space-y-6">
               <p>{story.p1}</p>
               <p>{story.p2}</p>
               <p>{story.p3}</p>
             </div>
-            <p className="accent-serif mt-8 text-2xl font-medium leading-snug text-foreground md:text-[1.65rem]">
+            <p className="accent-serif type-accent-quote mt-8">
               {story.accent}
             </p>
             <Button asChild variant="hero" size="xl" className="mt-8 w-full sm:w-auto">

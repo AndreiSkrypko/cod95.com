@@ -6,6 +6,7 @@ import { BookButton } from "@/components/landing/BookingDialog";
 import heroTruck from "@/assets/hero-truck.jpg";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
+import { cn } from "@/lib/utils";
 
 export function PageHero({
   eyebrow,
@@ -50,25 +51,25 @@ export function PageHero({
         style={{ objectPosition: imagePosition }}
       />
       <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,oklch(0.985_0.012_80/92%)_0%,oklch(0.985_0.012_80/78%)_48%,oklch(0.985_0.012_80/55%)_100%)] lg:bg-[linear-gradient(100deg,oklch(0.985_0.012_80)_0%,oklch(0.985_0.012_80/92%)_28%,oklch(0.985_0.012_80/30%)_48%,transparent_68%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,oklch(0.985_0.012_80/94%)_0%,oklch(0.985_0.012_80/58%)_55%,oklch(0.985_0.012_80/22%)_100%)] lg:bg-[linear-gradient(105deg,oklch(0.99_0.01_80)_0%,oklch(0.985_0.012_80/88%)_24%,oklch(0.985_0.012_80/45%)_42%,oklch(0.985_0.012_80/18%)_58%,transparent_76%)]"
         aria-hidden="true"
       />
       <div className="container-page">
         {eyebrow && <p className="eyebrow eyebrow-rule">{eyebrow}</p>}
-        <h1 className="mt-5 max-w-4xl font-display text-4xl font-extrabold leading-[0.98] tracking-[-0.04em] text-foreground md:text-6xl">
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="mt-4 max-w-2xl font-display text-xl font-semibold text-foreground md:text-2xl">{subtitle}</p>
-        )}
+        <h1 className={cn("type-page-hero-title mt-4 max-w-4xl text-foreground", eyebrow && "mt-5")}>{title}</h1>
+        {subtitle && <p className="type-subtitle mt-3 max-w-2xl text-foreground">{subtitle}</p>}
         {leadParagraphs && leadParagraphs.length > 0 ? (
-          <div className="mt-6 max-w-2xl space-y-4 text-lg leading-relaxed text-foreground/85 md:text-xl">
+          <div className="mt-6 max-w-2xl space-y-4">
             {leadParagraphs.map((p) => (
-              <p key={p.slice(0, 32)}>{p}</p>
+              <p key={p.slice(0, 32)} className="type-lead">
+                {p}
+              </p>
             ))}
           </div>
         ) : (
-          lead && <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl">{lead}</p>
+          lead && (
+            <p className="type-lead mt-6 max-w-xl">{lead}</p>
+          )
         )}
         {heroActions ? (
           <div className="mt-8">{heroActions}</div>

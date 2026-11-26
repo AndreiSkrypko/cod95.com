@@ -256,6 +256,76 @@ main:has([data-site-breadcrumbs]) .page-hero {
   color: var(--primary);
 }
 
+/* Единая типографика: главная, «О нас», внутренние страницы */
+@utility type-hero-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  font-size: clamp(2.75rem, 10vw, 6.25rem);
+}
+
+@utility type-page-hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  font-size: clamp(2.125rem, 4.2vw + 1rem, 3.75rem);
+}
+
+@utility type-subtitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  font-size: 1.25rem;
+  @media (width >= 40rem) {
+    font-size: 1.5rem;
+  }
+}
+
+@utility type-section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  font-size: clamp(2rem, 2.5vw + 1rem, 2.75rem);
+  @media (width >= 48rem) {
+    font-size: 3rem;
+  }
+}
+
+@utility type-lead {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.625;
+  color: oklch(0.18 0.01 285 / 0.85);
+  @media (width >= 48rem) {
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+}
+
+@utility type-prose {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: oklch(0.18 0.01 285 / 0.85);
+}
+
+@utility type-accent-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  font-size: 1.25rem;
+  color: var(--foreground);
+  @media (width >= 48rem) {
+    font-size: 1.65rem;
+  }
+}
+
 @utility text-gradient {
   background: var(--gradient-text);
   -webkit-background-clip: text;

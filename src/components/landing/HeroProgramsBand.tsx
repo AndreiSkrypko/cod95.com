@@ -69,7 +69,16 @@ export function HeroProgramsBand() {
           ))}
         </ul>
 
-        <p className="mt-6 text-sm font-medium text-foreground">{m.hero.unsure}</p>
+        <p className="mt-6">
+          <Link
+            to="/informaciya"
+            hash="kurs"
+            className="inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary underline-offset-4 transition hover:underline"
+          >
+            {m.hero.unsure}
+            <ArrowRight className="size-4" aria-hidden />
+          </Link>
+        </p>
       </div>
     </section>
   );

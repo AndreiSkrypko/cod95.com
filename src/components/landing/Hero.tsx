@@ -53,11 +53,9 @@ export function Hero() {
       <div className="container-page relative z-[1] flex min-h-[min(72svh,40rem)] flex-col justify-center pb-12 pt-[calc(4.5rem+1.5rem)] lg:min-h-[min(78svh,44rem)] lg:pb-14 lg:pt-28">
         <div className="max-w-xl lg:max-w-2xl">
           <p className="eyebrow eyebrow-rule">{m.hero.eyebrow}</p>
-          <h1 className="mt-4 font-display text-[clamp(2.75rem,10vw,6.25rem)] font-extrabold leading-[0.92] tracking-[-0.05em] text-foreground">
-            {m.hero.headline}
-          </h1>
-          <p className="mt-3 font-display text-xl font-semibold tracking-tight text-foreground sm:text-2xl">{m.hero.subtitle}</p>
-          <p className="mt-4 max-w-lg text-base leading-relaxed text-foreground/85 md:text-lg">{m.hero.lead}</p>
+          <h1 className="type-hero-display mt-4 text-foreground">{m.hero.headline}</h1>
+          <p className="type-subtitle mt-3 text-foreground">{m.hero.subtitle}</p>
+          <p className="type-lead mt-4 max-w-lg">{m.hero.lead}</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <BookButton variant="hero" size="xl">
               {m.hero.book}

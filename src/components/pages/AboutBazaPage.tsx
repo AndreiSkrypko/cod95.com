@@ -10,6 +10,7 @@ import { LegalEntityFinePrint } from "@/components/layout/LegalEntityFinePrint";
 import { ABOUT_PAGE } from "@/i18n/about-copy";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
+import { PAGES } from "@/i18n/pages-copy";
 import { cn } from "@/lib/utils";
 
 const GALLERY_KEYS = ["class", "truck", "yard", "sim", "lesson"] as const;
@@ -17,6 +18,7 @@ const GALLERY_KEYS = ["class", "truck", "yard", "sim", "lesson"] as const;
 export function AboutBazaPage() {
   const { locale } = useLocale();
   const copy = ABOUT_PAGE[locale];
+  const pages = PAGES[locale];
   useDocumentMeta(copy.meta.title, copy.meta.description);
 
   const heroCtas = (
@@ -36,6 +38,7 @@ export function AboutBazaPage() {
   return (
     <article>
       <PageHero
+        eyebrow={pages.about.eyebrow}
         title={copy.hero.h1}
         subtitle={copy.hero.subtitle}
         leadParagraphs={copy.hero.lead}
@@ -47,8 +50,8 @@ export function AboutBazaPage() {
 
       <AboutSection variant="plain" image={ABOUT_PHOTOS.philosophy} imageAlt={copy.philosophy.imageAlt} imageSide="right">
         <p className="eyebrow eyebrow-rule">{copy.philosophy.eyebrow}</p>
-        <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{copy.philosophy.h2}</h2>
-        <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+        <h2 className="type-section-title mt-4">{copy.philosophy.h2}</h2>
+        <div className="type-prose mt-8 space-y-6">
           {copy.philosophy.paragraphs.map((p) => (
             <p key={p.slice(0, 28)}>{p}</p>
           ))}
@@ -57,8 +60,8 @@ export function AboutBazaPage() {
 
       <AboutSection variant="deep" image={ABOUT_PHOTOS.history} imageAlt={copy.history.imageAlt} imageSide="left">
         <p className="eyebrow eyebrow-rule">{copy.history.eyebrow}</p>
-        <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{copy.history.h2}</h2>
-        <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+        <h2 className="type-section-title mt-4">{copy.history.h2}</h2>
+        <div className="type-prose mt-8 space-y-6">
           {copy.history.paragraphs.map((p) => (
             <p key={p.slice(0, 28)}>{p}</p>
           ))}
@@ -68,8 +71,8 @@ export function AboutBazaPage() {
       <section className="section-y border-t border-border bg-background">
         <div className="container-page">
           <Reveal>
-            <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">{copy.base.h2}</h2>
-            <div className="mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-muted-foreground">
+            <h2 className="type-section-title">{copy.base.h2}</h2>
+            <div className="type-prose mt-8 max-w-3xl space-y-6">
               {copy.base.paragraphs.map((p) => (
                 <p key={p.slice(0, 28)}>{p}</p>
               ))}
@@ -103,21 +106,21 @@ export function AboutBazaPage() {
 
       <AboutSection variant="deep" image={ABOUT_PHOTOS.practice} imageAlt={copy.practice.imageAlt} imageSide="right">
         <p className="eyebrow eyebrow-rule">{copy.practice.eyebrow}</p>
-        <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{copy.practice.h2}</h2>
-        <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+        <h2 className="type-section-title mt-4">{copy.practice.h2}</h2>
+        <div className="type-prose mt-8 space-y-6">
           {copy.practice.paragraphs.map((p) => (
             <p key={p.slice(0, 28)}>{p}</p>
           ))}
         </div>
-        <p className="accent-serif mt-8 text-xl font-medium leading-snug text-foreground md:text-2xl">{copy.practice.accent}</p>
+        <p className="accent-serif type-accent-quote mt-8">{copy.practice.accent}</p>
       </AboutSection>
 
       <section className="section-y border-t border-border bg-background">
         <div className="container-page">
           <div className="max-w-3xl">
             <Reveal>
-              <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">{copy.path.h2}</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{copy.path.intro}</p>
+              <h2 className="type-section-title">{copy.path.h2}</h2>
+              <p className="type-prose mt-8">{copy.path.intro}</p>
             </Reveal>
           </div>
           <ol className="mt-10 max-w-3xl border-t border-border">
@@ -129,7 +132,7 @@ export function AboutBazaPage() {
                   </span>
                   <div className="min-w-0 pt-0.5">
                     <h3 className="font-display text-lg font-bold text-foreground sm:text-xl">{step.title}</h3>
-                    <p className="mt-2 text-base leading-relaxed text-muted-foreground">{step.text}</p>
+                    <p className="type-lead mt-2">{step.text}</p>
                   </div>
                 </Reveal>
               </li>
@@ -144,8 +147,8 @@ export function AboutBazaPage() {
 
       <section className="section-y border-t border-border">
         <div className="container-page max-w-3xl">
-          <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">{copy.finale.h2}</h2>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{copy.finale.text}</p>
+          <h2 className="type-section-title">{copy.finale.h2}</h2>
+          <p className="type-prose mt-8">{copy.finale.text}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild variant="hero" size="xl">
               <Link to="/informaciya" hash="kurs">
