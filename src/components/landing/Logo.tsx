@@ -3,7 +3,7 @@ import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import { BazaMark } from "./BazaMark";
 
-export function Logo({ tagline = false }: { tagline?: boolean }) {
+export function Logo({ tagline = false, onDark = false }: { tagline?: boolean; onDark?: boolean }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { locale } = useLocale();
 
@@ -22,7 +22,11 @@ export function Logo({ tagline = false }: { tagline?: boolean }) {
         }
       }}
     >
-      <BazaMark showTagline={tagline} className={tagline ? "h-14 sm:h-16" : "h-8 sm:h-9"} />
+      <BazaMark
+        showTagline={tagline}
+        onDark={onDark}
+        className={tagline ? "h-14 sm:h-16" : "h-8 sm:h-9"}
+      />
     </Link>
   );
 }
