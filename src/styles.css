@@ -216,12 +216,67 @@
   }
 }
 
-/* Hero внутренних страниц: крошки уже сверху — лёгкий верхний отступ */
-main:has([data-site-breadcrumbs]) .page-hero {
-  padding-top: 1.25rem;
-  @media (width >= 48rem) {
-    padding-top: 1.5rem;
+/* Hero: на весь экран, фото без «дыр» по краям */
+@utility hero-viewport {
+  position: relative;
+  min-height: 100svh;
+  overflow-x: clip;
+}
+
+@utility hero-backdrop {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -20;
+  overflow: hidden;
+}
+
+@utility hero-backdrop-photo {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 72% center;
+  transform-origin: center center;
+  animation: var(--animate-hero-drive);
+  @media (width >= 64rem) {
+    object-position: 58% center;
   }
+}
+
+@utility hero-backdrop-scrim {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background: linear-gradient(
+    180deg,
+    oklch(0.985 0.012 80 / 94%) 0%,
+    oklch(0.985 0.012 80 / 58%) 55%,
+    oklch(0.985 0.012 80 / 32%) 100%
+  );
+  @media (width >= 64rem) {
+    background: linear-gradient(
+      105deg,
+      oklch(0.99 0.01 80) 0%,
+      oklch(0.985 0.012 80 / 88%) 24%,
+      oklch(0.985 0.012 80 / 45%) 42%,
+      oklch(0.985 0.012 80 / 22%) 58%,
+      oklch(0.985 0.012 80 / 10%) 82%,
+      oklch(0.985 0.012 80 / 4%) 100%
+    );
+  }
+}
+
+@utility hero-viewport-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @utility eyebrow {

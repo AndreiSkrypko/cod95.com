@@ -6,14 +6,14 @@ import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/pages/PageHero";
-import { LegalEntityFinePrint } from "@/components/layout/LegalEntityFinePrint";
 import { ABOUT_PAGE } from "@/i18n/about-copy";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import { cn } from "@/lib/utils";
 
-const GALLERY_KEYS = ["class", "truck", "yard", "sim", "lesson"] as const;
+const GALLERY_TILE =
+  "h-full min-h-0 w-full overflow-hidden rounded-2xl shadow-lift sm:rounded-3xl";
 
 export function AboutBazaPage() {
   const { locale } = useLocale();
@@ -22,16 +22,17 @@ export function AboutBazaPage() {
   useDocumentMeta(copy.meta.title, copy.meta.description);
 
   const heroCtas = (
-    <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
-      <Button asChild variant="hero" size="lg" className="w-full sm:w-auto">
+    <div className="flex flex-wrap gap-3">
+      <BookButton variant="hero" size="xl">
+        {copy.hero.ctaConsult}
+        <ArrowRight aria-hidden />
+      </BookButton>
+      <Button asChild variant="subtle" size="xl">
         <Link to="/informaciya" hash="kurs">
           {copy.hero.ctaCourse}
           <ArrowRight aria-hidden />
         </Link>
       </Button>
-      <BookButton variant="subtle" size="lg" className="w-full sm:w-auto">
-        {copy.hero.ctaConsult}
-      </BookButton>
     </div>
   );
 
@@ -41,17 +42,17 @@ export function AboutBazaPage() {
         eyebrow={pages.about.eyebrow}
         title={copy.hero.h1}
         subtitle={copy.hero.subtitle}
-        leadParagraphs={copy.hero.lead}
+        lead={copy.hero.lead[0]}
         heroActions={heroCtas}
-        image={ABOUT_PHOTOS.hero}
-        imageAlt={copy.hero.imageAlt}
-        imagePosition="50% center"
       />
 
       <AboutSection variant="plain" image={ABOUT_PHOTOS.philosophy} imageAlt={copy.philosophy.imageAlt} imageSide="right">
         <p className="eyebrow eyebrow-rule">{copy.philosophy.eyebrow}</p>
         <h2 className="type-section-title mt-4">{copy.philosophy.h2}</h2>
         <div className="type-prose mt-8 space-y-6">
+          {copy.hero.lead.slice(1).map((p) => (
+            <p key={p.slice(0, 28)}>{p}</p>
+          ))}
           {copy.philosophy.paragraphs.map((p) => (
             <p key={p.slice(0, 28)}>{p}</p>
           ))}
@@ -78,29 +79,45 @@ export function AboutBazaPage() {
               ))}
             </div>
           </Reveal>
-          <ul className="mt-10 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-12 lg:gap-3">
-            {GALLERY_KEYS.map((key, i) => (
-              <li
-                key={key}
-                className={cn(
-                  i === 0 && "col-span-2 aspect-[16/10] lg:col-span-7 lg:row-span-2 lg:aspect-auto",
-                  i === 1 && "aspect-[4/3] lg:col-span-5",
-                  i === 2 && "aspect-[4/3] lg:col-span-4",
-                  i === 3 && "aspect-[4/3] lg:col-span-4",
-                  i === 4 && "aspect-[4/3] lg:col-span-4",
-                )}
-              >
-                <Reveal delay={i * 40} variant="clip" className="h-full overflow-hidden rounded-2xl shadow-lift sm:rounded-3xl">
+          <div className="mt-10 flex flex-col gap-2 sm:gap-2.5">
+            <div className="grid grid-cols-2 items-stretch gap-2 sm:gap-2.5 lg:grid-cols-12">
+              <Reveal variant="clip" className={cn("col-span-2 aspect-[16/10] lg:col-span-7 lg:aspect-auto lg:min-h-[min(52vw,22rem)]", GALLERY_TILE)}>
+                <img
+                  src={ABOUT_PHOTOS.gallery.class}
+                  alt={copy.base.galleryAlts.class}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
+              </Reveal>
+              <div className="col-span-2 grid grid-cols-2 gap-2 sm:gap-2.5 lg:col-span-5 lg:grid-cols-1 lg:grid-rows-2 lg:gap-2.5">
+                {(["truck", "yard"] as const).map((key, i) => (
+                  <Reveal key={key} delay={(i + 1) * 40} variant="clip" className={cn("aspect-[4/3] lg:aspect-auto lg:min-h-0 lg:h-full", GALLERY_TILE)}>
+                    <img
+                      src={ABOUT_PHOTOS.gallery[key]}
+                      alt={copy.base.galleryAlts[key]}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
+              {(["sim", "lesson"] as const).map((key, i) => (
+                <Reveal key={key} delay={(i + 3) * 40} variant="clip" className={cn("aspect-[4/3] sm:aspect-[16/11]", GALLERY_TILE)}>
                   <img
                     src={ABOUT_PHOTOS.gallery[key]}
                     alt={copy.base.galleryAlts[key]}
                     loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </Reveal>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -162,12 +179,6 @@ export function AboutBazaPage() {
           </div>
         </div>
       </section>
-
-      <div className="border-t border-border bg-background">
-        <div className="container-page max-w-3xl py-10 md:py-12">
-          <LegalEntityFinePrint legal={copy.legal} />
-        </div>
-      </div>
     </article>
   );
 }

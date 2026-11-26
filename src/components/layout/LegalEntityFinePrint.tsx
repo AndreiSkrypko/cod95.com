@@ -33,7 +33,7 @@ export function LegalEntityFinePrint({
         {email ? <> · {email}</> : null}
         .{" "}
         <Link
-          to="/o-nas"
+          to="/kontakty"
           hash="legal"
           className="text-foreground/50 underline decoration-foreground/15 underline-offset-2 hover:text-foreground/65"
         >

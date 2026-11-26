@@ -151,7 +151,7 @@ export function ServicesCatalogPage() {
             </ul>
             <p className="mt-8">
               <Link
-                to="/o-nas"
+                to="/kontakty"
                 hash="legal"
                 className="inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary underline-offset-4 transition hover:underline"
               >

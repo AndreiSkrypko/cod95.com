@@ -34,23 +34,20 @@ export function Hero() {
   const { m } = useLocale();
 
   return (
-    <section id="top" className="relative overflow-x-clip">
-      <div ref={photo} className="pointer-events-none absolute inset-0 -z-20 overflow-hidden">
+    <section id="top" className="hero-viewport">
+      <div ref={photo} className="hero-backdrop">
         <img
           src={heroTruck}
           alt=""
           width={1920}
           height={1080}
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full max-w-none origin-center animate-hero-drive object-cover object-[70%_center] lg:left-[-26%] lg:w-[118%] lg:object-center"
+          className="hero-backdrop-photo"
         />
       </div>
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,oklch(0.985_0.012_80/94%)_0%,oklch(0.985_0.012_80/58%)_55%,oklch(0.985_0.012_80/22%)_100%)] lg:bg-[linear-gradient(105deg,oklch(0.99_0.01_80)_0%,oklch(0.985_0.012_80/88%)_24%,oklch(0.985_0.012_80/45%)_42%,oklch(0.985_0.012_80/18%)_58%,transparent_76%)]"
-        aria-hidden
-      />
+      <div className="hero-backdrop-scrim" aria-hidden />
 
-      <div className="container-page relative z-[1] flex min-h-[min(72svh,40rem)] flex-col justify-center pb-12 pt-[calc(4.5rem+1.5rem)] lg:min-h-[min(78svh,44rem)] lg:pb-14 lg:pt-28">
+      <div className="container-page hero-viewport-content pb-12 pt-[calc(4.5rem+1.5rem)] lg:pb-14 lg:pt-28">
         <div className="max-w-xl lg:max-w-2xl">
           <p className="eyebrow eyebrow-rule">{m.hero.eyebrow}</p>
           <h1 className="type-hero-display mt-4 text-foreground">{m.hero.headline}</h1>
