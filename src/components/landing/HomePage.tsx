@@ -3,6 +3,7 @@ import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import { Hero } from "@/components/landing/Hero";
+import { HeroProgramsBand } from "@/components/landing/HeroProgramsBand";
 import { ConsultSplit, HomeContacts, HomeFaq, OfferRow, StoryBlock } from "@/components/landing/StarBlocks";
 
 export function HomePage() {
@@ -12,6 +13,7 @@ export function HomePage() {
   return (
     <>
       <Hero />
+      <HeroProgramsBand />
       <StoryBlock />
       <OfferRow />
       <ConsultSplit />
