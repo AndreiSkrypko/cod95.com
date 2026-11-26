@@ -311,7 +311,7 @@
   height: 9rem;
   background: linear-gradient(180deg, oklch(0.985 0.012 80 / 0%) 0%, oklch(0.985 0.012 80) 100%);
   @media (width >= 64rem) {
-    height: 8rem;
+    height: 5.5rem;
   }
 }
 
@@ -439,6 +439,9 @@
   line-height: 0.92;
   letter-spacing: -0.05em;
   font-size: clamp(2.75rem, 10vw, 6.25rem);
+  @media (width >= 64rem) {
+    font-size: clamp(2.75rem, min(7vw, 8.2vh), 6.25rem);
+  }
 }
 
 @utility type-page-hero-title {
