@@ -56,7 +56,6 @@ export function Hero() {
         />
       </div>
       <div className="hero-backdrop-scrim-dark" aria-hidden />
-      <div className="hero-fadeout" aria-hidden />
       <div className="hero-aura" aria-hidden />
 
       <div className="container-page relative z-[1] flex min-h-svh flex-col pt-[calc(4.5rem+1.25rem)] pb-7 lg:pb-8 lg:pt-[5rem]">

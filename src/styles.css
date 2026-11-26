@@ -301,20 +301,6 @@
   }
 }
 
-/* Плавный световой выход в светлую полосу под hero на узких экранах */
-@utility hero-fadeout {
-  pointer-events: none;
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  z-index: -9;
-  height: 9rem;
-  background: linear-gradient(180deg, oklch(0.985 0.012 80 / 0%) 0%, oklch(0.985 0.012 80) 100%);
-  @media (width >= 64rem) {
-    height: 5.5rem;
-  }
-}
-
 /* Стеклянная панель и карточки программ поверх тёмного фото hero */
 @utility hero-glass {
   background: oklch(0.19 0.03 262 / 55%);
