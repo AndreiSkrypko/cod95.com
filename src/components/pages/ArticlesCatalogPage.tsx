@@ -17,7 +17,6 @@ export function ArticlesCatalogPage() {
     <>
       <ContentPageIntro
         compact
-        eyebrow={copy.article.catalogEyebrow}
         title={
           <>
             {copy.article.catalogTitleBefore} <span className="accent-serif">{copy.article.catalogTitleAccent}</span>{" "}

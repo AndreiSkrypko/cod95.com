@@ -23,7 +23,6 @@ export function ArticleDetailPage({ article }: { article: Article }) {
   return (
     <>
       <ContentPageIntro
-        eyebrow={copy.eyebrow}
         title={localized.title}
         lead={localized.description}
         meta={

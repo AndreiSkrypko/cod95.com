@@ -47,23 +47,25 @@ export function Hero() {
       </div>
       <div className="hero-backdrop-scrim" aria-hidden />
 
-      <div className="container-page hero-viewport-content pb-12 pt-[calc(4.5rem+1.5rem)] lg:pb-14 lg:pt-28">
-        <div className="max-w-xl lg:max-w-2xl">
-          <p className="eyebrow eyebrow-rule">{m.hero.eyebrow}</p>
-          <h1 className="type-hero-display mt-4 text-foreground">{m.hero.headline}</h1>
-          <p className="type-subtitle mt-3 text-foreground">{m.hero.subtitle}</p>
-          <p className="type-lead mt-4 max-w-lg">{m.hero.lead}</p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <BookButton variant="hero" size="xl">
-              {m.hero.book}
-              <ArrowRight aria-hidden />
-            </BookButton>
-            <Button asChild variant="subtle" size="xl">
-              <Link to="/o-nas">{m.hero.services}</Link>
-            </Button>
-          </div>
-          <div className="mt-8 lg:mt-10">
-            <HeroAdvantageStrip compact />
+      <div className="container-page relative z-[1] flex min-h-svh flex-col pt-[calc(4.5rem+0.75rem)] pb-12 lg:pb-14 lg:pt-[5.25rem]">
+        <p className="eyebrow eyebrow-rule">{m.hero.eyebrow}</p>
+        <div className="flex flex-1 flex-col justify-center">
+          <div className="max-w-xl lg:max-w-2xl">
+            <h1 className="type-hero-display mt-4 text-foreground">{m.hero.headline}</h1>
+            <p className="type-subtitle mt-3 text-foreground">{m.hero.subtitle}</p>
+            <p className="type-lead mt-4 max-w-lg">{m.hero.lead}</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <BookButton variant="hero" size="xl">
+                {m.hero.book}
+                <ArrowRight aria-hidden />
+              </BookButton>
+              <Button asChild variant="subtle" size="xl">
+                <Link to="/o-nas">{m.hero.services}</Link>
+              </Button>
+            </div>
+            <div className="mt-8 lg:mt-10">
+              <HeroAdvantageStrip compact />
+            </div>
           </div>
         </div>
       </div>

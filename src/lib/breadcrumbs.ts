@@ -30,7 +30,6 @@ type CrumbOptions = {
   articleTitle?: (slug: string) => string;
 };
 
-/** Пустой массив — главная, крошки не показываем */
 export function getBreadcrumbItems(pathname: string, options?: CrumbOptions): BreadcrumbItem[] {
   const crumbs = options?.crumbs ?? PAGES.ru.crumbs;
   const labels = topLevel(crumbs);

@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
+import { PageBreadcrumbs } from "@/components/layout/PageBreadcrumbs";
+import { usePageBreadcrumbItems } from "@/components/layout/usePageBreadcrumbItems";
 import { cn } from "@/lib/utils";
 
 /** Внутренние страницы без полноэкранного hero — заголовок под шапкой. */
 export function ContentPageIntro({
-  eyebrow,
   title,
   lead,
   meta,
@@ -11,25 +12,26 @@ export function ContentPageIntro({
   className,
   compact = false,
 }: {
-  eyebrow?: string;
   title: ReactNode;
   lead?: string;
   meta?: ReactNode;
   actions?: ReactNode;
   className?: string;
-  /** Меньше отступа снизу — каталог сразу показывает контент */
   compact?: boolean;
 }) {
+  const crumbs = usePageBreadcrumbItems();
+  const hasCrumbs = crumbs.length > 0;
+
   return (
     <section className={cn("border-b border-border bg-background text-left", className)}>
       <div
         className={cn(
-          "container-page w-full pt-[calc(4.5rem+1.75rem)] lg:pt-24",
+          "container-page w-full pt-[calc(4.5rem+0.75rem)] lg:pt-[5.25rem]",
           compact ? "pb-5 md:pb-6" : "pb-8 md:pb-10",
         )}
       >
-        {eyebrow ? <p className="eyebrow eyebrow-rule">{eyebrow}</p> : null}
-        <h1 className={cn("type-page-hero-title max-w-4xl text-left text-foreground", eyebrow ? "mt-4" : "mt-0")}>
+        <PageBreadcrumbs />
+        <h1 className={cn("type-page-hero-title max-w-4xl text-left text-foreground", hasCrumbs ? "mt-4" : "mt-0")}>
           {title}
         </h1>
         {lead ? <p className="type-lead mt-4 max-w-2xl text-left text-muted-foreground">{lead}</p> : null}
