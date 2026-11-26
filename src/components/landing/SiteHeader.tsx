@@ -37,7 +37,7 @@ export function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-[background-color,box-shadow] duration-300",
         onHero
-          ? "hero-header border-transparent bg-[oklch(0.16_0.03_260/30%)]"
+          ? "border-transparent bg-[oklch(0.16_0.03_260/30%)]"
           : "border-border bg-white/90 shadow-card",
       )}
     >
@@ -121,7 +121,7 @@ export function SiteHeader() {
         </div>
 
         <BookButton
-          variant={onHero ? "signal" : "hero"}
+          variant="hero"
           size="sm"
           className="ml-auto hidden h-10 px-5 sm:inline-flex lg:ml-2"
         >

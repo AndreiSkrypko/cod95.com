@@ -16,9 +16,6 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        signal: "bg-primary-glow font-display font-extrabold text-ink hover:bg-paper",
-        signalOutline:
-          "border border-hero-foreground/40 bg-ink/35 font-display font-bold text-hero-foreground hover:border-hero-foreground hover:bg-ink/60",
         hero: "shine rounded-full bg-gradient-accent font-display font-bold tracking-[-0.01em] text-primary-foreground shadow-glow transition-shadow duration-500 hover:shadow-[0_18px_50px_-14px_var(--color-primary)] active:translate-y-px",
         glass:
           "glass rounded-full font-display font-semibold text-foreground transition-colors duration-500 hover:border-primary/50 hover:text-accent-foreground",
@@ -31,7 +28,6 @@ const buttonVariants = cva(
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
-        sign: "h-11 gap-3 rounded-[var(--signal-radius)] px-4 lg:h-12 lg:px-6 lg:text-base",
         xl: "h-14 px-7 text-base [&_svg]:size-5",
       },
     },
