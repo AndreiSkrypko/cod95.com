@@ -3,13 +3,13 @@ import { PAGES } from "@/i18n/pages-copy";
 import { getBreadcrumbItems } from "./breadcrumbs";
 
 describe("getBreadcrumbItems", () => {
-  it.each(["ru", "pl", "uk"] as const)(
-    "shows the current home page without a self-link in %s",
-    (locale) => {
-      const { crumbs } = PAGES[locale];
-      expect(getBreadcrumbItems("/", { crumbs })).toEqual([{ label: crumbs.home }]);
-    },
-  );
+  it.each([
+    ["ru", "Учебный центр в Польше"],
+    ["pl", "Ośrodek szkoleniowy w Polsce"],
+    ["uk", "Навчальний центр у Польщі"],
+  ] as const)("shows the training centre label without a self-link in %s", (locale, label) => {
+    expect(getBreadcrumbItems("/", { crumbs: PAGES[locale].crumbs })).toEqual([{ label }]);
+  });
 
   it("builds static section trail", () => {
     expect(getBreadcrumbItems("/kontakty")).toEqual([

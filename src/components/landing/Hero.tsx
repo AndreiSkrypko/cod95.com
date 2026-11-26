@@ -63,8 +63,7 @@ export function Hero() {
         <PageBreadcrumbs className="[--accent-foreground:var(--primary-glow)]" />
         <div className="grid flex-1 items-center gap-10 lg:grid-cols-[minmax(0,21fr)_minmax(0,20fr)] lg:gap-8 xl:gap-14">
           <div className="max-w-xl lg:max-w-none">
-            <p className="eyebrow eyebrow-rule">{m.hero.eyebrow}</p>
-            <h1 className="type-hero-display mt-3 lg:mt-4 text-hero-foreground">
+            <h1 className="type-hero-display text-hero-foreground">
               {m.hero.headline}
               <br />
               <span className="hero-serif-accent">{m.hero.line2}</span>

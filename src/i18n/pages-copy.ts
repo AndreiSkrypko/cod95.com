@@ -25,6 +25,7 @@ const ru = {
   },
   crumbs: {
     home: "Главная",
+    homeCurrent: "Учебный центр в Польше",
     about: "О нас",
     info: "Информация",
     articles: "Статьи",
@@ -235,6 +236,7 @@ const pl: typeof ru = {
   },
   crumbs: {
     home: "Strona główna",
+    homeCurrent: "Ośrodek szkoleniowy w Polsce",
     about: "O nas",
     info: "Informacje",
     articles: "Artykuły",
@@ -430,6 +432,7 @@ const uk: typeof ru = {
   },
   crumbs: {
     home: "Головна",
+    homeCurrent: "Навчальний центр у Польщі",
     about: "Про нас",
     info: "Інформація",
     articles: "Статті",
