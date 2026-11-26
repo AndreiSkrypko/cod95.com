@@ -544,7 +544,7 @@ export const NAV_LINKS = [
   { to: "/zapis", key: "zapis" },
   { to: "/o-nas", key: "about" },
   { to: "/informaciya", key: "info" },
-  { to: "/statyi", key: "articles" },
   { to: "/uslugi", key: "services" },
+  { to: "/statyi", key: "articles" },
   { to: "/kontakty", key: "contacts" },
 ] as const;

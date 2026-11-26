@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { ArticleCover } from "@/components/articles/ArticleCover";
 import { BookButton } from "@/components/landing/BookingDialog";
+import { ContentPageIntro } from "@/components/pages/ContentPageIntro";
 import type { Article } from "@/content/articles";
 import { localizedArticles } from "@/i18n/articles-copy";
 import { metaTitle } from "@/i18n/brand";
@@ -8,7 +10,6 @@ import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import { Reveal } from "@/components/landing/Reveal";
-import { PageHero } from "./PageHero";
 
 export function ArticleDetailPage({ article }: { article: Article }) {
   const { locale, m } = useLocale();
@@ -21,30 +22,42 @@ export function ArticleDetailPage({ article }: { article: Article }) {
 
   return (
     <>
-      <PageHero
+      <ContentPageIntro
         eyebrow={copy.eyebrow}
-        title={<>{localized.title}</>}
+        title={localized.title}
         lead={localized.description}
-        image={localized.image.src}
-        imageAlt={localized.image.alt}
-        imagePosition={localized.image.objectPosition ?? "center"}
-        ctaTo="/zapis"
-        ctaLabel={copy.cta}
-        {...(primaryService ? { service: primaryService } : {})}
+        meta={
+          <>
+            {copy.read} {localized.readTime}
+          </>
+        }
+        actions={
+          <Link
+            to="/statyi"
+            className="inline-flex items-center gap-2 font-display text-sm font-bold text-primary underline-offset-4 hover:underline"
+          >
+            <ArrowLeft className="size-4" aria-hidden />
+            {copy.all}
+          </Link>
+        }
       />
 
       <section className="section-y border-t border-border">
         <div className="container-page grid gap-14 lg:grid-cols-12">
           <article className="lg:col-span-8">
-            <p className="text-sm font-semibold text-ink-soft">
-              {copy.read} {localized.readTime}
-            </p>
+            <Reveal>
+              <ArticleCover
+                image={localized.image}
+                className="aspect-[16/10] overflow-hidden rounded-2xl border border-border shadow-card sm:rounded-3xl"
+                imgClassName="h-full w-full object-cover"
+              />
+            </Reveal>
 
             {localized.sections.map((sec, i) => (
               <Reveal key={sec.title} delay={i * 60} className="mt-10">
-                <h2 className="text-2xl font-bold text-foreground md:text-3xl">{sec.title}</h2>
+                <h2 className="type-section-title text-foreground">{sec.title}</h2>
                 {sec.paragraphs.map((p) => (
-                  <p key={p.slice(0, 48)} className="mt-4 text-lg text-muted-foreground">
+                  <p key={p.slice(0, 48)} className="type-prose mt-4 text-muted-foreground">
                     {p}
                   </p>
                 ))}
@@ -53,7 +66,7 @@ export function ArticleDetailPage({ article }: { article: Article }) {
 
             {localized.checklist && (
               <Reveal className="mt-12">
-                <h2 className="text-2xl font-bold text-foreground">{copy.checklist}</h2>
+                <h2 className="type-section-title text-foreground">{copy.checklist}</h2>
                 <ul className="mt-6 space-y-3">
                   {localized.checklist.map((item) => (
                     <li key={item} className="flex gap-3 text-muted-foreground">
@@ -75,13 +88,6 @@ export function ArticleDetailPage({ article }: { article: Article }) {
                   {copy.request}
                   <ArrowRight aria-hidden="true" />
                 </BookButton>
-                <Link
-                  to="/statyi"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary"
-                >
-                  <ArrowLeft className="size-4" aria-hidden="true" />
-                  {copy.all}
-                </Link>
               </Reveal>
 
               {relatedServices.length > 0 && (

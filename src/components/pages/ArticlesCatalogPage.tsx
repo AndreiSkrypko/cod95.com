@@ -1,21 +1,22 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { ArticleCover } from "@/components/articles/ArticleCover";
-import { PAGE_VISUALS } from "@/content/serviceVisuals";
+import { ContentPageIntro } from "@/components/pages/ContentPageIntro";
 import { localizedArticles } from "@/i18n/articles-copy";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
-import { PageHero } from "./PageHero";
 
 export function ArticlesCatalogPage() {
   const { locale } = useLocale();
   const copy = PAGES[locale];
   useDocumentMeta(copy.meta.articlesTitle, copy.meta.articlesDescription);
   const articles = localizedArticles(locale);
+
   return (
     <>
-      <PageHero
+      <ContentPageIntro
+        compact
         eyebrow={copy.article.catalogEyebrow}
         title={
           <>
@@ -24,13 +25,9 @@ export function ArticlesCatalogPage() {
           </>
         }
         lead={copy.article.catalogLead}
-        image={PAGE_VISUALS.articles.src}
-        imageAlt={copy.article.catalogEyebrow}
-        ctaTo="/zapis"
-        ctaLabel={copy.article.catalogCta}
       />
 
-      <section className="section-y border-t border-border bg-background-deep">
+      <section className="border-t border-border pb-16 pt-8 md:pb-20 md:pt-10 bg-background">
         <div className="container-page">
           <ul className="grid gap-4 lg:grid-cols-3">
             {articles.map((article) => (
