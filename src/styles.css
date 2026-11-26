@@ -216,11 +216,11 @@
   }
 }
 
-/* Меньше отступ у hero, когда над ним полоса крошек */
+/* Hero внутренних страниц: крошки уже сверху — лёгкий верхний отступ */
 main:has([data-site-breadcrumbs]) .page-hero {
-  padding-top: 2.5rem;
+  padding-top: 1.25rem;
   @media (width >= 48rem) {
-    padding-top: 3rem;
+    padding-top: 1.5rem;
   }
 }
 

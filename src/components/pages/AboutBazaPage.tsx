@@ -22,14 +22,14 @@ export function AboutBazaPage() {
   useDocumentMeta(copy.meta.title, copy.meta.description);
 
   const heroCtas = (
-    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-      <Button asChild variant="hero" size="xl">
+    <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+      <Button asChild variant="hero" size="lg" className="w-full sm:w-auto">
         <Link to="/informaciya" hash="kurs">
           {copy.hero.ctaCourse}
           <ArrowRight aria-hidden />
         </Link>
       </Button>
-      <BookButton variant="subtle" size="xl">
+      <BookButton variant="subtle" size="lg" className="w-full sm:w-auto">
         {copy.hero.ctaConsult}
       </BookButton>
     </div>

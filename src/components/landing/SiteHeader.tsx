@@ -57,10 +57,10 @@ export function SiteHeader() {
 
         <div className="ml-auto hidden items-center gap-4 lg:flex">
           <LanguageSwitch />
-          <div className="hidden flex-col items-end gap-0.5 xl:flex">
+          <div className="hidden min-w-[13.5rem] flex-col items-start gap-1 xl:flex">
             <a
               href={PHONE_BY.href}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+              className="inline-flex items-center gap-2 text-left text-sm font-semibold text-foreground hover:text-primary"
             >
               <Phone className="size-3.5 text-primary" aria-hidden="true" />
               {PHONE_BY.display}
@@ -68,7 +68,7 @@ export function SiteHeader() {
             </a>
             <a
               href={PHONE_PL.href}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/80 hover:text-foreground"
+              className="inline-flex items-center gap-2 text-left text-sm font-semibold text-foreground/80 hover:text-foreground"
             >
               <Phone className="size-3.5 text-primary/80" aria-hidden="true" />
               {PHONE_PL.display}

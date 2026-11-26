@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
 import { PAGE_VISUALS } from "@/content/serviceVisuals";
+import { ABOUT_PAGE } from "@/i18n/about-copy";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
@@ -17,7 +18,7 @@ function isProgramGrid(category: CatalogCategory) {
 function CatalogCta({ item, compact }: { item: CatalogItem; compact?: boolean }) {
   const className = compact
     ? "mt-3 inline-flex items-center gap-1 text-xs font-bold text-primary"
-    : "mt-5 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary transition hover:gap-2";
+    : "inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary transition hover:gap-2";
 
   if (item.action.kind === "book") {
     return (
@@ -35,8 +36,7 @@ function CatalogCta({ item, compact }: { item: CatalogItem; compact?: boolean })
   );
 }
 
-const compactCtaClass =
-  "mt-3 inline-flex items-center gap-1 text-xs font-bold text-primary";
+const compactCtaClass = "mt-3 inline-flex items-center gap-1 text-xs font-bold text-primary";
 
 function ProgramGridCard({ item, wholeCardLink }: { item: CatalogItem; wholeCardLink?: boolean }) {
   return (
@@ -56,18 +56,30 @@ function ProgramGridCard({ item, wholeCardLink }: { item: CatalogItem; wholeCard
   );
 }
 
-function StandardCatalogCard({ item }: { item: CatalogItem }) {
+function CatalogServiceList({ items }: { items: CatalogItem[] }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-6">
-      <p className="text-xs font-semibold uppercase tracking-wide text-primary">{item.subtitle}</p>
-      <h3 className="mt-2 font-display text-xl font-extrabold leading-snug text-foreground">{item.title}</h3>
-      <div className="mt-3 flex-1 space-y-3 text-sm leading-relaxed text-muted-foreground">
-        {item.body.map((p) => (
-          <p key={p.slice(0, 40)}>{p}</p>
-        ))}
-      </div>
-      <CatalogCta item={item} />
-    </article>
+    <ul className="mt-8 border-y border-border">
+      {items.map((item, i) => (
+        <li key={item.title} className="border-b border-border last:border-b-0">
+          <Reveal delay={i * 45}>
+            <div className="grid gap-5 py-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-10 md:py-10 lg:gap-14">
+              <div className="min-w-0 max-w-3xl">
+                <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">{item.subtitle}</p>
+                <h3 className="mt-2 font-display text-xl font-extrabold leading-snug text-foreground md:text-2xl">{item.title}</h3>
+                <div className="type-prose mt-4 space-y-3">
+                  {item.body.map((p) => (
+                    <p key={p.slice(0, 40)}>{p}</p>
+                  ))}
+                </div>
+              </div>
+              <div className="shrink-0 md:pt-1 md:text-right">
+                <CatalogCta item={item} />
+              </div>
+            </div>
+          </Reveal>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -89,12 +101,10 @@ export function ServicesCatalogPage() {
       />
 
       <section className="section-y border-t border-border bg-background">
-        <div className="container-page space-y-14 md:space-y-16">
+        <div className="container-page space-y-14 md:space-y-20">
           {catalog.categories.map((category, ci) => (
             <Reveal key={category.title} delay={ci * 50}>
-              <h2 className="font-display text-2xl font-extrabold tracking-tight text-foreground md:text-3xl">
-                {category.title}
-              </h2>
+              <h2 className="type-section-title max-w-3xl">{category.title}</h2>
               {isProgramGrid(category) ? (
                 <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-border shadow-sm">
                   <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
@@ -119,29 +129,37 @@ export function ServicesCatalogPage() {
                   </ul>
                 </div>
               ) : (
-                <ul className="mt-8 grid gap-4 md:grid-cols-2">
-                  {category.items.map((item, i) => (
-                    <li key={item.title}>
-                      <Reveal delay={i * 40}>
-                        <StandardCatalogCard item={item} />
-                      </Reveal>
-                    </li>
-                  ))}
-                </ul>
+                <CatalogServiceList items={category.items} />
               )}
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="border-t border-border bg-background-deep py-10 md:py-12">
+      <section className="border-t border-border bg-paper py-12 md:py-16" aria-labelledby="services-legal-title">
         <div className="container-page max-w-3xl">
-          <h2 className="text-sm font-medium text-foreground/70">{catalog.legalTitle}</h2>
-          <ul className="mt-4 space-y-3 text-[0.8125rem] leading-relaxed text-foreground/55">
-            {catalog.legal.map((p) => (
-              <li key={p.slice(0, 48)}>{p}</li>
-            ))}
-          </ul>
+          <Reveal>
+            <p id="services-legal-title" className="eyebrow eyebrow-rule">
+              {catalog.legalTitle}
+            </p>
+            <ul className="mt-6 space-y-5 border-l-2 border-primary/35 pl-5 md:pl-6">
+              {catalog.legal.map((p) => (
+                <li key={p.slice(0, 48)} className="type-lead text-foreground/80">
+                  {p}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8">
+              <Link
+                to="/o-nas"
+                hash="legal"
+                className="inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary underline-offset-4 transition hover:underline"
+              >
+                {ABOUT_PAGE[locale].legal.footerLink}
+                <ArrowRight className="size-3.5" aria-hidden />
+              </Link>
+            </p>
+          </Reveal>
         </div>
       </section>
     </>
