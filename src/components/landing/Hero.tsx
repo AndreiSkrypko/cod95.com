@@ -14,6 +14,7 @@ const PROGRAM_IDS = [
   "code95-lt-long",
 ] as const satisfies readonly ServiceId[];
 const ADVANTAGE_ICONS = [Building2, Warehouse, MapPin] as const;
+const programCorners = "rounded-xl lg:rounded-2xl";
 
 function useParallax<T extends HTMLElement>(speed = 0.15) {
   const ref = useRef<T>(null);
@@ -72,7 +73,11 @@ export function Hero() {
             </p>
             <p className="type-lead hero-copy mt-3 lg:mt-4 max-w-lg text-hero-ink">{m.hero.lead}</p>
             <div className="mt-6 flex flex-wrap gap-3 lg:mt-6">
-              <BookButton variant="hero" size="xl" className="max-sm:w-full max-sm:justify-center">
+              <BookButton
+                variant="hero"
+                size="xl"
+                className={`${programCorners} max-sm:w-full max-sm:justify-center`}
+              >
                 {m.hero.book}
                 <ArrowRight aria-hidden />
               </BookButton>
@@ -80,7 +85,7 @@ export function Hero() {
                 asChild
                 variant="subtle"
                 size="xl"
-                className="border border-white/20 bg-white/10 text-hero-foreground backdrop-blur-md hover:bg-white/20 hover:text-white max-sm:w-full max-sm:justify-center"
+                className={`${programCorners} border border-white/20 bg-white/10 text-hero-foreground backdrop-blur-md hover:bg-white/20 hover:text-white max-sm:w-full max-sm:justify-center`}
               >
                 <Link to="/uslugi">{m.hero.services}</Link>
               </Button>
@@ -118,7 +123,7 @@ export function Hero() {
               <Link
                 to="/informaciya"
                 hash="kurs"
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-2 font-display text-[0.8125rem] font-bold text-primary-glow backdrop-blur-md transition hover:bg-primary/25 hover:text-white max-sm:order-3 max-sm:w-full max-sm:justify-center"
+                className={`${programCorners} inline-flex min-h-10 shrink-0 items-center gap-2 border border-primary/40 bg-primary/15 px-4 py-2 font-display text-[0.8125rem] font-bold text-primary-glow backdrop-blur-md transition hover:bg-primary/25 hover:text-white max-sm:order-3 max-sm:w-full max-sm:justify-center lg:min-h-12`}
               >
                 {m.hero.coursePick}
                 <ArrowRight className="size-3.5" aria-hidden />
@@ -131,7 +136,7 @@ export function Hero() {
                   <Link
                     to="/uslugi/$serviceId"
                     params={{ serviceId }}
-                    className={`hero-program-card hero-program-reveal hero-program-reveal-${i + 1} group relative flex h-full items-center gap-3 rounded-xl border border-white/15 bg-[oklch(0.19_0.03_262/55%)] px-3.5 py-2.5 backdrop-blur-xl transition-all duration-300 lg:min-h-[8.75rem] lg:flex-col lg:items-stretch lg:gap-0 lg:rounded-2xl lg:px-4 lg:py-4 xl:px-5`}
+                    className={`${programCorners} hero-program-card hero-program-reveal hero-program-reveal-${i + 1} group relative flex h-full items-center gap-3 border border-white/15 bg-[oklch(0.19_0.03_262/55%)] px-3.5 py-2.5 backdrop-blur-xl transition-all duration-300 lg:min-h-[8.75rem] lg:flex-col lg:items-stretch lg:gap-0 lg:px-4 lg:py-4 xl:px-5`}
                   >
                     <span className="flex min-w-0 flex-1 flex-col">
                       <span className="mb-1 flex items-center gap-1.5 font-display text-[0.625rem] font-bold uppercase tracking-[0.14em] text-hero-muted lg:mb-1.5">
