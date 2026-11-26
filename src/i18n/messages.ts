@@ -242,14 +242,14 @@ const ru = {
     ],
   },
   hero: {
-    programsTitle: "Программы",
-    programsLead: "Четыре курса и подбор",
+    programsTitle: "Выберите курс",
+    office: "Консультация и запись",
+    base: "Учебная база",
     country: { pl: "Польша", lt: "Литва" },
-    eyebrow: "Учебный центр в Польше",
+    eyebrow: "BAZA / Академия водителей",
     headline: "КОД 95",
     subtitle: "Профессиональная подготовка водителей",
     line2: "в Польше",
-    lead: "Обучение КОД 95 в Варшаве. Консультация и запись — в офисе в Минске. Короткие и длинные программы с подбором под вашу квалификацию.",
     book: "Записаться",
     services: "Все услуги",
     unsure: "Не знаете, какой курс вам подходит?",
@@ -259,28 +259,28 @@ const ru = {
       { kicker: "Обучили уже более", unit: "водителей" },
       { kicker: "Учебная база", unit: "Варшава" },
     ],
-    tiles: [
-      {
-        label: "Польский короткий КОД 95",
+    tiles: {
+      "short-course": {
+        label: "Короткий курс",
         note: "Периодическое обучение",
         fact: "3–5 дней",
       },
-      {
-        label: "Польский длинный КОД 95",
+      "long-course": {
+        label: "Длинный курс",
         note: "Первичная квалификация",
         fact: "≈21 день",
       },
-      {
-        label: "Литовский короткий КОД 95",
+      "code95-lt-short": {
+        label: "Короткий курс",
         note: "Периодическое обучение",
-        fact: "в Литве",
+        fact: "Подбор программы",
       },
-      {
-        label: "Литовский длинный КОД 95",
+      "code95-lt-long": {
+        label: "Длинный курс",
         note: "Первичная квалификация",
-        fact: "переквалификация",
+        fact: "Помощь с записью",
       },
-    ],
+    },
   },
   footer: {
     blurb:
@@ -365,14 +365,14 @@ const pl: Messages = {
     ],
   },
   hero: {
-    programsTitle: "Programy",
-    programsLead: "Cztery kursy i dobór",
+    programsTitle: "Wybierz kurs",
+    office: "Konsultacje i zapisy",
+    base: "Baza szkoleniowa",
     country: { pl: "Polska", lt: "Litwa" },
-    eyebrow: "Ośrodek szkoleniowy w Polsce",
+    eyebrow: "BAZA / Akademia kierowców",
     headline: "KOD 95",
     subtitle: "Profesjonalne szkolenie kierowców",
     line2: "w Polsce",
-    lead: "Szkolenie kod 95 w Warszawie. Konsultacja i zapis — w biurze w Mińsku. Krótkie i długie programy dopasowane do kwalifikacji.",
     book: "Zapisz się",
     services: "Wszystkie usługi",
     unsure: "Nie wiesz, który kurs Ci pasuje?",
@@ -382,12 +382,20 @@ const pl: Messages = {
       { kicker: "Przeszkoliliśmy już ponad", unit: "kierowców" },
       { kicker: "Baza szkoleniowa", unit: "Warszawa" },
     ],
-    tiles: [
-      { label: "Polski krótki KOD 95", note: "Szkolenie okresowe", fact: "3–5 dni" },
-      { label: "Polski długi KOD 95", note: "Kwalifikacja wstępna", fact: "≈21 dni" },
-      { label: "Litewski krótki KOD 95", note: "Szkolenie okresowe", fact: "na Litwie" },
-      { label: "Litewski długi KOD 95", note: "Kwalifikacja wstępna", fact: "przekwalifikowanie" },
-    ],
+    tiles: {
+      "short-course": { label: "Krótki kurs", note: "Szkolenie okresowe", fact: "3–5 dni" },
+      "long-course": { label: "Długi kurs", note: "Kwalifikacja wstępna", fact: "≈21 dni" },
+      "code95-lt-short": {
+        label: "Krótki kurs",
+        note: "Szkolenie okresowe",
+        fact: "Dobór programu",
+      },
+      "code95-lt-long": {
+        label: "Długi kurs",
+        note: "Kwalifikacja wstępna",
+        fact: "Pomoc w zapisie",
+      },
+    },
   },
   footer: {
     blurb:
@@ -470,14 +478,14 @@ const uk: Messages = {
     ],
   },
   hero: {
-    programsTitle: "Програми",
-    programsLead: "Чотири курси та підбір",
+    programsTitle: "Оберіть курс",
+    office: "Консультація та запис",
+    base: "Навчальна база",
     country: { pl: "Польща", lt: "Литва" },
-    eyebrow: "Навчальний центр у Польщі",
+    eyebrow: "BAZA / Академія водіїв",
     headline: "КОД 95",
     subtitle: "Професійна підготовка водіїв",
     line2: "у Польщі",
-    lead: "Навчання КОД 95 у Варшаві. Консультація та запис — в офісі в Мінську. Короткі та довгі програми під вашу кваліфікацію.",
     book: "Записатися",
     services: "Усі послуги",
     unsure: "Не знаєте, який курс вам підходить?",
@@ -487,16 +495,20 @@ const uk: Messages = {
       { kicker: "Навчили вже понад", unit: "водіїв" },
       { kicker: "Навчальна база", unit: "Варшава" },
     ],
-    tiles: [
-      { label: "Польський короткий КОД 95", note: "Періодичне навчання", fact: "3–5 днів" },
-      { label: "Польський довгий КОД 95", note: "Первинна кваліфікація", fact: "≈21 день" },
-      { label: "Литовський короткий КОД 95", note: "Періодичне навчання", fact: "у Литві" },
-      {
-        label: "Литовський довгий КОД 95",
-        note: "Первинна кваліфікація",
-        fact: "перекваліфікація",
+    tiles: {
+      "short-course": { label: "Короткий курс", note: "Періодичне навчання", fact: "3–5 днів" },
+      "long-course": { label: "Довгий курс", note: "Первинна кваліфікація", fact: "≈21 день" },
+      "code95-lt-short": {
+        label: "Короткий курс",
+        note: "Періодичне навчання",
+        fact: "Підбір програми",
       },
-    ],
+      "code95-lt-long": {
+        label: "Довгий курс",
+        note: "Первинна кваліфікація",
+        fact: "Допомога із записом",
+      },
+    },
   },
   footer: {
     blurb:
