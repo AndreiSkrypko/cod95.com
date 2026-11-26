@@ -4,6 +4,7 @@ import { CONTACTS } from "@/content/landing";
 import { PHONE_BY, PHONE_PL, useLocale } from "@/i18n/locale";
 import { NAV_LINKS } from "@/i18n/messages";
 import { useBooking } from "./BookingDialog";
+import { FooterLegalFinePrint } from "@/components/layout/LegalEntityFinePrint";
 import { Logo } from "./Logo";
 
 export function SiteFooter() {
@@ -87,6 +88,8 @@ export function SiteFooter() {
       >
         BAZA
       </p>
+
+      <FooterLegalFinePrint />
 
       <div className="border-t border-border">
         <div className="container-page flex flex-col justify-between gap-2 py-6 text-sm text-ink-soft sm:flex-row">

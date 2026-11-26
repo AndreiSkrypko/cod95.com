@@ -11,9 +11,14 @@ export const PHONE_PL = {
   href: "tel:+48789799057",
 };
 
-/** Один контактный номер учебного центра в Польше. */
-export function heroPhone(_locale: Locale) {
-  return PHONE_PL;
+/** Номер в шапке: Польша — для pl, для ru/uk ведём на офис в Минске. */
+export function heroPhone(locale: Locale) {
+  return locale === "pl" ? PHONE_PL : PHONE_BY;
+}
+
+/** Кнопка «Позвонить» на странице контактов — тот же приоритет. */
+export function consultPhone(locale: Locale) {
+  return heroPhone(locale);
 }
 
 type LocaleContextValue = {

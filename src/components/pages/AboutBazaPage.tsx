@@ -6,6 +6,7 @@ import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/pages/PageHero";
+import { LegalEntityFinePrint } from "@/components/layout/LegalEntityFinePrint";
 import { ABOUT_PAGE } from "@/i18n/about-copy";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
@@ -141,25 +142,6 @@ export function AboutBazaPage() {
         </div>
       </section>
 
-      <section className="section-y border-t border-border bg-background-deep">
-        <div className="container-page max-w-3xl">
-          <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">{copy.legal.h2}</h2>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{copy.legal.intro}</p>
-          <dl className="mt-8 border-t border-border">
-            {copy.legal.rows.map((row) => (
-              <div
-                key={row.label}
-                className="grid gap-1 border-b border-border py-4 sm:grid-cols-[minmax(0,14rem)_1fr] sm:gap-8"
-              >
-                <dt className="text-sm font-semibold text-muted-foreground">{row.label}</dt>
-                <dd className="text-sm leading-relaxed text-foreground">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{copy.legal.note}</p>
-        </div>
-      </section>
-
       <section className="section-y border-t border-border">
         <div className="container-page max-w-3xl">
           <h2 className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">{copy.finale.h2}</h2>
@@ -177,6 +159,12 @@ export function AboutBazaPage() {
           </div>
         </div>
       </section>
+
+      <div className="border-t border-border bg-background">
+        <div className="container-page max-w-3xl py-10 md:py-12">
+          <LegalEntityFinePrint legal={copy.legal} />
+        </div>
+      </div>
     </article>
   );
 }

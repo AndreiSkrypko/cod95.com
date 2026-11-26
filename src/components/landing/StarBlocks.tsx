@@ -8,10 +8,11 @@ import trainingTrucks from "@/assets/training-trucks.jpg";
 import truckPractice from "@/assets/truck-practice.jpg";
 import classDetail from "@/assets/class-detail.jpg";
 import lifeBriefing from "@/assets/life-briefing.jpg";
+import lifeNight from "@/assets/life-night.jpg";
 import offerJob from "@/assets/offer-job.jpg";
 import offerResidence from "@/assets/offer-residence.jpg";
 import consultOffice from "@/assets/consult-office.jpg";
-import lifeNight from "@/assets/life-night.jpg";
+import { ABOUT_PHOTOS } from "@/assets/baza/about-photos";
 import { ContactAside } from "./ContactAside";
 import { BookButton, useBooking } from "./BookingDialog";
 import { heroPhone, useLocale } from "@/i18n/locale";
@@ -247,34 +248,39 @@ export function Code95Block() {
   );
 }
 
+/** Раздел «Наши преимущества» на главной. */
 export function Perks() {
   const { locale } = useLocale();
   const perks = HOME[locale].perks;
   return (
-    <section className="bg-paper section-y text-ink">
+    <section id="advantages" className="section-y border-t border-border bg-paper text-ink">
       <div className="container-page">
-        <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
-          <h2 className="font-display text-4xl font-extrabold">{perks.title}</h2>
-          <p className="text-ink-muted">{perks.lead}</p>
-        </div>
-        <div className="mt-10 grid items-start gap-4 lg:grid-cols-12">
-          <figure className="lg:col-span-4">
-            <div className="overflow-hidden rounded-3xl shadow-card">
-              <img
-                src={lifeNight}
-                alt={perks.imageAlt}
-                className="aspect-[4/3] w-full object-cover"
-              />
-            </div>
-            <figcaption className="mt-3 text-sm text-ink-muted">
-              {perks.caption}
-            </figcaption>
-          </figure>
+        <Reveal className="max-w-3xl">
+          <p className="eyebrow eyebrow-rule">{perks.eyebrow}</p>
+          <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{perks.title}</h2>
+          <p className="mt-4 text-lg leading-relaxed text-ink-muted">{perks.lead}</p>
+        </Reveal>
+        <div className="mt-10 grid items-start gap-6 lg:grid-cols-12 lg:gap-8">
+          <Reveal variant="clip" className="lg:col-span-4">
+            <figure>
+              <div className="overflow-hidden rounded-3xl shadow-lift">
+                <img
+                  src={ABOUT_PHOTOS.practice}
+                  alt={perks.imageAlt}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 text-sm leading-relaxed text-ink-muted">{perks.caption}</figcaption>
+            </figure>
+          </Reveal>
           <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-8">
-            {perks.items.map((p) => (
-              <li key={p.title} className="rounded-2xl border border-border bg-card p-5">
-                <p className="font-display font-bold text-ink">{p.title}</p>
-                <p className="mt-2 text-sm text-ink-muted">{p.text}</p>
+            {perks.items.map((p, i) => (
+              <li key={p.title}>
+                <Reveal delay={i * 35} className="h-full rounded-2xl border border-border bg-card p-5 shadow-sm">
+                  <h3 className="font-display text-base font-bold text-ink">{p.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">{p.text}</p>
+                </Reveal>
               </li>
             ))}
           </ul>

@@ -23,6 +23,18 @@ const ruServices: ServiceCopy = {
     title: "Литовский КОД 95",
     text: "Квалификация в Литве, признаётся во всех странах ЕС. Удобно при работе с литовскими перевозчиками.",
   },
+  "code95-lt-short": {
+    title: "Литовский короткий КОД 95",
+    text: "Подбор программы периодического обучения в Литве и организация записи в соответствующий учебный центр.",
+  },
+  "code95-lt-long": {
+    title: "Литовский длинный КОД 95",
+    text: "Консультация по первоначальной квалификации в Литве и сопровождение записи в учебную организацию.",
+  },
+  "driver-card": {
+    title: "Карта водителя для тахографа",
+    text: "Консультация и помощь с подготовкой заявления через официальный сервис Info-Car (PWPW).",
+  },
   residence: {
     title: "Карта побыту / ВНЖ",
     text: "Оформление вида на жительство: подбор основания, документы, подача и контроль сроков для водителя и семьи.",
@@ -44,8 +56,8 @@ const ruServices: ServiceCopy = {
     text: "Индивидуальные занятия на учебной площадке и тягачах DAF/SCANIA — подготовка к работе на реальном автопарке.",
   },
   "lt-retrain": {
-    title: "Переквалификация с литовского КОД 95",
-    text: "Поможем оформить польский КОД 95 при наличии литовской квалификации — разберём сроки и нужные документы.",
+    title: "Литовский КОД 95 → Польский КОД 95",
+    text: "Консультация и сопровождение: документы, подача заявления, условия определяются индивидуально.",
   },
   employment: {
     title: "Трудоустройство",
@@ -78,6 +90,18 @@ const plServices: ServiceCopy = {
     title: "Litewski KOD 95",
     text: "Kwalifikacja na Litwie, uznawana w całej UE. Wygodne przy pracy z litewskimi przewoźnikami.",
   },
+  "code95-lt-short": {
+    title: "Litewski krótki KOD 95",
+    text: "Dobór programu szkolenia okresowego na Litwie i organizacja zapisu w ośrodku szkoleniowym.",
+  },
+  "code95-lt-long": {
+    title: "Litewski długi KOD 95",
+    text: "Konsultacja kwalifikacji wstępnej na Litwie i wsparcie zapisu w placówce szkoleniowej.",
+  },
+  "driver-card": {
+    title: "Karta kierowcy do tachografu",
+    text: "Konsultacja i pomoc w przygotowaniu wniosku przez serwis Info-Car (PWPW).",
+  },
   residence: {
     title: "Karta pobytu",
     text: "Pobyt czasowy: dobór podstawy, dokumenty, złożenie i kontrola terminów dla kierowcy i rodziny.",
@@ -99,8 +123,8 @@ const plServices: ServiceCopy = {
     text: "Indywidualne zajęcia na placu i ciągnikach DAF/SCANIA — przygotowanie do pracy na prawdziwej flocie.",
   },
   "lt-retrain": {
-    title: "Przekwalifikowanie z litewskiego KOD 95",
-    text: "Pomożemy uzyskać polski KOD 95 przy litewskiej kwalifikacji — terminy i dokumenty.",
+    title: "Litewski KOD 95 → Polski KOD 95",
+    text: "Konsultacja i wsparcie: dokumenty, złożenie wniosku — warunki indywidualnie.",
   },
   employment: {
     title: "Zatrudnienie",
@@ -133,6 +157,18 @@ const ukServices: ServiceCopy = {
     title: "Литовський КОД 95",
     text: "Кваліфікація в Литві, визнається в усіх країнах ЄС. Зручно при роботі з литовськими перевізниками.",
   },
+  "code95-lt-short": {
+    title: "Литовський короткий КОД 95",
+    text: "Підбір програми періодичного навчання в Литві та організація запису в навчальний центр.",
+  },
+  "code95-lt-long": {
+    title: "Литовський довгий КОД 95",
+    text: "Консультація з первинної кваліфікації в Литві та супровід запису в навчальну організацію.",
+  },
+  "driver-card": {
+    title: "Карта водія для тахографа",
+    text: "Консультація та допомога з підготовкою заяви через сервіс Info-Car (PWPW).",
+  },
   residence: {
     title: "Карта побиту / ВНП",
     text: "Оформлення посвідки на проживання: підстава, документи, подання і контроль строків для водія та родини.",
@@ -154,8 +190,8 @@ const ukServices: ServiceCopy = {
     text: "Індивідуальні заняття на майданчику і тягачах DAF/SCANIA — підготовка до роботи на реальному автопарку.",
   },
   "lt-retrain": {
-    title: "Перекваліфікація з литовського КОД 95",
-    text: "Допоможемо оформити польський КОД 95 за наявності литовської кваліфікації — строки і документи.",
+    title: "Литовський КОД 95 → Польський КОД 95",
+    text: "Консультація та супровід: документи, подання заяви — умови визначаються індивідуально.",
   },
   employment: {
     title: "Працевлаштування",
@@ -199,9 +235,9 @@ const ru = {
         text: "Гараж, учебный класс, площадка и симулятор вождения — всё на нашей территории.",
       },
       {
-        shortTitle: "Варшава",
-        title: "Обучение в Варшаве",
-        text: "Занятия в аккредитованном центре в Польше. Помогаем с логистикой и жильём на время курса.",
+        shortTitle: "Минск",
+        title: "Офис в Минске",
+        text: "Консультация и документы перед поездкой. Обучение — на базе в Варшаве.",
       },
     ],
   },
@@ -212,7 +248,7 @@ const ru = {
     headline: "КОД 95",
     subtitle: "Профессиональная подготовка водителей",
     line2: "в Польше",
-    lead: "Профессиональное обучение КОД 95 в нашем учебном центре в Польше. Короткие и длинные программы. Подбор обучения с учётом вашей квалификации.",
+    lead: "Обучение КОД 95 в Варшаве. Консультация и запись — в офисе в Минске. Короткие и длинные программы с подбором под вашу квалификацию.",
     book: "Записаться",
     services: "Все услуги",
     unsure: "Не знаете, какой курс вам подходит?",
@@ -246,7 +282,7 @@ const ru = {
     ],
   },
   footer: {
-    blurb: "BAZA — академия профессиональных водителей. Обучение КОД 95 в Польше и поддержка на каждом этапе подготовки.",
+    blurb: "BAZA — академия профессиональных водителей. Офис в Минске, обучение КОД 95 в Варшаве, поддержка на каждом этапе.",
     discuss: "Обсудить вашу ситуацию",
     sections: "Разделы",
     contact: "Связь",
@@ -322,9 +358,9 @@ const pl: Messages = {
         text: "Garaż, sala, plac i symulator jazdy — wszystko na naszym terenie.",
       },
       {
-        shortTitle: "Warszawa",
-        title: "Szkolenie w Warszawie",
-        text: "Zajęcia w akredytowanym ośrodku w Polsce. Pomagamy z logistyką i noclegiem na czas kursu.",
+        shortTitle: "Mińsk",
+        title: "Biuro w Mińsku",
+        text: "Konsultacja i dokumenty przed wyjazdem. Szkolenie — baza w Warszawie.",
       },
     ],
   },
@@ -335,7 +371,7 @@ const pl: Messages = {
     headline: "KOD 95",
     subtitle: "Profesjonalne szkolenie kierowców",
     line2: "w Polsce",
-    lead: "Profesjonalne szkolenie Code 95 w naszym centrum w Polsce. Krótkie i długie programy. Dobór kursu pod Twoją kwalifikację.",
+    lead: "Szkolenie kod 95 w Warszawie. Konsultacja i zapis — w biurze w Mińsku. Krótkie i długie programy dopasowane do kwalifikacji.",
     book: "Zapisz się",
     services: "Wszystkie usługi",
     unsure: "Nie wiesz, który kurs Ci pasuje?",
@@ -353,7 +389,7 @@ const pl: Messages = {
     ],
   },
   footer: {
-    blurb: "BAZA — akademia kierowców zawodowych. Szkolenia kod 95 w Polsce i wsparcie na każdym etapie przygotowania.",
+    blurb: "BAZA — akademia kierowców zawodowych. Biuro w Mińsku, szkolenie kod 95 w Warszawie, wsparcie na każdym etapie.",
     discuss: "Omówić Twoją sytuację",
     sections: "Działy",
     contact: "Kontakt",
@@ -427,9 +463,9 @@ const uk: Messages = {
         text: "Гараж, клас, майданчик і симулятор — усе на нашій території.",
       },
       {
-        shortTitle: "Варшава",
-        title: "Навчання у Варшаві",
-        text: "Заняття в акредитованому центрі в Польщі. Допомагаємо з логістикою та житлом на час курсу.",
+        shortTitle: "Мінськ",
+        title: "Офіс у Мінську",
+        text: "Консультація та документи перед поїздкою. Навчання — база у Варшаві.",
       },
     ],
   },
@@ -440,7 +476,7 @@ const uk: Messages = {
     headline: "КОД 95",
     subtitle: "Професійна підготовка водіїв",
     line2: "у Польщі",
-    lead: "Професійне навчання Code 95 у нашому центрі в Польщі. Короткі та довгі програми. Підбір навчання з урахуванням вашої кваліфікації.",
+    lead: "Навчання КОД 95 у Варшаві. Консультація та запис — в офісі в Мінську. Короткі та довгі програми під вашу кваліфікацію.",
     book: "Записатися",
     services: "Усі послуги",
     unsure: "Не знаєте, який курс вам підходить?",
@@ -458,7 +494,7 @@ const uk: Messages = {
     ],
   },
   footer: {
-    blurb: "BAZA — академія професійних водіїв. Навчання КОД 95 у Польщі та підтримка на кожному етапі підготовки.",
+    blurb: "BAZA — академія професійних водіїв. Офіс у Мінську, навчання КОД 95 у Варшаві, підтримка на кожному етапі.",
     discuss: "Обговорити вашу ситуацію",
     sections: "Розділи",
     contact: "Зв’язок",
@@ -509,6 +545,6 @@ export const NAV_LINKS = [
   { to: "/o-nas", key: "about" },
   { to: "/informaciya", key: "info" },
   { to: "/statyi", key: "articles" },
-  { to: "/uslugi", key: "services", mega: true },
+  { to: "/uslugi", key: "services" },
   { to: "/kontakty", key: "contacts" },
 ] as const;

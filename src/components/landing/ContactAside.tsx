@@ -1,14 +1,17 @@
 import { Clock, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CONTACTS } from "@/content/landing";
-import { heroPhone, PHONE_BY, PHONE_PL, useLocale } from "@/i18n/locale";
+import { consultPhone, PHONE_BY, PHONE_PL, useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 
 export function ContactAside() {
   const { locale, m } = useLocale();
-  const phone = heroPhone(locale);
+  const callPhone = consultPhone(locale);
   const copy = PAGES[locale].contactsPage;
-  const phones = [{ ...PHONE_PL, label: copy.officeWarsaw }];
+  const phones = [
+    { ...PHONE_BY, label: copy.officeMinsk, note: copy.officeMinskNote },
+    { ...PHONE_PL, label: copy.officeWarsaw, note: copy.officeWarsawNote },
+  ];
   const hours = [
     { days: m.contacts.weekdays, time: CONTACTS.hours[0]?.time ?? "" },
     { days: m.contacts.saturday, time: CONTACTS.hours[1]?.time ?? "" },
@@ -25,7 +28,8 @@ export function ContactAside() {
               </span>
               <span>
                 <span className="block font-display text-xl font-bold text-foreground">{p.display}</span>
-                <span className="block text-sm text-muted-foreground">{p.label}</span>
+                <span className="block text-sm font-semibold text-foreground">{p.label}</span>
+                <span className="mt-0.5 block text-sm text-muted-foreground">{p.note}</span>
               </span>
             </a>
           </li>
@@ -42,16 +46,27 @@ export function ContactAside() {
             ))}
           </span>
         </li>
-        <li className="flex items-center gap-4">
-          <span className="grid size-12 place-items-center rounded-full border border-border bg-secondary/60">
+        <li className="flex items-start gap-4">
+          <span className="grid size-12 shrink-0 place-items-center rounded-full border border-border bg-secondary/60">
             <MapPin className="size-5 text-primary" aria-hidden="true" />
           </span>
-          <span className="text-muted-foreground">{copy.officesLine}</span>
+          <div className="space-y-2 text-sm text-muted-foreground">
+            <p>
+              <span className="font-display font-semibold text-foreground">{copy.officeMinsk}</span>
+              {" — "}
+              {copy.minskLine}
+            </p>
+            <p>
+              <span className="font-display font-semibold text-foreground">{copy.officeWarsaw}</span>
+              {" — "}
+              {copy.warsawLine}
+            </p>
+          </div>
         </li>
       </ul>
       <div className="mt-10 flex flex-wrap gap-3">
         <Button asChild variant="hero" size="lg" className="h-12 px-6">
-          <a href={phone.href}>
+          <a href={callPhone.href}>
             <Phone aria-hidden="true" />
             {copy.call}
           </a>

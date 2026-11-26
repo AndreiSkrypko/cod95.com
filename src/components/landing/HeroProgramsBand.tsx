@@ -8,11 +8,11 @@ import { useLocale } from "@/i18n/locale";
 const TILE_META = [
   { params: { serviceId: "short-course" as const }, image: ABOUT_PHOTOS.gallery.class },
   { params: { serviceId: "long-course" as const }, image: ABOUT_PHOTOS.gallery.truck },
-  { params: { serviceId: "code95-lt" as const }, image: ABOUT_PHOTOS.gallery.lesson },
-  { params: { serviceId: "lt-retrain" as const }, image: ABOUT_PHOTOS.practice },
+  { params: { serviceId: "code95-lt-short" as const }, image: ABOUT_PHOTOS.gallery.lesson },
+  { params: { serviceId: "code95-lt-long" as const }, image: ABOUT_PHOTOS.practice },
 ];
 
-/** Программы и преимущества — сразу под первым экраном, не в колонке hero. */
+/** Программы — сразу под первым экраном, не в колонке hero. */
 export function HeroProgramsBand() {
   const { m } = useLocale();
 

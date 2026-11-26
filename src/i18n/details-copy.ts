@@ -70,6 +70,21 @@ const pl: Record<ServiceId, ServicePageDetail> = {
       "Gdy bliższa jest geografia albo grafik grup na Litwie. Pomożemy porównać z polskim KOD 95.",
     ]),
   ]),
+  "code95-lt-short": page("Dobór programu szkolenia okresowego KOD 95 na Litwie i organizacja zapisu w ośrodku szkoleniowym.", [
+    section("Jak pomagamy", [
+      "Ośrodek BAZA nie prowadzi programów litewskich u siebie. Konsultujemy, sprawdzamy dokumenty i organizujemy zapis w placówce na Litwie.",
+    ]),
+  ]),
+  "code95-lt-long": page("Konsultacja programów kwalifikacji wstępnej na Litwie i wsparcie zapisu.", [
+    section("Jak pomagamy", [
+      "Szkolenie odbywa się w litewskim ośrodku, nie w BAZA. Omawiamy dokumenty i warunki udziału.",
+    ]),
+  ]),
+  "driver-card": page("Konsultacja karty kierowcy do tachografu i pomoc w wniosku przez Info-Car (PWPW).", [
+    section("Ważne", [
+      "BAZA nie wydaje karty — decyzję podejmuje uprawniony organ. Możliwość formalności ustalana indywidualnie.",
+    ]),
+  ]),
   residence: page("Karta pobytu w Polsce — dobór podstawy, dokumenty i kontrola terminów.", [
     section("Wsparcie", ["Rozkładamy podstawę pobytu, przygotowujemy pakiet, składamy i śledzimy status. Pracujemy z kierowcami i rodzinami."]),
   ]),
@@ -152,6 +167,17 @@ const uk: Record<ServiceId, ServicePageDetail> = {
   ]),
   "code95-lt": page("Литовська кваліфікація, визнана в усьому ЄС — зручний шлях при роботі з литовськими перевізниками.", [
     section("Коли обирають Литву", ["Якщо ближча географія або графік наборів у Литві. Допоможемо порівняти з польським КОД 95."]),
+  ]),
+  "code95-lt-short": page("Підбір програми періодичного навчання КОД 95 у Литві та організація запису.", [
+    section("Як допомагаємо", [
+      "Навчальний центр BAZA не проводить литовські програми на своїй майданчику. Консультуємо та організовуємо запис у закладі в Литві.",
+    ]),
+  ]),
+  "code95-lt-long": page("Консультація з первинної кваліфікації в Литві та супровід запису.", [
+    section("Як допомагаємо", ["Навчання — у литовському центрі, не в BAZA. Розбираємо документи та умови."]),
+  ]),
+  "driver-card": page("Консультація з карти водія для тахографа та допомога з заявою через Info-Car.", [
+    section("Важливо", ["BAZA не видає карту. Можливість оформлення визначається індивідуально."]),
   ]),
   residence: page("Карта побиту і ВНП у Польщі — підбір підстави, документи і контроль строків.", [
     section("Супровід", ["Розбираємо підставу для ВНП, готуємо пакет, подаємо і відстежуємо статус. Працюємо з водіями та їхніми родинами."]),
