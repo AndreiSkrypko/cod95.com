@@ -1,10 +1,15 @@
 import { describe, expect, it } from "vitest";
+import { PAGES } from "@/i18n/pages-copy";
 import { getBreadcrumbItems } from "./breadcrumbs";
 
 describe("getBreadcrumbItems", () => {
-  it("returns empty on home", () => {
-    expect(getBreadcrumbItems("/")).toEqual([]);
-  });
+  it.each(["ru", "pl", "uk"] as const)(
+    "shows the current home page without a self-link in %s",
+    (locale) => {
+      const { crumbs } = PAGES[locale];
+      expect(getBreadcrumbItems("/", { crumbs })).toEqual([{ label: crumbs.home }]);
+    },
+  );
 
   it("builds static section trail", () => {
     expect(getBreadcrumbItems("/kontakty")).toEqual([

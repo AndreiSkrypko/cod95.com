@@ -34,7 +34,7 @@ export function getBreadcrumbItems(pathname: string, options?: CrumbOptions): Br
   const crumbs = options?.crumbs ?? PAGES.ru.crumbs;
   const labels = topLevel(crumbs);
   const clean = pathname.replace(/\/+$/, "") || "/";
-  if (clean === "/") return [];
+  if (clean === "/") return [{ label: crumbs.home }];
 
   const segments = clean.split("/").filter(Boolean);
   const items: BreadcrumbItem[] = [{ label: crumbs.home, to: "/" }];

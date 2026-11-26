@@ -212,6 +212,10 @@
 
 /* ---------- Utilities ---------- */
 
+@utility pt-page-intro {
+  padding-top: 5.25rem;
+}
+
 @utility container-page {
   width: 100%;
   max-width: 1680px;

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Building2, MapPin, Warehouse } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageBreadcrumbs } from "@/components/layout/PageBreadcrumbs";
 import { BookButton } from "./BookingDialog";
 import heroTruck from "@/assets/hero-truck.jpg";
 import { useLocale } from "@/i18n/locale";
@@ -58,7 +59,8 @@ export function Hero() {
       <div className="hero-backdrop-scrim-dark" aria-hidden />
       <div className="hero-aura" aria-hidden />
 
-      <div className="container-page relative z-[1] flex min-h-svh flex-col pt-[calc(4.5rem+1.25rem)] pb-7 lg:pb-8 lg:pt-[5rem]">
+      <div className="container-page relative z-[1] flex min-h-svh flex-col gap-4 pt-page-intro pb-7 lg:pb-8">
+        <PageBreadcrumbs className="[--accent-foreground:var(--primary-glow)]" />
         <div className="grid flex-1 items-center gap-10 lg:grid-cols-[minmax(0,21fr)_minmax(0,20fr)] lg:gap-8 xl:gap-14">
           <div className="max-w-xl lg:max-w-none">
             <p className="eyebrow eyebrow-rule">{m.hero.eyebrow}</p>
@@ -71,24 +73,10 @@ export function Hero() {
               {m.hero.subtitle}
             </p>
             <p className="type-lead hero-copy mt-3 lg:mt-4 max-w-lg text-hero-ink">{m.hero.lead}</p>
-            <div className="mt-6 flex flex-wrap gap-3 lg:mt-6">
-              <BookButton
-                variant="hero"
-                size="xl"
-                className="max-sm:w-full max-sm:justify-center"
-              >
-                {m.hero.book}
-                <ArrowRight aria-hidden />
-              </BookButton>
-              <Button
-                asChild
-                variant="subtle"
-                size="xl"
-                className="border border-white/20 bg-white/10 text-hero-foreground backdrop-blur-md hover:bg-white/20 hover:text-white max-sm:w-full max-sm:justify-center"
-              >
-                <Link to="/uslugi">{m.hero.services}</Link>
-              </Button>
-            </div>
+            <BookButton variant="hero" size="xl" className="mt-6 max-sm:w-full">
+              {m.hero.book}
+              <ArrowRight aria-hidden />
+            </BookButton>
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 lg:mt-6">
               {advantages.cards.map((card, i) => {
                 const Icon = ADVANTAGE_ICONS[i] ?? Building2;
@@ -177,6 +165,14 @@ export function Hero() {
                 </li>
               ))}
             </ul>
+            <Button
+              asChild
+              variant="subtle"
+              size="xl"
+              className="mt-2 w-full border-white/20 bg-white/10 text-hero-foreground backdrop-blur-md hover:bg-white/20 hover:text-hero-foreground lg:mt-3 xl:mt-3.5"
+            >
+              <Link to="/uslugi">{m.hero.services}</Link>
+            </Button>
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ export function ContentPageIntro({
     <section className={cn("border-b border-border bg-background text-left", className)}>
       <div
         className={cn(
-          "container-page w-full pt-[calc(4.5rem+0.75rem)] lg:pt-[5.25rem]",
+          "container-page w-full pt-page-intro",
           compact ? "pb-5 md:pb-6" : "pb-8 md:pb-10",
         )}
       >

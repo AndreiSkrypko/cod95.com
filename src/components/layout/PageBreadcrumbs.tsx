@@ -21,7 +21,7 @@ export function PageBreadcrumbs({ className }: { className?: string }) {
   return (
     <Breadcrumb
       aria-label={PAGES[locale].crumbs.label}
-      className={cn("eyebrow eyebrow-rule w-full max-w-full text-left", className)}
+      className={cn("eyebrow eyebrow-rule flex w-full max-w-full text-left", className)}
     >
       <BreadcrumbList className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-inherit sm:gap-x-2.5">
         {items.map((item, index) => {
