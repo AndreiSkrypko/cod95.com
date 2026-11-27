@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
 import { PAGE_VISUALS } from "@/content/serviceVisuals";
-import { ABOUT_PAGE } from "@/i18n/about-copy";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
@@ -30,7 +29,11 @@ function CatalogCta({ item, compact }: { item: CatalogItem; compact?: boolean })
     );
   }
   return (
-    <Link to="/uslugi/$serviceId" params={{ serviceId: item.action.serviceId }} className={className}>
+    <Link
+      to="/uslugi/$serviceId"
+      params={{ serviceId: item.action.serviceId }}
+      className={className}
+    >
       {item.cta}
       <ArrowRight className="size-3.5" aria-hidden />
     </Link>
@@ -49,8 +52,12 @@ function ProgramGridCard({ item, wholeCardLink }: { item: CatalogItem; wholeCard
           className={item.country === "lt-pl" ? "[&>span]:h-4 [&>span]:w-6" : "h-4 w-6"}
         />
       </p>
-      <h3 className="mt-1.5 font-display text-base font-extrabold leading-snug text-foreground">{item.title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">{item.short}</p>
+      <h3 className="mt-1.5 font-display text-base font-extrabold leading-snug text-foreground">
+        {item.title}
+      </h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+        {item.short}
+      </p>
       {wholeCardLink ? (
         <span className={compactCtaClass}>
           {item.cta}
@@ -75,7 +82,9 @@ function CatalogServiceList({ items }: { items: CatalogItem[] }) {
                   <span>{item.subtitle}</span>
                   <CountryFlag country={item.country} />
                 </p>
-                <h3 className="mt-2 font-display text-xl font-extrabold leading-snug text-foreground md:text-2xl">{item.title}</h3>
+                <h3 className="mt-2 font-display text-xl font-extrabold leading-snug text-foreground md:text-2xl">
+                  {item.title}
+                </h3>
                 <div className="type-prose mt-4 space-y-3">
                   {item.body.map((p) => (
                     <p key={p.slice(0, 40)}>{p}</p>
@@ -141,7 +150,10 @@ export function ServicesCatalogPage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-paper py-12 md:py-16" aria-labelledby="services-legal-title">
+      <section
+        className="border-t border-border bg-paper py-12 md:py-16"
+        aria-labelledby="services-legal-title"
+      >
         <div className="container-page max-w-3xl">
           <Reveal>
             <p id="services-legal-title" className="eyebrow eyebrow-rule">
@@ -154,16 +166,6 @@ export function ServicesCatalogPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8">
-              <Link
-                to="/kontakty"
-                hash="legal"
-                className="inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary underline-offset-4 transition hover:underline"
-              >
-                {ABOUT_PAGE[locale].legal.footerLink}
-                <ArrowRight className="size-3.5" aria-hidden />
-              </Link>
-            </p>
           </Reveal>
         </div>
       </section>
