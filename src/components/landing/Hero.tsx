@@ -6,6 +6,7 @@ import { PageBreadcrumbs } from "@/components/layout/PageBreadcrumbs";
 import { BookButton } from "./BookingDialog";
 import heroTruck from "@/assets/hero-truck.jpg";
 import { useLocale } from "@/i18n/locale";
+import { CountryFlag, COUNTRY_STRIPE } from "@/components/CountryFlag";
 import type { ServiceId } from "@/content/landing";
 
 const PROGRAM_IDS = [
@@ -127,28 +128,21 @@ export function Hero() {
                   <Link
                     to="/uslugi/$serviceId"
                     params={{ serviceId }}
-                    className={`hero-program-card hero-program-reveal hero-program-reveal-${i + 1} group relative flex h-full items-center gap-3 rounded-md border border-white/15 bg-[oklch(0.19_0.03_262/55%)] px-3.5 py-2.5 backdrop-blur-xl transition-all duration-300 lg:min-h-[8.75rem] lg:flex-col lg:items-stretch lg:gap-0 lg:px-4 lg:py-4 xl:px-5`}
+                    className={`hero-program-card hero-program-reveal hero-program-reveal-${i + 1} group relative flex h-full items-center gap-3 overflow-hidden rounded-md border border-white/15 bg-[oklch(0.19_0.03_262/55%)] px-3.5 py-2.5 backdrop-blur-xl transition-all duration-300 lg:min-h-[8.75rem] lg:flex-col lg:items-stretch lg:gap-0 lg:px-4 lg:py-4 lg:pt-5 xl:px-5`}
                   >
+                    <span
+                      aria-hidden
+                      className="absolute inset-x-0 top-0 h-1 opacity-90"
+                      style={{
+                        background: COUNTRY_STRIPE[serviceId.startsWith("code95-lt") ? "lt" : "pl"],
+                      }}
+                    />
                     <span className="flex min-w-0 flex-1 flex-col">
-                      <span className="mb-1 flex items-center gap-1.5 font-display text-[0.625rem] font-bold uppercase tracking-[0.14em] text-hero-muted lg:mb-1.5">
-                        {serviceId.startsWith("code95-lt") ? (
-                          <span
-                            aria-hidden
-                            className="flex h-[7px] w-[11px] overflow-hidden rounded-[2px] ring-1 ring-white/25"
-                          >
-                            <span className="flex-1 bg-[#fdb913]" />
-                            <span className="flex-1 bg-[#006a44]" />
-                            <span className="flex-1 bg-[#c1272d]" />
-                          </span>
-                        ) : (
-                          <span
-                            aria-hidden
-                            className="flex h-[7px] w-[11px] flex-col overflow-hidden rounded-[2px] ring-1 ring-white/25"
-                          >
-                            <span className="flex-1 bg-white/90" />
-                            <span className="flex-1 bg-[#dc143c]" />
-                          </span>
-                        )}
+                      <span className="mb-1 flex items-center gap-2 font-display text-[0.625rem] font-bold uppercase tracking-[0.14em] text-hero-muted lg:mb-1.5">
+                        <CountryFlag
+                          country={serviceId.startsWith("code95-lt") ? "lt" : "pl"}
+                          className="h-3.5 w-[1.3125rem]"
+                        />
                         {serviceId.startsWith("code95-lt") ? m.hero.country.lt : m.hero.country.pl}
                       </span>
                       <span className="font-display text-[0.9375rem] font-extrabold leading-snug tracking-tight text-hero-foreground lg:text-base">
