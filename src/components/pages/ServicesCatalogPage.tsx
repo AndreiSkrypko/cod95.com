@@ -9,7 +9,7 @@ import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import type { CatalogCategory, CatalogItem } from "@/i18n/services-catalog";
 import { SERVICES_CATALOG } from "@/i18n/services-catalog";
-import { CountryFlag, COUNTRY_STRIPE } from "@/components/CountryFlag";
+import { CountryFlag } from "@/components/CountryFlag";
 import { PageHero } from "./PageHero";
 
 function isProgramGrid(category: CatalogCategory) {
@@ -41,14 +41,7 @@ const compactCtaClass = "mt-3 inline-flex items-center gap-1 text-xs font-bold t
 
 function ProgramGridCard({ item, wholeCardLink }: { item: CatalogItem; wholeCardLink?: boolean }) {
   return (
-    <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-border bg-card px-4 py-4 pt-5 shadow-sm sm:px-5 sm:pt-6">
-      {item.country ? (
-        <span
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-1"
-          style={{ background: COUNTRY_STRIPE[item.country] }}
-        />
-      ) : null}
+    <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-border bg-card px-4 py-4 shadow-sm sm:px-5">
       <p className="flex items-start justify-between gap-2 text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">
         <span>{item.subtitle}</span>
         <CountryFlag
