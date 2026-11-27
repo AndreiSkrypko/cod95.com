@@ -173,17 +173,17 @@
 /* Scope the night palette to the home route, including dialogs portalled into body. */
 :root:has([data-home-hero]) {
   color-scheme: dark;
-  --background: #101722;
-  --background-deep: #0b111a;
-  --paper: #141d2a;
+  --background: #1e2630;
+  --background-deep: #191f28;
+  --paper: #232c38;
   --foreground: var(--hero-foreground);
   --ink: var(--foreground);
   --prose: #cfd5dd;
   --muted-foreground: #bbc4ce;
   --ink-muted: var(--muted-foreground);
   --ink-soft: #acb7c6;
-  --surface: #1b2533;
-  --surface-raised: #263345;
+  --surface: #2a333f;
+  --surface-raised: #37424f;
   --card: var(--surface);
   --popover: var(--surface);
   --secondary: var(--surface-raised);
