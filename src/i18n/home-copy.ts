@@ -113,6 +113,9 @@ const ru = {
     ],
   },
   faqTitle: "Частые вопросы",
+  faqLead: "Не нашли ответ? Спросите на консультации — это бесплатно, менеджер отвечает в рабочее время.",
+  faqAsk: "Задать вопрос",
+  faqAll: "Вся информация",
   faqMore: "ответов — полный разбор на странице информации.",
   school: {
     title: "Жизнь школы",
@@ -255,6 +258,9 @@ const pl: typeof ru = {
     ],
   },
   faqTitle: "Częste pytania",
+  faqLead: "Nie znalazłeś odpowiedzi? Zapytaj na konsultacji — to bezpłatne, menedżer odpowiada w godzinach pracy.",
+  faqAsk: "Zadaj pytanie",
+  faqAll: "Wszystkie informacje",
   faqMore: "odpowiedzi — pełne omówienie na stronie informacji.",
   school: {
     title: "Życie szkoły",
@@ -397,6 +403,9 @@ const uk: typeof ru = {
     ],
   },
   faqTitle: "Часті питання",
+  faqLead: "Не знайшли відповідь? Запитайте на консультації — це безкоштовно, менеджер відповідає в робочий час.",
+  faqAsk: "Поставити питання",
+  faqAll: "Вся інформація",
   faqMore: "відповідей — повний розбір на сторінці інформації.",
   school: {
     title: "Життя школи",
