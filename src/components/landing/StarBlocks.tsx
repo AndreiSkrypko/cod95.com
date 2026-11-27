@@ -1,15 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HOME } from "@/i18n/home-copy";
 import { PAGES } from "@/i18n/pages-copy";
+import { SERVICES_CATALOG, type CatalogItem } from "@/i18n/services-catalog";
 import classroom from "@/assets/classroom.jpg";
 import trainingTrucks from "@/assets/training-trucks.jpg";
 import truckPractice from "@/assets/truck-practice.jpg";
 import classDetail from "@/assets/class-detail.jpg";
 import lifeBriefing from "@/assets/life-briefing.jpg";
 import lifeNight from "@/assets/life-night.jpg";
-import offerJob from "@/assets/offer-job.jpg";
 import offerResidence from "@/assets/offer-residence.jpg";
 import consultOffice from "@/assets/consult-office.jpg";
 import { ABOUT_PHOTOS } from "@/assets/baza/about-photos";
@@ -19,45 +19,6 @@ import { heroPhone, useLocale } from "@/i18n/locale";
 import { FaqList } from "./FaqList";
 import { Reveal } from "./Reveal";
 
-const OFFERS = [
-  {
-    id: "employment",
-    title: "Работа водителем в Европе",
-    text: "Официальное трудоустройство по территории ЕС после обучения.",
-    points: ["Проверенные перевозчики-партнёры", "Помощь с опытом и без опыта"],
-    cta: "Найти работу",
-    image: offerJob,
-    alt: "Водитель у тягача на площадке в сумерках",
-  },
-  {
-    id: "short-course",
-    title: "Короткий курс обучения",
-    text: "Для водителей, у которых категория «С» получена до 09.09.2009.",
-    points: ["3–5 рабочих дней", "Экзамен сдавать не нужно"],
-    cta: "Записаться на курс",
-    image: classroom,
-    alt: "Учебный класс с видом на город",
-  },
-  {
-    id: "long-course",
-    title: "Длинный курс обучения",
-    text: "Для водителей, у которых категория «С» получена после 09.09.2009.",
-    points: ["Стационарный", "Онлайн", "Без экзамена — по ситуации"],
-    cta: "Записаться на курс",
-    image: trainingTrucks,
-    alt: "Учебный автопарк на площадке",
-    variants: true,
-  },
-  {
-    id: "residence",
-    title: "ВНЖ и карта побыту",
-    text: "Документы для легальной жизни и работы в Польше — вместо отдельной чип-карты.",
-    points: ["Подбор основания", "Подача и контроль сроков", "Сопровождение семьи"],
-    cta: "Оставить заявку",
-    image: offerResidence,
-    alt: "Вечерняя улица у жилых домов",
-  },
-];
 
 const PERKS = [
   { title: "Прозрачная цена", text: "Стоимость фиксируем в договоре до старта. Чеки на каждый платёж." },
@@ -121,10 +82,44 @@ export function StoryBlock() {
   );
 }
 
-export function OfferRow() {
+function OfferCard({ item }: { item: CatalogItem }) {
   const openBooking = useBooking();
+  const inner = (
+    <>
+      <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">
+        {item.subtitle}
+      </p>
+      <h3 className="mt-1.5 font-display text-lg font-extrabold leading-snug text-foreground">
+        {item.title}
+      </h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+        {item.body[0]}
+      </p>
+      <span className="mt-4 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary transition-all group-hover:gap-2.5">
+        {item.cta}
+        <ArrowRight className="size-3.5" aria-hidden />
+      </span>
+    </>
+  );
+  const className = "surface-card card-interactive group flex h-full flex-col p-5 text-left";
+  if (item.action.kind === "book") {
+    return (
+      <button type="button" onClick={() => openBooking()} className={className}>
+        {inner}
+      </button>
+    );
+  }
+  return (
+    <Link to="/uslugi/$serviceId" params={{ serviceId: item.action.serviceId }} className={className}>
+      {inner}
+    </Link>
+  );
+}
+
+export function OfferRow() {
   const { locale } = useLocale();
   const offers = HOME[locale].offers;
+  const items = SERVICES_CATALOG[locale].categories.flatMap((c) => c.items);
   return (
     <section id="services" className="home-band section-y border-t border-border">
       <div className="container-page">
@@ -132,48 +127,37 @@ export function OfferRow() {
           <h2 className="font-display text-4xl font-extrabold md:text-5xl">{offers.title}</h2>
           <p className="mt-3 text-ink-muted">{offers.lead}</p>
         </div>
-        <ul className="mt-8 grid gap-4 lg:grid-cols-2">
-          {OFFERS.map((o) => {
-            const copy = offers.items[o.id as keyof typeof offers.items];
-            return (
-            <li
-              key={o.id}
-              className="surface-card group flex flex-col overflow-hidden sm:flex-row"
-            >
-              <div className="relative h-36 shrink-0 overflow-hidden sm:h-auto sm:w-44">
-                <img
-                  src={o.image}
-                  alt={copy.alt}
-                  className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out-expo group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-5 md:p-6">
-                <h3 className="font-display text-2xl font-extrabold">{copy.title}</h3>
-                <p className="mt-3 text-sm text-ink-muted">{copy.text}</p>
-                {"variants" in o && o.variants ? (
-                  <p className="mt-4 text-sm font-semibold">{offers.variants}</p>
-                ) : null}
-                <ul className="mt-4 space-y-2 text-sm">
-                  {copy.points.map((p) => (
-                    <li key={p} className="flex gap-2">
-                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  type="button"
-                  variant="subtle"
-                  onClick={() => openBooking(o.id)}
-                  className="mt-8 h-12"
-                >
-                  {copy.cta}
-                </Button>
-                <p className="mt-3 text-center text-xs text-ink-soft">{offers.reply}</p>
-              </div>
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {items.map((item, i) => (
+            <li key={item.title} className="h-full">
+              <Reveal delay={i * 45} className="h-full">
+                <OfferCard item={item} />
+              </Reveal>
             </li>
-            );
-          })}
+          ))}
+          <li className="h-full">
+            <Reveal delay={items.length * 45} className="h-full">
+              <Link
+                to="/informaciya"
+                hash="kurs"
+                className="card-interactive group flex h-full flex-col rounded-md border border-primary/50 bg-[linear-gradient(150deg,oklch(0.68_0.2_48/34%)_0%,oklch(0.68_0.2_48/10%)_55%,transparent_100%),var(--surface)] p-5 text-left shadow-glow"
+              >
+                <p className="inline-flex w-fit items-center rounded-full bg-primary/20 px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-wide text-primary-glow ring-1 ring-primary/40">
+                  {offers.pick.eyebrow}
+                </p>
+                <h3 className="mt-2.5 font-display text-lg font-extrabold leading-snug text-foreground">
+                  {offers.pick.title}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {offers.pick.text}
+                </p>
+                <span className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-gradient-accent px-4 py-2 font-display text-sm font-bold text-primary-foreground transition-all group-hover:gap-2.5">
+                  {offers.pick.cta}
+                  <ArrowRight className="size-3.5" aria-hidden />
+                </span>
+              </Link>
+            </Reveal>
+          </li>
         </ul>
         <p className="mt-8 text-center">
           <Link to="/uslugi" className="font-display font-bold text-primary">

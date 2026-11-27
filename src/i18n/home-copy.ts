@@ -17,6 +17,12 @@ const ru = {
     variants: "Возможные варианты обучения:",
     reply: "Ответ в рабочее время",
     all: "Все услуги →",
+    pick: {
+      eyebrow: "Подбор за 2 минуты",
+      title: "Не знаете, что выбрать?",
+      text: "Ответьте на два вопроса — подберём курс под вашу категорию и дату выдачи прав.",
+      cta: "Подобрать курс",
+    },
     items: {
       employment: {
         title: "Работа водителем в Европе",
@@ -152,6 +158,12 @@ const pl: typeof ru = {
     variants: "Możliwe warianty szkolenia:",
     reply: "Odpowiedź w godzinach pracy",
     all: "Wszystkie usługi →",
+    pick: {
+      eyebrow: "Dobór w 2 minuty",
+      title: "Nie wiesz, co wybrać?",
+      text: "Odpowiedz na dwa pytania — dobierzemy kurs pod twoją kategorię i datę wydania praw.",
+      cta: "Dobierz kurs",
+    },
     items: {
       employment: {
         title: "Praca kierowcy w Europie",
@@ -287,6 +299,12 @@ const uk: typeof ru = {
     variants: "Можливі варіанти навчання:",
     reply: "Відповідь у робочий час",
     all: "Усі послуги →",
+    pick: {
+      eyebrow: "Підбір за 2 хвилини",
+      title: "Не знаєте, що обрати?",
+      text: "Дайте відповідь на два питання — підберемо курс під вашу категорію та дату видачі прав.",
+      cta: "Підібрати курс",
+    },
     items: {
       employment: {
         title: "Робота водієм у Європі",
