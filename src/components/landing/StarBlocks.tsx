@@ -368,15 +368,34 @@ export function HomeFaq() {
   const { locale } = useLocale();
   const home = HOME[locale];
   return (
-    <section id="faq" className="section-y border-t border-border">
-      <div className="container-page max-w-3xl">
-        <h2 className="font-display text-4xl font-extrabold">{home.faqTitle}</h2>
-        <div className="mt-8">
-          <FaqList />
+    <section id="faq" className="section-y border-t border-border bg-background-deep">
+      <div className="container-page grid gap-12 xl:grid-cols-12 xl:gap-10">
+        <div className="xl:col-span-5">
+          <div className="xl:sticky xl:top-32">
+            <Reveal>
+              <p className="eyebrow eyebrow-rule">FAQ</p>
+              <h2 className="type-section-title mt-4">{home.faqTitle}</h2>
+              <p className="mt-4 max-w-md text-muted-foreground">{home.faqLead}</p>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <BookButton variant="hero" size="xl">
+                  {home.faqAsk}
+                  <ArrowRight aria-hidden="true" />
+                </BookButton>
+                <Button asChild variant="subtle" size="lg">
+                  <Link to="/informaciya">{home.faqAll}</Link>
+                </Button>
+              </div>
+              <p className="mt-6 text-sm text-ink-soft">
+                {PAGES[locale].faq.length} {home.faqMore}
+              </p>
+            </Reveal>
+          </div>
         </div>
-        <p className="mt-4 text-sm text-ink-soft">
-          {PAGES[locale].faq.length} {home.faqMore}
-        </p>
+        <Reveal className="xl:col-span-7">
+          <FaqList />
+        </Reveal>
       </div>
     </section>
   );
