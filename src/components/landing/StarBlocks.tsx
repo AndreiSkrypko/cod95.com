@@ -4,7 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HOME } from "@/i18n/home-copy";
 import { PAGES } from "@/i18n/pages-copy";
-import { CountryFlag, COUNTRY_STRIPE } from "@/components/CountryFlag";
+import { CountryFlag } from "@/components/CountryFlag";
 import { SERVICES_CATALOG, type CatalogItem } from "@/i18n/services-catalog";
 import advantagesInstructor from "@/assets/advantages-instructor.jpg";
 import classroom from "@/assets/classroom.jpg";
@@ -89,13 +89,6 @@ function OfferCard({ item }: { item: CatalogItem }) {
   const isCourse = item.country === "pl" || item.country === "lt";
   const inner = (
     <>
-      {item.country ? (
-        <span
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-1"
-          style={{ background: COUNTRY_STRIPE[item.country] }}
-        />
-      ) : null}
       <span className="flex items-start justify-between gap-2">
         {isCourse ? (
           <span />
@@ -119,7 +112,7 @@ function OfferCard({ item }: { item: CatalogItem }) {
     </>
   );
   const className =
-    "surface-card card-interactive group relative flex h-full flex-col overflow-hidden p-5 pt-6 text-left";
+    "surface-card card-interactive group relative flex h-full flex-col overflow-hidden p-5 text-left";
   if (item.action.kind === "book") {
     return (
       <button type="button" onClick={() => openBooking()} className={className}>
