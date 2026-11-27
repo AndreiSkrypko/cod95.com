@@ -57,7 +57,7 @@ export function PageHero({
           style={isDefaultTruck ? undefined : { objectPosition: imagePosition }}
         />
       </div>
-      <div className="hero-backdrop-scrim" aria-hidden="true" />
+      <div className="hero-backdrop-scrim-dark" aria-hidden="true" />
 
       <div className="container-page relative z-[1] flex min-h-svh flex-col pt-page-intro pb-10 md:pb-12 lg:pb-14">
         <PageBreadcrumbs />

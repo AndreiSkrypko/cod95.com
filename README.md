@@ -24,12 +24,12 @@ npm run dev
 
 All tokens live in `src/styles.css` (Tailwind v4, `@theme inline` + `:root`). Components use semantic classes only.
 
-**Colors (oklch, full dark theme)**
-- `--background` midnight navy (~#0B1220) · `--surface` / `--surface-raised` card layers (~#121A2E)
-- `--foreground` warm off-white · `--muted-foreground` warm gray body text (AA+) · `--ink-soft` captions
-- `--primary` electric cyan (~#22D3EE) — the only accent line · `--primary-glow` lighter cyan for gradients
-- `--accent` 12% cyan tint (icon tiles, chips) · `--accent-foreground` cyan text on dark
-- `--border` 1px white @ 9% · `--border-strong` @ 16% · `--ring` cyan focus
+**Colors (graphite dark theme, всё через токены в `src/styles.css`)**
+- `--background` graphite `#1e2630` · `--background-deep` `#191f28` · `--surface` / `--surface-raised` слои карточек
+- `--foreground` warm off-white · `--muted-foreground` warm gray body text · `--ink-soft` captions
+- `--primary` BAZA orange — единственный акцент · `--primary-glow` lighter orange for gradients
+- `--accent` 12% orange tint (icon tiles, chips) · `--accent-foreground` orange text on dark
+- `--border` white @ 20% · `--border-strong` @ 35% · `--ring` orange focus
 - Gradients: `--gradient-accent` (buttons), `--gradient-text` (headline highlight), `--gradient-surface` (card sheen)
 
 **Typography** — loaded via `<link>` in `src/routes/__root.tsx`

@@ -95,45 +95,44 @@
   --radius: 0.875rem;
 
   /* Bright warm canvas */
-  --background: oklch(0.985 0.012 80);
-  --background-deep: oklch(0.965 0.02 75);
-  --foreground: oklch(0.18 0.01 285);
-  --prose: oklch(0.18 0.01 285 / 85%);
-  --surface: oklch(1 0 0);
-  --surface-raised: oklch(0.97 0.015 80);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.04 262);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.24 0.04 262);
+  --background: #1e2630;
+  --background-deep: #191f28;
+  --foreground: oklch(0.965 0.01 85);
+  --prose: #cfd5dd;
+  --surface: #2a333f;
+  --surface-raised: #37424f;
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
 
   /* BAZA orange (логотип) */
   --primary: oklch(0.68 0.2 48);
   --primary-glow: oklch(0.75 0.19 52);
-  --primary-foreground: oklch(0.99 0.01 95);
+  --primary-foreground: #191108;
 
-  --secondary: oklch(0.95 0.02 70);
-  --secondary-foreground: oklch(0.28 0.04 262);
-  --muted: oklch(0.95 0.012 80);
-  --muted-foreground: oklch(0.46 0.03 262);
-  --ink-soft: oklch(0.55 0.03 262);
+  --secondary: var(--surface-raised);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--secondary);
+  --muted-foreground: #bbc4ce;
+  --ink-soft: #acb7c6;
   --accent: oklch(0.64 0.21 42 / 12%);
-  --accent-foreground: oklch(0.52 0.18 42);
+  --accent-foreground: var(--primary-glow);
   --sage: oklch(0.76 0.045 175);
-  /* Light bands (services, like a brochure page on the dark site) */
-  --paper: oklch(0.985 0.004 90);
+  --paper: #232c38;
   /* Dark cinematic hero over the night-truck photo */
   --hero-foreground: oklch(0.965 0.01 85);
   --hero-ink: oklch(0.93 0.015 260 / 88%);
   --hero-muted: oklch(0.83 0.02 260 / 64%);
-  --ink: oklch(0.14 0.005 285);
-  --ink-muted: oklch(0.42 0.02 262);
+  --ink: var(--foreground);
+  --ink-muted: var(--muted-foreground);
 
   --destructive: oklch(0.72 0.17 28);
   --destructive-foreground: oklch(0.98 0.005 85);
 
-  --border: oklch(0.24 0.04 262 / 10%);
-  --border-strong: oklch(0.24 0.04 262 / 16%);
-  --input: oklch(0.24 0.04 262 / 14%);
+  --border: oklch(0.85 0.025 260 / 20%);
+  --border-strong: oklch(0.85 0.025 260 / 35%);
+  --input: var(--border-strong);
   --ring: oklch(0.64 0.21 42 / 70%);
 
   --gradient-accent: linear-gradient(
@@ -148,11 +147,11 @@
     var(--primary) 60%,
     oklch(0.78 0.1 66) 100%
   );
-  --gradient-surface: linear-gradient(180deg, oklch(1 0 0 / 5%) 0%, oklch(1 0 0 / 1%) 100%);
+  --gradient-surface: linear-gradient(145deg, rgb(201 216 235 / 6%), transparent 65%);
   --gradient-fade-bottom: linear-gradient(180deg, transparent 0%, var(--background) 100%);
 
-  --shadow-card: 0 1px 2px oklch(0.24 0.04 262 / 6%), 0 16px 40px -24px oklch(0.24 0.04 262 / 18%);
-  --shadow-lift: 0 12px 40px -18px oklch(0.64 0.21 42 / 35%), 0 0 0 1px oklch(0.64 0.21 42 / 25%);
+  --shadow-card: 0 12px 36px -24px rgb(0 0 0 / 75%);
+  --shadow-lift: 0 20px 60px -28px rgb(0 0 0 / 80%);
   --shadow-glow: 0 14px 36px -12px oklch(0.64 0.21 42 / 55%);
 
   --chart-1: oklch(0.83 0.105 78);
@@ -170,37 +169,6 @@
   --sidebar-ring: var(--ring);
 }
 
-/* Scope the night palette to the home route, including dialogs portalled into body. */
-:root:has([data-home-hero]) {
-  color-scheme: dark;
-  --background: #1e2630;
-  --background-deep: #191f28;
-  --paper: #232c38;
-  --foreground: var(--hero-foreground);
-  --ink: var(--foreground);
-  --prose: #cfd5dd;
-  --muted-foreground: #bbc4ce;
-  --ink-muted: var(--muted-foreground);
-  --ink-soft: #acb7c6;
-  --surface: #2a333f;
-  --surface-raised: #37424f;
-  --card: var(--surface);
-  --popover: var(--surface);
-  --secondary: var(--surface-raised);
-  --muted: var(--secondary);
-  --card-foreground: var(--foreground);
-  --secondary-foreground: var(--foreground);
-  --popover-foreground: var(--foreground);
-  --primary-foreground: #191108;
-  --accent-foreground: var(--primary-glow);
-  --border: oklch(0.85 0.025 260 / 20%);
-  --border-strong: oklch(0.85 0.025 260 / 35%);
-  --input: var(--border-strong);
-  --shadow-card: 0 12px 36px -24px rgb(0 0 0 / 75%);
-  --shadow-lift: 0 20px 60px -28px rgb(0 0 0 / 80%);
-  --gradient-surface: linear-gradient(145deg, rgb(201 216 235 / 6%), transparent 65%);
-}
-
 @layer base {
   button {
     @apply rounded-md;
@@ -213,7 +181,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 96px;
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   body {

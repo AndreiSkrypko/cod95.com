@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { Menu, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -20,9 +20,8 @@ export function SiteHeader() {
   const { m } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const isHome = useRouterState({ select: (s) => s.location.pathname === "/" });
-  // Прозрачная шапка со светлым текстом поверх тёмного hero главной страницы.
-  const onHero = isHome && !scrolled;
+  // Прозрачная шапка со светлым текстом поверх тёмного hero; вся тема сайта тёмная.
+  const onHero = !scrolled;
   const linkClass = onHero ? linkOnHero : linkLight;
 
   useEffect(() => {
