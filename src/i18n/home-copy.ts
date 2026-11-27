@@ -17,6 +17,7 @@ const ru = {
     variants: "Возможные варианты обучения:",
     reply: "Ответ в рабочее время",
     all: "Все услуги →",
+    groups: { pl: "Польские программы", lt: "Литовские программы", other: "Дополнительные услуги" },
     pick: {
       eyebrow: "Подбор за 2 минуты",
       title: "Не знаете, что выбрать?",
@@ -158,6 +159,7 @@ const pl: typeof ru = {
     variants: "Możliwe warianty szkolenia:",
     reply: "Odpowiedź w godzinach pracy",
     all: "Wszystkie usługi →",
+    groups: { pl: "Polskie programy", lt: "Litewskie programy", other: "Usługi dodatkowe" },
     pick: {
       eyebrow: "Dobór w 2 minuty",
       title: "Nie wiesz, co wybrać?",
@@ -299,6 +301,7 @@ const uk: typeof ru = {
     variants: "Можливі варіанти навчання:",
     reply: "Відповідь у робочий час",
     all: "Усі послуги →",
+    groups: { pl: "Польські програми", lt: "Литовські програми", other: "Додаткові послуги" },
     pick: {
       eyebrow: "Підбір за 2 хвилини",
       title: "Не знаєте, що обрати?",

@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HOME } from "@/i18n/home-copy";
 import { PAGES } from "@/i18n/pages-copy";
+import { CountryFlag, COUNTRY_STRIPE } from "@/components/CountryFlag";
 import { SERVICES_CATALOG, type CatalogItem } from "@/i18n/services-catalog";
 import classroom from "@/assets/classroom.jpg";
 import trainingTrucks from "@/assets/training-trucks.jpg";
@@ -84,16 +85,31 @@ export function StoryBlock() {
 
 function OfferCard({ item }: { item: CatalogItem }) {
   const openBooking = useBooking();
+  const isCourse = item.country === "pl" || item.country === "lt";
   const inner = (
     <>
-      <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">
-        {item.subtitle}
-      </p>
+      {item.country ? (
+        <span
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-1"
+          style={{ background: COUNTRY_STRIPE[item.country] }}
+        />
+      ) : null}
+      <span className="flex items-start justify-between gap-2">
+        {isCourse ? (
+          <span />
+        ) : (
+          <span className="text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">
+            {item.subtitle}
+          </span>
+        )}
+        <CountryFlag country={item.country} className={item.country === "lt-pl" ? "[&>span]:h-4 [&>span]:w-6" : "h-4 w-6"} />
+      </span>
       <h3 className="mt-1.5 font-display text-lg font-extrabold leading-snug text-foreground">
         {item.title}
       </h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
-        {item.body[0]}
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+        {item.short}
       </p>
       <span className="mt-4 inline-flex items-center gap-1.5 font-display text-sm font-bold text-primary transition-all group-hover:gap-2.5">
         {item.cta}
@@ -101,7 +117,8 @@ function OfferCard({ item }: { item: CatalogItem }) {
       </span>
     </>
   );
-  const className = "surface-card card-interactive group flex h-full flex-col p-5 text-left";
+  const className =
+    "surface-card card-interactive group relative flex h-full flex-col overflow-hidden p-5 pt-6 text-left";
   if (item.action.kind === "book") {
     return (
       <button type="button" onClick={() => openBooking()} className={className}>
@@ -128,15 +145,15 @@ export function OfferRow() {
           <p className="mt-3 text-ink-muted">{offers.lead}</p>
         </div>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {items.map((item, i) => (
-            <li key={item.title} className="h-full">
-              <Reveal delay={i * 45} className="h-full">
-                <OfferCard item={item} />
-              </Reveal>
-            </li>
-          ))}
-          <li className="h-full">
-            <Reveal delay={items.length * 45} className="h-full">
+            {items.map((item, i) => (
+              <li key={item.title} className="h-full">
+                <Reveal delay={i * 45} className="h-full">
+                  <OfferCard item={item} />
+                </Reveal>
+              </li>
+            ))}
+            <li className="h-full">
+              <Reveal delay={items.length * 45} className="h-full">
               <Link
                 to="/informaciya"
                 hash="kurs"

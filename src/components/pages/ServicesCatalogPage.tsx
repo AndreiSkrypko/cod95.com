@@ -9,6 +9,7 @@ import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import type { CatalogCategory, CatalogItem } from "@/i18n/services-catalog";
 import { SERVICES_CATALOG } from "@/i18n/services-catalog";
+import { CountryFlag, COUNTRY_STRIPE } from "@/components/CountryFlag";
 import { PageHero } from "./PageHero";
 
 function isProgramGrid(category: CatalogCategory) {
@@ -40,10 +41,23 @@ const compactCtaClass = "mt-3 inline-flex items-center gap-1 text-xs font-bold t
 
 function ProgramGridCard({ item, wholeCardLink }: { item: CatalogItem; wholeCardLink?: boolean }) {
   return (
-    <article className="flex h-full flex-col rounded-md border border-border bg-card px-4 py-4 shadow-sm sm:px-5 sm:py-5">
-      <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">{item.subtitle}</p>
+    <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-border bg-card px-4 py-4 pt-5 shadow-sm sm:px-5 sm:pt-6">
+      {item.country ? (
+        <span
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-1"
+          style={{ background: COUNTRY_STRIPE[item.country] }}
+        />
+      ) : null}
+      <p className="flex items-start justify-between gap-2 text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">
+        <span>{item.subtitle}</span>
+        <CountryFlag
+          country={item.country}
+          className={item.country === "lt-pl" ? "[&>span]:h-4 [&>span]:w-6" : "h-4 w-6"}
+        />
+      </p>
       <h3 className="mt-1.5 font-display text-base font-extrabold leading-snug text-foreground">{item.title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">{item.body[0]}</p>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">{item.short}</p>
       {wholeCardLink ? (
         <span className={compactCtaClass}>
           {item.cta}
@@ -64,7 +78,10 @@ function CatalogServiceList({ items }: { items: CatalogItem[] }) {
           <Reveal delay={i * 45}>
             <div className="grid gap-5 py-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-10 md:py-10 lg:gap-14">
               <div className="min-w-0 max-w-3xl">
-                <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">{item.subtitle}</p>
+                <p className="flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-wide text-primary">
+                  <span>{item.subtitle}</span>
+                  <CountryFlag country={item.country} />
+                </p>
                 <h3 className="mt-2 font-display text-xl font-extrabold leading-snug text-foreground md:text-2xl">{item.title}</h3>
                 <div className="type-prose mt-4 space-y-3">
                   {item.body.map((p) => (
