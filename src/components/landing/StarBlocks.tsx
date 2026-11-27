@@ -141,10 +141,11 @@ export function OfferRow() {
   return (
     <section id="services" className="home-band section-y border-t border-border">
       <div className="container-page">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-4xl font-extrabold md:text-5xl">{offers.title}</h2>
-          <p className="mt-3 text-ink-muted">{offers.lead}</p>
-        </div>
+        <Reveal className="max-w-3xl">
+          <p className="eyebrow eyebrow-rule">{offers.eyebrow}</p>
+          <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{offers.title}</h2>
+          <p className="mt-4 text-lg leading-relaxed text-ink-muted">{offers.lead}</p>
+        </Reveal>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {items.map((item, i) => (
               <li key={item.title} className="h-full">
@@ -158,7 +159,7 @@ export function OfferRow() {
               <Link
                 to="/informaciya"
                 hash="kurs"
-                className="card-interactive group flex h-full flex-col rounded-md border border-primary/50 bg-[linear-gradient(150deg,oklch(0.68_0.2_48/34%)_0%,oklch(0.68_0.2_48/10%)_55%,transparent_100%),var(--surface)] p-5 text-left shadow-glow"
+                className="card-interactive group flex h-full flex-col rounded-md border border-border bg-[linear-gradient(150deg,oklch(0.68_0.2_48/22%)_0%,oklch(0.68_0.2_48/7%)_55%,transparent_100%),var(--surface)] p-5 text-left hover:border-primary/50"
               >
                 <p className="inline-flex w-fit items-center rounded-full bg-primary/20 px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-wide text-primary-glow ring-1 ring-primary/40">
                   {offers.pick.eyebrow}
@@ -177,7 +178,7 @@ export function OfferRow() {
             </Reveal>
           </li>
         </ul>
-        <p className="mt-8 text-center">
+        <p className="mt-8">
           <Link to="/uslugi" className="font-display font-bold text-primary">
             {offers.all}
           </Link>
@@ -345,7 +346,7 @@ export function Perks() {
               </div>
             </div>
           </Reveal>
-          <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-8">
+          <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-8 xl:grid-cols-3">
             {perks.items.map((p, i) => (
               <li key={p.title}>
                 <Reveal delay={i * 35} className="surface-card h-full p-5">
@@ -373,7 +374,7 @@ export function HomeFaq() {
         <div className="xl:col-span-5">
           <div className="xl:sticky xl:top-32">
             <Reveal>
-              <p className="eyebrow eyebrow-rule">FAQ</p>
+              <p className="eyebrow eyebrow-rule">{home.faqEyebrow}</p>
               <h2 className="type-section-title mt-4">{home.faqTitle}</h2>
               <p className="mt-4 max-w-md text-muted-foreground">{home.faqLead}</p>
             </Reveal>
@@ -432,7 +433,7 @@ export function HomeContacts() {
   const { locale } = useLocale();
   const contacts = HOME[locale].contacts;
   return (
-    <section id="contacts" className="home-band-warm section-y border-t border-border">
+    <section id="contacts" className="home-band section-y border-t border-border">
       <div className="container-page grid gap-12 lg:grid-cols-2">
         <div>
           <h2 className="font-display text-4xl font-extrabold">{contacts.title}</h2>

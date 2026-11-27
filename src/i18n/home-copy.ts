@@ -12,6 +12,7 @@ const ru = {
     imageAlt: "Занятие в учебном центре BAZA",
   },
   offers: {
+    eyebrow: "Направления",
     title: "Услуги",
     lead: "Курс, работа в Европе и документы для легального пребывания.",
     variants: "Возможные варианты обучения:",
@@ -112,6 +113,7 @@ const ru = {
       },
     ],
   },
+  faqEyebrow: "Вопросы",
   faqTitle: "Частые вопросы",
   faqLead: "Не нашли ответ? Спросите на консультации — это бесплатно, менеджер отвечает в рабочее время.",
   faqAsk: "Задать вопрос",
@@ -157,6 +159,7 @@ const pl: typeof ru = {
     imageAlt: "Zajęcia w ośrodku szkoleniowym BAZA",
   },
   offers: {
+    eyebrow: "Kierunki",
     title: "Usługi",
     lead: "Kurs, praca w Europie i dokumenty do legalnego pobytu.",
     variants: "Możliwe warianty szkolenia:",
@@ -257,6 +260,7 @@ const pl: typeof ru = {
       },
     ],
   },
+  faqEyebrow: "Pytania",
   faqTitle: "Częste pytania",
   faqLead: "Nie znalazłeś odpowiedzi? Zapytaj na konsultacji — to bezpłatne, menedżer odpowiada w godzinach pracy.",
   faqAsk: "Zadaj pytanie",
@@ -302,6 +306,7 @@ const uk: typeof ru = {
     imageAlt: "Заняття в навчальному центрі BAZA",
   },
   offers: {
+    eyebrow: "Напрямки",
     title: "Послуги",
     lead: "Курс, робота в Європі і документи для легального перебування.",
     variants: "Можливі варіанти навчання:",
@@ -402,6 +407,7 @@ const uk: typeof ru = {
       },
     ],
   },
+  faqEyebrow: "Питання",
   faqTitle: "Часті питання",
   faqLead: "Не знайшли відповідь? Запитайте на консультації — це безкоштовно, менеджер відповідає в робочий час.",
   faqAsk: "Поставити питання",

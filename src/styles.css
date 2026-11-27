@@ -224,9 +224,9 @@
 }
 
 @utility section-y {
-  padding-block: 5.5rem;
+  padding-block: 4.5rem;
   @media (width >= 64rem) {
-    padding-block: 8.5rem;
+    padding-block: 6rem;
   }
 }
 
@@ -234,7 +234,7 @@
 @utility hero-viewport {
   position: relative;
   min-height: 100svh;
-  overflow-x: clip;
+  overflow: clip;
 }
 
 @utility home-band {
@@ -252,7 +252,7 @@
 @utility hero-backdrop {
   pointer-events: none;
   position: absolute;
-  inset: 0;
+  inset: -18% 0;
   z-index: -20;
   overflow: hidden;
 }
@@ -500,9 +500,8 @@
 }
 
 @utility type-accent-quote {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.35;
   font-size: 1.25rem;
