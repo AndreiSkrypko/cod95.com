@@ -161,7 +161,7 @@ const ru: AboutPageCopy = {
       { label: "Юридическое лицо", value: "AROXEN Sp. z o.o." },
       {
         label: "Юридический адрес",
-        value: "ul. Wolska 84/86, lok. 217, 01-141 Warszawa (сверить с выпиской перед публикацией)",
+        value: "ul. Wolska 84/86, lok. 217, 01-141 Warszawa",
       },
       { label: "NIP", value: "5273231534" },
       { label: "REGON", value: "545441653" },

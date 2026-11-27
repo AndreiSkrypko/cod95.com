@@ -1,15 +1,10 @@
 import type { ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
 import type { AboutPageCopy } from "@/i18n/about-copy";
 import { ABOUT_PAGE } from "@/i18n/about-copy";
 import { useLocale } from "@/i18n/locale";
 import { cn } from "@/lib/utils";
 
 type LegalCopy = AboutPageCopy["legal"];
-
-function rowValue(rows: LegalCopy["rows"], labelPrefix: string) {
-  return rows.find((r) => r.label.startsWith(labelPrefix) || r.label === labelPrefix)?.value;
-}
 
 /** Юр. реквизиты для индексации — без визуального акцента. */
 export function LegalEntityFinePrint({
@@ -22,23 +17,20 @@ export function LegalEntityFinePrint({
   className?: string;
 }) {
   if (variant === "footer") {
-    const nip = rowValue(legal.rows, "NIP");
-    const regon = rowValue(legal.rows, "REGON");
-    const email = rowValue(legal.rows, "E-mail");
+    const facts = legal.rows.filter(
+      (row) => !row.value.startsWith("[") && row.label !== "Юридическое лицо",
+    );
     return (
       <p className={cn("max-w-4xl text-[0.6875rem] leading-relaxed text-foreground/45", className)}>
         {legal.intro}{" "}
-        {nip ? <>NIP {nip}</> : null}
-        {regon ? <> · REGON {regon}</> : null}
-        {email ? <> · {email}</> : null}
-        .{" "}
-        <Link
-          to="/kontakty"
-          hash="legal"
-          className="text-foreground/50 underline decoration-foreground/15 underline-offset-2 hover:text-foreground/65"
-        >
-          {legal.footerLink}
-        </Link>
+        {facts.map((row, i) => (
+          <span key={row.label}>
+            {i > 0 ? " · " : ""}
+            {/^[A-ZА-ЯЁ]+$/.test(row.label) ? `${row.label} ` : ""}
+            {row.value}
+          </span>
+        ))}
+        .
       </p>
     );
   }

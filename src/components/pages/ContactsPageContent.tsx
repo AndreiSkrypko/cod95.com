@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/pages/PageHero";
-import { LegalEntitySection } from "@/components/layout/LegalEntitySection";
 import { ContactChannels } from "@/components/landing/ContactChannels";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
@@ -30,7 +29,10 @@ export function ContactsPageContent() {
         imageAlt={page.imageAlt}
       />
 
-      <section className="section-y border-t border-border bg-background" aria-labelledby="contacts-offices-heading">
+      <section
+        className="section-y border-t border-border bg-background"
+        aria-labelledby="contacts-offices-heading"
+      >
         <div className="container-page">
           <Reveal>
             <p className="eyebrow eyebrow-rule">{page.channelsEyebrow}</p>
@@ -46,9 +48,16 @@ export function ContactsPageContent() {
             </Reveal>
             <Reveal delay={60} className="lg:col-span-5">
               <article className="overflow-hidden rounded-md border border-border bg-card shadow-card">
-                <img src={consultOffice} alt={page.imageAlt} className="aspect-[16/10] w-full object-cover" loading="lazy" />
+                <img
+                  src={consultOffice}
+                  alt={page.imageAlt}
+                  className="aspect-[16/10] w-full object-cover"
+                  loading="lazy"
+                />
                 <div className="border-t border-border p-6 sm:p-8">
-                  <h3 className="font-display text-xl font-extrabold text-foreground sm:text-2xl">{page.formTitle}</h3>
+                  <h3 className="font-display text-xl font-extrabold text-foreground sm:text-2xl">
+                    {page.formTitle}
+                  </h3>
                   <p className="type-lead mt-3 text-muted-foreground">{page.formLead}</p>
                   <BookButton variant="hero" size="xl" className="mt-6 w-full sm:w-auto">
                     {page.book}
@@ -60,8 +69,6 @@ export function ContactsPageContent() {
           </div>
         </div>
       </section>
-
-      <LegalEntitySection />
     </>
   );
 }
