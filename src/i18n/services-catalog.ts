@@ -10,6 +10,7 @@ export type CatalogItem = {
   subtitle: string;
   // One-line teaser for compact cards; full text stays in body.
   short: string;
+  country?: "pl" | "lt" | "lt-pl";
   body: string[];
   cta: string;
   action: CatalogAction;

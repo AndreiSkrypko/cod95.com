@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,7 @@ import { HOME } from "@/i18n/home-copy";
 import { PAGES } from "@/i18n/pages-copy";
 import { CountryFlag, COUNTRY_STRIPE } from "@/components/CountryFlag";
 import { SERVICES_CATALOG, type CatalogItem } from "@/i18n/services-catalog";
+import advantagesInstructor from "@/assets/advantages-instructor.jpg";
 import classroom from "@/assets/classroom.jpg";
 import trainingTrucks from "@/assets/training-trucks.jpg";
 import truckPractice from "@/assets/truck-practice.jpg";
@@ -13,7 +15,6 @@ import lifeBriefing from "@/assets/life-briefing.jpg";
 import lifeNight from "@/assets/life-night.jpg";
 import offerResidence from "@/assets/offer-residence.jpg";
 import consultOffice from "@/assets/consult-office.jpg";
-import { ABOUT_PHOTOS } from "@/assets/baza/about-photos";
 import { ContactAside } from "./ContactAside";
 import { BookButton, useBooking } from "./BookingDialog";
 import { heroPhone, useLocale } from "@/i18n/locale";
@@ -250,10 +251,75 @@ export function Code95Block() {
   );
 }
 
+/** Scroll-driven parallax with inertia: the mover eases toward its scroll-driven target instead of snapping to it, so the descent feels smooth. No-op on mobile (track height collapses to content). */
+function useDescendParallax() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const moverRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    let running = false;
+    let current = -1;
+    let target = 0;
+
+    const measure = () => {
+      const track = trackRef.current;
+      const mover = moverRef.current;
+      if (!track || !mover) return;
+      const rect = track.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const progress = Math.min(1, Math.max(0, (vh - rect.top) / rect.height));
+      const maxShift = Math.max(0, track.offsetHeight - mover.offsetHeight);
+      target = progress * maxShift;
+    };
+
+    const tick = () => {
+      const mover = moverRef.current;
+      if (!mover) {
+        running = false;
+        return;
+      }
+      if (current < 0) current = target;
+      current += (target - current) * 0.09;
+      if (Math.abs(target - current) < 0.3) current = target;
+      mover.style.transform = `translate3d(0, ${current.toFixed(1)}px, 0)`;
+      if (current !== target) {
+        frame = requestAnimationFrame(tick);
+      } else {
+        running = false;
+      }
+    };
+
+    const onScroll = () => {
+      measure();
+      if (!running) {
+        running = true;
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(tick);
+      }
+    };
+
+    measure();
+    if (trackRef.current && moverRef.current) {
+      current = target;
+      moverRef.current.style.transform = `translate3d(0, ${current.toFixed(1)}px, 0)`;
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+  return { trackRef, moverRef };
+}
+
 /** Раздел «Наши преимущества» на главной. */
 export function Perks() {
   const { locale } = useLocale();
   const perks = HOME[locale].perks;
+  const { trackRef, moverRef } = useDescendParallax();
   return (
     <section id="advantages" className="home-band-warm section-y border-t border-border">
       <div className="container-page">
@@ -263,18 +329,21 @@ export function Perks() {
           <p className="mt-4 text-lg leading-relaxed text-ink-muted">{perks.lead}</p>
         </Reveal>
         <div className="mt-10 grid items-start gap-6 lg:grid-cols-12 lg:gap-8">
-          <Reveal variant="clip" className="lg:col-span-4">
-            <figure>
-              <div className="overflow-hidden rounded-md shadow-lift">
-                <img
-                  src={ABOUT_PHOTOS.practice}
-                  alt={perks.imageAlt}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
+          <Reveal className="lg:col-span-4 lg:self-stretch">
+            <div ref={trackRef} className="relative h-full">
+              <div ref={moverRef} className="will-change-transform">
+                <figure>
+                  <div className="overflow-hidden rounded-md shadow-lift">
+                    <img
+                      src={advantagesInstructor}
+                      alt={perks.imageAlt}
+                      loading="lazy"
+                      className="aspect-[3/4] w-full object-cover"
+                    />
+                  </div>
+                </figure>
               </div>
-              <figcaption className="mt-3 text-sm leading-relaxed text-ink-muted">{perks.caption}</figcaption>
-            </figure>
+            </div>
           </Reveal>
           <ul className="grid content-start gap-3 sm:grid-cols-2 lg:col-span-8">
             {perks.items.map((p, i) => (
