@@ -25,8 +25,8 @@ export function ArticlesBlock() {
         />
         <ul className="mt-12 grid gap-4 lg:grid-cols-3">
           {articles.map((article, i) => (
-            <li key={article.slug}>
-              <Reveal delay={i * 60}>
+            <li key={article.slug} className="h-full">
+              <Reveal delay={i * 60} className="h-full">
                 <Link
                   to="/statyi/$slug"
                   params={{ slug: article.slug }}

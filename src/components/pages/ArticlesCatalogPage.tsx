@@ -30,7 +30,7 @@ export function ArticlesCatalogPage() {
         <div className="container-page">
           <ul className="grid gap-4 lg:grid-cols-3">
             {articles.map((article) => (
-              <li key={article.slug}>
+              <li key={article.slug} className="h-full">
                 <Link
                   to="/statyi/$slug"
                   params={{ slug: article.slug }}
