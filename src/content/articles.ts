@@ -37,7 +37,6 @@ export const ARTICLES: Article[] = [
     image: {
       src: articleShortLong,
       alt: "Учебный класс и практика на площадке — выбор короткого или длинного курса КОД 95",
-      objectPosition: "42% center",
       overlayClass: "bg-gradient-to-t from-background-deep/35 via-transparent to-primary/10",
     },
     relatedServices: ["short-course", "long-course", "long-online"],
