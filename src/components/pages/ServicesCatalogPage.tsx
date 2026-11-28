@@ -8,6 +8,7 @@ import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import type { CatalogCategory, CatalogItem } from "@/i18n/services-catalog";
 import { SERVICES_CATALOG } from "@/i18n/services-catalog";
+import uslugiHeroNight from "@/assets/baza/uslugi-hero-night.jpg";
 import { CountryFlag } from "@/components/CountryFlag";
 import { PageHero } from "./PageHero";
 
@@ -114,8 +115,8 @@ export function ServicesCatalogPage() {
         eyebrow={catalog.eyebrow}
         title={catalog.title}
         leadParagraphs={catalog.intro}
-        image={PAGE_VISUALS.catalog.src}
-        imageAlt={PAGE_VISUALS.catalog.alt}
+        image={uslugiHeroNight}
+        imageAlt="Учебные тягачи на ночной площадке учебного центра BAZA"
         ctaTo="/zapis"
       />
 
