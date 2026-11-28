@@ -87,7 +87,7 @@ export function SiteHeader() {
                     className="size-3.5 transition-transform duration-200 group-hover:rotate-180"
                   />
                 </Link>
-                <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-opacity duration-200 focus-within:visible focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                <div className="invisible absolute left-0 top-full z-50 pt-2 opacity-0 transition-opacity duration-200 focus-within:visible focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                   <div className="w-72 rounded-md border border-border bg-surface p-2 shadow-lift">
                     <ul>
                       {NAV_SERVICE_IDS.map((id) => (
