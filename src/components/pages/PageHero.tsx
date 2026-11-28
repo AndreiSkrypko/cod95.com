@@ -53,18 +53,30 @@ export function PageHero({
         <img
           src={image}
           alt={imageAlt}
-          className={cn(isDefaultTruck ? "hero-backdrop-photo" : "absolute inset-0 h-full w-full object-cover")}
+          className={cn(isDefaultTruck ? "hero-backdrop-photo" : "page-hero-photo")}
           style={isDefaultTruck ? undefined : { objectPosition: imagePosition }}
         />
       </div>
       <div className="hero-backdrop-scrim-dark" aria-hidden="true" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(100deg,var(--background)_0%,oklch(0.16_0.03_260/85%)_34%,transparent_62%)]"
+      />
+      <div className="page-hero-fade-bottom" aria-hidden="true" />
 
       <div className="container-page relative z-[1] flex min-h-svh flex-col pt-page-intro pb-10 md:pb-12 lg:pb-14">
         <PageBreadcrumbs />
         {!hasCrumbs && eyebrow ? <p className="eyebrow eyebrow-rule mt-0">{eyebrow}</p> : null}
         <div className="flex flex-1 flex-col justify-center">
           <div className="max-w-xl lg:max-w-2xl">
-            <h1 className={cn("type-page-hero-title text-foreground", hasCrumbs || eyebrow ? "mt-4" : "mt-0")}>{title}</h1>
+            <h1
+              className={cn(
+                "type-page-hero-title text-foreground",
+                hasCrumbs || eyebrow ? "mt-4" : "mt-0",
+              )}
+            >
+              {title}
+            </h1>
             {subtitle && <p className="type-subtitle mt-3 text-foreground">{subtitle}</p>}
             {leadParagraphs && leadParagraphs.length > 0 ? (
               <div className="mt-4 max-w-lg space-y-3">
@@ -81,7 +93,12 @@ export function PageHero({
               <div className="mt-7">{heroActions}</div>
             ) : showDefaultCta ? (
               ctaTo === "/zapis" ? (
-                <BookButton {...(service ? { service } : {})} variant="hero" size="xl" className="mt-7">
+                <BookButton
+                  {...(service ? { service } : {})}
+                  variant="hero"
+                  size="xl"
+                  className="mt-7"
+                >
                   {label}
                   <ArrowRight aria-hidden="true" />
                 </BookButton>
@@ -95,6 +112,19 @@ export function PageHero({
               )
             ) : null}
           </div>
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-6 z-[1] flex justify-center">
+          <span className="flex size-9 items-center justify-center rounded-full border border-white/15 text-white/50 motion-safe:animate-bounce">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="m6 9 6 6 6-6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </section>

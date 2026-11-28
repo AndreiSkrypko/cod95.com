@@ -454,9 +454,39 @@
 @utility type-page-hero-title {
   font-family: var(--font-display);
   font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.04em;
-  font-size: clamp(2.125rem, 4.2vw + 1rem, 3.75rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  font-size: clamp(2.5rem, 5.4vw + 1rem, 4.75rem);
+}
+
+@keyframes hero-photo-in {
+  from {
+    transform: scale(1.06);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@utility page-hero-photo {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  animation: hero-photo-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility page-hero-fade-bottom {
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 22%;
+  z-index: 0;
+  background: linear-gradient(180deg, transparent, var(--background));
 }
 
 @utility type-subtitle {
