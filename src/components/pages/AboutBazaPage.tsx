@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { ABOUT_PHOTOS } from "@/assets/baza/about-photos";
+import aboutHeroNight from "@/assets/baza/about-hero-night.jpg";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
 import { Button } from "@/components/ui/button";
@@ -44,6 +45,9 @@ export function AboutBazaPage() {
         subtitle={copy.hero.subtitle}
         lead={copy.hero.lead[0]}
         heroActions={heroCtas}
+        image={aboutHeroNight}
+        imageAlt="Инструктор идёт к учебному тягачу DAF на ночной площадке учебного центра"
+        imagePosition="60% center"
       />
 
       <AboutSection variant="plain" image={ABOUT_PHOTOS.philosophy} imageAlt={copy.philosophy.imageAlt} imageSide="right">
