@@ -9,7 +9,8 @@ const ru = {
     aboutDescription:
       "Познакомьтесь с BAZA: офис в Минске, обучение КОД 95 в Варшаве, опыт международных перевозок и поддержка водителей.",
     infoTitle: "Информация о КОД 95 — BAZA",
-    infoDescription: "Что такое КОД 95, кому нужен короткий и длинный курс, ответы на частые вопросы.",
+    infoDescription:
+      "Что такое КОД 95, кому нужен короткий и длинный курс, ответы на частые вопросы.",
     contactsTitle: "Контакты — BAZA",
     contactsDescription:
       "Офис в Минске и учебный центр в Варшаве: телефоны, график, заявка и официальная информация об AROXEN Sp. z o.o.",
@@ -76,9 +77,21 @@ const ru = {
     google: "",
     stars: "Оценка 5 из 5",
     items: [
-      { name: "Роман Сущевский", topic: "Чип-карта и КОД 95", text: "Делал чип-карту первый раз у ребят. Никаких вопросов. Сказали — сделали. Спасибо за подарок внутри. Приятно. Рекомендую. Они так же делают 95 код. Буду обращаться ещё обязательно." },
-      { name: "Валентин Ка.", topic: "Чип-карта", text: "Закончился срок действия чип-карты водителя. По рекомендации обратился за помощью в сопровождении получения чип-карты через польское уполномоченное учреждение. Не пожалел. Все сделали быстро, по хорошей цене, всегда были на связи. Однозначно рекомендую." },
-      { name: "Генадий Соц", topic: "Чип-карта", text: "Добрый день, хочу поблагодарить команду. Не первый раз обращаюсь за сопровождением при получении чип-карты тахографа. Оперативно, вежливые сотрудники, вся информация от начала сделки до получения документов. Всем советую, главное без подстав и обмана." },
+      {
+        name: "Роман Сущевский",
+        topic: "Чип-карта и КОД 95",
+        text: "Делал чип-карту первый раз у ребят. Никаких вопросов. Сказали — сделали. Спасибо за подарок внутри. Приятно. Рекомендую. Они так же делают 95 код. Буду обращаться ещё обязательно.",
+      },
+      {
+        name: "Валентин Ка.",
+        topic: "Чип-карта",
+        text: "Закончился срок действия чип-карты водителя. По рекомендации обратился за помощью в сопровождении получения чип-карты через польское уполномоченное учреждение. Не пожалел. Все сделали быстро, по хорошей цене, всегда были на связи. Однозначно рекомендую.",
+      },
+      {
+        name: "Генадий Соц",
+        topic: "Чип-карта",
+        text: "Добрый день, хочу поблагодарить команду. Не первый раз обращаюсь за сопровождением при получении чип-карты тахографа. Оперативно, вежливые сотрудники, вся информация от начала сделки до получения документов. Всем советую, главное без подстав и обмана.",
+      },
     ],
   },
   advisor: {
@@ -90,9 +103,11 @@ const ru = {
     unsure: "Не помню / не уверен",
     categoryLegend: "Какая категория у вас сейчас?",
     result: "Предварительный результат",
-    disclaimer: "Точный вид обучения зависит также от ранее полученной квалификации, её срока действия и документов водителя.",
+    disclaimer:
+      "Точный вид обучения зависит также от ранее полученной квалификации, её срока действия и документов водителя.",
     unsureTitle: "Нужна сверка по правам",
-    unsureText: "По памяти дату не стоит угадывать. На консультации посмотрим удостоверение и скажем, короткий курс или длинный.",
+    unsureText:
+      "По памяти дату не стоит угадывать. На консультации посмотрим удостоверение и скажем, короткий курс или длинный.",
     unsureCta: "Задать вопрос",
     shortTitle: "Вероятно, вам подойдёт короткий курс КОД 95",
     shortText: (category: string) =>
@@ -109,16 +124,29 @@ const ru = {
     titleAccent: "Европу",
     goalTitle: "Наша цель",
     goal: "Помочь водителям-международникам легально работать в ЕС: КОД 95, документы, ВНЖ и выход на стабильный заработок.",
-    mission: "Сделать путь простым и предсказуемым: понятный курс, честная цена, поддержка на каждом этапе вместо хаоса с бумагами.",
+    mission:
+      "Сделать путь простым и предсказуемым: понятный курс, честная цена, поддержка на каждом этапе вместо хаоса с бумагами.",
     sameTeam:
       "BAZA — учебный центр в Польше: КОД 95, консультации и сопровождение на каждом этапе подготовки.",
     imageAlt: "Инструктор у учебного тягача",
     services: "Смотреть услуги",
     values: [
-      { title: "Прозрачность и договор", text: "Фиксируем стоимость до старта, работаем как юрлицо: договор, акты, чеки. Без скрытых доплат." },
-      { title: "Сопровождение", text: "От первого звонка до документов на руках и, при необходимости, трудоустройства." },
-      { title: "Опыт в логистике", text: "12+ лет в международных перевозках — понимаем, что важно водителю и перевозчику." },
-      { title: "Минск и Варшава", text: "Офис в Минске — консультация и документы. Обучение КОД 95 — на базе в Варшаве. На русском языке." },
+      {
+        title: "Прозрачность и договор",
+        text: "Фиксируем стоимость до старта, работаем как юрлицо: договор, акты, чеки. Без скрытых доплат.",
+      },
+      {
+        title: "Сопровождение",
+        text: "От первого звонка до документов на руках и, при необходимости, трудоустройства.",
+      },
+      {
+        title: "Опыт в логистике",
+        text: "12+ лет в международных перевозках — понимаем, что важно водителю и перевозчику.",
+      },
+      {
+        title: "Минск и Варшава",
+        text: "Офис в Минске — консультация и документы. Обучение КОД 95 — на базе в Варшаве. На русском языке.",
+      },
     ],
   },
   info: {
@@ -134,8 +162,10 @@ const ru = {
       "Чтобы получить код, нужно пройти короткий или длинный курс в аккредитованном центре. После этого квалификацию вносят в права или выдают отдельным документом — в зависимости от страны и формата.",
       "Периодическое обучение нужно для продления кода. Мы подскажем, какой курс актуален именно для вас, и зафиксируем стоимость в договоре.",
     ],
-    faqEyebrow: "FAQ",
+    faqEyebrow: "Вопросы",
     faqTitle: "Частые вопросы",
+    faqLead:
+      "Не нашли ответ? Спросите на консультации — это бесплатно, менеджер отвечает в рабочее время.",
     ask: "Задать вопрос менеджеру",
   },
   contactsPage: {
@@ -144,7 +174,8 @@ const ru = {
     lead: "Офис в Минске — консультации и документы. Обучение — в Варшаве. Позвоните или оставьте заявку.",
     cta: "Задать вопрос",
     channelsEyebrow: "Связь",
-    channelsLead: "Два номера — Минск и Варшава. График один: согласуем консультацию и запись на курс.",
+    channelsLead:
+      "Два номера — Минск и Варшава. График один: согласуем консультацию и запись на курс.",
     hoursTitle: "График работы",
     locationsTitle: "Где мы находимся",
     offices: "Офисы и график",
@@ -207,7 +238,8 @@ const ru = {
     catalogTitleBefore: "Гайды по",
     catalogTitleAccent: "КОД 95",
     catalogTitleAfter: "и документам",
-    catalogLead: "Практические материалы для водителей-международников: выбор курса, поездка в Варшаву, Польша и Литва.",
+    catalogLead:
+      "Практические материалы для водителей-международников: выбор курса, поездка в Варшаву, Польша и Литва.",
     catalogCta: "Задать вопрос",
   },
 };
@@ -221,7 +253,8 @@ const pl: typeof ru = {
     aboutDescription:
       "Poznaj BAZA: szkolenie kod 95 w Polsce, baza szkoleniowa i wsparcie kierowców międzynarodowych.",
     infoTitle: "Informacje o KOD 95 — BAZA",
-    infoDescription: "Czym jest KOD 95, komu potrzebny krótki i długi kurs, odpowiedzi na częste pytania.",
+    infoDescription:
+      "Czym jest KOD 95, komu potrzebny krótki i długi kurs, odpowiedzi na częste pytania.",
     contactsTitle: "Kontakt — BAZA",
     contactsDescription:
       "Biuro w Mińsku i ośrodek w Warszawie: telefony, godziny pracy, zgłoszenie na konsultację.",
@@ -232,7 +265,8 @@ const pl: typeof ru = {
     servicesTitle: "Nasze usługi — BAZA",
     servicesDescription: "Katalog usług BAZA: KOD 95, dokumenty, pobyt i zatrudnienie.",
     articlesTitle: "Artykuły o KOD 95 — BAZA",
-    articlesDescription: "Praktyczne materiały o kursach KOD 95, dokumentach i wyjeździe do Warszawy.",
+    articlesDescription:
+      "Praktyczne materiały o kursach KOD 95, dokumentach i wyjeździe do Warszawy.",
   },
   crumbs: {
     home: "Strona główna",
@@ -254,15 +288,30 @@ const pl: typeof ru = {
     "usług pod klucz",
   ],
   faq: [
-    { q: "Komu pasuje krótki kurs, a komu długi?", a: "Krótki — jeśli kategoria C została wydana przed 09.09.2009, zwykle 3–5 dni bez egzaminu. Długi — jeśli później: teoria, praktyka i egzamin w WORD. Na konsultacji od razu powiemy, który wariant jest Twój." },
-    { q: "Ile trwa szkolenie na KOD 95?", a: "Krótki kurs — kilka dni roboczych. Długi — około trzech tygodni z teorią i praktyką. Jest teoria online i wariant bez egzaminu — nie dla każdego, ustalamy indywidualnie." },
+    {
+      q: "Komu pasuje krótki kurs, a komu długi?",
+      a: "Krótki — jeśli kategoria C została wydana przed 09.09.2009, zwykle 3–5 dni bez egzaminu. Długi — jeśli później: teoria, praktyka i egzamin w WORD. Na konsultacji od razu powiemy, który wariant jest Twój.",
+    },
+    {
+      q: "Ile trwa szkolenie na KOD 95?",
+      a: "Krótki kurs — kilka dni roboczych. Długi — około trzech tygodni z teorią i praktyką. Jest teoria online i wariant bez egzaminu — nie dla każdego, ustalamy indywidualnie.",
+    },
     {
       q: "Gdzie odbywa się szkolenie?",
       a: "Konsultacja i dokumenty — w biurze w Mińsku. Polski KOD 95 — w Warszawie, w akredytowanym centrum. Pomagamy z noclegiem, logistyką i grafikiem. Litewski KOD 95 — po uzgodnieniu na Litwie.",
     },
-    { q: "Jakie dokumenty są potrzebne?", a: "Podstawowy pakiet — paszport, ważne prawo jazdy właściwej kategorii i dokumenty legalnego pobytu. Pełną listę wyślemy po konsultacji pod Twoją sytuację." },
-    { q: "Czy można płacić w ratach?", a: "Tak. Oficjalna umowa, stała cena, potwierdzenie każdej wpłaty. Pracodawca też może opłacić kurs — szczegóły na konsultacji." },
-    { q: "Pomagacie z pobytem, zaproszeniem i wymianą prawa jazdy?", a: "Tak. Karta pobytu, zaproszenie od wojewody, wymiana prawa jazdy i zatrudnienie — w jednym miejscu. Przy pakiecie usług jest zniżka." },
+    {
+      q: "Jakie dokumenty są potrzebne?",
+      a: "Podstawowy pakiet — paszport, ważne prawo jazdy właściwej kategorii i dokumenty legalnego pobytu. Pełną listę wyślemy po konsultacji pod Twoją sytuację.",
+    },
+    {
+      q: "Czy można płacić w ratach?",
+      a: "Tak. Oficjalna umowa, stała cena, potwierdzenie każdej wpłaty. Pracodawca też może opłacić kurs — szczegóły na konsultacji.",
+    },
+    {
+      q: "Pomagacie z pobytem, zaproszeniem i wymianą prawa jazdy?",
+      a: "Tak. Karta pobytu, zaproszenie od wojewody, wymiana prawa jazdy i zatrudnienie — w jednym miejscu. Przy pakiecie usług jest zniżka.",
+    },
   ],
   reviews: {
     eyebrow: "Opinie",
@@ -272,9 +321,21 @@ const pl: typeof ru = {
     google: "",
     stars: "Ocena 5 na 5",
     items: [
-      { name: "Роман Сущевский", topic: "Karta i KOD 95", text: "Robiłem kartę kierowcy pierwszy raz. Bez pytań. Powiedzieli — zrobili. Dziękuję za upominek w środku. Polecam. Robią też kod 95. Na pewno wrócę." },
-      { name: "Валентин Ка.", topic: "Karta kierowcy", text: "Skończyła się ważność karty kierowcy. Z polecenia poprosiłem o pomoc w uzyskaniu karty przez polski urząd. Nie żałuję. Zrobili szybko, w dobrej cenie, cały czas byli w kontakcie. Jednoznacznie polecam." },
-      { name: "Генадий Соц", topic: "Karta kierowcy", text: "Dzień dobry, dziękuję zespołowi. Nie pierwszy raz proszę o wsparcie przy karcie do tachografu. Sprawnie, uprzejmi pracownicy, informacja od początku do odbioru dokumentów. Polecam wszystkim, bez podstępu i oszustwa." },
+      {
+        name: "Роман Сущевский",
+        topic: "Karta i KOD 95",
+        text: "Robiłem kartę kierowcy pierwszy raz. Bez pytań. Powiedzieli — zrobili. Dziękuję za upominek w środku. Polecam. Robią też kod 95. Na pewno wrócę.",
+      },
+      {
+        name: "Валентин Ка.",
+        topic: "Karta kierowcy",
+        text: "Skończyła się ważność karty kierowcy. Z polecenia poprosiłem o pomoc w uzyskaniu karty przez polski urząd. Nie żałuję. Zrobili szybko, w dobrej cenie, cały czas byli w kontakcie. Jednoznacznie polecam.",
+      },
+      {
+        name: "Генадий Соц",
+        topic: "Karta kierowcy",
+        text: "Dzień dobry, dziękuję zespołowi. Nie pierwszy raz proszę o wsparcie przy karcie do tachografu. Sprawnie, uprzejmi pracownicy, informacja od początku do odbioru dokumentów. Polecam wszystkim, bez podstępu i oszustwa.",
+      },
     ],
   },
   advisor: {
@@ -286,9 +347,11 @@ const pl: typeof ru = {
     unsure: "Nie pamiętam / nie jestem pewien",
     categoryLegend: "Jaka kategoria jest teraz?",
     result: "Wstępny wynik",
-    disclaimer: "Dokładny rodzaj szkolenia zależy też od wcześniej uzyskanej kwalifikacji, jej ważności i dokumentów kierowcy.",
+    disclaimer:
+      "Dokładny rodzaj szkolenia zależy też od wcześniej uzyskanej kwalifikacji, jej ważności i dokumentów kierowcy.",
     unsureTitle: "Trzeba sprawdzić prawo jazdy",
-    unsureText: "Daty nie warto zgadywać z pamięci. Na konsultacji obejrzymy dokument i powiemy, krótki kurs czy długi.",
+    unsureText:
+      "Daty nie warto zgadywać z pamięci. Na konsultacji obejrzymy dokument i powiemy, krótki kurs czy długi.",
     unsureCta: "Zadaj pytanie",
     shortTitle: "Prawdopodobnie pasuje krótki kurs KOD 95",
     shortText: (category: string) =>
@@ -305,16 +368,29 @@ const pl: typeof ru = {
     titleAccent: "Europy",
     goalTitle: "Nasz cel",
     goal: "Pomóc kierowcom międzynarodowym legalnie pracować w UE: KOD 95, dokumenty, pobyt i stabilny zarobek.",
-    mission: "Uprościć drogę: jasny kurs, uczciwa cena i wsparcie na każdym etapie zamiast chaosu z papierami.",
+    mission:
+      "Uprościć drogę: jasny kurs, uczciwa cena i wsparcie na każdym etapie zamiast chaosu z papierami.",
     sameTeam:
       "BAZA — ośrodek szkoleniowy w Polsce: kod 95, konsultacje i wsparcie na każdym etapie przygotowań.",
     imageAlt: "Instruktor przy ciągniku szkoleniowym",
     services: "Zobacz usługi",
     values: [
-      { title: "Przejrzystość i umowa", text: "Cenę ustalamy przed startem, pracujemy jako firma: umowa, akty, paragony. Bez ukrytych dopłat." },
-      { title: "Wsparcie", text: "Od pierwszego telefonu do dokumentów w ręku i, jeśli trzeba, zatrudnienia." },
-      { title: "Doświadczenie w logistyce", text: "12+ lat w przewozach międzynarodowych — wiemy, co ważne dla kierowcy i przewoźnika." },
-      { title: "Mińsk i Warszawa", text: "Biuro w Mińsku — konsultacja i dokumenty. Szkolenie KOD 95 — baza w Warszawie. Po rosyjsku." },
+      {
+        title: "Przejrzystość i umowa",
+        text: "Cenę ustalamy przed startem, pracujemy jako firma: umowa, akty, paragony. Bez ukrytych dopłat.",
+      },
+      {
+        title: "Wsparcie",
+        text: "Od pierwszego telefonu do dokumentów w ręku i, jeśli trzeba, zatrudnienia.",
+      },
+      {
+        title: "Doświadczenie w logistyce",
+        text: "12+ lat w przewozach międzynarodowych — wiemy, co ważne dla kierowcy i przewoźnika.",
+      },
+      {
+        title: "Mińsk i Warszawa",
+        text: "Biuro w Mińsku — konsultacja i dokumenty. Szkolenie KOD 95 — baza w Warszawie. Po rosyjsku.",
+      },
     ],
   },
   info: {
@@ -330,8 +406,10 @@ const pl: typeof ru = {
       "Aby uzyskać kod, trzeba przejść krótki albo długi kurs w akredytowanym centrum. Potem kwalifikację wpisują do prawa jazdy albo wydają osobnym dokumentem — zależnie od kraju i formatu.",
       "Szkolenie okresowe jest potrzebne do przedłużenia kodu. Podpowiemy, który kurs jest aktualny właśnie dla Ciebie, i zapiszemy cenę w umowie.",
     ],
-    faqEyebrow: "FAQ",
+    faqEyebrow: "Pytania",
     faqTitle: "Częste pytania",
+    faqLead:
+      "Nie znalazłeś odpowiedzi? Zapytaj na konsultacji — jest bezpłatna, menedżer odpowiada w godzinach pracy.",
     ask: "Zapytać menedżera",
   },
   contactsPage: {
@@ -340,7 +418,8 @@ const pl: typeof ru = {
     lead: "Biuro w Mińsku — konsultacje i dokumenty. Szkolenie — w Warszawie. Zadzwoń albo zostaw zgłoszenie.",
     cta: "Zadaj pytanie",
     channelsEyebrow: "Kontakt",
-    channelsLead: "Dwa numery — Mińsk i Warszawa. Jedne godziny pracy: umawiamy konsultację i zapis na kurs.",
+    channelsLead:
+      "Dwa numery — Mińsk i Warszawa. Jedne godziny pracy: umawiamy konsultację i zapis na kurs.",
     hoursTitle: "Godziny pracy",
     locationsTitle: "Gdzie jesteśmy",
     offices: "Biura i godziny",
@@ -403,7 +482,8 @@ const pl: typeof ru = {
     catalogTitleBefore: "Poradniki o",
     catalogTitleAccent: "KOD 95",
     catalogTitleAfter: "i dokumentach",
-    catalogLead: "Praktyczne materiały dla kierowców międzynarodowych: wybór kursu, wyjazd do Warszawy, Polska i Litwa.",
+    catalogLead:
+      "Praktyczne materiały dla kierowców międzynarodowych: wybór kursu, wyjazd do Warszawy, Polska i Litwa.",
     catalogCta: "Zadaj pytanie",
   },
 };
@@ -411,13 +491,13 @@ const pl: typeof ru = {
 const uk: typeof ru = {
   meta: {
     homeTitle: "BAZA — КОД 95 у Польщі, академія професійних водіїв",
-    homeDescription:
-      "Навчання КОД 95 у Варшаві. Консультація та запис — в офісі BAZA в Мінську.",
+    homeDescription: "Навчання КОД 95 у Варшаві. Консультація та запис — в офісі BAZA в Мінську.",
     aboutTitle: "Про школу BAZA — академія професійних водіїв | КОД 95 у Польщі",
     aboutDescription:
       "Познайомтеся з BAZA: навчання КОД 95 у Польщі, навчальна база та підтримка професійних водіїв.",
     infoTitle: "Інформація про КОД 95 — BAZA",
-    infoDescription: "Що таке КОД 95, кому потрібен короткий і довгий курс, відповіді на часті питання.",
+    infoDescription:
+      "Що таке КОД 95, кому потрібен короткий і довгий курс, відповіді на часті питання.",
     contactsTitle: "Контакти — BAZA",
     contactsDescription:
       "Офіс у Мінську та навчальний центр у Варшаві: телефони, графік роботи, заявка на консультацію.",
@@ -450,15 +530,30 @@ const uk: typeof ru = {
     "послуг під ключ",
   ],
   faq: [
-    { q: "Кому підходить короткий курс, а кому — довгий?", a: "Короткий — якщо категорію C видано до 09.09.2009, зазвичай 3–5 днів без іспиту. Довгий — якщо після цієї дати: теорія, практика та іспит у WORD. На консультації одразу скажемо, який варіант ваш." },
-    { q: "Скільки часу займає навчання на КОД 95?", a: "Короткий курс — кілька робочих днів. Довгий — близько трьох тижнів з теорією і практикою. Є онлайн-теорія і варіант без іспиту — підходить не всім, уточнюємо індивідуально." },
+    {
+      q: "Кому підходить короткий курс, а кому — довгий?",
+      a: "Короткий — якщо категорію C видано до 09.09.2009, зазвичай 3–5 днів без іспиту. Довгий — якщо після цієї дати: теорія, практика та іспит у WORD. На консультації одразу скажемо, який варіант ваш.",
+    },
+    {
+      q: "Скільки часу займає навчання на КОД 95?",
+      a: "Короткий курс — кілька робочих днів. Довгий — близько трьох тижнів з теорією і практикою. Є онлайн-теорія і варіант без іспиту — підходить не всім, уточнюємо індивідуально.",
+    },
     {
       q: "Де проходить навчання?",
       a: "Консультація та перевірка документів — в офісі в Мінську. Польський КОД 95 проходять у Варшаві, в акредитованому центрі. Допомагаємо з житлом, логістикою і розкладом. Литовський КОД 95 — за погодженням у Литві.",
     },
-    { q: "Які документи потрібні?", a: "Базовий пакет — паспорт, чинні права потрібної категорії і документи легального перебування. Повний список надішлемо після консультації під вашу ситуацію." },
-    { q: "Чи можна оплатити частинами?", a: "Так. Офіційний договір, фіксована ціна, чеки на кожен платіж. Роботодавець теж може оплатити курс — подробиці на консультації." },
-    { q: "Чи допомагаєте з ВНП, запрошенням і заміною прав?", a: "Так. Карта побиту, запрошення від воєводи, обмін прав і працевлаштування — в одному вікні. За пакета послуг діє знижка." },
+    {
+      q: "Які документи потрібні?",
+      a: "Базовий пакет — паспорт, чинні права потрібної категорії і документи легального перебування. Повний список надішлемо після консультації під вашу ситуацію.",
+    },
+    {
+      q: "Чи можна оплатити частинами?",
+      a: "Так. Офіційний договір, фіксована ціна, чеки на кожен платіж. Роботодавець теж може оплатити курс — подробиці на консультації.",
+    },
+    {
+      q: "Чи допомагаєте з ВНП, запрошенням і заміною прав?",
+      a: "Так. Карта побиту, запрошення від воєводи, обмін прав і працевлаштування — в одному вікні. За пакета послуг діє знижка.",
+    },
   ],
   reviews: {
     eyebrow: "Відгуки",
@@ -468,9 +563,21 @@ const uk: typeof ru = {
     google: "",
     stars: "Оцінка 5 із 5",
     items: [
-      { name: "Роман Сущевский", topic: "Чип-карта і КОД 95", text: "Робив чип-карту вперше. Жодних питань. Сказали — зробили. Дякую за подарунок усередині. Приємно. Рекомендую. Вони також роблять код 95. Обов’язково звернуся ще." },
-      { name: "Валентин Ка.", topic: "Чип-карта", text: "Закінчився строк дії чип-карти водія. За рекомендацією звернувся по допомогу в супроводі отримання карти через польську уповноважену установу. Не пошкодував. Зробили швидко, за хорошою ціною, завжди були на зв’язку. Однозначно рекомендую." },
-      { name: "Генадий Соц", topic: "Чип-карта", text: "Доброго дня, хочу подякувати команді. Не вперше звертаюся за супроводом отримання чип-карти тахографа. Оперативно, ввічливі співробітники, уся інформація від початку угоди до отримання документів. Усім раджу, головне без підстав і обману." },
+      {
+        name: "Роман Сущевский",
+        topic: "Чип-карта і КОД 95",
+        text: "Робив чип-карту вперше. Жодних питань. Сказали — зробили. Дякую за подарунок усередині. Приємно. Рекомендую. Вони також роблять код 95. Обов’язково звернуся ще.",
+      },
+      {
+        name: "Валентин Ка.",
+        topic: "Чип-карта",
+        text: "Закінчився строк дії чип-карти водія. За рекомендацією звернувся по допомогу в супроводі отримання карти через польську уповноважену установу. Не пошкодував. Зробили швидко, за хорошою ціною, завжди були на зв’язку. Однозначно рекомендую.",
+      },
+      {
+        name: "Генадий Соц",
+        topic: "Чип-карта",
+        text: "Доброго дня, хочу подякувати команді. Не вперше звертаюся за супроводом отримання чип-карти тахографа. Оперативно, ввічливі співробітники, уся інформація від початку угоди до отримання документів. Усім раджу, головне без підстав і обману.",
+      },
     ],
   },
   advisor: {
@@ -482,9 +589,11 @@ const uk: typeof ru = {
     unsure: "Не пам’ятаю / не впевнений",
     categoryLegend: "Яка категорія у вас зараз?",
     result: "Попередній результат",
-    disclaimer: "Точний вид навчання залежить також від раніше отриманої кваліфікації, її строку дії і документів водія.",
+    disclaimer:
+      "Точний вид навчання залежить також від раніше отриманої кваліфікації, її строку дії і документів водія.",
     unsureTitle: "Потрібна звірка за правами",
-    unsureText: "Дату з пам’яті вгадувати не варто. На консультації подивимося посвідчення і скажемо, короткий курс чи довгий.",
+    unsureText:
+      "Дату з пам’яті вгадувати не варто. На консультації подивимося посвідчення і скажемо, короткий курс чи довгий.",
     unsureCta: "Задати питання",
     shortTitle: "Ймовірно, вам підійде короткий курс КОД 95",
     shortText: (category: string) =>
@@ -501,16 +610,29 @@ const uk: typeof ru = {
     titleAccent: "Європу",
     goalTitle: "Наша мета",
     goal: "Допомогти водіям-міжнародникам легально працювати в ЄС: КОД 95, документи, ВНП і вихід на стабільний заробіток.",
-    mission: "Зробити шлях простим і передбачуваним: зрозумілий курс, чесна ціна, підтримка на кожному етапі замість хаосу з паперами.",
+    mission:
+      "Зробити шлях простим і передбачуваним: зрозумілий курс, чесна ціна, підтримка на кожному етапі замість хаосу з паперами.",
     sameTeam:
       "BAZA — навчальний центр у Польщі: КОД 95, консультації та супровід на кожному етапі підготовки.",
     imageAlt: "Інструктор біля навчального тягача",
     services: "Дивитися послуги",
     values: [
-      { title: "Прозорість і договір", text: "Фіксуємо вартість до старту, працюємо як юрособа: договір, акти, чеки. Без прихованих доплат." },
-      { title: "Супровід", text: "Від першого дзвінка до документів у руках і, за потреби, працевлаштування." },
-      { title: "Досвід у логістиці", text: "12+ років у міжнародних перевезеннях — розуміємо, що важливо водієві і перевізнику." },
-      { title: "Мінськ і Варшава", text: "Офіс у Мінську — консультація та документи. Навчання КОД 95 — база у Варшаві. Російською." },
+      {
+        title: "Прозорість і договір",
+        text: "Фіксуємо вартість до старту, працюємо як юрособа: договір, акти, чеки. Без прихованих доплат.",
+      },
+      {
+        title: "Супровід",
+        text: "Від першого дзвінка до документів у руках і, за потреби, працевлаштування.",
+      },
+      {
+        title: "Досвід у логістиці",
+        text: "12+ років у міжнародних перевезеннях — розуміємо, що важливо водієві і перевізнику.",
+      },
+      {
+        title: "Мінськ і Варшава",
+        text: "Офіс у Мінську — консультація та документи. Навчання КОД 95 — база у Варшаві. Російською.",
+      },
     ],
   },
   info: {
@@ -526,8 +648,10 @@ const uk: typeof ru = {
       "Щоб отримати код, потрібно пройти короткий або довгий курс в акредитованому центрі. Після цього кваліфікацію вносять у права або видають окремим документом — залежно від країни і формату.",
       "Періодичне навчання потрібне для продовження коду. Ми підкажемо, який курс актуальний саме для вас, і зафіксуємо вартість у договорі.",
     ],
-    faqEyebrow: "FAQ",
+    faqEyebrow: "Питання",
     faqTitle: "Часті питання",
+    faqLead:
+      "Не знайшли відповідь? Запитайте на консультації — це безкоштовно, менеджер відповідає в робочий час.",
     ask: "Поставити питання менеджеру",
   },
   contactsPage: {
@@ -536,7 +660,8 @@ const uk: typeof ru = {
     lead: "Офіс у Мінську — консультації та документи. Навчання — у Варшаві. Зателефонуйте або залиште заявку.",
     cta: "Задати питання",
     channelsEyebrow: "Зв’язок",
-    channelsLead: "Два номери — Мінськ і Варшава. Один графік: узгоджуємо консультацію та запис на курс.",
+    channelsLead:
+      "Два номери — Мінськ і Варшава. Один графік: узгоджуємо консультацію та запис на курс.",
     hoursTitle: "Графік роботи",
     locationsTitle: "Де ми знаходимося",
     offices: "Офіси та графік",
@@ -590,7 +715,8 @@ const uk: typeof ru = {
     read: "Час читання:",
     checklist: "Чек-лист перед стартом",
     consult: "Потрібна консультація?",
-    consultLead: "Розберемо вашу ситуацію і підберемо курс — безкоштовно, з фіксацією ціни в договорі.",
+    consultLead:
+      "Розберемо вашу ситуацію і підберемо курс — безкоштовно, з фіксацією ціни в договорі.",
     request: "Задати питання",
     all: "Усі статті",
     related: "Пов’язані послуги",
@@ -599,7 +725,8 @@ const uk: typeof ru = {
     catalogTitleBefore: "Гайди про",
     catalogTitleAccent: "КОД 95",
     catalogTitleAfter: "і документи",
-    catalogLead: "Практичні матеріали для водіїв-міжнародників: вибір курсу, поїздка до Варшави, Польща і Литва.",
+    catalogLead:
+      "Практичні матеріали для водіїв-міжнародників: вибір курсу, поїздка до Варшави, Польща і Литва.",
     catalogCta: "Задати питання",
   },
 };

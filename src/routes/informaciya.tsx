@@ -5,10 +5,10 @@ import infoHeroClassroom from "@/assets/baza/info-hero-classroom.jpg";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
-import classroom from "@/assets/classroom.jpg";
+import infoDetailDocuments from "@/assets/baza/info-detail-documents.jpg";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { CourseAdvisor } from "@/components/landing/CourseAdvisor";
-import { Reveal, SectionHeading } from "@/components/landing/Reveal";
+import { Reveal } from "@/components/landing/Reveal";
 import { FaqList } from "@/components/landing/FaqList";
 import { ArrowRight } from "lucide-react";
 
@@ -65,21 +65,37 @@ function InfoPage() {
             ))}
           </Reveal>
           <div className="overflow-hidden rounded-md shadow-card">
-            <img src={classroom} alt={info.imageAlt} className="aspect-[4/3] w-full object-cover" />
+            <img
+              src={infoDetailDocuments}
+              alt={info.imageAlt}
+              className="aspect-[4/3] w-full object-cover"
+            />
           </div>
         </div>
       </section>
       <CourseAdvisor />
       <section className="section-y border-t border-border bg-background-deep">
-        <div className="container-page">
-          <SectionHeading eyebrow={info.faqEyebrow} title={info.faqTitle} />
-          <Reveal className="mt-10 max-w-3xl">
+        <div className="container-page grid gap-12 xl:grid-cols-12 xl:gap-10">
+          <div className="xl:col-span-5">
+            <div className="xl:sticky xl:top-32">
+              <Reveal>
+                <p className="eyebrow eyebrow-rule">{info.faqEyebrow}</p>
+                <h2 className="type-section-title mt-4">{info.faqTitle}</h2>
+                <p className="mt-4 max-w-md text-muted-foreground">{info.faqLead}</p>
+              </Reveal>
+              <Reveal delay={120}>
+                <div className="mt-8">
+                  <BookButton variant="hero" size="xl">
+                    {info.ask}
+                    <ArrowRight aria-hidden="true" />
+                  </BookButton>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+          <Reveal className="xl:col-span-7">
             <FaqList />
           </Reveal>
-          <BookButton variant="hero" size="lg" className="mt-10">
-            {info.ask}
-            <ArrowRight aria-hidden="true" />
-          </BookButton>
         </div>
       </section>
     </>
