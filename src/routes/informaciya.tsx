@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/pages/PageHero";
-import { PAGE_VISUALS } from "@/content/serviceVisuals";
+import infoHeroClassroom from "@/assets/baza/info-hero-classroom.jpg";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
@@ -16,7 +16,10 @@ export const Route = createFileRoute("/informaciya")({
   head: () => ({
     meta: [
       { title: "Информация о КОД 95 — BAZA" },
-      { name: "description", content: "Что такое КОД 95, кому нужен короткий и длинный курс, ответы на частые вопросы." },
+      {
+        name: "description",
+        content: "Что такое КОД 95, кому нужен короткий и длинный курс, ответы на частые вопросы.",
+      },
     ],
   }),
   component: InfoRoute,
@@ -41,17 +44,20 @@ function InfoPage() {
         eyebrow={info.eyebrow}
         title={
           <>
-            {info.titleBefore} <span className="accent-serif">{info.titleAccent}</span> {info.titleAfter}
+            {info.titleBefore} <span className="accent-serif">{info.titleAccent}</span>{" "}
+            {info.titleAfter}
           </>
         }
         lead={info.lead}
-        image={PAGE_VISUALS.info.src}
+        image={infoHeroClassroom}
         imageAlt={info.imageAlt}
       />
       <section className="section-y border-t border-border">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <h2 className="font-display text-3xl font-extrabold text-foreground">{info.explainerTitle}</h2>
+            <h2 className="font-display text-3xl font-extrabold text-foreground">
+              {info.explainerTitle}
+            </h2>
             {info.paragraphs.map((p) => (
               <p key={p.slice(0, 48)} className="mt-5 text-lg text-muted-foreground">
                 {p}
