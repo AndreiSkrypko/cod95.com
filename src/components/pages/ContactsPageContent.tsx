@@ -3,7 +3,7 @@ import { PageHero } from "@/components/pages/PageHero";
 import { ContactChannels } from "@/components/landing/ContactChannels";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
-import { PAGE_VISUALS } from "@/content/serviceVisuals";
+import contactsHeroOffice from "@/assets/baza/contacts-hero-office.jpg";
 import consultOffice from "@/assets/consult-office.jpg";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
@@ -25,7 +25,7 @@ export function ContactsPageContent() {
         lead={page.lead}
         ctaTo="/zapis"
         ctaLabel={page.cta}
-        image={PAGE_VISUALS.contacts.src}
+        image={contactsHeroOffice}
         imageAlt={page.imageAlt}
       />
 
