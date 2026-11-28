@@ -31,7 +31,7 @@ export function PageBreadcrumbs({ className }: { className?: string }) {
             <Fragment key={`${item.label}-${index}`}>
               <BreadcrumbItem className="inline-flex">
                 {isLast ? (
-                  <BreadcrumbPage className="max-w-[min(100%,20rem)] truncate font-bold uppercase tracking-[0.22em] text-accent-foreground">
+                  <BreadcrumbPage className="block max-w-40 truncate font-bold uppercase tracking-[0.22em] text-accent-foreground sm:max-w-72">
                     {item.label}
                   </BreadcrumbPage>
                 ) : item.to ? (
