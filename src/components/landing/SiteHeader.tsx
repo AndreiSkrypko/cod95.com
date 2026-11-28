@@ -6,7 +6,18 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import { cn } from "@/lib/utils";
 import { PHONE_BY, PHONE_PL, useLocale } from "@/i18n/locale";
 import { NAV_LINKS } from "@/i18n/messages";
-import { SERVICES } from "@/content/landing";
+import type { ServiceId } from "@/content/landing";
+import { SERVICES_CATALOG } from "@/i18n/services-catalog";
+
+/** Реальные услуги из каталога /uslugi — не полный список SERVICES */
+const NAV_SERVICE_IDS: ServiceId[] = [
+  "short-course",
+  "long-course",
+  "code95-lt-short",
+  "code95-lt-long",
+  "lt-retrain",
+  "driver-card",
+];
 import { BookButton, useBooking } from "./BookingDialog";
 import { LanguageMenu, LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
@@ -18,7 +29,10 @@ const linkOnHero = `${linkBase} text-white/80 hover:text-white`;
 
 export function SiteHeader() {
   const openBooking = useBooking();
-  const { m } = useLocale();
+  const { locale, m } = useLocale();
+  const consultItem = SERVICES_CATALOG[locale].categories
+    .flatMap((c) => c.items)
+    .find((i) => i.action.kind === "book");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -76,17 +90,28 @@ export function SiteHeader() {
                 <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-opacity duration-200 focus-within:visible focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                   <div className="w-[38rem] max-w-[calc(100vw-3rem)] rounded-md border border-border bg-surface p-3 shadow-lift">
                     <ul className="grid grid-cols-2 gap-x-2">
-                      {SERVICES.map((service) => (
-                        <li key={service.id}>
+                      {NAV_SERVICE_IDS.map((id) => (
+                        <li key={id}>
                           <Link
                             to="/uslugi/$serviceId"
-                            params={{ serviceId: service.id }}
+                            params={{ serviceId: id }}
                             className="block rounded-sm px-3 py-2 text-[0.8125rem] font-medium leading-snug text-muted-foreground transition-colors hover:bg-primary/8 hover:text-foreground"
                           >
-                            {m.services[service.id].title}
+                            {m.services[id].title}
                           </Link>
                         </li>
                       ))}
+                      {consultItem && (
+                        <li>
+                          <button
+                            type="button"
+                            onClick={() => openBooking()}
+                            className="block w-full rounded-sm px-3 py-2 text-left text-[0.8125rem] font-medium leading-snug text-muted-foreground transition-colors hover:bg-primary/8 hover:text-foreground"
+                          >
+                            {consultItem.title}
+                          </button>
+                        </li>
+                      )}
                     </ul>
                     <div className="mt-2 border-t border-border pt-2">
                       <Link
@@ -228,18 +253,32 @@ export function SiteHeader() {
                       </div>
                       {mobileServicesOpen && (
                         <ul className="pb-3">
-                          {SERVICES.map((service) => (
-                            <li key={service.id}>
+                          {NAV_SERVICE_IDS.map((id) => (
+                            <li key={id}>
                               <Link
                                 to="/uslugi/$serviceId"
-                                params={{ serviceId: service.id }}
+                                params={{ serviceId: id }}
                                 onClick={() => setOpen(false)}
                                 className="block py-2 pl-4 text-sm text-muted-foreground transition-colors hover:text-foreground"
                               >
-                                {m.services[service.id].title}
+                                {m.services[id].title}
                               </Link>
                             </li>
                           ))}
+                          {consultItem && (
+                            <li>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setOpen(false);
+                                  openBooking();
+                                }}
+                                className="block w-full py-2 pl-4 text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
+                              >
+                                {consultItem.title}
+                              </button>
+                            </li>
+                          )}
                         </ul>
                       )}
                     </div>
