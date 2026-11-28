@@ -28,20 +28,10 @@ export const PAGE_VISUALS = {
 const SERVICE_VISUALS: Record<ServiceId, PageVisual> = {
   "short-course": { src: classroom, alt: "Учебный класс с видом на город" },
   "long-course": { src: trainingTrucks, alt: "Учебный автопарк на площадке" },
-  "long-no-exam": { src: lifeBriefing, alt: "Инструктор у учебного тягача" },
-  "long-online": { src: consultOffice, alt: "Занятие и консультация онлайн" },
-  "code95-lt": { src: europeMap, alt: "Маршруты по Европе" },
   "code95-lt-short": { src: europeMap, alt: "Периодическое обучение КОД 95 в Литве" },
   "code95-lt-long": { src: europeMap, alt: "Первоначальная квалификация КОД 95 в Литве" },
   "driver-card": { src: classDetail, alt: "Подготовка документов для карты водителя" },
-  residence: { src: offerResidence, alt: "Вечерняя улица у жилых домов" },
-  adr: { src: truckPractice, alt: "Практика на учебной площадке" },
-  invitation: { src: classDetail, alt: "Подготовка документов" },
-  license: { src: classDetail, alt: "Документы для замены прав" },
-  "extra-driving": { src: truckPractice, alt: "Дополнительное вождение на тягаче" },
   "lt-retrain": { src: lifeNight, alt: "Рейс по европейской трассе" },
-  employment: { src: offerJob, alt: "Водитель у тягача на площадке" },
-  company: { src: consultOffice, alt: "Консультация по компании" },
 };
 
 export function getServiceVisual(id: ServiceId): PageVisual {

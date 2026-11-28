@@ -4,9 +4,7 @@ import articlePolandLithuania from "@/assets/articles/article-polsha-litva.jpg";
 import articleShortLong from "@/assets/articles/article-korotkiy-dlinnyy.jpg";
 
 export type ArticleSlug =
-  | "korotkiy-ili-dlinnyy-kurs"
-  | "kod-95-belarus-varshava"
-  | "polskiy-i-litovskiy-kod-95";
+  "korotkiy-ili-dlinnyy-kurs" | "kod-95-belarus-varshava" | "polskiy-i-litovskiy-kod-95";
 
 export type ArticleImage = {
   src: string;
@@ -39,7 +37,7 @@ export const ARTICLES: Article[] = [
       alt: "Учебный класс и практика на площадке — выбор короткого или длинного курса КОД 95",
       overlayClass: "bg-gradient-to-t from-background-deep/35 via-transparent to-primary/10",
     },
-    relatedServices: ["short-course", "long-course", "long-online"],
+    relatedServices: ["short-course", "long-course"],
     sections: [
       {
         title: "Главное правило: дата категории «С»",
@@ -91,7 +89,7 @@ export const ARTICLES: Article[] = [
       objectPosition: "58% 40%",
       overlayClass: "bg-gradient-to-tr from-primary/15 via-transparent to-background-deep/40",
     },
-    relatedServices: ["short-course", "long-course", "invitation", "residence"],
+    relatedServices: ["short-course", "long-course", "driver-card"],
     sections: [
       {
         title: "Почему Варшава и как мы сопровождаем из Минска",
@@ -143,7 +141,7 @@ export const ARTICLES: Article[] = [
       objectPosition: "center 42%",
       overlayClass: "bg-gradient-to-b from-background-deep/25 via-transparent to-primary/12",
     },
-    relatedServices: ["code95-lt", "long-course", "lt-retrain"],
+    relatedServices: ["code95-lt-short", "code95-lt-long", "lt-retrain"],
     sections: [
       {
         title: "Обе квалификации действуют в ЕС",

@@ -3,8 +3,7 @@ import type { ServiceId } from "@/content/landing";
 /** CRM portal (same as taxocard.by embedded forms). */
 export const BITRIX_DOMAIN = "b24-90sm2q.bitrix24.by";
 
-export const BITRIX_CALL_TRACKER =
-  "https://cdn-ru.bitrix24.by/b27507608/crm/tag/call.tracker.js";
+export const BITRIX_CALL_TRACKER = "https://cdn-ru.bitrix24.by/b27507608/crm/tag/call.tracker.js";
 
 export type BitrixFormKey =
   | "consult"
@@ -18,10 +17,7 @@ export type BitrixFormKey =
   | "otherA"
   | "otherB";
 
-export const BITRIX_FORMS: Record<
-  BitrixFormKey,
-  { id: number; sec: string; loader: string }
-> = {
+export const BITRIX_FORMS: Record<BitrixFormKey, { id: number; sec: string; loader: string }> = {
   consult: { id: 1, sec: "edorcb", loader: "/assets/bitrix/crm/form/loader_1.js" },
   cost: { id: 7, sec: "7z7rba", loader: "/assets/bitrix/crm/form/loader_7.js" },
   promo: { id: 9, sec: "d5iuyz", loader: "/assets/bitrix/crm/form/loader_9.js" },
@@ -37,19 +33,14 @@ export const BITRIX_FORMS: Record<
 const COURSE_SERVICE_IDS = new Set<ServiceId>([
   "short-course",
   "long-course",
-  "long-no-exam",
-  "long-online",
-  "code95-lt",
+  "code95-lt-short",
+  "code95-lt-long",
   "lt-retrain",
-  "extra-driving",
 ]);
 
 /** Which CRM form to use for a BAZA service (default: общая заявка). */
 export function resolveBitrixFormKey(serviceId: string): BitrixFormKey {
-  if (serviceId === "employment" || serviceId === "company") return "employment";
   if (COURSE_SERVICE_IDS.has(serviceId as ServiceId)) return "course";
-  if (serviceId === "residence" || serviceId === "invitation") return "delivery";
-  if (serviceId === "adr" || serviceId === "license") return "pricing";
   return "application";
 }
 

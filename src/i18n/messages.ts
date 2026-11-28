@@ -11,18 +11,6 @@ const ruServices: ServiceCopy = {
     title: "Длинный курс обучения",
     text: "Первичная квалификация КОД 95: теория и практика, экзамен в WORD. Сопровождаем на русском языке.",
   },
-  "long-no-exam": {
-    title: "Длинный курс без экзамена",
-    text: "Подходит не всем — уточним на консультации. Минимум поездок: приезд на 1 день по согласованному графику.",
-  },
-  "long-online": {
-    title: "Длинный курс онлайн",
-    text: "Теория дистанционно, экзамен в WORD в Варшаве. Удобно, если сложно быть на площадке каждый день.",
-  },
-  "code95-lt": {
-    title: "Литовский КОД 95",
-    text: "Квалификация в Литве, признаётся во всех странах ЕС. Удобно при работе с литовскими перевозчиками.",
-  },
   "code95-lt-short": {
     title: "Литовский короткий КОД 95",
     text: "Подбор программы периодического обучения в Литве и организация записи в соответствующий учебный центр.",
@@ -35,37 +23,9 @@ const ruServices: ServiceCopy = {
     title: "Карта водителя для тахографа",
     text: "Консультация и помощь с подготовкой заявления через официальный сервис Info-Car (PWPW).",
   },
-  residence: {
-    title: "Карта побыту / ВНЖ",
-    text: "Оформление вида на жительство: подбор основания, документы, подача и контроль сроков для водителя и семьи.",
-  },
-  adr: {
-    title: "Курс ADR",
-    text: "Обучение перевозке опасных грузов: базовый курс, цистерны и полный перечень классов по запросу.",
-  },
-  invitation: {
-    title: "Приглашение от воеводы",
-    text: "Официальное приглашение для легальной работы в Польше — основа для рабочей визы типа D и легального въезда.",
-  },
-  license: {
-    title: "Замена прав на польские",
-    text: "Обмен водительского удостоверения: проверим пакет, подготовим заявление и проведём через все этапы без переделок.",
-  },
-  "extra-driving": {
-    title: "Дополнительное вождение",
-    text: "Индивидуальные занятия на учебной площадке и тягачах DAF/SCANIA — подготовка к работе на реальном автопарке.",
-  },
   "lt-retrain": {
     title: "Литовский КОД 95 → Польский КОД 95",
     text: "Консультация и сопровождение: документы, подача заявления, условия определяются индивидуально.",
-  },
-  employment: {
-    title: "Трудоустройство",
-    text: "Помощь с выходом на работу к проверенным перевозчикам — с опытом и без, после прохождения обучения.",
-  },
-  company: {
-    title: "Транспортная компания в Польше",
-    text: "Регистрация фирмы, лицензии и дальнейшая поддержка — чтобы работать на себя легально.",
   },
 };
 
@@ -77,18 +37,6 @@ const plServices: ServiceCopy = {
   "long-course": {
     title: "Długi kurs",
     text: "Kwalifikacja wstępna KOD 95: teoria i praktyka, egzamin w WORD. Towarzyszymy po rosyjsku.",
-  },
-  "long-no-exam": {
-    title: "Długi kurs bez egzaminu",
-    text: "Nie dla każdego — potwierdzimy na konsultacji. Minimum wizyt: jeden dzień według ustalonego grafiku.",
-  },
-  "long-online": {
-    title: "Długi kurs online",
-    text: "Teoria zdalnie, egzamin w WORD w Warszawie. Gdy trudno być na placu każdego dnia.",
-  },
-  "code95-lt": {
-    title: "Litewski KOD 95",
-    text: "Kwalifikacja na Litwie, uznawana w całej UE. Wygodne przy pracy z litewskimi przewoźnikami.",
   },
   "code95-lt-short": {
     title: "Litewski krótki KOD 95",
@@ -102,37 +50,9 @@ const plServices: ServiceCopy = {
     title: "Karta kierowcy do tachografu",
     text: "Konsultacja i pomoc w przygotowaniu wniosku przez serwis Info-Car (PWPW).",
   },
-  residence: {
-    title: "Karta pobytu",
-    text: "Pobyt czasowy: dobór podstawy, dokumenty, złożenie i kontrola terminów dla kierowcy i rodziny.",
-  },
-  adr: {
-    title: "Kurs ADR",
-    text: "Szkolenie z przewozu towarów niebezpiecznych: kurs podstawowy, cysterny i klasy na życzenie.",
-  },
-  invitation: {
-    title: "Zaproszenie od wojewody",
-    text: "Oficjalne zaproszenie do legalnej pracy w Polsce — podstawa wizy D i legalnego wjazdu.",
-  },
-  license: {
-    title: "Wymiana prawa jazdy",
-    text: "Wymiana prawa jazdy na polskie: sprawdzimy komplet, przygotujemy wniosek i przeprowadzimy przez etapy.",
-  },
-  "extra-driving": {
-    title: "Dodatkowa jazda",
-    text: "Indywidualne zajęcia na placu i ciągnikach DAF/SCANIA — przygotowanie do pracy na prawdziwej flocie.",
-  },
   "lt-retrain": {
     title: "Litewski KOD 95 → Polski KOD 95",
     text: "Konsultacja i wsparcie: dokumenty, złożenie wniosku — warunki indywidualnie.",
-  },
-  employment: {
-    title: "Zatrudnienie",
-    text: "Wyjście do sprawdzonych przewoźników — z doświadczeniem i bez, po szkoleniu.",
-  },
-  company: {
-    title: "Firma transportowa w Polsce",
-    text: "Rejestracja firmy, licencje i dalsze wsparcie — żeby pracować na siebie legalnie.",
   },
 };
 
@@ -144,18 +64,6 @@ const ukServices: ServiceCopy = {
   "long-course": {
     title: "Довгий курс",
     text: "Первинна кваліфікація КОД 95: теорія і практика, іспит у WORD. Супроводжуємо російською.",
-  },
-  "long-no-exam": {
-    title: "Довгий курс без іспиту",
-    text: "Підходить не всім — уточнимо на консультації. Мінімум поїздок: один день за узгодженим графіком.",
-  },
-  "long-online": {
-    title: "Довгий курс онлайн",
-    text: "Теорія дистанційно, іспит у WORD у Варшаві. Зручно, якщо складно бути на майданчику щодня.",
-  },
-  "code95-lt": {
-    title: "Литовський КОД 95",
-    text: "Кваліфікація в Литві, визнається в усіх країнах ЄС. Зручно при роботі з литовськими перевізниками.",
   },
   "code95-lt-short": {
     title: "Литовський короткий КОД 95",
@@ -169,37 +77,9 @@ const ukServices: ServiceCopy = {
     title: "Карта водія для тахографа",
     text: "Консультація та допомога з підготовкою заяви через сервіс Info-Car (PWPW).",
   },
-  residence: {
-    title: "Карта побиту / ВНП",
-    text: "Оформлення посвідки на проживання: підстава, документи, подання і контроль строків для водія та родини.",
-  },
-  adr: {
-    title: "Курс ADR",
-    text: "Навчання перевезенню небезпечних вантажів: базовий курс, цистерни і класи за запитом.",
-  },
-  invitation: {
-    title: "Запрошення від воєводи",
-    text: "Офіційне запрошення для легальної роботи в Польщі — основа робочої візи D і легального в’їзду.",
-  },
-  license: {
-    title: "Заміна прав на польські",
-    text: "Обмін посвідчення водія: перевіримо пакет, підготуємо заяву і проведемо через усі етапи.",
-  },
-  "extra-driving": {
-    title: "Додаткове водіння",
-    text: "Індивідуальні заняття на майданчику і тягачах DAF/SCANIA — підготовка до роботи на реальному автопарку.",
-  },
   "lt-retrain": {
     title: "Литовський КОД 95 → Польський КОД 95",
     text: "Консультація та супровід: документи, подання заяви — умови визначаються індивідуально.",
-  },
-  employment: {
-    title: "Працевлаштування",
-    text: "Вихід до перевірених перевізників — з досвідом і без, після навчання.",
-  },
-  company: {
-    title: "Транспортна компанія в Польщі",
-    text: "Реєстрація фірми, ліцензії і подальша підтримка — щоб працювати на себе легально.",
   },
 };
 
