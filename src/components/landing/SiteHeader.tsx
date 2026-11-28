@@ -88,8 +88,8 @@ export function SiteHeader() {
                   />
                 </Link>
                 <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-opacity duration-200 focus-within:visible focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                  <div className="w-[38rem] max-w-[calc(100vw-3rem)] rounded-md border border-border bg-surface p-3 shadow-lift">
-                    <ul className="grid grid-cols-2 gap-x-2">
+                  <div className="w-72 rounded-md border border-border bg-surface p-2 shadow-lift">
+                    <ul>
                       {NAV_SERVICE_IDS.map((id) => (
                         <li key={id}>
                           <Link
@@ -113,15 +113,6 @@ export function SiteHeader() {
                         </li>
                       )}
                     </ul>
-                    <div className="mt-2 border-t border-border pt-2">
-                      <Link
-                        to="/uslugi"
-                        className="flex items-center justify-between rounded-sm px-3 py-2 font-display text-sm font-bold text-primary transition-colors hover:bg-primary/8"
-                      >
-                        {m.nav.services}
-                        <span aria-hidden>→</span>
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
