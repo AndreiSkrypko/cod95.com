@@ -35,7 +35,6 @@ const ru: ServicesCatalogCopy = {
   title: "Профессиональная подготовка и поддержка водителей",
   intro: [
     "В учебном центре BAZA вы можете подобрать программу КОД 95, пройти профессиональное обучение в Польше и получить консультацию по вопросам подготовки к работе водителем в ЕС.",
-    "Поможем разобраться в требованиях и определить необходимые следующие шаги.",
   ],
   categories: [
     {
@@ -147,7 +146,6 @@ const pl: ServicesCatalogCopy = {
   title: "Profesjonalne przygotowanie i wsparcie kierowców",
   intro: [
     "W ośrodku szkoleniowym BAZA możesz dobrać program KOD 95, przejść szkolenie w Polsce i uzyskać konsultację w sprawie pracy kierowcy w UE.",
-    "Pomożemy zrozumieć wymagania i określić kolejne kroki.",
   ],
   legalTitle: "Informacja o usługach",
   legal: [
@@ -164,7 +162,6 @@ const uk: ServicesCatalogCopy = {
   title: "Професійна підготовка та підтримка водіїв",
   intro: [
     "В навчальному центрі BAZA ви можете підібрати програму КОД 95, пройти навчання в Польщі та отримати консультацію щодо роботи водієм у ЄС.",
-    "Допоможемо розібратися у вимогах і визначити наступні кроки.",
   ],
   legalTitle: "Інформація про послуги",
   legal: [
