@@ -64,7 +64,7 @@ export function PageHero({
       />
       <div className="page-hero-fade-bottom" aria-hidden="true" />
 
-      <div className="container-page relative z-[1] flex min-h-svh flex-col pt-page-intro pb-10 md:pb-12 lg:pb-14">
+      <div className="container-page relative z-[1] flex min-h-[82svh] flex-col pt-page-intro pb-10 md:pb-12 lg:pb-14">
         <PageBreadcrumbs />
         {!hasCrumbs && eyebrow ? <p className="eyebrow eyebrow-rule mt-0">{eyebrow}</p> : null}
         <div className="flex flex-1 flex-col justify-center">
