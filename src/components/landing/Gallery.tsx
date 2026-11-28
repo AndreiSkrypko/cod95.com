@@ -1,8 +1,8 @@
-import classroom from "@/assets/classroom.jpg";
-import classDetail from "@/assets/class-detail.jpg";
-import trainingTrucks from "@/assets/training-trucks.jpg";
-import truckPractice from "@/assets/truck-practice.jpg";
-import truckCab from "@/assets/truck-cab.jpg";
+import classroom from "@/assets/classroom.webp";
+import classDetail from "@/assets/class-detail.webp";
+import trainingTrucks from "@/assets/training-trucks.webp";
+import truckPractice from "@/assets/truck-practice.webp";
+import truckCab from "@/assets/truck-cab.webp";
 import { cn } from "@/lib/utils";
 import { Reveal, SectionHeading } from "./Reveal";
 

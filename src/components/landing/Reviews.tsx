@@ -88,7 +88,9 @@ export function Reviews() {
                   {r.name[0]}
                 </span>
                 <span>
-                  <span className="block font-display text-sm font-bold text-foreground">{r.name}</span>
+                  <span className="block font-display text-sm font-bold text-foreground">
+                    {r.name}
+                  </span>
                   <span className="block text-xs text-muted-foreground">{r.topic}</span>
                 </span>
               </figcaption>

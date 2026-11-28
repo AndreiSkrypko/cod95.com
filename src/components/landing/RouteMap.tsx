@@ -4,9 +4,36 @@
  * On < md and with prefers-reduced-motion the map renders static (see styles.css).
  */
 const CITIES = [
-  { id: "waw", name: "Варшава", x: 364, y: 200, main: true, labelDx: -14, labelDy: 30, anchor: "end" as const },
-  { id: "vno", name: "Вильнюс", x: 484, y: 97, main: true, labelDx: 0, labelDy: -20, anchor: "middle" as const },
-  { id: "msq", name: "Минск", x: 548, y: 140, main: true, labelDx: 16, labelDy: 30, anchor: "start" as const },
+  {
+    id: "waw",
+    name: "Варшава",
+    x: 364,
+    y: 200,
+    main: true,
+    labelDx: -14,
+    labelDy: 30,
+    anchor: "end" as const,
+  },
+  {
+    id: "vno",
+    name: "Вильнюс",
+    x: 484,
+    y: 97,
+    main: true,
+    labelDx: 0,
+    labelDy: -20,
+    anchor: "middle" as const,
+  },
+  {
+    id: "msq",
+    name: "Минск",
+    x: 548,
+    y: 140,
+    main: true,
+    labelDx: 16,
+    labelDy: 30,
+    anchor: "start" as const,
+  },
   { id: "ber", name: "Берлин", x: 151, y: 188, main: false },
   { id: "prg", name: "Прага", x: 180, y: 291, main: false },
   { id: "vie", name: "Вена", x: 234, y: 369, main: false },
@@ -54,7 +81,13 @@ export function RouteMap() {
 
       {ROUTES.map((r, i) => (
         <g key={i}>
-          <path d={r.d} fill="none" stroke="var(--color-primary)" strokeOpacity={r.main ? 0.18 : 0.08} strokeWidth={r.main ? 6 : 3} />
+          <path
+            d={r.d}
+            fill="none"
+            stroke="var(--color-primary)"
+            strokeOpacity={r.main ? 0.18 : 0.08}
+            strokeWidth={r.main ? 6 : 3}
+          />
           <path
             d={r.d}
             fill="none"
@@ -79,7 +112,11 @@ export function RouteMap() {
               fill="var(--color-primary)"
               opacity="0.5"
               className="pulse-anim animate-pulse-ring"
-              style={{ transformOrigin: `${c.x}px ${c.y}px`, transformBox: "view-box", animationDelay: `${i * 0.5}s` }}
+              style={{
+                transformOrigin: `${c.x}px ${c.y}px`,
+                transformBox: "view-box",
+                animationDelay: `${i * 0.5}s`,
+              }}
             />
           )}
           <circle
@@ -103,7 +140,13 @@ export function RouteMap() {
               {c.name}
             </text>
           ) : (
-            <text x={c.x + 8} y={c.y + 4} fontSize="11" fill="var(--color-muted-foreground)" opacity="0.8">
+            <text
+              x={c.x + 8}
+              y={c.y + 4}
+              fontSize="11"
+              fill="var(--color-muted-foreground)"
+              opacity="0.8"
+            >
               {c.name}
             </text>
           )}

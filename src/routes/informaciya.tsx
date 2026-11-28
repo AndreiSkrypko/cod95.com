@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PageHero } from "@/components/pages/PageHero";
-import infoHeroClassroom from "@/assets/baza/info-hero-classroom.jpg";
+import infoHeroClassroom from "@/assets/baza/info-hero-classroom.webp";
 import { useDocumentMeta } from "@/i18n/document";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
-import infoDetailDocuments from "@/assets/baza/info-detail-documents.jpg";
+import infoDetailDocuments from "@/assets/baza/info-detail-documents.webp";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { CourseAdvisor } from "@/components/landing/CourseAdvisor";
 import { Reveal } from "@/components/landing/Reveal";
@@ -66,6 +66,9 @@ function InfoPage() {
           </Reveal>
           <div className="overflow-hidden rounded-md shadow-card">
             <img
+              loading="lazy"
+              decoding="async"
+
               src={infoDetailDocuments}
               alt={info.imageAlt}
               className="aspect-[4/3] w-full object-cover"

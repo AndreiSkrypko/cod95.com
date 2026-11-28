@@ -8,7 +8,7 @@ import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import type { CatalogCategory, CatalogItem } from "@/i18n/services-catalog";
 import { SERVICES_CATALOG } from "@/i18n/services-catalog";
-import uslugiHeroNight from "@/assets/baza/uslugi-hero-night.jpg";
+import uslugiHeroNight from "@/assets/baza/uslugi-hero-night.webp";
 import { CountryFlag } from "@/components/CountryFlag";
 import { PageHero } from "./PageHero";
 

@@ -116,8 +116,7 @@ export function LeadForm({
       setSubmitting(true);
       try {
         const formKey = resolveBitrixFormKey(parsed.data.service);
-        const pageUrl =
-          typeof window !== "undefined" ? window.location.href : "https://cod95.com";
+        const pageUrl = typeof window !== "undefined" ? window.location.href : "https://cod95.com";
         const isLocal =
           typeof window !== "undefined" &&
           /^(localhost|127\.0\.0\.1)$/i.test(window.location.hostname);
@@ -168,7 +167,10 @@ export function LeadForm({
       ) : null}
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor={`${formId ?? "lead"}-name`} className="font-display font-semibold text-foreground">
+          <Label
+            htmlFor={`${formId ?? "lead"}-name`}
+            className="font-display font-semibold text-foreground"
+          >
             {m.form.name}
           </Label>
           <Input
@@ -182,7 +184,10 @@ export function LeadForm({
           {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
         </div>
         <div className="space-y-2">
-          <Label htmlFor={`${formId ?? "lead"}-phone`} className="font-display font-semibold text-foreground">
+          <Label
+            htmlFor={`${formId ?? "lead"}-phone`}
+            className="font-display font-semibold text-foreground"
+          >
             {m.form.phone}
           </Label>
           <Input
@@ -198,7 +203,10 @@ export function LeadForm({
         </div>
       </div>
       <div className="mt-5 space-y-2">
-        <Label htmlFor={`${formId ?? "lead"}-service`} className="font-display font-semibold text-foreground">
+        <Label
+          htmlFor={`${formId ?? "lead"}-service`}
+          className="font-display font-semibold text-foreground"
+        >
           {m.form.service}
         </Label>
         <Select value={service} onValueChange={setService}>
@@ -220,7 +228,10 @@ export function LeadForm({
         {errors.service && <p className="text-sm text-destructive">{errors.service}</p>}
       </div>
       <div className="mt-5 space-y-2">
-        <Label htmlFor={`${formId ?? "lead"}-comment`} className="font-display font-semibold text-foreground">
+        <Label
+          htmlFor={`${formId ?? "lead"}-comment`}
+          className="font-display font-semibold text-foreground"
+        >
           {m.form.comment}
         </Label>
         <Textarea

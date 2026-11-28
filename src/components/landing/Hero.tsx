@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, Building2, MapPin, Warehouse } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { PageBreadcrumbs } from "@/components/layout/PageBreadcrumbs";
 import { BookButton } from "./BookingDialog";
-import heroTruck from "@/assets/hero-truck.jpg";
+import heroTruck from "@/assets/hero-truck.webp";
 import { useLocale } from "@/i18n/locale";
 import { CountryFlag } from "@/components/CountryFlag";
 import type { ServiceId } from "@/content/landing";

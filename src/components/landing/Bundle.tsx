@@ -1,6 +1,6 @@
 import { ArrowRight, Layers } from "lucide-react";
 import { BookButton } from "./BookingDialog";
-import truckCab from "@/assets/truck-cab.jpg";
+import truckCab from "@/assets/truck-cab.webp";
 import { Reveal } from "./Reveal";
 
 const STEPS = ["КОД 95", "Замена прав", "ВНЖ"];

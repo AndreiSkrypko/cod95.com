@@ -6,35 +6,67 @@ import { HOME } from "@/i18n/home-copy";
 import { PAGES } from "@/i18n/pages-copy";
 import { CountryFlag } from "@/components/CountryFlag";
 import { SERVICES_CATALOG, type CatalogItem } from "@/i18n/services-catalog";
-import advantagesInstructor from "@/assets/advantages-instructor.jpg";
-import classroom from "@/assets/classroom.jpg";
-import trainingTrucks from "@/assets/training-trucks.jpg";
-import truckPractice from "@/assets/truck-practice.jpg";
-import classDetail from "@/assets/class-detail.jpg";
-import lifeBriefing from "@/assets/life-briefing.jpg";
-import lifeNight from "@/assets/life-night.jpg";
-import offerResidence from "@/assets/offer-residence.jpg";
-import consultOffice from "@/assets/consult-office.jpg";
+import advantagesInstructor from "@/assets/advantages-instructor.webp";
+import classroom from "@/assets/classroom.webp";
+import trainingTrucks from "@/assets/training-trucks.webp";
+import truckPractice from "@/assets/truck-practice.webp";
+import classDetail from "@/assets/class-detail.webp";
+import lifeBriefing from "@/assets/life-briefing.webp";
+import lifeNight from "@/assets/life-night.webp";
+import offerResidence from "@/assets/offer-residence.webp";
+import consultOffice from "@/assets/consult-office.webp";
 import { ContactAside } from "./ContactAside";
 import { BookButton, useBooking } from "./BookingDialog";
 import { heroPhone, useLocale } from "@/i18n/locale";
 import { FaqList } from "./FaqList";
 import { Reveal } from "./Reveal";
 
-
 const PERKS = [
-  { title: "Прозрачная цена", text: "Стоимость фиксируем в договоре до старта. Чеки на каждый платёж." },
-  { title: "Учебный центр", text: "Занятия в Варшаве, консультации на русском — по телефону и онлайн." },
-  { title: "Документы в одном месте", text: "КОД 95, замена прав, ВНЖ, приглашение, ADR — без беготни по инстанциям." },
-  { title: "Сопровождение", text: "От заявки до документов на руках. Менеджер на связи в рабочее время." },
-  { title: "Практика на технике", text: "Учебная площадка и современные тягачи, дополнительные часы вождения." },
-  { title: "Офисы в ЕС и дома", text: "Помогаем водителям из Беларуси, Украины, Молдовы, России и ЕС." },
-  { title: "Жильё на время курса", text: "Подскажем варианты проживания рядом с учебным центром в Варшаве." },
-  { title: "Опытные преподаватели", text: "Объясняем правила ЕС простым языком, без зубрёжки тестов вслепую." },
+  {
+    title: "Прозрачная цена",
+    text: "Стоимость фиксируем в договоре до старта. Чеки на каждый платёж.",
+  },
+  {
+    title: "Учебный центр",
+    text: "Занятия в Варшаве, консультации на русском — по телефону и онлайн.",
+  },
+  {
+    title: "Документы в одном месте",
+    text: "КОД 95, замена прав, ВНЖ, приглашение, ADR — без беготни по инстанциям.",
+  },
+  {
+    title: "Сопровождение",
+    text: "От заявки до документов на руках. Менеджер на связи в рабочее время.",
+  },
+  {
+    title: "Практика на технике",
+    text: "Учебная площадка и современные тягачи, дополнительные часы вождения.",
+  },
+  {
+    title: "Офисы в ЕС и дома",
+    text: "Помогаем водителям из Беларуси, Украины, Молдовы, России и ЕС.",
+  },
+  {
+    title: "Жильё на время курса",
+    text: "Подскажем варианты проживания рядом с учебным центром в Варшаве.",
+  },
+  {
+    title: "Опытные преподаватели",
+    text: "Объясняем правила ЕС простым языком, без зубрёжки тестов вслепую.",
+  },
   { title: "Работа после курса", text: "Помогаем выйти к перевозчикам — с опытом и без." },
-  { title: "Официальный договор", text: "Работаем как юрлицо. Споры решаются по договору, а не «на словах»." },
-  { title: "Пакет со скидкой", text: "Две услуги и больше — персональная скидка, размер на консультации." },
-  { title: "Нетипичные ситуации", text: "Литовский код, смена прав, виза — разбираем случай отдельно, а не по шаблону." },
+  {
+    title: "Официальный договор",
+    text: "Работаем как юрлицо. Споры решаются по договору, а не «на словах».",
+  },
+  {
+    title: "Пакет со скидкой",
+    text: "Две услуги и больше — персональная скидка, размер на консультации.",
+  },
+  {
+    title: "Нетипичные ситуации",
+    text: "Литовский код, смена прав, виза — разбираем случай отдельно, а не по шаблону.",
+  },
 ];
 
 const LIFE = [
@@ -97,7 +129,10 @@ function OfferCard({ item }: { item: CatalogItem }) {
             {item.subtitle}
           </span>
         )}
-        <CountryFlag country={item.country} className={item.country === "lt-pl" ? "[&>span]:h-4 [&>span]:w-6" : "h-4 w-6"} />
+        <CountryFlag
+          country={item.country}
+          className={item.country === "lt-pl" ? "[&>span]:h-4 [&>span]:w-6" : "h-4 w-6"}
+        />
       </span>
       <h3 className="mt-1.5 font-display text-lg font-extrabold leading-snug text-foreground">
         {item.title}
@@ -121,7 +156,11 @@ function OfferCard({ item }: { item: CatalogItem }) {
     );
   }
   return (
-    <Link to="/uslugi/$serviceId" params={{ serviceId: item.action.serviceId }} className={className}>
+    <Link
+      to="/uslugi/$serviceId"
+      params={{ serviceId: item.action.serviceId }}
+      className={className}
+    >
       {inner}
     </Link>
   );
@@ -136,19 +175,21 @@ export function OfferRow() {
       <div className="container-page">
         <Reveal className="max-w-3xl">
           <p className="eyebrow eyebrow-rule">{offers.eyebrow}</p>
-          <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{offers.title}</h2>
+          <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">
+            {offers.title}
+          </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted">{offers.lead}</p>
         </Reveal>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {items.map((item, i) => (
-              <li key={item.title} className="h-full">
-                <Reveal delay={i * 45} className="h-full">
-                  <OfferCard item={item} />
-                </Reveal>
-              </li>
-            ))}
-            <li className="h-full">
-              <Reveal delay={items.length * 45} className="h-full">
+          {items.map((item, i) => (
+            <li key={item.title} className="h-full">
+              <Reveal delay={i * 45} className="h-full">
+                <OfferCard item={item} />
+              </Reveal>
+            </li>
+          ))}
+          <li className="h-full">
+            <Reveal delay={items.length * 45} className="h-full">
               <Link
                 to="/informaciya"
                 hash="kurs"
@@ -199,6 +240,9 @@ export function ConsultSplit() {
         </div>
         <div className="overflow-hidden rounded-md shadow-card">
           <img
+            loading="lazy"
+            decoding="async"
+
             src={consultOffice}
             alt={consult.imageAlt}
             className="aspect-[16/10] max-h-72 w-full object-cover"
@@ -217,6 +261,9 @@ export function Code95Block() {
       <div className="container-page grid items-center gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
         <div className="overflow-hidden rounded-md shadow-card">
           <img
+            loading="lazy"
+            decoding="async"
+
             src={lifeBriefing}
             alt={block.imageAlt}
             className="aspect-[4/3] w-full object-cover"
@@ -319,7 +366,9 @@ export function Perks() {
       <div className="container-page">
         <Reveal className="max-w-3xl">
           <p className="eyebrow eyebrow-rule">{perks.eyebrow}</p>
-          <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">{perks.title}</h2>
+          <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-5xl">
+            {perks.title}
+          </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink-muted">{perks.lead}</p>
         </Reveal>
         <div className="mt-10 grid items-start gap-6 lg:grid-cols-12 lg:gap-8">
@@ -343,7 +392,10 @@ export function Perks() {
             {perks.items.map((p, i) => (
               <li key={p.title}>
                 <Reveal delay={i * 35} className="surface-card h-full p-5">
-                  <span aria-hidden="true" className="mb-3 block font-display text-xs font-bold tabular-nums tracking-widest text-accent-foreground">
+                  <span
+                    aria-hidden="true"
+                    className="mb-3 block font-display text-xs font-bold tabular-nums tracking-widest text-accent-foreground"
+                  >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-display text-base font-bold text-ink">{p.title}</h3>
@@ -410,9 +462,17 @@ export function SchoolLife() {
             <li key={img.src}>
               <figure>
                 <div className="overflow-hidden rounded-md">
-                  <img src={img.src} alt={school.alts[i] ?? ""} className="aspect-[16/10] w-full object-cover" />
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src={img.src}
+                    alt={school.alts[i] ?? ""}
+                    className="aspect-[16/10] w-full object-cover"
+                  />
                 </div>
-                <figcaption className="mt-2 text-sm text-muted-foreground">{school.alts[i]}</figcaption>
+                <figcaption className="mt-2 text-sm text-muted-foreground">
+                  {school.alts[i]}
+                </figcaption>
               </figure>
             </li>
           ))}
@@ -437,6 +497,9 @@ export function HomeContacts() {
         </div>
         <div className="surface-card overflow-hidden">
           <img
+            loading="lazy"
+            decoding="async"
+
             src={offerResidence}
             alt={contacts.imageAlt}
             className="h-36 w-full object-cover"
@@ -465,7 +528,13 @@ export function FloatDock() {
         className="grid size-14 place-items-center rounded-md bg-primary text-primary-foreground shadow-glow"
         aria-label={m.dock.call}
       >
-        <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          viewBox="0 0 24 24"
+          className="size-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M6 4h3l2 5-2 1a12 12 0 0 0 5 5l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 6a2 2 0 0 1 2-2z" />
         </svg>
       </a>
@@ -475,7 +544,13 @@ export function FloatDock() {
         className="grid size-14 place-items-center rounded-md border border-border bg-surface text-foreground shadow-card"
         aria-label={m.dock.request}
       >
-        <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          viewBox="0 0 24 24"
+          className="size-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M5 6h14v10H8l-3 3z" />
         </svg>
       </button>

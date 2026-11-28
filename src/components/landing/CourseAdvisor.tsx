@@ -83,7 +83,9 @@ export function CourseAdvisor() {
           </fieldset>
 
           <fieldset className="mt-6">
-            <legend className="font-display font-bold text-foreground">{copy.categoryLegend}</legend>
+            <legend className="font-display font-bold text-foreground">
+              {copy.categoryLegend}
+            </legend>
             <div className="mt-3 flex flex-wrap gap-2">
               {CATEGORIES.map((option) => (
                 <label
@@ -109,10 +111,17 @@ export function CourseAdvisor() {
           <p className="font-display text-sm font-bold uppercase tracking-[0.16em] text-primary">
             {copy.result}
           </p>
-          <h3 className="mt-3 font-display text-2xl font-extrabold text-foreground">{result.title}</h3>
+          <h3 className="mt-3 font-display text-2xl font-extrabold text-foreground">
+            {result.title}
+          </h3>
           <p className="mt-3 text-muted-foreground">{result.text}</p>
           <p className="mt-4 text-sm text-muted-foreground">{copy.disclaimer}</p>
-          <BookButton {...(result.service ? { service: result.service } : {})} variant="hero" size="lg" className="mt-6">
+          <BookButton
+            {...(result.service ? { service: result.service } : {})}
+            variant="hero"
+            size="lg"
+            className="mt-6"
+          >
             {result.cta}
           </BookButton>
         </aside>

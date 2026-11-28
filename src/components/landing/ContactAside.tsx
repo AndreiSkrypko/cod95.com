@@ -27,7 +27,9 @@ export function ContactAside() {
                 <Phone className="size-5 text-primary" aria-hidden="true" />
               </span>
               <span>
-                <span className="block font-display text-xl font-bold text-foreground">{p.display}</span>
+                <span className="block font-display text-xl font-bold text-foreground">
+                  {p.display}
+                </span>
                 <span className="block text-sm font-semibold text-foreground">{p.label}</span>
                 <span className="mt-0.5 block text-sm text-muted-foreground">{p.note}</span>
               </span>
@@ -41,7 +43,8 @@ export function ContactAside() {
           <span className="text-muted-foreground">
             {hours.map((h) => (
               <span key={h.days} className="block">
-                <span className="font-display font-semibold text-foreground">{h.days}</span> {h.time}
+                <span className="font-display font-semibold text-foreground">{h.days}</span>{" "}
+                {h.time}
               </span>
             ))}
           </span>
@@ -57,7 +60,9 @@ export function ContactAside() {
               {copy.minskLine}
             </p>
             <p>
-              <span className="font-display font-semibold text-foreground">{copy.officeWarsaw}</span>
+              <span className="font-display font-semibold text-foreground">
+                {copy.officeWarsaw}
+              </span>
               {" — "}
               {copy.warsawLine}
             </p>

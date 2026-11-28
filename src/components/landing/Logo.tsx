@@ -22,11 +22,7 @@ export function Logo({ tagline = false }: { tagline?: boolean }) {
         }
       }}
     >
-      <BazaMark
-        showTagline={tagline}
-        onDark
-        className={tagline ? "h-14 sm:h-16" : "h-8 sm:h-9"}
-      />
+      <BazaMark showTagline={tagline} onDark className={tagline ? "h-14 sm:h-16" : "h-8 sm:h-9"} />
     </Link>
   );
 }

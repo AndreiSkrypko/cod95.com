@@ -9,7 +9,8 @@ type ArticleText = Pick<Article, "title" | "description" | "readTime" | "section
 const pl: Record<ArticleSlug, ArticleText> = {
   "korotkiy-ili-dlinnyy-kurs": {
     title: "Krótki czy długi kurs KOD 95: jak zrozumieć, który jest Twój",
-    description: "Lista po dacie kategorii C, porównanie terminów i egzaminu WORD — bez zgadywania przed zapisem do Warszawy.",
+    description:
+      "Lista po dacie kategorii C, porównanie terminów i egzaminu WORD — bez zgadywania przed zapisem do Warszawy.",
     readTime: "7 min",
     imageAlt: "Sala i praktyka na placu — wybór krótkiego lub długiego kursu KOD 95",
     sections: [
@@ -53,7 +54,8 @@ const pl: Record<ArticleSlug, ArticleText> = {
   },
   "kod-95-belarus-varshava": {
     title: "KOD 95 w Polsce dla kierowców z Białorusi: dokumenty, terminy, wyjazd do Warszawy",
-    description: "Jak przygotować się do szkolenia w Warszawie z Mińska: dokumenty, logistyka wyjazdu i co ustalić przed startem.",
+    description:
+      "Jak przygotować się do szkolenia w Warszawie z Mińska: dokumenty, logistyka wyjazdu i co ustalić przed startem.",
     readTime: "8 min",
     imageAlt: "Nocna trasa do Europy i konsultacja przed wyjazdem na KOD 95 do Warszawy",
     sections: [
@@ -97,7 +99,8 @@ const pl: Record<ArticleSlug, ArticleText> = {
   },
   "polskiy-i-litovskiy-kod-95": {
     title: "Polski KOD 95 i litewski: jaka jest różnica i co wybrać",
-    description: "Porównanie polskiej i litewskiej kwalifikacji dla kierowców międzynarodowych: uznanie w UE, terminy i przekwalifikowanie.",
+    description:
+      "Porównanie polskiej i litewskiej kwalifikacji dla kierowców międzynarodowych: uznanie w UE, terminy i przekwalifikowanie.",
     readTime: "6 min",
     imageAlt: "Mapa Europy z trasami — polski i litewski KOD 95",
     sections: [
@@ -136,7 +139,8 @@ const pl: Record<ArticleSlug, ArticleText> = {
 const uk: Record<ArticleSlug, ArticleText> = {
   "korotkiy-ili-dlinnyy-kurs": {
     title: "Короткий чи довгий курс КОД 95: як зрозуміти, що потрібен саме вам",
-    description: "Чек-лист за датою категорії C, порівняння строків і іспиту WORD — без здогадок перед записом до Варшави.",
+    description:
+      "Чек-лист за датою категорії C, порівняння строків і іспиту WORD — без здогадок перед записом до Варшави.",
     readTime: "7 хв",
     imageAlt: "Навчальний клас і практика на майданчику — вибір короткого або довгого курсу КОД 95",
     sections: [
@@ -180,7 +184,8 @@ const uk: Record<ArticleSlug, ArticleText> = {
   },
   "kod-95-belarus-varshava": {
     title: "КОД 95 у Польщі для водіїв з Білорусі: документи, строки, поїздка до Варшави",
-    description: "Як підготуватися до навчання у Варшаві з Мінська: документи, логістика поїздки і що врахувати до старту курсу.",
+    description:
+      "Як підготуватися до навчання у Варшаві з Мінська: документи, логістика поїздки і що врахувати до старту курсу.",
     readTime: "8 хв",
     imageAlt: "Нічна траса в Європу і консультація перед поїздкою на КОД 95 до Варшави",
     sections: [
@@ -224,7 +229,8 @@ const uk: Record<ArticleSlug, ArticleText> = {
   },
   "polskiy-i-litovskiy-kod-95": {
     title: "Польський КОД 95 і литовський: у чому різниця і що обрати",
-    description: "Порівняння польської та литовської кваліфікації для водіїв-міжнародників: визнання в ЄС, строки і перекваліфікація.",
+    description:
+      "Порівняння польської та литовської кваліфікації для водіїв-міжнародників: визнання в ЄС, строки і перекваліфікація.",
     readTime: "6 хв",
     imageAlt: "Карта Європи з маршрутами — польський і литовський КОД 95",
     sections: [

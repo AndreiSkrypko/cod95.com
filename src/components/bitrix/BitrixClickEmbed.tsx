@@ -75,8 +75,6 @@ export async function openBitrixClickForm(triggerId: string): Promise<boolean> {
     { once: true, capture: true },
   );
 
-  el.dispatchEvent(
-    new MouseEvent("click", { bubbles: true, cancelable: true, view: window }),
-  );
+  el.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
   return true;
 }

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import truckPractice from "@/assets/truck-practice.jpg";
+import truckPractice from "@/assets/truck-practice.webp";
 import { ContactAside } from "./ContactAside";
 import { BookButton } from "./BookingDialog";
 import { Reveal } from "./Reveal";
@@ -41,8 +41,12 @@ export function Contacts() {
         </Reveal>
         <Reveal delay={120} className="xl:col-span-6 xl:col-start-7">
           <div className="glass rounded-md p-8 md:p-12">
-            <p className="font-display text-2xl font-extrabold text-foreground">Заявка на консультацию</p>
-            <p className="mt-3 text-muted-foreground">Форма откроется в окне и не уведёт со страницы.</p>
+            <p className="font-display text-2xl font-extrabold text-foreground">
+              Заявка на консультацию
+            </p>
+            <p className="mt-3 text-muted-foreground">
+              Форма откроется в окне и не уведёт со страницы.
+            </p>
             <BookButton variant="hero" size="xl" className="mt-8">
               Записаться
             </BookButton>

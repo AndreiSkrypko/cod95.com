@@ -3,8 +3,8 @@ import { PageHero } from "@/components/pages/PageHero";
 import { ContactChannels } from "@/components/landing/ContactChannels";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
-import contactsHeroOffice from "@/assets/baza/contacts-hero-office.jpg";
-import consultOffice from "@/assets/consult-office.jpg";
+import contactsHeroOffice from "@/assets/baza/contacts-hero-office.webp";
+import consultOffice from "@/assets/consult-office.webp";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 

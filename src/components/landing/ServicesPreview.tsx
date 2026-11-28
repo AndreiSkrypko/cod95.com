@@ -10,7 +10,11 @@ const PREVIEW = SERVICES.slice(0, 6);
 
 export function ServicesPreview() {
   return (
-    <section id="services" aria-labelledby="services-preview-title" className="section-y border-t border-border bg-background-deep">
+    <section
+      id="services"
+      aria-labelledby="services-preview-title"
+      className="section-y border-t border-border bg-background-deep"
+    >
       <div className="container-page">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
@@ -47,7 +51,9 @@ export function ServicesPreview() {
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
                     <h3 className="mt-4 text-lg font-bold text-foreground">{s.title}</h3>
-                    <p className="mt-2 line-clamp-2 flex-1 text-sm text-muted-foreground">{s.text}</p>
+                    <p className="mt-2 line-clamp-2 flex-1 text-sm text-muted-foreground">
+                      {s.text}
+                    </p>
                     {s.isNew && (
                       <Badge variant="new" className="mt-3 w-fit">
                         Новинка

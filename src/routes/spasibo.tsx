@@ -35,6 +35,9 @@ function ThanksPage() {
     <>
       <section className="relative flex min-h-[80svh] items-center overflow-hidden pt-28 pb-20">
         <img
+          loading="lazy"
+          decoding="async"
+
           src={PAGE_VISUALS.thanks.src}
           alt=""
           className="absolute inset-0 -z-20 h-full w-full object-cover object-[70%_center]"

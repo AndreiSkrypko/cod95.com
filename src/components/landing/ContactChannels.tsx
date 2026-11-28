@@ -12,7 +12,12 @@ export function ContactChannels() {
 
   const offices = [
     { phone: PHONE_BY, title: copy.officeMinsk, note: copy.officeMinskNote, line: copy.minskLine },
-    { phone: PHONE_PL, title: copy.officeWarsaw, note: copy.officeWarsawNote, line: copy.warsawLine },
+    {
+      phone: PHONE_PL,
+      title: copy.officeWarsaw,
+      note: copy.officeWarsawNote,
+      line: copy.warsawLine,
+    },
   ];
 
   const hours = [
@@ -35,8 +40,12 @@ export function ContactChannels() {
               <span className="mt-4 font-display text-lg font-extrabold text-foreground group-hover:text-primary">
                 {office.phone.display}
               </span>
-              <span className="mt-1 font-display text-sm font-bold text-foreground">{office.title}</span>
-              <span className="mt-2 text-sm leading-relaxed text-muted-foreground">{office.note}</span>
+              <span className="mt-1 font-display text-sm font-bold text-foreground">
+                {office.title}
+              </span>
+              <span className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {office.note}
+              </span>
             </a>
           </li>
         ))}

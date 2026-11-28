@@ -42,13 +42,17 @@ export function ArticlesBlock() {
                       {article.readTime}
                     </span>
                     <span className="mt-2 flex items-start justify-between gap-3">
-                      <h3 className="font-display text-lg font-extrabold text-foreground">{article.title}</h3>
+                      <h3 className="font-display text-lg font-extrabold text-foreground">
+                        {article.title}
+                      </h3>
                       <ArrowUpRight
                         className="mt-1 size-4 shrink-0 text-primary transition group-hover:rotate-45"
                         aria-hidden="true"
                       />
                     </span>
-                    <p className="mt-3 flex-1 text-sm text-muted-foreground">{article.description}</p>
+                    <p className="mt-3 flex-1 text-sm text-muted-foreground">
+                      {article.description}
+                    </p>
                   </span>
                 </Link>
               </Reveal>

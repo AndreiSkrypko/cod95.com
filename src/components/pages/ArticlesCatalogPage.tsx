@@ -19,7 +19,8 @@ export function ArticlesCatalogPage() {
         compact
         title={
           <>
-            {copy.article.catalogTitleBefore} <span className="accent-serif">{copy.article.catalogTitleAccent}</span>{" "}
+            {copy.article.catalogTitleBefore}{" "}
+            <span className="accent-serif">{copy.article.catalogTitleAccent}</span>{" "}
             {copy.article.catalogTitleAfter}
           </>
         }
@@ -46,13 +47,17 @@ export function ArticlesCatalogPage() {
                       {article.readTime}
                     </span>
                     <span className="mt-2 flex items-start justify-between gap-3">
-                      <h2 className="font-display text-xl font-extrabold text-foreground">{article.title}</h2>
+                      <h2 className="font-display text-xl font-extrabold text-foreground">
+                        {article.title}
+                      </h2>
                       <ArrowUpRight
                         className="mt-1 size-4 shrink-0 text-primary transition group-hover:rotate-45"
                         aria-hidden="true"
                       />
                     </span>
-                    <p className="mt-3 flex-1 text-sm text-muted-foreground">{article.description}</p>
+                    <p className="mt-3 flex-1 text-sm text-muted-foreground">
+                      {article.description}
+                    </p>
                   </span>
                 </Link>
               </li>

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { ABOUT_PHOTOS } from "@/assets/baza/about-photos";
-import aboutHeroNight from "@/assets/baza/about-hero-night.jpg";
+import aboutHeroNight from "@/assets/baza/about-hero-night.webp";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { Reveal } from "@/components/landing/Reveal";
 import { Button } from "@/components/ui/button";
@@ -13,8 +13,7 @@ import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import { cn } from "@/lib/utils";
 
-const GALLERY_TILE =
-  "h-full min-h-0 w-full overflow-hidden rounded-md shadow-lift";
+const GALLERY_TILE = "h-full min-h-0 w-full overflow-hidden rounded-md shadow-lift";
 
 export function AboutBazaPage() {
   const { locale } = useLocale();
@@ -50,7 +49,12 @@ export function AboutBazaPage() {
         imagePosition="60% center"
       />
 
-      <AboutSection variant="plain" image={ABOUT_PHOTOS.philosophy} imageAlt={copy.philosophy.imageAlt} imageSide="right">
+      <AboutSection
+        variant="plain"
+        image={ABOUT_PHOTOS.philosophy}
+        imageAlt={copy.philosophy.imageAlt}
+        imageSide="right"
+      >
         <p className="eyebrow eyebrow-rule">{copy.philosophy.eyebrow}</p>
         <h2 className="type-section-title mt-4">{copy.philosophy.h2}</h2>
         <div className="type-prose mt-8 space-y-6">
@@ -63,7 +67,12 @@ export function AboutBazaPage() {
         </div>
       </AboutSection>
 
-      <AboutSection variant="deep" image={ABOUT_PHOTOS.history} imageAlt={copy.history.imageAlt} imageSide="left">
+      <AboutSection
+        variant="deep"
+        image={ABOUT_PHOTOS.history}
+        imageAlt={copy.history.imageAlt}
+        imageSide="left"
+      >
         <p className="eyebrow eyebrow-rule">{copy.history.eyebrow}</p>
         <h2 className="type-section-title mt-4">{copy.history.h2}</h2>
         <div className="type-prose mt-8 space-y-6">
@@ -85,7 +94,13 @@ export function AboutBazaPage() {
           </Reveal>
           <div className="mt-10 flex flex-col gap-2 sm:gap-2.5">
             <div className="grid grid-cols-2 items-stretch gap-2 sm:gap-2.5 lg:grid-cols-12">
-              <Reveal variant="clip" className={cn("col-span-2 aspect-[16/10] lg:col-span-7 lg:aspect-auto lg:min-h-[min(52vw,22rem)]", GALLERY_TILE)}>
+              <Reveal
+                variant="clip"
+                className={cn(
+                  "col-span-2 aspect-[16/10] lg:col-span-7 lg:aspect-auto lg:min-h-[min(52vw,22rem)]",
+                  GALLERY_TILE,
+                )}
+              >
                 <img
                   src={ABOUT_PHOTOS.gallery.class}
                   alt={copy.base.galleryAlts.class}
@@ -96,7 +111,12 @@ export function AboutBazaPage() {
               </Reveal>
               <div className="col-span-2 grid grid-cols-2 gap-2 sm:gap-2.5 lg:col-span-5 lg:grid-cols-1 lg:grid-rows-2 lg:gap-2.5">
                 {(["truck", "yard"] as const).map((key, i) => (
-                  <Reveal key={key} delay={(i + 1) * 40} variant="clip" className={cn("aspect-[4/3] lg:aspect-auto lg:min-h-0 lg:h-full", GALLERY_TILE)}>
+                  <Reveal
+                    key={key}
+                    delay={(i + 1) * 40}
+                    variant="clip"
+                    className={cn("aspect-[4/3] lg:aspect-auto lg:min-h-0 lg:h-full", GALLERY_TILE)}
+                  >
                     <img
                       src={ABOUT_PHOTOS.gallery[key]}
                       alt={copy.base.galleryAlts[key]}
@@ -110,7 +130,12 @@ export function AboutBazaPage() {
             </div>
             <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
               {(["sim", "lesson"] as const).map((key, i) => (
-                <Reveal key={key} delay={(i + 3) * 40} variant="clip" className={cn("aspect-[4/3] sm:aspect-[16/11]", GALLERY_TILE)}>
+                <Reveal
+                  key={key}
+                  delay={(i + 3) * 40}
+                  variant="clip"
+                  className={cn("aspect-[4/3] sm:aspect-[16/11]", GALLERY_TILE)}
+                >
                   <img
                     src={ABOUT_PHOTOS.gallery[key]}
                     alt={copy.base.galleryAlts[key]}
@@ -125,7 +150,12 @@ export function AboutBazaPage() {
         </div>
       </section>
 
-      <AboutSection variant="deep" image={ABOUT_PHOTOS.practice} imageAlt={copy.practice.imageAlt} imageSide="right">
+      <AboutSection
+        variant="deep"
+        image={ABOUT_PHOTOS.practice}
+        imageAlt={copy.practice.imageAlt}
+        imageSide="right"
+      >
         <p className="eyebrow eyebrow-rule">{copy.practice.eyebrow}</p>
         <h2 className="type-section-title mt-4">{copy.practice.h2}</h2>
         <div className="type-prose mt-8 space-y-6">
@@ -152,7 +182,9 @@ export function AboutBazaPage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="min-w-0 pt-0.5">
-                    <h3 className="font-display text-lg font-bold text-foreground sm:text-xl">{step.title}</h3>
+                    <h3 className="font-display text-lg font-bold text-foreground sm:text-xl">
+                      {step.title}
+                    </h3>
                     <p className="type-lead mt-2">{step.text}</p>
                   </div>
                 </Reveal>
@@ -203,13 +235,18 @@ function AboutSection({
   const imageBlock = (
     <Reveal
       variant="clip"
-      className={cn("overflow-hidden rounded-md shadow-lift", imageSide === "left" ? "order-2 lg:order-1" : "order-2")}
+      className={cn(
+        "overflow-hidden rounded-md shadow-lift",
+        imageSide === "left" ? "order-2 lg:order-1" : "order-2",
+      )}
     >
       <img src={image} alt={imageAlt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
     </Reveal>
   );
   const textBlock = (
-    <Reveal className={cn("order-1 max-w-xl lg:max-w-none", imageSide === "left" ? "lg:order-2" : "")}>
+    <Reveal
+      className={cn("order-1 max-w-xl lg:max-w-none", imageSide === "left" ? "lg:order-2" : "")}
+    >
       {children}
     </Reveal>
   );

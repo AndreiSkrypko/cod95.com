@@ -1,17 +1,17 @@
 import type { ServiceId } from "@/content/landing";
-import classroom from "@/assets/classroom.jpg";
-import articleBelarus from "@/assets/articles/article-belarus-varshava.jpg";
-import classDetail from "@/assets/class-detail.jpg";
-import consultOffice from "@/assets/consult-office.jpg";
-import europeMap from "@/assets/europe-map.jpg";
-import heroTruck from "@/assets/hero-truck.jpg";
-import lifeBriefing from "@/assets/life-briefing.jpg";
-import lifeNight from "@/assets/life-night.jpg";
-import offerJob from "@/assets/offer-job.jpg";
-import offerResidence from "@/assets/offer-residence.jpg";
-import storyHighway from "@/assets/story-highway.jpg";
-import trainingTrucks from "@/assets/training-trucks.jpg";
-import truckPractice from "@/assets/truck-practice.jpg";
+import classroom from "@/assets/classroom.webp";
+import articleBelarus from "@/assets/articles/article-belarus-varshava.webp";
+import classDetail from "@/assets/class-detail.webp";
+import consultOffice from "@/assets/consult-office.webp";
+import europeMap from "@/assets/europe-map.webp";
+import heroTruck from "@/assets/hero-truck.webp";
+import lifeBriefing from "@/assets/life-briefing.webp";
+import lifeNight from "@/assets/life-night.webp";
+import offerJob from "@/assets/offer-job.webp";
+import offerResidence from "@/assets/offer-residence.webp";
+import storyHighway from "@/assets/story-highway.webp";
+import trainingTrucks from "@/assets/training-trucks.webp";
+import truckPractice from "@/assets/truck-practice.webp";
 
 export type PageVisual = { src: string; alt: string };
 

@@ -6,7 +6,11 @@ import { FaqList } from "./FaqList";
 
 export function FaqTeaser() {
   return (
-    <section id="faq" aria-labelledby="faq-teaser-title" className="section-y border-t border-border bg-background-deep">
+    <section
+      id="faq"
+      aria-labelledby="faq-teaser-title"
+      className="section-y border-t border-border bg-background-deep"
+    >
       <div className="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <SectionHeading
           eyebrow="Вопросы"

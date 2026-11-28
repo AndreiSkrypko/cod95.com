@@ -1,6 +1,11 @@
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/i18n/locale";
 import type { Locale } from "@/i18n/messages";
@@ -14,7 +19,14 @@ const OPTIONS: { id: Locale; label: string }[] = [
 export function LanguageSwitch({ className }: { className?: string }) {
   const { locale, setLocale, m } = useLocale();
   return (
-    <div className={cn("flex items-center rounded-md border border-border bg-surface p-0.5", className)} role="group" aria-label={m.langLabel}>
+    <div
+      className={cn(
+        "flex items-center rounded-md border border-border bg-surface p-0.5",
+        className,
+      )}
+      role="group"
+      aria-label={m.langLabel}
+    >
       {OPTIONS.map((option) => (
         <button
           key={option.id}
@@ -23,7 +35,9 @@ export function LanguageSwitch({ className }: { className?: string }) {
           onClick={() => setLocale(option.id)}
           className={cn(
             "rounded-md px-2.5 py-1 font-display text-xs font-bold tracking-wide",
-            locale === option.id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
+            locale === option.id
+              ? "bg-primary text-primary-foreground"
+              : "text-muted-foreground hover:text-foreground",
           )}
         >
           {option.label}
@@ -49,7 +63,11 @@ export function LanguageMenu() {
           <ChevronDown aria-hidden="true" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" sideOffset={6} className="z-[80] w-16 min-w-0 rounded-md border-border p-1 shadow-card">
+      <DropdownMenuContent
+        align="end"
+        sideOffset={6}
+        className="z-[80] w-16 min-w-0 rounded-md border-border p-1 shadow-card"
+      >
         {OPTIONS.map((option) => {
           const active = locale === option.id;
           return (

@@ -13,6 +13,9 @@ export function ArticleCover({
   return (
     <span className={cn("relative block overflow-hidden bg-background-deep", className)}>
       <img
+        loading="lazy"
+        decoding="async"
+
         src={image.src}
         alt={image.alt}
         className={cn("h-full w-full object-cover", imgClassName)}

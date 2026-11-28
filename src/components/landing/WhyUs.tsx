@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, FileSignature, Receipt, Wallet, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import europeMap from "@/assets/europe-map.jpg";
+import europeMap from "@/assets/europe-map.webp";
 import { STATS } from "@/content/landing";
 import { CountUp, Reveal, SectionHeading } from "./Reveal";
 

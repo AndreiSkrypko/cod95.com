@@ -23,9 +23,7 @@ export function SiteFooter() {
       <div className="container-page grid gap-12 pb-10 pt-20 md:grid-cols-12">
         <div className="md:col-span-5">
           <Logo tagline />
-          <p className="mt-6 max-w-sm text-muted-foreground">
-            {m.footer.blurb}
-          </p>
+          <p className="mt-6 max-w-sm text-muted-foreground">{m.footer.blurb}</p>
           <button
             type="button"
             onClick={() => openBooking()}
@@ -33,7 +31,10 @@ export function SiteFooter() {
           >
             {m.footer.discuss}
             <span className="grid size-10 place-items-center rounded-md border border-border-strong transition-colors duration-700 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
-              <ArrowUpRight className="size-4 transition-transform duration-700 ease-out-expo group-hover:rotate-45" aria-hidden="true" />
+              <ArrowUpRight
+                className="size-4 transition-transform duration-700 ease-out-expo group-hover:rotate-45"
+                aria-hidden="true"
+              />
             </span>
           </button>
         </div>
@@ -51,7 +52,10 @@ export function SiteFooter() {
                     {m.nav[n.key]}
                   </button>
                 ) : (
-                  <Link to={n.to} className="text-muted-foreground transition-colors hover:text-foreground">
+                  <Link
+                    to={n.to}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
                     {m.nav[n.key]}
                   </Link>
                 )}

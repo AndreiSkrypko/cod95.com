@@ -79,10 +79,7 @@ export function ServiceDetailPage({ service }: { service: LandingService }) {
                 <h2 className="text-2xl font-bold text-foreground">{copy.how}</h2>
                 <ol className="mt-6 space-y-4">
                   {detail.steps.map((step, i) => (
-                    <li
-                      key={step.title}
-                      className="surface-card flex gap-4 p-5 md:p-6"
-                    >
+                    <li key={step.title} className="surface-card flex gap-4 p-5 md:p-6">
                       <span className="font-serif text-2xl italic text-primary">0{i + 1}</span>
                       <span>
                         <span className="font-display font-bold text-foreground">{step.title}</span>

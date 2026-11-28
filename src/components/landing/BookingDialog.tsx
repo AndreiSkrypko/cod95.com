@@ -1,5 +1,11 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { LeadForm } from "./LeadForm";
 import { useLocale } from "@/i18n/locale";
@@ -26,7 +32,9 @@ export function BookingProvider({ children }: { children: ReactNode }) {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="z-[80] max-h-[92vh] overflow-y-auto border-border bg-background sm:max-w-xl">
           <DialogHeader>
-            <DialogTitle className="font-display text-2xl font-extrabold">{m.booking.title}</DialogTitle>
+            <DialogTitle className="font-display text-2xl font-extrabold">
+              {m.booking.title}
+            </DialogTitle>
             <DialogDescription>{m.booking.description}</DialogDescription>
           </DialogHeader>
           <LeadForm
@@ -42,11 +50,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function BookButton({
-  service,
-  children,
-  ...props
-}: ButtonProps & { service?: string }) {
+export function BookButton({ service, children, ...props }: ButtonProps & { service?: string }) {
   const openBooking = useBooking();
   return (
     <Button type="button" {...props} onClick={() => openBooking(service)}>

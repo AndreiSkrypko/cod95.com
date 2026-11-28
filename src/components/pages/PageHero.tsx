@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BookButton } from "@/components/landing/BookingDialog";
 import { PageBreadcrumbs } from "@/components/layout/PageBreadcrumbs";
 import { usePageBreadcrumbItems } from "@/components/layout/usePageBreadcrumbItems";
-import heroTruck from "@/assets/hero-truck.jpg";
+import heroTruck from "@/assets/hero-truck.webp";
 import { useLocale } from "@/i18n/locale";
 import { PAGES } from "@/i18n/pages-copy";
 import { cn } from "@/lib/utils";

@@ -31,10 +31,17 @@ export function ContentPageIntro({
         )}
       >
         <PageBreadcrumbs />
-        <h1 className={cn("type-page-hero-title max-w-4xl text-left text-foreground", hasCrumbs ? "mt-4" : "mt-0")}>
+        <h1
+          className={cn(
+            "type-page-hero-title max-w-4xl text-left text-foreground",
+            hasCrumbs ? "mt-4" : "mt-0",
+          )}
+        >
           {title}
         </h1>
-        {lead ? <p className="type-lead mt-4 max-w-2xl text-left text-muted-foreground">{lead}</p> : null}
+        {lead ? (
+          <p className="type-lead mt-4 max-w-2xl text-left text-muted-foreground">{lead}</p>
+        ) : null}
         {meta ? <div className="mt-4 text-sm font-semibold text-ink-soft">{meta}</div> : null}
         {actions ? <div className="mt-6">{actions}</div> : null}
       </div>

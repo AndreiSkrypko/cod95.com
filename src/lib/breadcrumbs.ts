@@ -4,7 +4,8 @@ import { PAGES, type PagesCopy } from "@/i18n/pages-copy";
 
 export type BreadcrumbItem = {
   label: string;
-  to?: "/" | "/o-nas" | "/informaciya" | "/statyi" | "/uslugi" | "/kontakty" | "/zapis" | "/spasibo";
+  to?:
+    "/" | "/o-nas" | "/informaciya" | "/statyi" | "/uslugi" | "/kontakty" | "/zapis" | "/spasibo";
 };
 
 function topLevel(crumbs: PagesCopy["crumbs"]): Record<string, BreadcrumbItem> {

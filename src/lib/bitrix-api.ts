@@ -88,10 +88,7 @@ export async function submitBitrixLead(
   );
   if (direct.ok) return direct;
 
-  if (
-    import.meta.env.PROD &&
-    (direct.error === "network" || direct.error === "timeout")
-  ) {
+  if (import.meta.env.PROD && (direct.error === "network" || direct.error === "timeout")) {
     const proxied = await submitViaApiProxy(formKey, payload);
     if (proxied?.ok) return proxied;
     if (proxied && !proxied.ok) return proxied;

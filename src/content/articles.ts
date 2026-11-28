@@ -1,7 +1,7 @@
 import type { ServiceId } from "@/content/landing";
-import articleBelarusWarsaw from "@/assets/articles/article-belarus-varshava.jpg";
-import articlePolandLithuania from "@/assets/articles/article-polsha-litva.jpg";
-import articleShortLong from "@/assets/articles/article-korotkiy-dlinnyy.jpg";
+import articleBelarusWarsaw from "@/assets/articles/article-belarus-varshava.webp";
+import articlePolandLithuania from "@/assets/articles/article-polsha-litva.webp";
+import articleShortLong from "@/assets/articles/article-korotkiy-dlinnyy.webp";
 
 export type ArticleSlug =
   "korotkiy-ili-dlinnyy-kurs" | "kod-95-belarus-varshava" | "polskiy-i-litovskiy-kod-95";

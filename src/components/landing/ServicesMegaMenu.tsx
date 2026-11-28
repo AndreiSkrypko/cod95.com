@@ -54,14 +54,18 @@ export function ServicesMegaMenu({ open, onOpenChange, className }: Props) {
                     </span>
                     <span className="min-w-0">
                       <span className="flex items-center gap-2">
-                        <span className="font-display text-sm font-bold text-foreground">{m.services[s.id].title}</span>
+                        <span className="font-display text-sm font-bold text-foreground">
+                          {m.services[s.id].title}
+                        </span>
                         {s.isNew && (
                           <span className="rounded-full bg-primary px-2 py-0.5 text-[0.62rem] font-bold uppercase tracking-wider text-primary-foreground">
                             {m.header.badgeNew}
                           </span>
                         )}
                       </span>
-                      <span className="mt-1 line-clamp-2 text-sm text-muted-foreground">{m.services[s.id].text}</span>
+                      <span className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+                        {m.services[s.id].text}
+                      </span>
                     </span>
                   </Link>
                 </li>

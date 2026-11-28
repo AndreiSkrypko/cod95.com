@@ -41,7 +41,13 @@ export const COUNTRY_STRIPE: Record<"pl" | "lt" | "lt-pl", string> = {
 };
 
 /** Small country flag chip for service cards. `lt-pl` renders both flags side by side. */
-export function CountryFlag({ country, className }: { country?: "pl" | "lt" | "lt-pl" | undefined; className?: string }) {
+export function CountryFlag({
+  country,
+  className,
+}: {
+  country?: "pl" | "lt" | "lt-pl" | undefined;
+  className?: string;
+}) {
   if (!country) return null;
   if (country === "lt-pl") {
     return (

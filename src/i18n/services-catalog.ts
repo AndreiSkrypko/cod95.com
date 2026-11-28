@@ -1,9 +1,7 @@
 import type { ServiceId } from "@/content/landing";
 import type { Locale } from "./messages";
 
-export type CatalogAction =
-  | { kind: "service"; serviceId: ServiceId }
-  | { kind: "book" };
+export type CatalogAction = { kind: "service"; serviceId: ServiceId } | { kind: "book" };
 
 export type CatalogItem = {
   title: string;

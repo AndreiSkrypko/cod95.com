@@ -9,9 +9,7 @@ export const Route = createFileRoute("/uslugi/$serviceId")({
     if (!isServiceId(params.serviceId)) throw notFound();
   },
   head: ({ params }) => {
-    const service = isServiceId(params.serviceId)
-      ? getServiceById(params.serviceId)
-      : undefined;
+    const service = isServiceId(params.serviceId) ? getServiceById(params.serviceId) : undefined;
     const title = service ? `${service.title} — BAZA` : "Услуга — BAZA";
     const description = service?.text ?? "";
     return { meta: [{ title }, { name: "description", content: description }] };

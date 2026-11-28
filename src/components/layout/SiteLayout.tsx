@@ -11,13 +11,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   useSpotlight();
   return (
     <LocaleProvider>
-    <BookingProvider>
-      <BitrixIntegration />
-      <SiteHeader />
-      <main>{children}</main>
-      <SiteFooter />
-      <FloatDock />
-    </BookingProvider>
+      <BookingProvider>
+        <BitrixIntegration />
+        <SiteHeader />
+        <main>{children}</main>
+        <SiteFooter />
+        <FloatDock />
+      </BookingProvider>
     </LocaleProvider>
   );
 }

@@ -41,12 +41,16 @@ export function SiteBreadcrumbs() {
                 <Fragment key={`${item.label}-${index}`}>
                   <BreadcrumbItem>
                     {isLast ? (
-                      <BreadcrumbPage className="max-w-[min(100%,28rem)] truncate">{item.label}</BreadcrumbPage>
+                      <BreadcrumbPage className="max-w-[min(100%,28rem)] truncate">
+                        {item.label}
+                      </BreadcrumbPage>
                     ) : item.to ? (
                       <BreadcrumbLink asChild>
                         <Link
                           to={item.to}
-                          className={isHome ? "text-muted-foreground hover:text-primary" : undefined}
+                          className={
+                            isHome ? "text-muted-foreground hover:text-primary" : undefined
+                          }
                         >
                           {item.label}
                         </Link>
